@@ -258,7 +258,6 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     # Get best models (entropy and gini models)
     eBestModel = eModelsDict.get(eBestDepth)
-    print(eModelsDict.keys())
     gBestModel = gModelsDict.get(gBestDepth)
 
     # Print decision tree of the Best Model
@@ -343,7 +342,7 @@ def decision_tree(X, y, nFold=5):
     eModels = list()
     gModels = list()
 
-    for depth in tqdm(range(1, 31), desc='Modeling'):
+    for depth in tqdm(range(1, 31), desc='\n Modeling decision tree'):
         tempG = list()
         tempE = list()
         for foldTrainX, foldTestX in kfold.split(X):

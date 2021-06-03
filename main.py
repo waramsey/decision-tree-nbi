@@ -64,6 +64,7 @@ def main():
                         "subNumberIntervention",
                         "deckNumberIntervenion"
                       ]
+
     columnsFinal = [
                     "deck",
                     "yearBuilt",
@@ -105,27 +106,46 @@ def main():
                         "random_state":42,
                     }
 
-    listOfParameter = ['supDeteriorationScore', 'deckDeteriorationScore', 'subDeteriorationScore', 'supNumberIntervention', 'deckNumberIntervenion', 'subNumberIntervention']
-    dataScaled = kmeans_clustering(dataScaled, listOfParameter, kmeans_kwargs)
+    listOfParameters = ['supDeteriorationScore',
+                       'deckDeteriorationScore',
+                       'subDeteriorationScore',
+                       'supNumberIntervention',
+                       'deckNumberIntervenion',
+                       'subNumberIntervention']
+
+    # K-means clustering
+    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
+
+    # Analysis of variance
+    anovaTable = evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
+    print("\n ANOVA: \n", anovaTable)
 
     # Transform the dataset
     #X, y = dataScaled[columnsFinal], dataScaled['label']
     counts = Counter(dataScaled['cluster'])
+    numOfMembers = min(counts.values())
+    # TODO: only if the number of members are low than 15
     indexes = list(counts.keys())
     vals = list(counts.values())
-    minimum = vals.index(min(counts.values()))
+    minimum = vals.index(numOfMembers)
     minCluster = indexes[minimum]
-    print("\n Cluster with lowest membership (<15): ", minCluster, min(counts.values()))
+
+    if numOfMembers < 15:
+        print("\n Cluster with lowest membership (<15): ",
+                minCluster, min(counts.values()))
 
     dataScaled = dataScaled[dataScaled['cluster'] != minCluster]
     X, y = dataScaled[columnsFinal], dataScaled['cluster']
 
-
+    # Oversampling
     oversample = SMOTE()
+
+    print("\n Oversampling...")
     X, y = oversample.fit_resample(X, y)
 
     # Summarize distribution
-    print("\n Distribution of the clusters: ", Counter(y))
+    print("\n Distribution of the clusters after Oversampling: ",
+            Counter(y))
 
     decision_tree(X, y)
 

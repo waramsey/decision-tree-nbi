@@ -296,11 +296,11 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
     lowestCount = min(counts.values())
 
     print("\n Number of members in cluster:",
-            (counts, lowestCount))
+            counts)
 
     # Save cluster as columns
     dataScaled['cluster'] = list(finalKmeans.labels_)
-    return dataScaled
+    return dataScaled, lowestCount
 
 # Driver function
 def main():
@@ -363,7 +363,7 @@ def main():
 
     # Elbow method
     listOfParameters = ['deteriorationScore', 'superstructure']
-    dataScaled = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
+    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
 
     # Analysis of variance
     anovaTable = evaluate_ANOVA(dataScaled, columnsFinal, lowestCount)
