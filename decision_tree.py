@@ -228,8 +228,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     # GiniIndex 
     gBestKappa = max(gKappaDict.keys())
-    gBestDepth = gKappaDict[gBestKappa]
-    gcm = gConfDict[gBestDepth]
+    gBestDepth = gKappaDict.get(gBestKappa)
+    gcm = gConfDict.get(gBestDepth)
 
     print("""\n
              ----------- Performance with GiniIndex ------------
@@ -256,11 +256,12 @@ def performance_summarizer(eKappaDict, gKappaDict,
     line_plot(scoresGini, 'Gini')
     line_plot(scoresEntropy, 'Entropy')
 
-    # Get best models
-    eBestModel = eModelsDict[eBestDepth]
-    gBestModel = gModelsDict[gBestDepth]
+    # Get best models (entropy and gini models)
+    eBestModel = eModelsDict.get(eBestDepth)
+    print(eModelsDict.keys())
+    gBestModel = gModelsDict.get(gBestDepth)
 
-    # Printing decision tree of the Best Model
+    # Print decision tree of the Best Model
     # Entropy
     eTextRepresentation = tree.export_text(eBestModel)
     with open("entropy_decision_tree.log", "w") as fout:
@@ -423,5 +424,5 @@ def decision_tree(X, y, nFold=5):
                            eClassDict, gClassDict,
                            eScoreDict, gScoreDict,
                            #eRocsDict, gRocsDict,
-                           eModels, gModels)
+                           eModelsDict, gModelsDict)
     #return 
