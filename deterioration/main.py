@@ -139,12 +139,11 @@ def main():
 
     # Oversampling
     oversample = SMOTE()
-
-    print("\n Oversampling...")
+    print("\n Oversampling (SMOTE) ...")
     X, y = oversample.fit_resample(X, y)
 
     # Summarize distribution
-    print("\n Distribution of the clusters after Oversampling: ",
+    print("\n Distribution of the clusters after oversampling: ",
             Counter(y))
 
     decision_tree(X, y)

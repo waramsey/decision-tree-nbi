@@ -83,12 +83,12 @@ def plot_elbow(sse):
     """
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
-    plt.title("Elbow")
+    plt.title("Optimal Number of Clusters using Elbow Method")
     plt.plot(range(1, 11), sse)
     plt.xticks(range(1, 11))
     plt.xlabel("Number of Clusters")
     plt.ylabel("SSE")
-    plt.savefig("Elbow.png")
+    plt.savefig("OptimalClustersElbow.png")
 
 def plot_silhouette(silhouette):
     """

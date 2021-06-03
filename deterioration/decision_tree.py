@@ -10,10 +10,9 @@ TODO:
     4. Select the important variables
     5. Sampling techniques:
         - Undersampling
-        - Oversampling
+        - Oversampling [Done]
         * Convert them into data frame
 """
-
 # Data structures
 import pandas as pd
 import numpy as np
@@ -127,13 +126,14 @@ def categorize_attribute(df, fieldname):
     return categories
 
 # Confusion Matrix
-def printConfusionMatrix(cm, filename=''):
+def conf_matrix(cm, filename=''):
     """
-    Confusion matrix on validation set
+    Description:
+        Confusion matrix on validation set
     """
     indexList = list()
     columnList = list()
-    filename = filename + 'ConfusionMatrix.png'
+    filename = 'results/'+ filename +  'ConfusionMatrix.png'
 
     for row in range(0, np.shape(cm)[0]):
         indexString = 'Actual' + str(row+1)
@@ -151,11 +151,11 @@ def printConfusionMatrix(cm, filename=''):
     plt.savefig(filename)
 
 # Box plot
-def print_box_plot(scores, filename='', col='accuracy'):
+def box_plot(scores, filename='', col='accuracy'):
     """
     Boxplot of training accuracy
     """
-    filename = filename + 'AccuracyBoxPlot.png'
+    filename = 'results/' + filename + 'AccuracyBoxPlot.png'
     dfScore = pd.Series(scores)
 
     font = {'weight': 'bold',
@@ -170,9 +170,9 @@ def print_box_plot(scores, filename='', col='accuracy'):
 # Line plot
 def line_plot(scores, filename='', col='accuracy'):
     """
-    Boxplot of training accuracy
+    lineplot of training accuracy
     """
-    filename = filename + 'AccuracyLinePlot.png'
+    filename = "results/" + filename + 'AccuracyLinePlot.png'
     dfScore = pd.Series(scores)
 
     font = {'weight': 'bold',
@@ -185,11 +185,11 @@ def line_plot(scores, filename='', col='accuracy'):
     plt.savefig(filename)
 
 # Plot decision trees
-def plotDescisionTree(model, filename=''):
+def plot_decision_tree(model, filename=''):
     """
     Decision Tree
     """
-    filename = filename + "DecisionTree.png"
+    filename = "results/" + filename + "DecisionTree.png"
     fig = plt.figure(figsize=(25, 20))
     _ = tree.plot_tree(model,
                    filled=True)
@@ -214,15 +214,15 @@ def performance_summarizer(eKappaDict, gKappaDict,
     """
     # Entropy
     eBestKappa = max(eKappaDict.keys())
-    eBestDepth = eKappaDict[eBestKappa]
-    ecm = eConfDict[eBestDepth]
+    eBestDepth = eKappaDict.get(eBestKappa)
+    ecm = eConfDict.get(eBestDepth)
 
     print("""\n
             -------------- Performance of Entropy ---------------
             \n""")
     print("\n Best Kappa Values: ", eBestKappa)
     print("\n Best Depth: ", eBestDepth)
-    print("\n Classfication Report: \n", eClassDict[eBestDepth])
+    print("\n Classfication Report: \n", eClassDict.get(eBestDepth))
     print("\n Confusion Matrix: \n", ecm)
     #print("\n AUC: ", eRocsDict[eBestDept])
 
@@ -238,19 +238,19 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\n Best Kappa Values: ", gBestKappa)
     print("\n Best Depth: ", gBestDepth)
     #print("\n AUC: ", gRocsDict[gBestDept])
-    print("\n Classfication Report: \n", gClassDict[gBestDepth])
+    print("\n Classfication Report: \n", gClassDict.get(gBestDepth))
     print("\n Confusion Matrix: \n", gcm)
 
     # Plot Confusion Matrix
-    printConfusionMatrix(gcm, 'Gini')
-    printConfusionMatrix(ecm, 'Entropy')
+    conf_matrix(gcm, 'Gini')
+    conf_matrix(ecm, 'Entropy')
 
-    # Plotting Box plot of training accuracies
+    # Box plot of training accuracies
     scoresGini = list(gAccDict.keys())
     scoresEntropy = list(eAccDict.keys())
 
-    print_box_plot(scoresGini, 'Gini')
-    print_box_plot(scoresEntropy, 'Entropy')
+    box_plot(scoresGini, 'Gini')
+    box_plot(scoresEntropy, 'Entropy')
 
     ## Line plot
     line_plot(scoresGini, 'Gini')
@@ -260,17 +260,21 @@ def performance_summarizer(eKappaDict, gKappaDict,
     eBestModel = eModelsDict.get(eBestDepth)
     gBestModel = gModelsDict.get(gBestDepth)
 
-    # Print decision tree of the Best Model
+    # rint decision tree of the Best Model
     # Entropy
+    print("\n Saving decision trees \n")
     eTextRepresentation = tree.export_text(eBestModel)
-    with open("entropy_decision_tree.log", "w") as fout:
+    with open("models/entropy_decision_tree.log", "w") as fout:
         fout.write(eTextRepresentation)
 
     # Gini
     gTextRepresentation = tree.export_text(gBestModel)
-    with open("gini_decision_tree.log", "w") as fout:
+    with open("models/gini_decision_tree.log", "w") as fout:
         fout.write(gTextRepresentation)
 
+    print("\n Plotting decision trees \n")
+    plot_decision_tree(eBestModel, filename='Entropy')
+    plot_decision_tree(gBestModel, filename='Gini')
 
 def tree_utility(trainX, trainy, testX, testy, criteria='gini', maxDepth=7):
     """
