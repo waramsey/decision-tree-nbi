@@ -57,19 +57,28 @@ def drop_duplicate_rows(df):
 # Differences in between the clusters 
 def ANOVA(df, feature):
     """
-    Takes in dataframe with three columns, each column
-    presents the value of an attribute from each cluster.
+    Description:
+        Takes in dataframe with three columns, each column
+        presents the value of an attribute from each cluster.
+
+    Args:
+        df (dataframe)
+        feature (list)
+
+    Returns:
+        anovaTable (dataframe)
     """
     dfMelt = pd.melt(df.reset_index(), id_vars=['index'])
     dfMelt.columns = ['index', 'cluster', 'value']
-    plotBox(dfMelt)
+    plot_box(dfMelt)
     model = ols('value ~ C(cluster)', data=dfMelt).fit()
     anovaTable = sm.stats.anova_lm(model, typ=2)
     return anovaTable
 
 def plot_elbow(sse):
     """
-    Plot the elbow to find the optimal number of
+    Description:
+        Plot the elbow to find the optimal number of
     clusters
     """
     plt.figure(figsize=(10, 10))
@@ -106,9 +115,11 @@ def plot_scatter(col1, col2, color=None):
     plt.ylabel("DeteriorationScore")
     plt.savefig("Scatter.png")
 
+# Plot Scatter plot
 def plot_scatter_Kmeans(df):
     """
-    Scatter plot for plotting k-means clusters
+    Description:
+        Scatter plot for displaying k-means clusters
     """
     cluster1 = df[df['cluster'] == 0]
     cluster2 = df[df['cluster'] == 1]
@@ -124,9 +135,11 @@ def plot_scatter_Kmeans(df):
     plt.ylabel("Column 2")
     plt.savefig("kmeans.png")
 
-def plotBox(dfMelt):
+# Plot boxplot
+def plot_box(dfMelt):
     """
-    Scatter plot for maximum number of bridges
+    Description:
+        Scatter plot for distribution bridge features
     """
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
@@ -137,7 +150,8 @@ def plotBox(dfMelt):
 # Confusion matrix
 def print_confusion_matrix(cm):
     """
-    Confusion matrix on validation set
+    Description:
+        Plots confusion matrix on validation set
     """
     indexList = list()
     columnList = list()
@@ -163,8 +177,12 @@ def log_regression(df, X, y):
     Description:
         Performs training testing split
         Perform multi-nomial logistic regression
+
     Args:
         df (dataframe)
+
+    Returns:
+        model (sklearn model)
     """
     trainX, testX, trainy, testy = train_test_split(X, y, test_size=0.33, random_state=42)
     model = LogisticRegression(multi_class="multinomial", random_state=0)
@@ -184,7 +202,18 @@ def log_regression(df, X, y):
 
 def evaluate_ANOVA(dataScaled, columns, lowestCount):
     """
-    Compute ANOVA table for all features in all clusters
+    Description:
+        Compute ANOVA table for all features in all
+        Clusters. And, returns ANOVA to find essential features
+        in the cluster analysis
+
+    Args:
+        dataScaled (dataframe)
+        columns (list)
+        lowestCount (integer)
+
+    Returns:
+        anovaDf (dataframe)
     """
     pvalues = list()
     features = list()
@@ -229,6 +258,17 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
 def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
     """
     Description:
+        Performs selection of optimal clusters and kmeans
+        and returns an updated dataframe with cluster membership
+        for each bridge
+
+    Args:
+       dataScaled (dataframe)
+       listOfParameters (dataframe)
+       kmeans_kwargs (dictionary)
+
+    Returns:
+        dataScaled (dataframe)
     """
     sse = list()
     for k in tqdm(range(1, 11), desc='Computing Elbow'):
@@ -246,7 +286,7 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
                     direction='decreasing')
 
     # Print elbow and silhouette coefficient
-    print("\n Optimal number of cluster: ", kl.elbow)
+    print("\n Optimal number of cluster (Elbow Coefficient): ", kl.elbow)
 
     # Use K-means with optimal numbe of cluster
     finalKmeans = KMeans(n_clusters=kl.elbow, **kmeans_kwargs)
