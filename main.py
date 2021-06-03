@@ -19,7 +19,7 @@ from kmeans import *
 # Driver function
 def main():
     # CSVFile
-    csvfilename = "nebraska 3.csv"
+    csvfilename = "nebraska.csv"
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
 
     # Remove null values
