@@ -1,5 +1,7 @@
-"""
-Descriptions: Data preprocessing file for decision tree
+"""--------------------------------------------
+Descriptions:
+    Data preprocessing file for decision tree
+
 Author: Akshay Kale
 Date: May 11th, 2021
 
@@ -8,11 +10,11 @@ TODO:
     2. Create Random forest model
     3. Complexity Parameters
     4. Select the important variables
-    5. Sampling techniques:
-        - Undersampling
-        - Oversampling [Done]
-        * Convert them into data frame
-"""
+    5. Characterization of the clusters
+    6. Computing deterioration scores,
+        and intervention
+
+-----------------------------------------------"""
 # Data structures
 import pandas as pd
 import numpy as np
@@ -85,7 +87,7 @@ def remove_duplicates(df, columnName='structureNumbers'):
     newdf = pd.concat(temp)
     return newdf
 
-def categorize_attribute(df, fieldname):
+def categorize_attribute(df, fieldname, category=2):
     """
     Description:
         Categerize numerical variables into categories
@@ -100,29 +102,26 @@ def categorize_attribute(df, fieldname):
     categories = list()
     mean = np.mean(df[fieldname])
     std = np.std(df[fieldname])
+    if category == 4:
+        for value in df[fieldname]:
+            if value > mean and value < (mean + std):
+                categories.append('Good')
+            elif value > mean + std:
+                categories.append('Very Good')
+            elif value < (mean - std):
+                categories.append('Very Bad')
+            else:
+                categories.append('Bad')
 
-    #print("\n Mean: ", mean)
-    #print("\n Std: ", std)
-    #print("\n Mean - Std: ", mean - std)
-    #print("\n Mean + Std: ", mean + std)
+    elif category == 2:
+        for value in df[fieldname]:
+            if value > mean:
+                categories.append("Good")
+            else:
+                categories.append("Bad")
+    else:
+        categories = list()
 
-    ## Criteria for ground truth
-    #for value in df[fieldname]:
-    #    if value > mean and value < (mean + std):
-    #        categories.append('Good')
-    #    elif value > mean + std:
-    #        categories.append('Very Good')
-    #    elif value < (mean - std):
-    #        categories.append('Very Bad')
-    #    else:
-    #        categories.append('Bad')
-
-    ## Creatia for ground truth
-    for value in df[fieldname]:
-        if value > mean:
-            categories.append("Good")
-        else:
-            categories.append("Bad")
     return categories
 
 # Confusion Matrix

@@ -15,10 +15,11 @@ from imblearn.over_sampling import SMOTE
 from decision_tree import *
 from kmeans import *
 
-# Driver function
-def main():
-    # CSVFile
-    csvfilename = "nebraska.csv"
+def deterioration_pipeline(csvfilename):
+    """
+    Description:
+        Pipeline for deterioration
+    """
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
 
     # Remove null values
@@ -124,6 +125,7 @@ def main():
     #X, y = dataScaled[columnsFinal], dataScaled['label']
     counts = Counter(dataScaled['cluster'])
     numOfMembers = min(counts.values())
+
     # TODO: only if the number of members are low than 15
     indexes = list(counts.keys())
     vals = list(counts.values())
@@ -147,6 +149,19 @@ def main():
             Counter(y))
 
     decision_tree(X, y)
+
+# Driver function
+def main():
+
+    #csvfiles = ["nebraska.csv",
+    #            "iowa.csv",
+    #            "llinois.csv"]
+
+    #for filename in csvfiles:
+    #    deterioration_pipeline(filename)
+
+    filename = 'nebraska.csv'
+    deterioration_pipeline(filename)
 
 if __name__=="__main__":
     main()

@@ -81,6 +81,7 @@ def plot_elbow(sse):
         Plot the elbow to find the optimal number of
     clusters
     """
+    filename = "results/" + "OptimalClustersElbow.png"
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
     plt.title("Optimal Number of Clusters using Elbow Method")
@@ -88,32 +89,34 @@ def plot_elbow(sse):
     plt.xticks(range(1, 11))
     plt.xlabel("Number of Clusters")
     plt.ylabel("SSE")
-    plt.savefig("OptimalClustersElbow.png")
+    plt.savefig(filename)
 
 def plot_silhouette(silhouette):
     """
     Plot silhouette constant for finding optimal number
     of clusters
     """
+    filename = "results/" + "Silhouette.png"
     plt.style.use("fivethirtyeight")
     plt.title("Plotting Silhouette")
     plt.plot(range(2, 11), silhouette)
     plt.xticks(range(2, 12))
     plt.xlabel("Number of Clusters")
     plt.ylabel("Silhouette coefficient")
-    plt.savefig("Silhouette.png")
+    plt.savefig(filename)
 
 def plot_scatter(col1, col2, color=None):
     """
     Scatter plot for maximum number of bridges
     """
+    filename = "results/" + "ScatterPlot.png"
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
     plt.title("Baseline Difference Score Vs. Deterioration Score ")
     plt.scatter(col2, col1)
     plt.xlabel("BaselineDiferenceScore")
     plt.ylabel("DeteriorationScore")
-    plt.savefig("Scatter.png")
+    plt.savefig(filename)
 
 # Plot Scatter plot
 def plot_scatter_Kmeans(df):
@@ -121,6 +124,7 @@ def plot_scatter_Kmeans(df):
     Description:
         Scatter plot for displaying k-means clusters
     """
+    filename = "results/" +  "kmeans.png"
     cluster1 = df[df['cluster'] == 0]
     cluster2 = df[df['cluster'] == 1]
     cluster3 = df[df['cluster'] == 2]
@@ -133,7 +137,7 @@ def plot_scatter_Kmeans(df):
     plt.scatter(cluster3['deck'], cluster3['superstructure'], color='blue')
     plt.xlabel("Column 1")
     plt.ylabel("Column 2")
-    plt.savefig("kmeans.png")
+    plt.savefig(filename)
 
 # Plot boxplot
 def plot_box(dfMelt):
@@ -141,11 +145,12 @@ def plot_box(dfMelt):
     Description:
         Scatter plot for distribution bridge features
     """
+    filename = "results/" + "featureBoxplot.png"
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
     plt.title("Box plot")
     sns.boxplot(x='cluster', y='value', data=dfMelt, color='#99c2a2')
-    plt.savefig("featureBoxplot")
+    plt.savefig(filename)
 
 # Confusion matrix
 def print_confusion_matrix(cm):
