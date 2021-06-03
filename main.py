@@ -1,8 +1,8 @@
-"""--------------------------------------------------------------------->
+"""--------------------------------------------------------------->
 Description: Deterioration model
 Author: Akshay Kale
 Date: May 7th, 2021
-<---------------------------------------------------------------------"""
+<---------------------------------------------------------------"""
 
 # Data structures
 import pandas as pd
@@ -115,7 +115,7 @@ def main():
     vals = list(counts.values())
     minimum = vals.index(min(counts.values()))
     minCluster = indexes[minimum]
-    print("\n Minimum Cluster: ", minCluster)
+    print("\n Cluster with lowest membership (<15): ", minCluster, min(counts.values()))
 
     dataScaled = dataScaled[dataScaled['cluster'] != minCluster]
     X, y = dataScaled[columnsFinal], dataScaled['cluster']
@@ -125,7 +125,7 @@ def main():
     X, y = oversample.fit_resample(X, y)
 
     # Summarize distribution
-    print(Counter(y))
+    print("\n Distribution of the clusters: ", Counter(y))
 
     decision_tree(X, y)
 
