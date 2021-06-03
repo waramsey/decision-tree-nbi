@@ -47,7 +47,7 @@ def normalize(df, columns):
     return df
 
 # Function to group by
-def dropDuplicates(df):
+def drop_duplicate_rows(df):
     """
     Function to groupby bridge records
     """
@@ -67,7 +67,7 @@ def ANOVA(df, feature):
     anovaTable = sm.stats.anova_lm(model, typ=2)
     return anovaTable
 
-def plotElbow(sse):
+def plot_elbow(sse):
     """
     Plot the elbow to find the optimal number of
     clusters
@@ -81,7 +81,7 @@ def plotElbow(sse):
     plt.ylabel("SSE")
     plt.savefig("Elbow.png")
 
-def plotSilhouette(silhouette):
+def plot_silhouette(silhouette):
     """
     Plot silhouette constant for finding optimal number
     of clusters
@@ -94,7 +94,7 @@ def plotSilhouette(silhouette):
     plt.ylabel("Silhouette coefficient")
     plt.savefig("Silhouette.png")
 
-def plotScatter(col1, col2, color=None):
+def plot_scatter(col1, col2, color=None):
     """
     Scatter plot for maximum number of bridges
     """
@@ -106,7 +106,7 @@ def plotScatter(col1, col2, color=None):
     plt.ylabel("DeteriorationScore")
     plt.savefig("Scatter.png")
 
-def plotScatterKmeans(df):
+def plot_scatter_Kmeans(df):
     """
     Scatter plot for plotting k-means clusters
     """
@@ -135,7 +135,7 @@ def plotBox(dfMelt):
     plt.savefig("featureBoxplot")
 
 # Confusion matrix
-def printConfusionMatrix(cm):
+def print_confusion_matrix(cm):
     """
     Confusion matrix on validation set
     """
@@ -158,7 +158,7 @@ def printConfusionMatrix(cm):
     plt.savefig("ConfusionMatrix.png")
 
 # Logistic Regression
-def logRegression(df, X, y):
+def log_regression(df, X, y):
     """
     Description:
         Performs training testing split
@@ -179,10 +179,10 @@ def logRegression(df, X, y):
     print("\n Classification: \n", cr)
     print("\n R Square: ", r2)
     print("\n Confusion matrix: \n", cm)
-    printConfusionMatrix(cm)
+    print_confusion_matrix(cm)
     return model
 
-def evaluateANOVA(dataScaled, columns, lowestCount):
+def evaluate_ANOVA(dataScaled, columns, lowestCount):
     """
     Compute ANOVA table for all features in all clusters
     """
@@ -237,7 +237,7 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
         sse.append(kmeans.inertia_)
 
     # Plot SSE
-    plotElbow(sse)
+    plot_elbow(sse)
 
     # Find optimum number of clusters
     kl = KneeLocator(range(1, 11),
@@ -311,7 +311,7 @@ def main():
     dataScaled = dataScaled[columnsFinal]
 
     # Plotting score
-    plotScatter(dataScaled['superstructure'], dataScaled['deck'])
+    plot_scatter(dataScaled['superstructure'], dataScaled['deck'])
 
     # Choosing appropriate number of clusters
     kmeans_kwargs = {
@@ -326,18 +326,18 @@ def main():
     dataScaled = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
 
     # Analysis of variance
-    anovaTable = evaluateANOVA(dataScaled, columnsFinal, lowestCount)
+    anovaTable = evaluate_ANOVA(dataScaled, columnsFinal, lowestCount)
     print("\n ANOVA: \n", anovaTable)
 
     # Plot Clusters
-    plotScatterKmeans(dataScaled)
+    plot_scatter_Kmeans(dataScaled)
 
     # Multinomal Logistic Regression
     columnsFinal.remove('superstructure')
     columnsFinal.remove('substructure')
     columnsFinal.remove('deck')
     X, y = dataScaled[columnsFinal], dataScaled['cluster']
-    logRegression(dataScaled, X, y)
+    log_regression(dataScaled, X, y)
 
 if __name__=="__main__":
     main()

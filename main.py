@@ -10,7 +10,6 @@ import numpy as np
 from collections import Counter
 from collections import defaultdict
 
-
 # ML
 from imblearn.over_sampling import SMOTE
 from decision_tree import *
