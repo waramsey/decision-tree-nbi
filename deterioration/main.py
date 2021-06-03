@@ -85,14 +85,6 @@ def deterioration_pipeline(csvfilename):
     dataScaled = normalize(df, columnsNormalize)
     dataScaled = dataScaled[columnsFinal]
 
-    # Decision Tree
-    columnsFinal.remove('deckDeteriorationScore')
-    columnsFinal.remove('subDeteriorationScore')
-    columnsFinal.remove('supDeteriorationScore')
-    columnsFinal.remove('supNumberIntervention')
-    columnsFinal.remove('deckNumberIntervenion')
-    columnsFinal.remove('subNumberIntervention')
-
     # Create Categorization
     #dataScaled['label'] = categorize_attribute(dataScaled,
     #                                            'deteriorationScore')
@@ -135,6 +127,14 @@ def deterioration_pipeline(csvfilename):
     if numOfMembers < 15:
         print("\n Cluster with lowest membership (<15): ",
                 minCluster, min(counts.values()))
+
+   # Decision Tree
+    columnsFinal.remove('deckDeteriorationScore')
+    columnsFinal.remove('subDeteriorationScore')
+    columnsFinal.remove('supDeteriorationScore')
+    columnsFinal.remove('supNumberIntervention')
+    columnsFinal.remove('deckNumberIntervenion')
+    columnsFinal.remove('subNumberIntervention')
 
     dataScaled = dataScaled[dataScaled['cluster'] != minCluster]
     X, y = dataScaled[columnsFinal], dataScaled['cluster']
