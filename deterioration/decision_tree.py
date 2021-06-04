@@ -13,7 +13,6 @@ TODO:
     5. Characterization of the clusters
     6. Computing deterioration scores,
         and intervention
-
 -----------------------------------------------"""
 # Data structures
 import pandas as pd
@@ -132,7 +131,7 @@ def conf_matrix(cm, filename=''):
     """
     indexList = list()
     columnList = list()
-    filename = 'results/'+ filename +  'ConfusionMatrix.png'
+    filename = 'results/' + filename +  'ConfusionMatrix.png'
 
     for row in range(0, np.shape(cm)[0]):
         indexString = 'Actual' + str(row+1)

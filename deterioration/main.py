@@ -113,6 +113,9 @@ def deterioration_pipeline(csvfilename):
     anovaTable = evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
     print("\n ANOVA: \n", anovaTable)
 
+    # Analysis of the clusters:
+    characterize_clusters(dataScaled, listOfParameters)
+
     # Transform the dataset
     #X, y = dataScaled[columnsFinal], dataScaled['label']
     counts = Counter(dataScaled['cluster'])

@@ -140,17 +140,55 @@ def plot_scatter_Kmeans(df):
     plt.savefig(filename)
 
 # Plot boxplot
-def plot_box(dfMelt):
+def plot_box(dfMelt, name='', x='cluster', y='value'):
     """
     Description:
         Scatter plot for distribution bridge features
     """
-    filename = "results/" + "featureBoxplot.png"
+    filename = "results/" + name + "featureBoxplot.png"
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
     plt.title("Box plot")
     sns.boxplot(x='cluster', y='value', data=dfMelt, color='#99c2a2')
     plt.savefig(filename)
+
+# Analysis of the clusters:
+def characterize_clusters(dataScaled,
+                         listOfParameters,
+                         clusterName='cluster',
+                         x=''):
+    """
+    Description:
+        Characterize clusters by distribution of each features
+
+    Args:
+       dataScaled (dataframe)
+       listOfParameters (list)
+
+    Returns:
+    """
+    listOfParameters.append(clusterName)
+    df = dataScaled[listOfParameters]
+    clusters = list(df[clusterName].unique())
+    listOfParameters.remove(clusterName)
+    for cluster in clusters:
+        tempDf = df[df[clusterName] == cluster]
+        fig = plt.figure(figsize=(10, 7))
+        data = list()
+        for parameter in listOfParameters:
+            data.append(tempDf[parameter])
+
+        # box plot
+        fig = plt.figure(figsize=(10, 7))
+        # Creating axes instance
+        ax = fig.add_axes([0, 0, 1, 1])
+        ax.set_xticklabels(listOfParameters)
+        bp = ax.boxplot(data)
+        filename = 'results/' + 'Cluster' + str(cluster)
+        plt.savefig(filename)
+
+        # TODO:
+        # create a dataframe
 
 # Confusion matrix
 def print_confusion_matrix(cm):
