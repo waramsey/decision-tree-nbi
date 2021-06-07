@@ -10,16 +10,28 @@ import numpy as np
 from collections import Counter
 from collections import defaultdict
 
+import os
+import sys
+
 # ML
 from imblearn.over_sampling import SMOTE
 from decision_tree import *
 from kmeans import *
 
-def deterioration_pipeline(csvfilename):
+
+def deterioration_pipeline(state):
     """
     Description:
         Pipeline for deterioration
     """
+    csvfilename = state + '.csv'
+    modelOutput = state + 'ModelSummary.txt'
+
+    # Output
+    sys.stdout = open(modelOutput, "w")
+
+    # create a state folder/ Change directory and then come out
+    print("\n State: ", state)
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
 
     # Remove null values
@@ -107,6 +119,7 @@ def deterioration_pipeline(csvfilename):
                        'subNumberIntervention']
 
     # K-means clustering
+    # Change in directory
     dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
 
     # Analysis of variance
@@ -114,6 +127,7 @@ def deterioration_pipeline(csvfilename):
     print("\n ANOVA: \n", anovaTable)
 
     # Analysis of the clusters:
+    # Change in directory
     characterize_clusters(dataScaled, listOfParameters)
 
     # Transform the dataset
@@ -131,7 +145,7 @@ def deterioration_pipeline(csvfilename):
         print("\n Cluster with lowest membership (<15): ",
                 minCluster, min(counts.values()))
 
-   # Decision Tree
+    # Decision Tree
     columnsFinal.remove('deckDeteriorationScore')
     columnsFinal.remove('subDeteriorationScore')
     columnsFinal.remove('supDeteriorationScore')
@@ -151,20 +165,22 @@ def deterioration_pipeline(csvfilename):
     print("\n Distribution of the clusters after oversampling: ",
             Counter(y))
 
+    # Change in directory
     decision_tree(X, y)
+    sys.stdout.close()
 
 # Driver function
 def main():
 
-    #csvfiles = ["nebraska.csv",
-    #            "iowa.csv",
-    #            "llinois.csv"]
+    csvfiles = ["nebraska",
+                "nebraska"
+                ]
 
-    #for filename in csvfiles:
-    #    deterioration_pipeline(filename)
+    for filename in csvfiles:
+        deterioration_pipeline(filename)
 
-    filename = 'nebraska.csv'
-    deterioration_pipeline(filename)
+    #filename = 'nebraska.csv'
+    #deterioration_pipeline(filename)
 
 if __name__=="__main__":
     main()

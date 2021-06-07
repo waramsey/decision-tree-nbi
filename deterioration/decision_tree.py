@@ -271,8 +271,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
         fout.write(gTextRepresentation)
 
     print("\n Plotting decision trees \n")
-    plot_decision_tree(eBestModel, filename='Entropy')
-    plot_decision_tree(gBestModel, filename='Gini')
+    #plot_decision_tree(eBestModel, filename='Entropy')
+    #plot_decision_tree(gBestModel, filename='Gini')
 
 def tree_utility(trainX, trainy, testX, testy, criteria='gini', maxDepth=7):
     """
