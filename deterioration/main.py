@@ -1,8 +1,8 @@
-"""--------------------------------------------------------------->
+"""------------------------------------------------------------>
 Description: Deterioration model
 Author: Akshay Kale
 Date: May 7th, 2021
-<---------------------------------------------------------------"""
+<------------------------------------------------------------"""
 
 # Data structures
 import pandas as pd
@@ -10,6 +10,7 @@ import numpy as np
 from collections import Counter
 from collections import defaultdict
 
+# System Libraries
 import os
 import sys
 
@@ -24,15 +25,32 @@ def deterioration_pipeline(state):
     Description:
         Pipeline for deterioration
     """
+
+    # Creating directory
     csvfilename = state + '.csv'
     modelOutput = state + 'ModelSummary.txt'
+    directory = state + 'Outputs'
 
     # Output
     sys.stdout = open(modelOutput, "w")
 
-    # create a state folder/ Change directory and then come out
+    # Create a state folder/ Change directory and then come out
     print("\n State: ", state)
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
+
+    # Change directory
+    os.mkdir(directory)
+    currentDir = os.getcwd()
+
+    # Create results folders
+    currentDir = currentDir + '/' + directory
+    os.chdir(currentDir)
+
+    resultsFolder = 'results'
+    modelsFolder = 'models'
+
+    os.mkdir(resultsFolder)
+    os.mkdir(modelsFolder)
 
     # Remove null values
     df = df.dropna(subset=['deck',
@@ -172,9 +190,8 @@ def deterioration_pipeline(state):
 # Driver function
 def main():
 
-    csvfiles = ["nebraska",
-                "nebraska"
-                ]
+    # States
+    csvfiles = ["nebraska"]
 
     for filename in csvfiles:
         deterioration_pipeline(filename)
