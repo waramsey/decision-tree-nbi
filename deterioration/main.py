@@ -30,7 +30,6 @@ def deterioration_pipeline(state):
     csvfilename = state + '.csv'
     directory = state + 'Outputs'
 
-    
     # Create a state folder/ Change directory and then come out
     print("\n State: ", state)
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
@@ -185,7 +184,7 @@ def deterioration_pipeline(state):
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return kappaValues
+    return kappaValues, accVals
 
 # Driver function
 def main():
