@@ -28,12 +28,9 @@ def deterioration_pipeline(state):
 
     # Creating directory
     csvfilename = state + '.csv'
-    modelOutput = state + 'ModelSummary.txt'
     directory = state + 'Outputs'
 
-    # Output
-    sys.stdout = open(modelOutput, "w")
-
+    
     # Create a state folder/ Change directory and then come out
     print("\n State: ", state)
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
@@ -43,8 +40,8 @@ def deterioration_pipeline(state):
     currentDir = os.getcwd()
 
     # Create results folders
-    currentDir = currentDir + '/' + directory
-    os.chdir(currentDir)
+    newDir = currentDir + '/' + directory
+    os.chdir(newDir)
 
     resultsFolder = 'results'
     modelsFolder = 'models'
@@ -56,7 +53,7 @@ def deterioration_pipeline(state):
     df = df.dropna(subset=['deck',
                            'substructure',
                            'superstructure',
-                           "deckNumberIntervenion",
+                           "deckNumberIntervention",
                            "subNumberIntervention",
                            "supNumberIntervention",
                            "subDeteriorationScore",
@@ -93,7 +90,7 @@ def deterioration_pipeline(state):
                         "deckDeteriorationScore",
                         "supNumberIntervention",
                         "subNumberIntervention",
-                        "deckNumberIntervenion"
+                        "deckNumberIntervention"
                       ]
 
     columnsFinal = [
@@ -109,7 +106,7 @@ def deterioration_pipeline(state):
                     "deckDeteriorationScore",
                     "supNumberIntervention",
                     "subNumberIntervention",
-                    "deckNumberIntervenion"
+                    "deckNumberIntervention"
                     ]
 
     dataScaled = normalize(df, columnsNormalize)
@@ -133,7 +130,7 @@ def deterioration_pipeline(state):
                        'deckDeteriorationScore',
                        'subDeteriorationScore',
                        'supNumberIntervention',
-                       'deckNumberIntervenion',
+                       'deckNumberIntervention',
                        'subNumberIntervention']
 
     # K-means clustering
@@ -168,7 +165,7 @@ def deterioration_pipeline(state):
     columnsFinal.remove('subDeteriorationScore')
     columnsFinal.remove('supDeteriorationScore')
     columnsFinal.remove('supNumberIntervention')
-    columnsFinal.remove('deckNumberIntervenion')
+    columnsFinal.remove('deckNumberIntervention')
     columnsFinal.remove('subNumberIntervention')
 
     dataScaled = dataScaled[dataScaled['cluster'] != minCluster]
@@ -184,17 +181,48 @@ def deterioration_pipeline(state):
             Counter(y))
 
     # Change in directory
-    decision_tree(X, y)
+    kappaValues = decision_tree(X, y)
     sys.stdout.close()
+    os.chdir(currentDir)
+
+    return kappaValues
 
 # Driver function
 def main():
-
     # States
-    csvfiles = ["nebraska"]
+    csvfiles = [
+                "nebraska",
+                "kansas",
+                "indiana",
+                "illinois",
+                "ohio",
+                #"northdakota", #[X]
+                "wisconsin",
+                "missouri",
+                "minnesota",
+                #"michigan" # [X]
+                ]
 
+    listOfKappaValues = list()
+    listOfAccValues = list()
     for filename in csvfiles:
-        deterioration_pipeline(filename)
+        # Output
+        modelOutput = filename + 'ModelSummary.txt'
+        sys.stdout = open(modelOutput, "w")
+        kappa, acc = deterioration_pipeline(filename)
+        sys.stdout.close()
+        listOfKappaValues.append(kappa)
+        listOfAccValues.append(acc)
+
+    sys.stdout = open("OverallOutput.txt", "w")
+    plot_overall_performance(csvfiles,
+                             listOfKappaValues,
+                             "kappaValues")
+
+    plot_overall_performance(csvfiles,
+                             listOfAccValues,
+                             "AccValues")
+    sys.stdout.close()
 
     #filename = 'nebraska.csv'
     #deterioration_pipeline(filename)

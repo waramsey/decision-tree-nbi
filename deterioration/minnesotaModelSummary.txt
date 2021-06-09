@@ -1,0 +1,79 @@
+
+ State:  minnesota
+
+ Optimal number of cluster (Elbow Coefficient):  3
+
+ Number of members in cluster: Counter({1: 7251, 0: 358, 2: 118})
+
+ ANOVA: 
+                 Attribute  ...        p-value
+0   supDeteriorationScore  ...   1.345612e-01
+1  deckDeteriorationScore  ...   5.271986e-01
+2   subDeteriorationScore  ...   1.713865e-01
+3   supNumberIntervention  ...   1.817654e-94
+4  deckNumberIntervention  ...   7.997732e-72
+5   subNumberIntervention  ...  6.105975e-100
+
+[6 rows x 5 columns]
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({1: 7251, 0: 7251})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.8627574457236733
+
+ Best Accuracy:  0.9317335282720582
+
+ Best Depth:  25
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.93      0.93      0.93      1452
+           1       0.93      0.93      0.93      1448
+
+    accuracy                           0.93      2900
+   macro avg       0.93      0.93      0.93      2900
+weighted avg       0.93      0.93      0.93      2900
+
+
+ Confusion Matrix: 
+ [[1356   96]
+ [ 103 1345]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.8503432616179575
+
+ Best Accuracy:  0.9316642537056188
+
+ Best Depth:  28
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.92      0.93      0.93      1452
+           1       0.93      0.92      0.92      1448
+
+    accuracy                           0.93      2900
+   macro avg       0.93      0.93      0.93      2900
+weighted avg       0.93      0.93      0.93      2900
+
+
+ Confusion Matrix: 
+ [[1348  104]
+ [ 113 1335]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

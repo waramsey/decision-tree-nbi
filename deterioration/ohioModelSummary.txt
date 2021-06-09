@@ -1,0 +1,83 @@
+
+ State:  ohio
+
+ Optimal number of cluster (Elbow Coefficient):  4
+
+ Number of members in cluster: Counter({0: 17082, 3: 5560, 2: 2340, 1: 748})
+
+ ANOVA: 
+                 Attribute  ...       p-value
+0   supDeteriorationScore  ...  4.641876e-11
+1  deckDeteriorationScore  ...  1.101791e-12
+2   subDeteriorationScore  ...  1.316133e-03
+3   supNumberIntervention  ...  0.000000e+00
+4  deckNumberIntervention  ...  0.000000e+00
+5   subNumberIntervention  ...  0.000000e+00
+
+[6 rows x 5 columns]
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({0: 17082, 3: 17082, 2: 17082})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.45671429884579506
+
+ Best Accuracy:  0.6823557743884592
+
+ Best Depth:  30
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.67      0.69      0.68      3355
+           2       0.75      0.75      0.75      3474
+           3       0.66      0.63      0.65      3420
+
+    accuracy                           0.69     10249
+   macro avg       0.69      0.69      0.69     10249
+weighted avg       0.69      0.69      0.69     10249
+
+
+ Confusion Matrix: 
+ [[2324  367  664]
+ [ 415 2602  457]
+ [ 738  512 2170]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.4526896630208028
+
+ Best Accuracy:  0.6808532668267457
+
+ Best Depth:  30
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.67      0.67      0.67      3355
+           2       0.75      0.75      0.75      3474
+           3       0.66      0.65      0.65      3420
+
+    accuracy                           0.69     10249
+   macro avg       0.69      0.69      0.69     10249
+weighted avg       0.69      0.69      0.69     10249
+
+
+ Confusion Matrix: 
+ [[2245  389  721]
+ [ 419 2609  446]
+ [ 690  503 2227]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

@@ -1,0 +1,87 @@
+
+ State:  illinois
+
+ Optimal number of cluster (Elbow Coefficient):  5
+
+ Number of members in cluster: Counter({0: 20330, 4: 456, 2: 327, 3: 234, 1: 186})
+
+ ANOVA: 
+                 Attribute  ...        p-value
+0   supDeteriorationScore  ...  7.544140e-254
+1  deckDeteriorationScore  ...   2.554146e-98
+2   subDeteriorationScore  ...   3.330407e-11
+3   supNumberIntervention  ...  5.502709e-257
+4  deckNumberIntervention  ...  5.354222e-270
+5   subNumberIntervention  ...   0.000000e+00
+
+[6 rows x 5 columns]
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({3: 20330, 0: 20330, 4: 20330, 2: 20330})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.909402155766756
+
+ Best Accuracy:  0.9479955730447613
+
+ Best Depth:  28
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.94      0.92      0.93      4060
+           2       0.96      0.95      0.96      4135
+           3       0.97      0.98      0.97      4066
+           4       0.94      0.95      0.95      4003
+
+    accuracy                           0.95     16264
+   macro avg       0.95      0.95      0.95     16264
+weighted avg       0.95      0.95      0.95     16264
+
+
+ Confusion Matrix: 
+ [[3736   99   68  157]
+ [ 100 3946   31   58]
+ [  34   22 3987   23]
+ [ 124   43   37 3799]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.8991254443131396
+
+ Best Accuracy:  0.945007378258731
+
+ Best Depth:  28
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92      4060
+           2       0.95      0.95      0.95      4135
+           3       0.96      0.97      0.97      4066
+           4       0.93      0.94      0.94      4003
+
+    accuracy                           0.94     16264
+   macro avg       0.94      0.94      0.94     16264
+weighted avg       0.94      0.94      0.94     16264
+
+
+ Confusion Matrix: 
+ [[3699  117   77  167]
+ [ 107 3924   34   70]
+ [  36   38 3942   50]
+ [ 133   62   41 3767]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

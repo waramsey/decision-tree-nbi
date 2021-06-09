@@ -1,0 +1,83 @@
+
+ State:  kansas
+
+ Optimal number of cluster (Elbow Coefficient):  4
+
+ Number of members in cluster: Counter({2: 14546, 3: 1009, 0: 971, 1: 846})
+
+ ANOVA: 
+                 Attribute  ...   p-value
+0   supDeteriorationScore  ...  0.240139
+1  deckDeteriorationScore  ...  0.440983
+2   subDeteriorationScore  ...  0.001815
+3   supNumberIntervention  ...  0.000000
+4  deckNumberIntervention  ...  0.000000
+5   subNumberIntervention  ...  0.000000
+
+[6 rows x 5 columns]
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({2: 14546, 3: 14546, 0: 14546})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.7851042268461079
+
+ Best Accuracy:  0.8494201965160327
+
+ Best Depth:  29
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.85      0.86      0.86      2904
+           2       0.85      0.83      0.84      2888
+           3       0.85      0.85      0.85      2935
+
+    accuracy                           0.85      8727
+   macro avg       0.85      0.85      0.85      8727
+weighted avg       0.85      0.85      0.85      8727
+
+
+ Confusion Matrix: 
+ [[2505  197  202]
+ [ 241 2396  251]
+ [ 197  237 2501]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.7888724969934997
+
+ Best Accuracy:  0.8465099777264464
+
+ Best Depth:  29
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.86      0.86      0.86      2904
+           2       0.84      0.83      0.84      2888
+           3       0.84      0.86      0.85      2935
+
+    accuracy                           0.85      8727
+   macro avg       0.85      0.85      0.85      8727
+weighted avg       0.85      0.85      0.85      8727
+
+
+ Confusion Matrix: 
+ [[2484  207  213]
+ [ 239 2390  259]
+ [ 171  236 2528]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

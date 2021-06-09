@@ -212,6 +212,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     """
     # Entropy
     eBestKappa = max(eKappaDict.keys())
+    eBestAcc = max(eAccDict.keys())
     eBestDepth = eKappaDict.get(eBestKappa)
     ecm = eConfDict.get(eBestDepth)
 
@@ -219,6 +220,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
             -------------- Performance of Entropy ---------------
             \n""")
     print("\n Best Kappa Values: ", eBestKappa)
+    print("\n Best Accuracy: ", eBestAcc)
     print("\n Best Depth: ", eBestDepth)
     print("\n Classfication Report: \n", eClassDict.get(eBestDepth))
     print("\n Confusion Matrix: \n", ecm)
@@ -226,6 +228,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     # GiniIndex 
     gBestKappa = max(gKappaDict.keys())
+    gBestAcc = max(gAccDict.keys())
     gBestDepth = gKappaDict.get(gBestKappa)
     gcm = gConfDict.get(gBestDepth)
 
@@ -234,6 +237,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
              \n""")
 
     print("\n Best Kappa Values: ", gBestKappa)
+    print("\n Best Accuracy: ", gBestAcc)
     print("\n Best Depth: ", gBestDepth)
     #print("\n AUC: ", gRocsDict[gBestDept])
     print("\n Classfication Report: \n", gClassDict.get(gBestDepth))
@@ -273,6 +277,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\n Plotting decision trees \n")
     #plot_decision_tree(eBestModel, filename='Entropy')
     #plot_decision_tree(gBestModel, filename='Gini')
+    return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc)
 
 def tree_utility(trainX, trainy, testX, testy, criteria='gini', maxDepth=7):
     """
@@ -420,10 +425,44 @@ def decision_tree(X, y, nFold=5):
     gModelsDict = dict(zip(depths, gModels))
 
 
-    performance_summarizer(eKappaDict, gKappaDict,
-                           eConfDict, gConfDict,
-                           eClassDict, gClassDict,
-                           eScoreDict, gScoreDict,
-                           #eRocsDict, gRocsDict,
-                           eModelsDict, gModelsDict)
-    #return 
+    kappaVals, accVals = performance_summarizer(eKappaDict, gKappaDict,
+                                           eConfDict, gConfDict,
+                                           eClassDict, gClassDict,
+                                           eScoreDict, gScoreDict,
+                                           #eRocsDict, gRocsDict,
+                                           eModelsDict, gModelsDict)
+    # Return the average kappa value for state
+    return kappaVals, accVals
+
+def plot_overall_performance(states, listOfMetricValues, metricName):
+    """
+    Description:
+    Args:
+    Returns:
+    """
+    filename = metricName + '.png'
+    # Values
+    eMetricValues = list()
+    gMetricValues = list()
+    for metricVal in listOfMetricValues:
+        eMetric, gMetric = metricVal
+        eMetricValues.append(eMetric)
+        gMetricValues.append(gMetric)
+
+    height = np.array(range(0, len(states)))
+
+    # Make the plot
+    plt.figure(figsize=(10, 8))
+    plt.title("Overall Performance")
+    plt.bar(height, eMetricValues, color='#7f6d5f', width=0.25, label='gini')
+    plt.bar(height + 0.25, gMetricValues,color='#557f2d', width=0.25, label='entropy')
+    plt.xticks(height, states, rotation=45)
+    plt.legend()
+    plt.savefig(filename)
+
+    print("\n" + metricName + " Table: ")
+    dataFrame = pd.DataFrame()
+    dataFrame['state'] = states
+    dataFrame['gini'] = gMetricValues
+    dataFrame['entropy'] = eMetricValues
+    print(dataFrame)

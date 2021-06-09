@@ -1,0 +1,85 @@
+
+ State:  nebraska
+
+ Optimal number of cluster (Elbow Coefficient):  4
+
+ Number of members in cluster: Counter({0: 9489, 2: 1413, 3: 1243, 1: 4})
+
+ ANOVA: 
+                 Attribute  ...        p-value
+0   supDeteriorationScore  ...   8.266591e-11
+1  deckDeteriorationScore  ...  5.628405e-179
+2   subDeteriorationScore  ...   8.687906e-02
+3   supNumberIntervention  ...  1.572553e-187
+4  deckNumberIntervention  ...   1.229451e-02
+5   subNumberIntervention  ...   2.427607e-01
+
+[6 rows x 5 columns]
+
+ Cluster with lowest membership (<15):  1 4
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({0: 9489, 2: 9489, 3: 9489})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.6576676000183561
+
+ Best Accuracy:  0.7669232379549544
+
+ Best Depth:  28
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.78      0.77      0.78      1900
+           2       0.75      0.79      0.77      1869
+           3       0.78      0.75      0.76      1924
+
+    accuracy                           0.77      5693
+   macro avg       0.77      0.77      0.77      5693
+weighted avg       0.77      0.77      0.77      5693
+
+
+ Confusion Matrix: 
+ [[1470  226  204]
+ [ 186 1473  210]
+ [ 219  270 1435]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.6570142043984181
+
+ Best Accuracy:  0.7638318577939213
+
+ Best Depth:  29
+
+ Classfication Report: 
+               precision    recall  f1-score   support
+
+           0       0.78      0.76      0.77      1900
+           2       0.74      0.79      0.76      1869
+           3       0.78      0.75      0.76      1924
+
+    accuracy                           0.77      5693
+   macro avg       0.77      0.77      0.77      5693
+weighted avg       0.77      0.77      0.77      5693
+
+
+ Confusion Matrix: 
+ [[1451  238  211]
+ [ 190 1474  205]
+ [ 208  274 1442]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
