@@ -1,8 +1,8 @@
-"""------------------------------------------------------------>
+"""----------------------------------------------------------->
 Description: Deterioration model
 Author: Akshay Kale
 Date: May 7th, 2021
-<------------------------------------------------------------"""
+<-----------------------------------------------------------"""
 
 # Data structures
 import pandas as pd
@@ -43,7 +43,6 @@ def deterioration_pipeline(state):
 
     resultsFolder = 'results'
     modelsFolder = 'models'
-
     os.mkdir(resultsFolder)
     os.mkdir(modelsFolder)
 
@@ -110,7 +109,7 @@ def deterioration_pipeline(state):
     dataScaled = normalize(df, columnsNormalize)
     dataScaled = dataScaled[columnsFinal]
 
-    # Create Categorization
+    # Create Categorization using normal distribution or K-means
     #dataScaled['label'] = categorize_attribute(dataScaled,
     #                                            'deteriorationScore')
 
@@ -179,11 +178,11 @@ def deterioration_pipeline(state):
             Counter(y))
 
     # Change in directory
-    kappaValues = decision_tree(X, y)
+    kappaVals, accVals  = decision_tree(X, y)
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return kappaValues, accVals
+    return kappaVals, accVals
 
 # Driver function
 def main():
@@ -221,9 +220,6 @@ def main():
                              listOfAccValues,
                              "AccValues")
     sys.stdout.close()
-
-    #filename = 'nebraska.csv'
-    #deterioration_pipeline(filename)
 
 if __name__=="__main__":
     main()

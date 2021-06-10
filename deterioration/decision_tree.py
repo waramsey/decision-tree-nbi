@@ -312,8 +312,8 @@ def decision_tree(X, y, nFold=5):
     """
     Description:
         Performs training testing split
-        Trains for various depth level
-        Trains for for both Entropy and GiniIndex
+        Train model for various depth level
+        Train model for both Entropy and GiniIndex
 
     Args:
         df (Dataframe)

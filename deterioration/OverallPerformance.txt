@@ -1,8 +1,0 @@
-
-kappaValues Table: 
-      state      gini   entropy
-0  nebraska  0.657014  0.657668
-
-AccValues Table: 
-      state      gini   entropy
-0  nebraska  0.763832  0.766923

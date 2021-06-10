@@ -171,6 +171,7 @@ def characterize_clusters(dataScaled,
     df = dataScaled[listOfParameters]
     clusters = list(df[clusterName].unique())
     listOfParameters.remove(clusterName)
+    placeHolder = list(range(0, len(listOfParameters)))
     for cluster in clusters:
         tempDf = df[df[clusterName] == cluster]
         fig = plt.figure(figsize=(10, 7))
@@ -181,14 +182,13 @@ def characterize_clusters(dataScaled,
         # box plot
         fig = plt.figure(figsize=(10, 7))
         # Creating axes instance
-        ax = fig.add_axes([0, 0, 1, 1])
+        #ax = fig.add_axes([0, 0, 1, 1])
+        ax = fig.add_subplot(111)
         ax.set_xticklabels(listOfParameters)
         bp = ax.boxplot(data)
+        plt.xticks(placeHolder, listOfParameters, rotation=45)
         filename = 'results/' + 'Cluster' + str(cluster)
-        plt.savefig(filename)
-
-        # TODO:
-        # create a dataframe
+        plt.savefig(filename, bbox_inches='tight')
 
 # Confusion matrix
 def print_confusion_matrix(cm):
