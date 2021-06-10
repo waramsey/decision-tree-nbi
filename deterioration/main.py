@@ -19,7 +19,6 @@ from imblearn.over_sampling import SMOTE
 from decision_tree import *
 from kmeans import *
 
-
 def deterioration_pipeline(state):
     """
     Description:
