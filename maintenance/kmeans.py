@@ -34,18 +34,6 @@ from kneed import KneeLocator
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Function for normalizing
-def normalize(df, columns):
-    """
-    Function for normalizing the data
-    """
-    for feature in columns:
-        df[feature] = df[feature].astype(int)
-        maxValue = df[feature].max()
-        minValue = df[feature].min()
-        df[feature] = (df[feature] - minValue) / (maxValue - minValue)
-    return df
-
 # Function to group by
 def drop_duplicate_rows(df):
     """
