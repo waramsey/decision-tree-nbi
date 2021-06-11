@@ -240,7 +240,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\n Best Accuracy: ", gBestAcc)
     print("\n Best Depth: ", gBestDepth)
     #print("\n AUC: ", gRocsDict[gBestDept])
-    print("\n Classfication Report: \n", gClassDict.get(gBestDepth))
+    print("\n Classification Report: \n", gClassDict.get(gBestDepth))
     print("\n Confusion Matrix: \n", gcm)
 
     # Plot Confusion Matrix
@@ -349,7 +349,7 @@ def decision_tree(X, y, nFold=5):
     eModels = list()
     gModels = list()
 
-    for depth in tqdm(range(1, 31), desc='\n Modeling decision tree'):
+    for depth in tqdm(range(1, 31), desc='\n Modeling DT:'):
         tempG = list()
         tempE = list()
         for foldTrainX, foldTestX in kfold.split(X):

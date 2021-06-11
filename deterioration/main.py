@@ -179,7 +179,7 @@ def deterioration_pipeline(state):
 
     # Change in directory
     kappaVals, accVals  = decision_tree(X, y)
-    sys.stdout.close()
+    #sys.stdout.close()
     os.chdir(currentDir)
 
     return kappaVals, accVals
@@ -189,14 +189,14 @@ def main():
     # States
     csvfiles = [
                 "nebraska",
-                "kansas",
-                "indiana",
-                "illinois",
-                "ohio",
+                #"kansas",
+                #"indiana",
+                #"illinois",
+                #"ohio",
                 #"northdakota", #[X]
-                "wisconsin",
-                "missouri",
-                "minnesota",
+                #"wisconsin",
+                #"missouri",
+                #"minnesota",
                 #"michigan" # [X]
                 ]
 
