@@ -1,8 +1,8 @@
-"""----------------------------------------------------------->
+"""------------------------------------------------------>
 Description: Deterioration model
 Author: Akshay Kale
 Date: May 7th, 2021
-<-----------------------------------------------------------"""
+<------------------------------------------------------"""
 
 # Data structures
 import pandas as pd
@@ -179,9 +179,9 @@ def deterioration_pipeline(state):
 
     # Change in directory
     kappaVals, accVals  = decision_tree(X, y)
-    #sys.stdout.close()
-    os.chdir(currentDir)
 
+    # Work here:
+    os.chdir(currentDir)
     return kappaVals, accVals
 
 # Driver function
