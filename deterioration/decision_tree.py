@@ -222,7 +222,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\n Best Kappa Values: ", eBestKappa)
     print("\n Best Accuracy: ", eBestAcc)
     print("\n Best Depth: ", eBestDepth)
-    print("\n Classfication Report: \n", eClassDict.get(eBestDepth))
+    print("\n Classification Report: \n", eClassDict.get(eBestDepth))
     print("\n Confusion Matrix: \n", ecm)
     #print("\n AUC: ", eRocsDict[eBestDept])
 

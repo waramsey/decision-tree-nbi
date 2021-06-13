@@ -39,12 +39,12 @@ def deterioration_pipeline(state):
     # Create results folders
     newDir = currentDir + '/' + directory
     os.chdir(newDir)
-    print("\n State: ", state)
     modelOutput = state + 'ModelSummary.txt'
 
+    sys.stdout = open(modelOutput, "w")
+    print("\n State: ", state)
     resultsFolder = 'results'
     modelsFolder = 'models'
-    sys.stdout = open(modelOutput, "w")
     os.mkdir(resultsFolder)
     os.mkdir(modelsFolder)
 
@@ -194,14 +194,14 @@ def main():
     # States
     csvfiles = [
                 "nebraska",
-                #"kansas",
-                #"indiana",
-                #"illinois",
-                #"ohio",
+                "kansas",
+                "indiana",
+                "illinois",
+                "ohio",
                 #"northdakota", #[X]
-                #"wisconsin",
-                #"missouri",
-                #"minnesota",
+                "wisconsin",
+                "missouri",
+                "minnesota",
                 #"michigan" # [X]
                 ]
 
