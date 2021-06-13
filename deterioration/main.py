@@ -157,7 +157,8 @@ def deterioration_pipeline(state):
 
     if numOfMembers < 15:
         print("\n Cluster with lowest membership (<15): ",
-                minCluster, min(counts.values()))
+                minCluster)
+        print("\n Number of members in the cluster:", min(counts.values()))
 
     # Decision Tree
     columnsFinal.remove('deckDeteriorationScore')
@@ -208,7 +209,6 @@ def main():
     listOfAccValues = list()
     for filename in csvfiles:
         # Output
-        
         kappa, acc = deterioration_pipeline(filename)
         listOfKappaValues.append(kappa)
         listOfAccValues.append(acc)
