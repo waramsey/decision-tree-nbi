@@ -1,0 +1,146 @@
+
+ State:  wisconsin
+
+ Optimal number of cluster (Elbow Coefficient):  5
+
+ Number of members in cluster: Counter({0: 10299, 2: 751, 1: 403, 4: 296, 3: 14})
+
+ ANOVA: 
+                 Attribute     sum_sq  ...             F       p-value
+0   supDeteriorationScore   0.014286  ...  1.000000e+00  4.140880e-01
+1  deckDeteriorationScore  11.200000  ...  2.028241e+31  0.000000e+00
+2   subDeteriorationScore   0.057143  ...  3.545455e+00  1.117372e-02
+3   supNumberIntervention   1.253968  ...  1.667208e+01  1.889739e-09
+4  deckNumberIntervention   5.228571  ...  1.441818e+02  1.448493e-31
+5   subNumberIntervention   4.857143  ...  1.841667e+02  1.069915e-34
+
+[6 rows x 5 columns]
+
+ Cluster:  0
+
+
+       mean  medians  maximums  minimums    stdDev
+0  0.999563      1.0       1.0  0.500000  0.999563
+1  1.000000      1.0       1.0  1.000000  1.000000
+2  0.999741      1.0       1.0  0.333333  0.999741
+3  0.008868      0.0       1.0  0.000000  0.008868
+4  0.000000      0.0       0.0  0.000000  0.000000
+5  0.000000      0.0       0.0  0.000000  0.000000
+
+ Cluster:  2
+
+
+       mean  medians  maximums  minimums    stdDev
+0  1.000000      1.0  1.000000       1.0  1.000000
+1  1.000000      1.0  1.000000       1.0  1.000000
+2  1.000000      1.0  1.000000       1.0  1.000000
+3  0.101642      0.0  0.666667       0.0  0.101642
+4  0.508655      0.5  1.000000       0.5  0.508655
+5  0.000000      0.0  0.000000       0.0  0.000000
+
+ Cluster:  1
+
+
+       mean  medians  maximums  minimums    stdDev
+0  0.997519      1.0  1.000000       0.0  0.997519
+1  1.000000      1.0  1.000000       1.0  1.000000
+2  0.993383      1.0  1.000000       0.0  0.993383
+3  0.062862      0.0  0.666667       0.0  0.062862
+4  0.000000      0.0  0.000000       0.0  0.000000
+5  0.508685      0.5  1.000000       0.5  0.508685
+
+ Cluster:  4
+
+
+       mean   medians  maximums  minimums    stdDev
+0  1.000000  1.000000       1.0       1.0  1.000000
+1  1.000000  1.000000       1.0       1.0  1.000000
+2  1.000000  1.000000       1.0       1.0  1.000000
+3  0.252252  0.333333       1.0       0.0  0.252252
+4  0.528716  0.500000       1.0       0.5  0.528716
+5  0.515203  0.500000       1.0       0.5  0.515203
+
+ Cluster:  3
+
+
+       mean  medians  maximums  minimums    stdDev
+0  0.928571      1.0  1.000000  0.500000  0.928571
+1  0.000000      0.0  0.000000  0.000000  0.000000
+2  0.880952      1.0  1.000000  0.333333  0.880952
+3  0.023810      0.0  0.333333  0.000000  0.023810
+4  0.178571      0.0  1.000000  0.000000  0.178571
+5  0.071429      0.0  0.500000  0.000000  0.071429
+
+ Cluster with lowest membership (<15):  3
+
+ Number of members in the cluster: 14
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({0: 10299, 2: 10299, 1: 10299, 4: 10299})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.8406155462059635
+
+ Best Accuracy:  0.8734342200309445
+
+ Best Depth:  26
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.84      0.82      0.83      2052
+           1       0.87      0.90      0.89      2036
+           2       0.86      0.84      0.85      2080
+           4       0.91      0.93      0.92      2071
+
+    accuracy                           0.87      8239
+   macro avg       0.87      0.87      0.87      8239
+weighted avg       0.87      0.87      0.87      8239
+
+
+ Confusion Matrix: 
+ [[1686  132  183   51]
+ [  96 1826   55   59]
+ [ 194   74 1737   75]
+ [  41   56   56 1918]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.8362299020173736
+
+ Best Accuracy:  0.8693805509434762
+
+ Best Depth:  20
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.84      0.83      0.83      2052
+           1       0.89      0.90      0.89      2036
+           2       0.86      0.85      0.85      2080
+           4       0.90      0.92      0.91      2071
+
+    accuracy                           0.87      8239
+   macro avg       0.87      0.87      0.87      8239
+weighted avg       0.87      0.87      0.87      8239
+
+
+ Confusion Matrix: 
+ [[1698  112  175   67]
+ [  99 1826   49   62]
+ [ 184   63 1762   71]
+ [  43   59   71 1898]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

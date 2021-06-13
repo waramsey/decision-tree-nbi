@@ -1,22 +1,22 @@
 
 kappaValues Table: 
        state      gini   entropy
-0   nebraska  0.673584  0.651872
-1     kansas  0.780263  0.789108
-2    indiana  0.664653  0.670309
-3   illinois  0.907578  0.911782
-4       ohio  0.464105  0.464141
-5  wisconsin  0.838252  0.840189
-6   missouri  0.838306  0.837317
-7  minnesota  0.866894  0.870338
+0   nebraska  0.635032  0.657082
+1     kansas  0.775287  0.795909
+2    indiana  0.697879  0.666530
+3   illinois  0.900450  0.908098
+4       ohio  0.444498  0.451328
+5  wisconsin  0.836230  0.840616
+6   missouri  0.834218  0.835533
+7  minnesota  0.860688  0.858618
 
 AccValues Table: 
        state      gini   entropy
-0   nebraska  0.767029  0.767239
-1     kansas  0.844860  0.850016
-2    indiana  0.836518  0.835310
-3   illinois  0.944884  0.947848
-4       ohio  0.683878  0.687312
-5  wisconsin  0.869405  0.875425
-6   missouri  0.885976  0.889398
-7  minnesota  0.934078  0.936284
+0   nebraska  0.761302  0.769663
+1     kansas  0.844975  0.850222
+2    indiana  0.842976  0.838973
+3   illinois  0.944602  0.947836
+4       ohio  0.685654  0.682941
+5  wisconsin  0.869381  0.873434
+6   missouri  0.885628  0.887078
+7  minnesota  0.930837  0.932009

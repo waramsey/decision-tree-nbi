@@ -1,0 +1,112 @@
+
+ State:  minnesota
+
+ Optimal number of cluster (Elbow Coefficient):  3
+
+ Number of members in cluster: Counter({1: 7251, 0: 358, 2: 118})
+
+ ANOVA: 
+                 Attribute     sum_sq  ...           F        p-value
+0   supDeteriorationScore   0.005650  ...    1.000000   3.689250e-01
+1  deckDeteriorationScore   0.000904  ...    2.017241   1.345612e-01
+2   subDeteriorationScore   0.002511  ...    2.017241   1.345612e-01
+3   supNumberIntervention  18.548023  ...  499.007470  2.418008e-103
+4  deckNumberIntervention  15.942090  ...  270.555009   7.997732e-72
+5   subNumberIntervention  19.221751  ...  609.358209  6.835625e-115
+
+[6 rows x 5 columns]
+
+ Cluster:  2
+
+
+       mean  medians  maximums  minimums    stdDev
+0  0.991525      1.0       1.0       0.0  0.991525
+1  0.996610      1.0       1.0       0.6  0.996610
+2  0.988701      1.0       1.0       0.0  0.988701
+3  0.538136      0.5       1.0       0.0  0.538136
+4  0.351695      0.5       1.0       0.0  0.351695
+5  0.512712      0.5       1.0       0.0  0.512712
+
+ Cluster:  1
+
+
+       mean  medians  maximums  minimums    stdDev
+0  0.999310      1.0       1.0  0.666667  0.999310
+1  0.999559      1.0       1.0  0.000000  0.999559
+2  0.998805      1.0       1.0  0.333333  0.998805
+3  0.006758      0.0       0.5  0.000000  0.006758
+4  0.000000      0.0       0.0  0.000000  0.000000
+5  0.007792      0.0       0.5  0.000000  0.007792
+
+ Cluster:  0
+
+
+       mean  medians  maximums  minimums    stdDev
+0  1.000000      1.0       1.0  1.000000  1.000000
+1  0.998324      1.0       1.0  0.800000  0.998324
+2  0.999069      1.0       1.0  0.666667  0.999069
+3  0.090782      0.0       0.5  0.000000  0.090782
+4  0.513966      0.5       1.0  0.500000  0.513966
+5  0.043296      0.0       0.5  0.000000  0.043296
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({1: 7251, 0: 7251})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.8586175963897427
+
+ Best Accuracy:  0.9320091288378561
+
+ Best Depth:  22
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.92      0.94      0.93      1452
+           1       0.94      0.92      0.93      1448
+
+    accuracy                           0.93      2900
+   macro avg       0.93      0.93      0.93      2900
+weighted avg       0.93      0.93      0.93      2900
+
+
+ Confusion Matrix: 
+ [[1360   92]
+ [ 113 1335]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.8606880649291597
+
+ Best Accuracy:  0.9308369765479204
+
+ Best Depth:  23
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.93      0.93      0.93      1452
+           1       0.93      0.93      0.93      1448
+
+    accuracy                           0.93      2900
+   macro avg       0.93      0.93      0.93      2900
+weighted avg       0.93      0.93      0.93      2900
+
+
+ Confusion Matrix: 
+ [[1356   96]
+ [ 106 1342]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
