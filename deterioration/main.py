@@ -30,7 +30,6 @@ def deterioration_pipeline(state):
     directory = state + 'Outputs'
 
     # Create a state folder/ Change directory and then come out
-    print("\n State: ", state)
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
 
     # Change directory
@@ -40,9 +39,12 @@ def deterioration_pipeline(state):
     # Create results folders
     newDir = currentDir + '/' + directory
     os.chdir(newDir)
+    print("\n State: ", state)
+    modelOutput = state + 'ModelSummary.txt'
 
     resultsFolder = 'results'
     modelsFolder = 'models'
+    sys.stdout = open(modelOutput, "w")
     os.mkdir(resultsFolder)
     os.mkdir(modelsFolder)
 
@@ -181,7 +183,9 @@ def deterioration_pipeline(state):
     kappaVals, accVals  = decision_tree(X, y)
 
     # Work here:
+    sys.stdout.close()
     os.chdir(currentDir)
+
     return kappaVals, accVals
 
 # Driver function
@@ -204,10 +208,8 @@ def main():
     listOfAccValues = list()
     for filename in csvfiles:
         # Output
-        modelOutput = filename + 'ModelSummary.txt'
-        sys.stdout = open(modelOutput, "w")
+        
         kappa, acc = deterioration_pipeline(filename)
-        sys.stdout.close()
         listOfKappaValues.append(kappa)
         listOfAccValues.append(acc)
 

@@ -214,7 +214,7 @@ def characterize_clusters(dataScaled,
                                   'maximums': maximums,
                                   'minimums': minimums,
                                   'stdDev': stdDevs})
-        print("\n Cluster :\n", cluster)
+        print("\n Cluster: ", cluster)
         print("\n")
         print(dataFrame)
 
