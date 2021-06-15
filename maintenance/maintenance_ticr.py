@@ -38,7 +38,6 @@ def maintenance_pipeline(state):
     directory = state + 'OutputsTICR'
 
     # Create a state folder/ Change directory and then come out
-    print("\n State: ", state)
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
 
     # Change directory
@@ -61,9 +60,11 @@ def maintenance_pipeline(state):
     df = df.dropna(subset=['deck',
                            'substructure',
                            'superstructure',
+                           'deckNumberIntervention',
+                           'subNumberIntervention',
+                           'supNumberIntervention',
                            ]
                            )
-
 
     # Remove values encoded as N
     df = df[~df['deck'].isin(['N'])]
@@ -76,9 +77,8 @@ def maintenance_pipeline(state):
     df.precipitation.fillna(value=-1, inplace=True)
     df.freezethaw.fillna(value=-1, inplace=True)
 
-#   Select columns for conversion and normalization
-#   TODO: Consider putting number of intervention for deck, superstructure, and substructure
-#   maintenance ( defined by the TICR ), and  features.
+    # features that has to be normalized
+    # TODO:
     columnsNormalize = [
                         "deck",
                         "yearBuilt",
@@ -86,9 +86,9 @@ def maintenance_pipeline(state):
                         "substructure",
                         "averageDailyTraffic",
                         "avgDailyTruckTraffic",
-                        "snowfall",
-                        "freezethaw",
-                        "futureNumberOfInterventions"
+                        "supNumberIntervention",
+                        "subNumberIntervention",
+                        "deckNumberIntervention"
                       ]
 
     columnsFinal = [
@@ -102,26 +102,43 @@ def maintenance_pipeline(state):
                     "designLoad",
                     "snowfall",
                     "freezethaw",
-                    "futureNumberOfInterventions",
-                    "NdotIntervention"
+                    "supNumberIntervention",
+                    "subNumberIntervention",
+                    "deckNumberIntervention",
                     ]
 
     dataScaled = normalize(df, columnsNormalize)
     dataScaled = dataScaled[columnsFinal]
 
-    # Transform the dataset using k-means
-    dataScaled = dataScaled[~dataScaled['NdotIntervention'].isin(
-                                                                 ['REMOVE',
-                                                                  'REDECK',
-                                                                  'WIDEN - REDECK',
-                                                                  'WIDEN - REHAB',
-                                                                  'WIDEN - OVERLAY'])]
-    counts = Counter(dataScaled['NdotIntervention'])
+    # K-means:
+    kmeans_kwargs = {
+                        "init": "random",
+                        "n_init": 10,
+                        "max_iter": 300,
+                        "random_state": 42,
+                    }
+
+    listOfParameters = ['supNumberIntervention',
+                       'subNumberIntervention',
+                       'deckNumberIntervention'
+                      ]
+
+    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
+
+    # Analysis of Variance:
+    anovaTable =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
+    print("\n ANOVA: \n", anovaTable)
+
+    # Characterizing the clusters:
+    characterize_clusters(dataScaled, listOfParameters)
+
     # Remove columns
-    columnsFinal.remove('NdotIntervention')
+    columnsFinal.remove('supNumberIntervention')
+    columnsFinal.remove('subNumberIntervention')
+    columnsFinal.remove('deckNumberIntervention')
 
     # Modeling features and groundtruth:
-    X, y = dataScaled[columnsFinal], dataScaled['NdotIntervention']
+    X, y = dataScaled[columnsFinal], dataScaled['cluster']
 
     # Oversampling
     oversample = SMOTE()
@@ -149,19 +166,17 @@ def main():
     # Output
     modelOutput = filename + 'ModelSummary.txt'
     kappa, acc = maintenance_pipeline(filename)
+    maintenance_pipeline(filename)
     listOfKappaValues.append(kappa)
     listOfAccValues.append(acc)
 
     sys.stdout = open("OverallOutput.txt", "w")
-
-    #plot_overall_performance(csvfiles,
-    #                         listOfKappaValues,
-    #                         "kappaValues")
-
-    #plot_overall_performance(csvfiles,
-    #                         listOfAccValues,
-    #                         "AccValues")
-
+    plot_overall_performance(csvfiles,
+                             listOfKappaValues,
+                             "kappaValues")
+    plot_overall_performance(csvfiles,
+                             listOfAccValues,
+                             "AccValues")
     sys.stdout.close()
 
 if __name__=="__main__":

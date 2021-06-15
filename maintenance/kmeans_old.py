@@ -34,18 +34,6 @@ from kneed import KneeLocator
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Function for normalizing
-def normalize(df, columns):
-    """
-    Function for normalizing the data
-    """
-    for feature in columns:
-        df[feature] = df[feature].astype(int)
-        maxValue = df[feature].max()
-        minValue = df[feature].min()
-        df[feature] = (df[feature] - minValue) / (maxValue - minValue)
-    return df
-
 # Function to group by
 def drop_duplicate_rows(df):
     """
@@ -81,42 +69,39 @@ def plot_elbow(sse):
         Plot the elbow to find the optimal number of
     clusters
     """
-    filename = "results/" + "OptimalClustersElbow.png"
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
-    plt.title("Optimal Number of Clusters using Elbow Method")
+    plt.title("Elbow")
     plt.plot(range(1, 11), sse)
     plt.xticks(range(1, 11))
     plt.xlabel("Number of Clusters")
     plt.ylabel("SSE")
-    plt.savefig(filename)
+    plt.savefig("Elbow.png")
 
 def plot_silhouette(silhouette):
     """
     Plot silhouette constant for finding optimal number
     of clusters
     """
-    filename = "results/" + "Silhouette.png"
     plt.style.use("fivethirtyeight")
     plt.title("Plotting Silhouette")
     plt.plot(range(2, 11), silhouette)
     plt.xticks(range(2, 12))
     plt.xlabel("Number of Clusters")
     plt.ylabel("Silhouette coefficient")
-    plt.savefig(filename)
+    plt.savefig("Silhouette.png")
 
 def plot_scatter(col1, col2, color=None):
     """
     Scatter plot for maximum number of bridges
     """
-    filename = "results/" + "ScatterPlot.png"
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
     plt.title("Baseline Difference Score Vs. Deterioration Score ")
     plt.scatter(col2, col1)
     plt.xlabel("BaselineDiferenceScore")
     plt.ylabel("DeteriorationScore")
-    plt.savefig(filename)
+    plt.savefig("Scatter.png")
 
 # Plot Scatter plot
 def plot_scatter_Kmeans(df):
@@ -124,7 +109,6 @@ def plot_scatter_Kmeans(df):
     Description:
         Scatter plot for displaying k-means clusters
     """
-    filename = "results/" +  "kmeans.png"
     cluster1 = df[df['cluster'] == 0]
     cluster2 = df[df['cluster'] == 1]
     cluster3 = df[df['cluster'] == 2]
@@ -137,86 +121,20 @@ def plot_scatter_Kmeans(df):
     plt.scatter(cluster3['deck'], cluster3['superstructure'], color='blue')
     plt.xlabel("Column 1")
     plt.ylabel("Column 2")
-    plt.savefig(filename)
+    plt.savefig("kmeans.png")
 
 # Plot boxplot
-def plot_box(dfMelt, name='', x='cluster', y='value'):
+def plot_box(dfMelt):
     """
     Description:
         Scatter plot for distribution bridge features
     """
-    filename = "results/" + name + "featureBoxplot.png"
+    filename = "results/" + "KmeansFeatureBoxplot.png"
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
     plt.title("Box plot")
     sns.boxplot(x='cluster', y='value', data=dfMelt, color='#99c2a2')
     plt.savefig(filename)
-
-# Analysis of the clusters:
-def characterize_clusters(dataScaled,
-                         listOfParameters,
-                         clusterName='cluster',
-                         x=''):
-    """
-    Description:
-        Characterize clusters by distribution of each features
-
-    Args:
-       dataScaled (dataframe)
-       listOfParameters (list)
-
-    Returns:
-    """
-    listOfParameters.append(clusterName)
-    df = dataScaled[listOfParameters]
-    clusters = list(df[clusterName].unique())
-    listOfParameters.remove(clusterName)
-    placeHolder = list(range(0, len(listOfParameters)))
-    for cluster in clusters:
-        tempDf = df[df[clusterName] == cluster]
-        fig = plt.figure(figsize=(10, 7))
-        data = list()
-        minimums = list()
-        maximums = list()
-        means = list()
-        medians = list()
-        stdDevs = list()
-        for parameter in listOfParameters:
-            values = np.array(tempDf[parameter])
-            data.append(values)
-            minVal = min(values)
-            maxVal = max(values)
-            medianVal = np.median(values)
-            meanVal = np.mean(values)
-            stdDevVal = np.mean(values)
-
-            minimums.append(minVal)
-            maximums.append(maxVal)
-            medians.append(medianVal)
-            means.append(meanVal)
-            stdDevs.append(stdDevVal)
-
-        # box plot
-        fig = plt.figure(figsize=(10, 7))
-
-        # Creating axes instance
-        #ax = fig.add_axes([0, 0, 1, 1])
-        ax = fig.add_subplot(111)
-        ax.set_xticklabels(listOfParameters)
-        bp = ax.boxplot(data)
-        plt.xticks(placeHolder, listOfParameters, rotation=45)
-        filename = 'results/' + 'Cluster' + str(cluster)
-        plt.savefig(filename, bbox_inches='tight')
-
-        # Cluster dataframe
-        dataFrame = pd.DataFrame({'mean': means,
-                                  'medians': medians,
-                                  'maximums': maximums,
-                                  'minimums': minimums,
-                                  'stdDev': stdDevs})
-        print("\n Cluster: ", cluster)
-        print("\n")
-        print(dataFrame)
 
 # Confusion matrix
 def print_confusion_matrix(cm):
@@ -372,3 +290,83 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
     # Save cluster as columns
     dataScaled['cluster'] = list(finalKmeans.labels_)
     return dataScaled, lowestCount
+
+# Driver function
+def main():
+
+    # CSVFile
+    csvfilename = "nebraska_data.csv"
+    df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
+
+    # Remove null values
+    df = df.dropna(subset=['deck',
+                           'substructure',
+                           'superstructure']
+                           )
+
+    df = df.dropna(subset=['snowfall'])
+
+    # The size of the dataframe
+    print("\n Size of the dataframe: " , np.size(df))
+    rows = np.size(df)
+
+    # Remove values encoded as N
+    df = df[~df['deck'].isin(['N'])]
+    df = df[~df['substructure'].isin(['N'])]
+    df = df[~df['superstructure'].isin(['N'])]
+    df = df[~df['material'].isin(['N'])]
+
+    # Fill the null values with -1
+    df.snowfall.fillna(value=-1, inplace=True)
+    df.precipitation.fillna(value=-1, inplace=True)
+    df.freezethaw.fillna(value=-1, inplace=True)
+
+    # Select columns for conversion and normalization
+    columnsFinal = [
+                    "deck",
+                    "yearBuilt",
+                    "superstructure",
+                    "substructure",
+                    "averageDailyTraffic",
+                    "avgDailyTruckTraffic",
+                    "deteriorationScore",
+                    "material",
+                    "designLoad",
+                    "wearingSurface",
+                    "structureType"
+                    ]
+
+    dataScaled = normalize(df, columnsFinal)
+    dataScaled = dataScaled[columnsFinal]
+
+    # Plotting score
+    plot_scatter(dataScaled['superstructure'], dataScaled['deck'])
+
+    # Choosing appropriate number of clusters
+    kmeans_kwargs = {
+                         "init":"random",
+                         "n_init": 10,
+                         "max_iter": 300,
+                         "random_state": 42,
+                    }
+
+    # Elbow method
+    listOfParameters = ['deteriorationScore', 'superstructure']
+    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
+
+    # Analysis of variance
+    anovaTable = evaluate_ANOVA(dataScaled, columnsFinal, lowestCount)
+    print("\n ANOVA: \n", anovaTable)
+
+    # Plot Clusters
+    plot_scatter_Kmeans(dataScaled)
+
+    # Multinomal Logistic Regression
+    columnsFinal.remove('superstructure')
+    columnsFinal.remove('substructure')
+    columnsFinal.remove('deck')
+    X, y = dataScaled[columnsFinal], dataScaled['cluster']
+    log_regression(dataScaled, X, y)
+
+if __name__=="__main__":
+    main()
