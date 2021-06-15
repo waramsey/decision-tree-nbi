@@ -1,0 +1,68 @@
+
+ state:  nebraska
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({'REPLACE': 83, 'REPAIR': 83, 'REHAB': 83})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.966643975493533
+
+ Best Accuracy:  0.8637551020408163
+
+ Best Depth:  21
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+       REHAB       0.94      1.00      0.97        15
+      REPAIR       1.00      0.90      0.95        20
+     REPLACE       0.93      1.00      0.97        14
+
+    accuracy                           0.96        49
+   macro avg       0.96      0.97      0.96        49
+weighted avg       0.96      0.96      0.96        49
+
+
+ Confusion Matrix: 
+ [[15  0  0]
+ [ 1 18  1]
+ [ 0  0 14]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.965444287729196
+
+ Best Accuracy:  0.8478367346938775
+
+ Best Depth:  8
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+       REHAB       0.94      1.00      0.97        15
+      REPAIR       0.95      0.95      0.95        20
+     REPLACE       1.00      0.93      0.96        14
+
+    accuracy                           0.96        49
+   macro avg       0.96      0.96      0.96        49
+weighted avg       0.96      0.96      0.96        49
+
+
+ Confusion Matrix: 
+ [[15  0  0]
+ [ 1 19  0]
+ [ 0  1 13]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

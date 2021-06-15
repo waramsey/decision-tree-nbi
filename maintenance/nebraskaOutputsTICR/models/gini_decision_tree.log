@@ -1,0 +1,88 @@
+|--- feature_1 <= 0.42
+|   |--- feature_2 <= 0.60
+|   |   |--- feature_3 <= 0.54
+|   |   |   |--- feature_9 <= 0.28
+|   |   |   |   |--- class: REPLACE
+|   |   |   |--- feature_9 >  0.28
+|   |   |   |   |--- feature_4 <= 0.01
+|   |   |   |   |   |--- class: REPLACE
+|   |   |   |   |--- feature_4 >  0.01
+|   |   |   |   |   |--- class: REPAIR
+|   |   |--- feature_3 >  0.54
+|   |   |   |--- feature_4 <= 0.01
+|   |   |   |   |--- feature_4 <= 0.01
+|   |   |   |   |   |--- feature_5 <= 0.24
+|   |   |   |   |   |   |--- class: REPLACE
+|   |   |   |   |   |--- feature_5 >  0.24
+|   |   |   |   |   |   |--- feature_10 <= 0.25
+|   |   |   |   |   |   |   |--- class: REPAIR
+|   |   |   |   |   |   |--- feature_10 >  0.25
+|   |   |   |   |   |   |   |--- class: REPLACE
+|   |   |   |   |--- feature_4 >  0.01
+|   |   |   |   |   |--- feature_10 <= 0.17
+|   |   |   |   |   |   |--- class: REPAIR
+|   |   |   |   |   |--- feature_10 >  0.17
+|   |   |   |   |   |   |--- class: REHAB
+|   |   |   |--- feature_4 >  0.01
+|   |   |   |   |--- feature_7 <= 3.00
+|   |   |   |   |   |--- feature_0 <= 0.36
+|   |   |   |   |   |   |--- class: REPLACE
+|   |   |   |   |   |--- feature_0 >  0.36
+|   |   |   |   |   |   |--- feature_9 <= 0.06
+|   |   |   |   |   |   |   |--- class: REPAIR
+|   |   |   |   |   |   |--- feature_9 >  0.06
+|   |   |   |   |   |   |   |--- class: REHAB
+|   |   |   |   |--- feature_7 >  3.00
+|   |   |   |   |   |--- class: REPLACE
+|   |--- feature_2 >  0.60
+|   |   |--- feature_4 <= 0.01
+|   |   |   |--- class: REHAB
+|   |   |--- feature_4 >  0.01
+|   |   |   |--- class: REPAIR
+|--- feature_1 >  0.42
+|   |--- feature_1 <= 0.57
+|   |   |--- feature_6 <= 3.50
+|   |   |   |--- feature_5 <= 0.91
+|   |   |   |   |--- feature_1 <= 0.47
+|   |   |   |   |   |--- feature_0 <= 0.47
+|   |   |   |   |   |   |--- feature_4 <= 0.01
+|   |   |   |   |   |   |   |--- class: REHAB
+|   |   |   |   |   |   |--- feature_4 >  0.01
+|   |   |   |   |   |   |   |--- class: REPAIR
+|   |   |   |   |   |--- feature_0 >  0.47
+|   |   |   |   |   |   |--- class: REPAIR
+|   |   |   |   |--- feature_1 >  0.47
+|   |   |   |   |   |--- class: REHAB
+|   |   |   |--- feature_5 >  0.91
+|   |   |   |   |--- feature_4 <= 0.03
+|   |   |   |   |   |--- class: REPAIR
+|   |   |   |   |--- feature_4 >  0.03
+|   |   |   |   |   |--- class: REPLACE
+|   |   |--- feature_6 >  3.50
+|   |   |   |--- feature_7 <= 4.50
+|   |   |   |   |--- feature_0 <= 0.29
+|   |   |   |   |   |--- class: REHAB
+|   |   |   |   |--- feature_0 >  0.29
+|   |   |   |   |   |--- feature_5 <= 0.24
+|   |   |   |   |   |   |--- class: REPLACE
+|   |   |   |   |   |--- feature_5 >  0.24
+|   |   |   |   |   |   |--- class: REPAIR
+|   |   |   |--- feature_7 >  4.50
+|   |   |   |   |--- feature_3 <= 0.42
+|   |   |   |   |   |--- class: REPLACE
+|   |   |   |   |--- feature_3 >  0.42
+|   |   |   |   |   |--- class: REPAIR
+|   |--- feature_1 >  0.57
+|   |   |--- feature_3 <= 0.65
+|   |   |   |--- feature_2 <= 0.68
+|   |   |   |   |--- class: REHAB
+|   |   |   |--- feature_2 >  0.68
+|   |   |   |   |--- class: REPAIR
+|   |   |--- feature_3 >  0.65
+|   |   |   |--- feature_1 <= 0.97
+|   |   |   |   |--- class: REPAIR
+|   |   |   |--- feature_1 >  0.97
+|   |   |   |   |--- feature_7 <= 7.00
+|   |   |   |   |   |--- class: REPLACE
+|   |   |   |   |--- feature_7 >  7.00
+|   |   |   |   |   |--- class: REPAIR

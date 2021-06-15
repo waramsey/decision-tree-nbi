@@ -35,7 +35,7 @@ def maintenance_pipeline(state):
 
     # Creating directory
     csvfilename = state + '.csv'
-    directory = state + 'Outputs'
+    directory = state + 'OutputsTICR'
 
     # Create a state folder/ Change directory and then come out
     print("\n State: ", state)
@@ -54,7 +54,6 @@ def maintenance_pipeline(state):
     print("\n state: ", state)
     resultsFolder = 'results'
     modelsFolder = 'models'
-
     os.mkdir(resultsFolder)
     os.mkdir(modelsFolder)
 
