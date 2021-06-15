@@ -159,21 +159,31 @@ def maintenance_pipeline(state):
 # Driver function
 def main():
     # States
+    csvfiles = [
+                "nebraska",
+                "kansas",
+                "indiana",
+                "illinois",
+                "ohio",
+                "wisconsin",
+                "missouri",
+                "minnesota"
+                ]
+
     filename = "nebraska"
     listOfKappaValues = list()
     listOfAccValues = list()
 
-    # Output
-    modelOutput = filename + 'ModelSummary.txt'
-    kappa, acc = maintenance_pipeline(filename)
-    maintenance_pipeline(filename)
-    listOfKappaValues.append(kappa)
-    listOfAccValues.append(acc)
+    for filename in csvfiles:
+        # Output
+         kappa, acc = maintenance_pipeline(filename)
+         listOfKappaValues.append(kappa)
+         listOfAccValues.append(acc)
 
     sys.stdout = open("OverallOutput.txt", "w")
     plot_overall_performance(csvfiles,
                              listOfKappaValues,
-                             "kappaValues")
+                             "KappaValues")
     plot_overall_performance(csvfiles,
                              listOfAccValues,
                              "AccValues")

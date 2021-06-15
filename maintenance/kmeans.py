@@ -209,11 +209,14 @@ def characterize_clusters(dataScaled,
         plt.savefig(filename, bbox_inches='tight')
 
         # Cluster dataframe
-        dataFrame = pd.DataFrame({'mean': means,
+        dataFrame = pd.DataFrame({'parameter': listOfParameters,
+                                  'mean': means,
                                   'medians': medians,
                                   'maximums': maximums,
                                   'minimums': minimums,
                                   'stdDev': stdDevs})
+
+        dataframe = dataframe.set_index("parameter")
         print("\n Cluster: ", cluster)
         print("\n")
         print(dataFrame)
