@@ -1,0 +1,14 @@
+
+KappaValues Table: 
+       state      gini   entropy
+0       ohio  0.494135  0.501956
+1  wisconsin  0.837790  0.851501
+2   missouri  0.864772  0.858151
+3  minnesota  0.922925  0.943093
+
+AccValues Table: 
+       state      gini   entropy
+0       ohio  0.727345  0.732394
+1  wisconsin  0.880614  0.888859
+2   missouri  0.934876  0.935265
+3  minnesota  0.922795  0.931532

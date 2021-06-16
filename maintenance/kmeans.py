@@ -216,7 +216,7 @@ def characterize_clusters(dataScaled,
                                   'minimums': minimums,
                                   'stdDev': stdDevs})
 
-        dataframe = dataframe.set_index("parameter")
+        dataFrame = dataFrame.set_index("parameter")
         print("\n Cluster: ", cluster)
         print("\n")
         print(dataFrame)

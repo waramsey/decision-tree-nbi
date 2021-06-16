@@ -1,0 +1,118 @@
+
+ state:  ohio
+
+ Optimal number of cluster (Elbow Coefficient):  4
+
+ Number of members in cluster: Counter({0: 17082, 3: 5560, 2: 2340, 1: 748})
+
+ ANOVA: 
+                 Attribute      sum_sq   df            F  p-value
+0   supNumberIntervention   57.129240  3.0  1420.183353      0.0
+1   subNumberIntervention   55.100831  3.0  1518.791465      0.0
+2  deckNumberIntervention  151.062092  3.0  5042.275411      0.0
+
+ Cluster:  0
+
+
+                            mean  medians  maximums  minimums    stdDev
+parameter                                                              
+supNumberIntervention   0.012806      0.0       0.5       0.0  0.012806
+subNumberIntervention   0.000000      0.0       0.0       0.0  0.000000
+deckNumberIntervention  0.000000      0.0       0.0       0.0  0.000000
+
+ Cluster:  3
+
+
+                            mean   medians  maximums  minimums    stdDev
+parameter                                                               
+supNumberIntervention   0.129991  0.250000       0.5  0.000000  0.129991
+subNumberIntervention   0.112095  0.000000       0.5  0.000000  0.112095
+deckNumberIntervention  0.346523  0.333333       1.0  0.333333  0.346523
+
+ Cluster:  2
+
+
+                            mean  medians  maximums  minimums    stdDev
+parameter                                                              
+supNumberIntervention   0.061645     0.00      0.50      0.00  0.061645
+subNumberIntervention   0.263141     0.25      0.75      0.25  0.263141
+deckNumberIntervention  0.000000     0.00      0.00      0.00  0.000000
+
+ Cluster:  1
+
+
+                            mean   medians  maximums  minimums    stdDev
+parameter                                                               
+supNumberIntervention   0.376337  0.250000       1.0  0.000000  0.376337
+subNumberIntervention   0.363302  0.250000       1.0  0.000000  0.363302
+deckNumberIntervention  0.527629  0.666667       1.0  0.333333  0.527629
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({0: 17082, 3: 17082, 2: 17082, 1: 17082})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.5019555064586428
+
+ Best Accuracy:  0.7323938620550097
+
+ Best Depth:  26
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.69      0.69      0.69      3408
+           1       0.87      0.88      0.88      3473
+           2       0.74      0.76      0.75      3422
+           3       0.65      0.62      0.63      3362
+
+    accuracy                           0.74     13665
+   macro avg       0.74      0.74      0.74     13665
+weighted avg       0.74      0.74      0.74     13665
+
+
+ Confusion Matrix: 
+ [[2336  101  351  620]
+ [  95 3067  142  169]
+ [ 316  154 2604  348]
+ [ 628  215  437 2082]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.49413507688329705
+
+ Best Accuracy:  0.7273445643167837
+
+ Best Depth:  27
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.69      0.66      0.68      3408
+           1       0.86      0.89      0.87      3473
+           2       0.73      0.75      0.74      3422
+           3       0.65      0.63      0.64      3362
+
+    accuracy                           0.73     13665
+   macro avg       0.73      0.73      0.73     13665
+weighted avg       0.73      0.73      0.73     13665
+
+
+ Confusion Matrix: 
+ [[2259  108  410  631]
+ [  85 3079  164  145]
+ [ 325  183 2557  357]
+ [ 614  228  392 2128]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

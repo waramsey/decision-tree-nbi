@@ -66,6 +66,8 @@ def maintenance_pipeline(state):
                            ]
                            )
 
+    df = remove_duplicates(df)
+
     # Remove values encoded as N
     df = df[~df['deck'].isin(['N'])]
     df = df[~df['substructure'].isin(['N'])]
@@ -160,10 +162,10 @@ def maintenance_pipeline(state):
 def main():
     # States
     csvfiles = [
-                "nebraska",
-                "kansas",
-                "indiana",
-                "illinois",
+                #"nebraska",
+                #"kansas",
+                #"indiana",
+                #"illinois", # [X]
                 "ohio",
                 "wisconsin",
                 "missouri",
