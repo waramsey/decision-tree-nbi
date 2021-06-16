@@ -56,7 +56,7 @@ def maintenance_pipeline(state):
     os.mkdir(resultsFolder)
     os.mkdir(modelsFolder)
 
-    # Remove null values
+    # Remove null values:
     df = df.dropna(subset=['deck',
                            'substructure',
                            'superstructure',
@@ -68,19 +68,18 @@ def maintenance_pipeline(state):
 
     df = remove_duplicates(df)
 
-    # Remove values encoded as N
+    # Remove values encoded as N:
     df = df[~df['deck'].isin(['N'])]
     df = df[~df['substructure'].isin(['N'])]
     df = df[~df['superstructure'].isin(['N'])]
     df = df[~df['material'].isin(['N'])]
 
-    # Fill the null values with -1
+    # Fill the null values with -1:
     df.snowfall.fillna(value=-1, inplace=True)
     df.precipitation.fillna(value=-1, inplace=True)
     df.freezethaw.fillna(value=-1, inplace=True)
 
-    # features that has to be normalized
-    # TODO:
+    # Normalize features:
     columnsNormalize = [
                         "deck",
                         "yearBuilt",
@@ -93,6 +92,7 @@ def maintenance_pipeline(state):
                         "deckNumberIntervention"
                       ]
 
+    # Select final columns:
     columnsFinal = [
                     "deck",
                     "yearBuilt",
@@ -134,7 +134,18 @@ def maintenance_pipeline(state):
     # Characterizing the clusters:
     characterize_clusters(dataScaled, listOfParameters)
 
+    # Remove clusters with less than 15 members:
+    clusters = Counter(dataScaled['cluster'])
+
     # Remove columns
+    listOfClusters = list()
+    for cluster in clusters.keys():
+        numOfMembers = clusters[cluster]
+        if numOfMembers < 15:
+            listOfClusters.append(cluster)
+
+
+    dataScaled = dataScaled[~dataScaled['cluster'].isin(listOfClusters)]
     columnsFinal.remove('supNumberIntervention')
     columnsFinal.remove('subNumberIntervention')
     columnsFinal.remove('deckNumberIntervention')
@@ -162,9 +173,9 @@ def maintenance_pipeline(state):
 def main():
     # States
     csvfiles = [
-                #"nebraska",
-                #"kansas",
-                #"indiana",
+                "nebraska",
+                "kansas",
+                "indiana",
                 #"illinois", # [X]
                 "ohio",
                 "wisconsin",

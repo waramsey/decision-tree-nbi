@@ -7,9 +7,9 @@
 
  ANOVA: 
                  Attribute     sum_sq   df            F  p-value
-0   supNumberIntervention  67.909246  3.0  3430.630666      0.0
-1   subNumberIntervention  69.792849  3.0  2595.148631      0.0
-2  deckNumberIntervention  58.012871  3.0  1631.661213      0.0
+0   supNumberIntervention  68.236669  3.0  3361.650338      0.0
+1   subNumberIntervention  69.562122  3.0  2772.285683      0.0
+2  deckNumberIntervention  57.174678  3.0  1480.492945      0.0
 
  Cluster:  2
 
@@ -23,29 +23,35 @@ deckNumberIntervention   0.0      0.0       0.0       0.0     0.0
  Cluster:  1
 
 
-                            mean   medians  maximums  minimums    stdDev
-parameter                                                               
-supNumberIntervention   0.001182  0.000000  0.333333  0.000000  0.001182
-subNumberIntervention   0.343972  0.333333  1.000000  0.333333  0.343972
-deckNumberIntervention  0.060678  0.000000  0.666667  0.000000  0.060678
+                            mean   medians  ...  minimums    stdDev
+parameter                                   ...                    
+supNumberIntervention   0.001182  0.000000  ...  0.000000  0.001182
+subNumberIntervention   0.343972  0.333333  ...  0.333333  0.343972
+deckNumberIntervention  0.060678  0.000000  ...  0.000000  0.060678
+
+[3 rows x 5 columns]
 
  Cluster:  3
 
 
-                            mean   medians  maximums  minimums    stdDev
-parameter                                                               
-supNumberIntervention   0.087545  0.000000  0.333333  0.000000  0.087545
-subNumberIntervention   0.004955  0.000000  0.333333  0.000000  0.004955
-deckNumberIntervention  0.344566  0.333333  0.666667  0.333333  0.344566
+                            mean   medians  ...  minimums    stdDev
+parameter                                   ...                    
+supNumberIntervention   0.087545  0.000000  ...  0.000000  0.087545
+subNumberIntervention   0.004955  0.000000  ...  0.000000  0.004955
+deckNumberIntervention  0.344566  0.333333  ...  0.333333  0.344566
+
+[3 rows x 5 columns]
 
  Cluster:  0
 
 
-                            mean   medians  maximums  minimums    stdDev
-parameter                                                               
-supNumberIntervention   0.348095  0.333333       1.0  0.333333  0.348095
-subNumberIntervention   0.195331  0.333333       1.0  0.000000  0.195331
-deckNumberIntervention  0.143838  0.000000       1.0  0.000000  0.143838
+                            mean   medians  ...  minimums    stdDev
+parameter                                   ...                    
+supNumberIntervention   0.348095  0.333333  ...  0.333333  0.348095
+subNumberIntervention   0.195331  0.333333  ...  0.000000  0.195331
+deckNumberIntervention  0.143838  0.000000  ...  0.000000  0.143838
+
+[3 rows x 5 columns]
 
  Oversampling (SMOTE) ...
 
@@ -56,49 +62,49 @@ deckNumberIntervention  0.143838  0.000000       1.0  0.000000  0.143838
             
 
 
- Best Kappa Values:  0.7955323927051704
+ Best Kappa Values:  0.8029539973293807
 
- Best Accuracy:  0.8427918730907535
+ Best Accuracy:  0.8423965792541914
 
- Best Depth:  27
+ Best Depth:  24
 
  Classification Report: 
                precision    recall  f1-score   support
 
            0       0.84      0.85      0.84      2910
-           1       0.85      0.87      0.86      2924
-           2       0.83      0.79      0.81      2902
-           3       0.85      0.86      0.85      2900
+           1       0.86      0.87      0.86      2924
+           2       0.83      0.80      0.82      2902
+           3       0.85      0.86      0.86      2900
 
-    accuracy                           0.84     11636
-   macro avg       0.84      0.84      0.84     11636
-weighted avg       0.84      0.84      0.84     11636
+    accuracy                           0.85     11636
+   macro avg       0.85      0.85      0.85     11636
+weighted avg       0.85      0.85      0.85     11636
 
 
  Confusion Matrix: 
- [[2470  123  172  145]
- [ 125 2553  147   99]
- [ 202  200 2305  195]
- [ 148  126  142 2484]]
+ [[2477  140  175  118]
+ [ 123 2551  143  107]
+ [ 205  181 2315  201]
+ [ 155  104  145 2496]]
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.7796884047660061
+ Best Kappa Values:  0.7982272146230895
 
- Best Accuracy:  0.8347827632686048
+ Best Accuracy:  0.8388904456639281
 
- Best Depth:  28
+ Best Depth:  30
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.83      0.82      0.83      2910
-           1       0.86      0.86      0.86      2924
-           2       0.82      0.81      0.81      2902
-           3       0.83      0.85      0.84      2900
+           0       0.84      0.84      0.84      2910
+           1       0.85      0.86      0.86      2924
+           2       0.81      0.80      0.81      2902
+           3       0.86      0.85      0.85      2900
 
     accuracy                           0.84     11636
    macro avg       0.84      0.84      0.84     11636
@@ -106,10 +112,10 @@ weighted avg       0.84      0.84      0.84     11636
 
 
  Confusion Matrix: 
- [[2396  140  211  163]
- [ 134 2501  165  124]
- [ 185  160 2347  210]
- [ 163  112  149 2476]]
+ [[2440  145  184  141]
+ [ 130 2524  177   93]
+ [ 194  188 2336  184]
+ [ 139  114  173 2474]]
 
  Saving decision trees 
 

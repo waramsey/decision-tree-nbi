@@ -6,63 +6,141 @@
  Number of members in cluster: Counter({0: 20443, 5: 623, 4: 450, 2: 10, 3: 4, 1: 3})
 
  ANOVA: 
-                 Attribute    sum_sq   df          F   p-value
-0   supNumberIntervention  2.777778  5.0  13.333333  0.000150
-1   subNumberIntervention  2.666667  5.0  19.200000  0.000024
-2  deckNumberIntervention  1.444444  5.0  20.800000  0.000016
+                 Attribute  ...        p-value
+0   supNumberIntervention  ...   3.014374e-04
+1   subNumberIntervention  ...  2.340875e-181
+2  deckNumberIntervention  ...   1.827188e-04
+
+[3 rows x 5 columns]
 
  Cluster:  1
 
 
-                            mean  medians  maximums  minimums    stdDev
-parameter                                                              
-supNumberIntervention   0.666667      0.5       1.0       0.5  0.666667
-subNumberIntervention   1.000000      1.0       1.0       1.0  1.000000
-deckNumberIntervention  0.000000      0.0       0.0       0.0  0.000000
+                            mean  ...    stdDev
+parameter                         ...          
+supNumberIntervention   0.666667  ...  0.666667
+subNumberIntervention   1.000000  ...  1.000000
+deckNumberIntervention  0.000000  ...  0.000000
+
+[3 rows x 5 columns]
 
  Cluster:  0
 
 
-                            mean  medians  maximums  minimums    stdDev
-parameter                                                              
-supNumberIntervention   0.004256      0.0       0.5       0.0  0.004256
-subNumberIntervention   0.000000      0.0       0.0       0.0  0.000000
-deckNumberIntervention  0.000000      0.0       0.0       0.0  0.000000
+                            mean  ...    stdDev
+parameter                         ...          
+supNumberIntervention   0.004256  ...  0.004256
+subNumberIntervention   0.000000  ...  0.000000
+deckNumberIntervention  0.000000  ...  0.000000
+
+[3 rows x 5 columns]
 
  Cluster:  2
 
 
-                        mean  medians  maximums  minimums  stdDev
-parameter                                                        
-supNumberIntervention    0.1      0.0       0.5       0.0     0.1
-subNumberIntervention    1.0      1.0       1.0       1.0     1.0
-deckNumberIntervention   0.3      0.5       0.5       0.0     0.3
+                        mean  ...  stdDev
+parameter                     ...        
+supNumberIntervention    0.1  ...     0.1
+subNumberIntervention    1.0  ...     1.0
+deckNumberIntervention   0.3  ...     0.3
+
+[3 rows x 5 columns]
 
  Cluster:  5
 
 
-                            mean  medians  maximums  minimums    stdDev
-parameter                                                              
-supNumberIntervention   0.237560      0.0       0.5       0.0  0.237560
-subNumberIntervention   0.180578      0.0       0.5       0.0  0.180578
-deckNumberIntervention  0.500803      0.5       1.0       0.5  0.500803
+                            mean  ...    stdDev
+parameter                         ...          
+supNumberIntervention   0.237560  ...  0.237560
+subNumberIntervention   0.180578  ...  0.180578
+deckNumberIntervention  0.500803  ...  0.500803
+
+[3 rows x 5 columns]
 
  Cluster:  4
 
 
-                            mean  medians  maximums  minimums    stdDev
-parameter                                                              
-supNumberIntervention   0.045556      0.0       0.5       0.0  0.045556
-subNumberIntervention   0.500000      0.5       0.5       0.5  0.500000
-deckNumberIntervention  0.000000      0.0       0.0       0.0  0.000000
+                            mean  ...    stdDev
+parameter                         ...          
+supNumberIntervention   0.045556  ...  0.045556
+subNumberIntervention   0.500000  ...  0.500000
+deckNumberIntervention  0.000000  ...  0.000000
+
+[3 rows x 5 columns]
 
  Cluster:  3
 
 
-                         mean  medians  maximums  minimums  stdDev
-parameter                                                         
-supNumberIntervention   1.000     1.00       1.0       1.0   1.000
-subNumberIntervention   0.125     0.00       0.5       0.0   0.125
-deckNumberIntervention  0.750     0.75       1.0       0.5   0.750
+                         mean  ...  stdDev
+parameter                      ...        
+supNumberIntervention   1.000  ...   1.000
+subNumberIntervention   0.125  ...   0.125
+deckNumberIntervention  0.750  ...   0.750
+
+[3 rows x 5 columns]
 
  Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({0: 20443, 5: 20443, 4: 20443})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.9029593579394429
+
+ Best Accuracy:  0.9462897004695947
+
+ Best Depth:  24
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.93      0.94      0.93      3998
+           4       0.96      0.96      0.96      4156
+           5       0.95      0.95      0.95      4111
+
+    accuracy                           0.95     12265
+   macro avg       0.95      0.95      0.95     12265
+weighted avg       0.95      0.95      0.95     12265
+
+
+ Confusion Matrix: 
+ [[3747  102  149]
+ [ 120 3978   58]
+ [ 162   52 3897]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.9041972076168681
+
+ Best Accuracy:  0.9422296732791381
+
+ Best Depth:  25
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.93      0.93      0.93      3998
+           4       0.95      0.96      0.95      4156
+           5       0.95      0.95      0.95      4111
+
+    accuracy                           0.95     12265
+   macro avg       0.95      0.95      0.95     12265
+weighted avg       0.95      0.95      0.95     12265
+
+
+ Confusion Matrix: 
+ [[3720  119  159]
+ [ 126 3970   60]
+ [ 135   72 3904]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

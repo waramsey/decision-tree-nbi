@@ -146,10 +146,11 @@ def deterioration_pipeline(state):
 
     # Transform the dataset
     #X, y = dataScaled[columnsFinal], dataScaled['label']
+
+    # Remove cluster with less than 15 members:
     counts = Counter(dataScaled['cluster'])
     numOfMembers = min(counts.values())
 
-    # TODO: only if the number of members are low than 15
     indexes = list(counts.keys())
     vals = list(counts.values())
     minimum = vals.index(numOfMembers)
