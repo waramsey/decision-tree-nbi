@@ -8,14 +8,10 @@ author: Akshay Kale
 data: May 27th, 2020
 
 TODO:
-        1. Create pipeline for deterioration and maintenance
+        1. Create for deterioration and maintenance
+        2. Monotonously decreasing condition ratings must have negative deterioration score
         3. Import precipitation and snowfall data into mongodb
         4. Investigate snowfall and freezethaw data for Nebraska
-        5. Create a gaint for loop
-            # 1. Compute deterioration
-            # 2. Intervention
-            # 3. Scores
-
 
 NOTES:
 """
@@ -85,6 +81,11 @@ def main():
     individualRecords = remove_records(individualRecords, 2010, 2017)
 
     # compute intervention from (year: from and to) 
+    # Create a gaint for loop
+        # 1. Compute deterioration
+        # 2. Intervention
+        # 3. Scores
+
     groupedRecords = compute_intervention(groupedRecords, from_to_matrix)
     groupedRecords = compute_intervention(groupedRecords, from_to_matrix, component='substructure')
     groupedRecords = compute_intervention(groupedRecords, from_to_matrix, component='superstructure')

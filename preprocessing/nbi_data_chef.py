@@ -1,9 +1,10 @@
 """ -------------------------------------------------
 description: functions to query NBI mongodb
 author: Akshay Kale
-date: Nov 28, 2020
+Data: Nov 28, 2020
 
 # Todo:
+    1. Computation of the deterioration slope [Done]
     2. Compuation of the baseline difference score
 -------------------------------------------------"""
 
@@ -180,6 +181,7 @@ def divide_record_utility(fields, record, startIndex, endIndex):
             value = record[field]
             # update:
             record[field] = value
+        #record[field] = value
     # Need to fix this line
     record['deck 2'] = record['deck'][endIndex-1:]
     return record
@@ -217,8 +219,7 @@ def divide_grouped_records(groupedRecords, fields, fr, to):
 
 def compute_intervention_utility(conditionRatings, interventionMap):
     """
-    Description:
-        A utility function for computing possible intervention
+    Description: A utility function for computing possible intervention
     by taking into consideration changes in condition rating. The function
     implemented is based on Bridge Intervention Matrix by Tariq et al.
 
@@ -260,7 +261,7 @@ def compute_intervention(groupedRecords, interventionMap, component='deck'):
 
 def compute_intervention_deck(groupedRecords, interventionMap, component='deck 2'):
     """
-    *What is the difference between the compute intervention deck
+    What is the difference between the compute intervention deck
     and compute intervention?
     """
     updatedGroupedRecords = defaultdict()
@@ -276,8 +277,7 @@ def compute_intervention_deck(groupedRecords, interventionMap, component='deck 2
 
 def split_condition_ratings(conditionRatings, ages):
     """
-    Description:
-        A utility function for computing possible
+    Description: A utility function for computing possible
     monotonous deteriorating condition ratings.
     The splitting criteria is condition ratings
 
@@ -319,8 +319,7 @@ def split_condition_ratings(conditionRatings, ages):
 
 def compute_age(yearBuilts, years):
     """
-    Description:
-        Compute ages from the list of yearBuilt
+    Description: compute ages from the list of yearBuilt
 
     Args:
         years (list)
@@ -336,9 +335,8 @@ def compute_age(yearBuilts, years):
 
 def compute_det_score_utility(splitConditionRatings, splitAges):
     """
-    Description:
-        A utility function for computing possible
-        monotonous deteriorating condition ratings.
+    Description: A utility function for computing possible
+    monotonous deteriorating condition ratings.
 
     Args:
         splitConditionRatings (list)
@@ -376,8 +374,7 @@ def compute_det_score_utility(splitConditionRatings, splitAges):
 
 def compute_deterioration_slope(groupedRecords, component='deck'):
     """
-    Description:
-        For each of the records split the condition ratings.
+    Description: For each of the records split the condition ratings
         into monotonously decreasing segements, by age
         Compute average deterioration slope or score for each segement
 
@@ -404,8 +401,7 @@ def compute_deterioration_slope(groupedRecords, component='deck'):
 
 def clean_individual_records(records):
     """
-    Should be named convert dictionary as opposed
-    to clean individual records list
+    Should be named convert dictionary into list
 
     Description: Convert list of dictionaries to
         individual lists for records and header.
@@ -444,12 +440,10 @@ def remove_records(individualRecords, yearFirst, yearSecond):
 
 
 def clean_grouped_records(groupedrecords):
-    """
-    Description:
-        Not all the fields are covered in the redudant fields.
-            - Try with temp field
-            - Keep a track of groupedrecords fields
-    """
+    # todo:
+        # not all the fields are covered in the redudant fields
+            # try with temp field
+            # keep a track of groupedrecords fields
     redundantfields = ['structurenumber',
                        'yearbuilt',
                        'statecode',
@@ -491,8 +485,7 @@ def create_deterioration_dict(groupedRecords,
                               initYear,
                               column='deckDeteriorationScore'):
     """
-    Description:
-        Creates a dictionary of structure number and deterioration.
+    Description: Creates a dictionary of structure number and deterioration
     This function is incomplete, because it contains a lot
     dependency and hard coding
 
@@ -502,6 +495,7 @@ def create_deterioration_dict(groupedRecords,
     dictionary = defaultdict()
     for key, value in zip(groupedRecords.keys(), groupedRecords.values()):
         years = value['year']
+        #print("\n Printing : ", column)
         if years[0] == initYear:
             # Replace the year with from variable
             structureNumber = key
