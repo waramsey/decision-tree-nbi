@@ -174,13 +174,13 @@ def main():
     # States
     csvfiles = [
                 "nebraska",
-                #"kansas",
-                #"indiana",
-                ##"illinois", # [X]
-                #"ohio",
-                #"wisconsin",
-                #"missouri",
-                #"minnesota"
+                "kansas",
+                "indiana",
+                "illinois",
+                "ohio",
+                "wisconsin",
+                "missouri",
+                "minnesota"
                 ]
 
     listOfKappaValues = list()

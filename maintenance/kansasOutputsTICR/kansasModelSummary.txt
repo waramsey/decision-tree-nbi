@@ -7,9 +7,9 @@
 
  ANOVA: 
                  Attribute     sum_sq   df            F  p-value
-0   supNumberIntervention  68.236669  3.0  3361.650338      0.0
-1   subNumberIntervention  69.562122  3.0  2772.285683      0.0
-2  deckNumberIntervention  57.174678  3.0  1480.492945      0.0
+0   supNumberIntervention  68.020095  3.0  3527.039132      0.0
+1   subNumberIntervention  69.660724  3.0  2507.207360      0.0
+2  deckNumberIntervention  56.058445  3.0  1532.847155      0.0
 
  Cluster:  2
 
@@ -62,49 +62,19 @@ deckNumberIntervention  0.143838  0.000000  ...  0.000000  0.143838
             
 
 
- Best Kappa Values:  0.8029539973293807
+ Best Kappa Values:  0.7914214523806395
 
- Best Accuracy:  0.8423965792541914
+ Best Accuracy:  0.8421559112860371
 
- Best Depth:  24
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-           0       0.84      0.85      0.84      2910
-           1       0.86      0.87      0.86      2924
-           2       0.83      0.80      0.82      2902
-           3       0.85      0.86      0.86      2900
-
-    accuracy                           0.85     11636
-   macro avg       0.85      0.85      0.85     11636
-weighted avg       0.85      0.85      0.85     11636
-
-
- Confusion Matrix: 
- [[2477  140  175  118]
- [ 123 2551  143  107]
- [ 205  181 2315  201]
- [ 155  104  145 2496]]
-
-
-             ----------- Performance with GiniIndex ------------
-             
-
-
- Best Kappa Values:  0.7982272146230895
-
- Best Accuracy:  0.8388904456639281
-
- Best Depth:  30
+ Best Depth:  25
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.84      0.84      0.84      2910
+           0       0.83      0.84      0.84      2910
            1       0.85      0.86      0.86      2924
-           2       0.81      0.80      0.81      2902
-           3       0.86      0.85      0.85      2900
+           2       0.83      0.80      0.82      2902
+           3       0.85      0.86      0.85      2900
 
     accuracy                           0.84     11636
    macro avg       0.84      0.84      0.84     11636
@@ -112,10 +82,46 @@ weighted avg       0.84      0.84      0.84     11636
 
 
  Confusion Matrix: 
- [[2440  145  184  141]
- [ 130 2524  177   93]
- [ 194  188 2336  184]
- [ 139  114  173 2474]]
+ [[2450  124  174  162]
+ [ 151 2523  165   85]
+ [ 181  192 2326  203]
+ [ 160  115  137 2488]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'designLoad': 0.04985398734472559, 'material': 0.07442389166926577, 'avgDailyTruckTraffic': 0.09817901447255564, 'deck': 0.13276815272450504, 'substructure': 0.13660463159437214, 'superstructure': 0.14431722814598577, 'averageDailyTraffic': 0.16687639706582139, 'yearBuilt': 0.1969766969827686}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.7937179585488042
+
+ Best Accuracy:  0.8352812961041364
+
+ Best Depth:  26
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.83      0.84      0.84      2910
+           1       0.85      0.86      0.86      2924
+           2       0.83      0.80      0.82      2902
+           3       0.84      0.86      0.85      2900
+
+    accuracy                           0.84     11636
+   macro avg       0.84      0.84      0.84     11636
+weighted avg       0.84      0.84      0.84     11636
+
+
+ Confusion Matrix: 
+ [[2439  139  182  150]
+ [ 146 2522  148  108]
+ [ 186  182 2332  202]
+ [ 150  117  134 2499]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'designLoad': 0.047646702865147245, 'material': 0.07143383057782918, 'avgDailyTruckTraffic': 0.1019886617462584, 'superstructure': 0.12805639282860742, 'deck': 0.1371906279158355, 'substructure': 0.14332790297913986, 'averageDailyTraffic': 0.1745936545426588, 'yearBuilt': 0.19576222654452358}
 
  Saving decision trees 
 

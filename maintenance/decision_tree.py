@@ -6,9 +6,7 @@ Author: Akshay Kale
 Date: May 11th, 2021
 
 TODO:
-    2. Create Random forest model
     3. Complexity Parameters
-    4. Select the important variables
 -----------------------------------------------"""
 # Data structures
 import pandas as pd
@@ -25,6 +23,7 @@ from sklearn.model_selection import KFold
 # Model
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 # Metrics and stats
 from sklearn.metrics import classification_report
@@ -301,6 +300,35 @@ def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7
         model: Decision Tree Model
     """
     model = DecisionTreeClassifier(criterion=criteria, max_depth=maxDepth)
+    model.fit(trainX, trainy)
+    prediction = model.predict(testX)
+    acc = accuracy_score(testy, prediction)
+    cm = confusion_matrix(testy, prediction)
+    cr = classification_report(testy, prediction, zero_division=0)
+    fi = dict(zip(cols, model.feature_importances_))
+    #rocAuc = roc_auc_score(testy, prediction, multi_class='ovr')
+    kappa = cohen_kappa_score(prediction, testy, weights='quadratic')
+    return acc, cm, cr, kappa, model, fi# rocAuc
+
+def rf_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7):
+    """
+    Description:
+        Performs the modeling and returns performance metrics
+
+    Args:
+        trainX: Features of Training Set
+        trainy: Ground truth of Training Set
+        testX: Features of Testing Set
+        testy: Ground truth of Testing Set
+
+    Return:
+        acc: Accuracy
+        cm: Confusion Report
+        cr: Classification Report
+        kappa: Kappa Value
+        model: Decision Tree Model
+    """
+    model = RandomForestClassifier(criterion=criteria, max_depth=maxDepth)
     model.fit(trainX, trainy)
     prediction = model.predict(testX)
     acc = accuracy_score(testy, prediction)

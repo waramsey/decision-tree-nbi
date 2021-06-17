@@ -7,9 +7,9 @@
 
  ANOVA: 
                  Attribute     sum_sq   df           F       p-value
-0   supNumberIntervention  14.593750  5.0  129.323077  1.607573e-39
-1   subNumberIntervention  15.804687  5.0  164.027027  1.227118e-43
-2  deckNumberIntervention   6.989583  5.0   42.378947  3.139254e-22
+0   supNumberIntervention  14.242187  5.0  118.035971  5.708969e-38
+1   subNumberIntervention  15.388021  5.0  154.147826  1.497667e-42
+2  deckNumberIntervention   7.875000  5.0   56.000000  3.705348e-26
 
  Cluster:  0
 
@@ -84,19 +84,56 @@ deckNumberIntervention  0.125000      0.0  ...       0.0  0.125000
             
 
 
- Best Kappa Values:  0.8687977784086182
+ Best Kappa Values:  0.8709721974646388
 
- Best Accuracy:  0.9359549880860205
+ Best Accuracy:  0.937616634656653
 
- Best Depth:  27
+ Best Depth:  22
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.87      0.86      0.87      3408
-           1       1.00      1.00      1.00      3400
+           0       0.86      0.86      0.86      3408
+           1       0.99      1.00      1.00      3400
            2       0.88      0.88      0.88      3509
-           3       1.00      1.00      1.00      3351
+           3       0.99      1.00      1.00      3351
+           4       0.99      1.00      0.99      3452
+           5       0.90      0.89      0.89      3462
+
+    accuracy                           0.94     20582
+   macro avg       0.94      0.94      0.94     20582
+weighted avg       0.94      0.94      0.94     20582
+
+
+ Confusion Matrix: 
+ [[2927    3  261    7    8  202]
+ [   3 3394    2    0    0    1]
+ [ 258    8 3088    0   20  135]
+ [   3    0    2 3343    0    3]
+ [   5    0    5    0 3438    4]
+ [ 204    8  155   14    4 3077]]
+
+ Feature Importance: 
+ {'snowfall': 9.088987834374183e-05, 'freezethaw': 0.0001516193419164725, 'avgDailyTruckTraffic': 0.047146170246472954, 'material': 0.07493667655264859, 'designLoad': 0.08596846225998629, 'superstructure': 0.12514718196762495, 'averageDailyTraffic': 0.13294022560338947, 'deck': 0.15963087089578543, 'yearBuilt': 0.16209956854276306, 'substructure': 0.21188833471106894}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.8673127736156255
+
+ Best Accuracy:  0.9370432737891419
+
+ Best Depth:  29
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.86      0.86      0.86      3408
+           1       0.99      1.00      1.00      3400
+           2       0.89      0.88      0.88      3509
+           3       0.99      1.00      1.00      3351
            4       0.99      1.00      0.99      3452
            5       0.89      0.89      0.89      3462
 
@@ -106,46 +143,15 @@ weighted avg       0.94      0.94      0.94     20582
 
 
  Confusion Matrix: 
- [[2944    3  237    8    5  211]
- [   2 3392    4    0    1    1]
- [ 236    5 3096    3   10  159]
- [   1    0    2 3343    0    5]
- [   4    0    5    0 3437    6]
- [ 209    6  162    3    8 3074]]
+ [[2946    5  228    4    3  222]
+ [   3 3388    4    2    1    2]
+ [ 265    5 3072    0   23  144]
+ [   1    1    1 3339    0    9]
+ [   8    0    4    0 3437    3]
+ [ 208    8  147   11   11 3077]]
 
-
-             ----------- Performance with GiniIndex ------------
-             
-
-
- Best Kappa Values:  0.8624816453214703
-
- Best Accuracy:  0.9356634971921137
-
- Best Depth:  28
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-           0       0.86      0.86      0.86      3408
-           1       0.99      1.00      1.00      3400
-           2       0.88      0.87      0.88      3509
-           3       1.00      1.00      1.00      3351
-           4       0.99      1.00      0.99      3452
-           5       0.88      0.88      0.88      3462
-
-    accuracy                           0.93     20582
-   macro avg       0.93      0.93      0.93     20582
-weighted avg       0.93      0.93      0.93     20582
-
-
- Confusion Matrix: 
- [[2938    1  241    4    6  218]
- [   2 3392    4    0    0    2]
- [ 239    8 3064    4   16  178]
- [   1    0    1 3344    0    5]
- [   5    1    6    0 3437    3]
- [ 215   10  176    6    7 3048]]
+ Feature Importance: 
+ {'snowfall': 7.99340601009338e-05, 'freezethaw': 0.0003997633440743787, 'avgDailyTruckTraffic': 0.061731156403677344, 'material': 0.06787818001270766, 'designLoad': 0.09545967977007522, 'superstructure': 0.12927740827353384, 'yearBuilt': 0.1370454586037154, 'averageDailyTraffic': 0.13856286981288424, 'deck': 0.16609111369662793, 'substructure': 0.20347443602260315}
 
  Saving decision trees 
 
