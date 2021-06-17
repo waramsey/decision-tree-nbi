@@ -137,15 +137,15 @@ def maintenance_pipeline(state):
     # Remove clusters with less than 15 members:
     clusters = Counter(dataScaled['cluster'])
 
-    # Remove columns
     listOfClusters = list()
     for cluster in clusters.keys():
         numOfMembers = clusters[cluster]
         if numOfMembers < 15:
             listOfClusters.append(cluster)
 
-
     dataScaled = dataScaled[~dataScaled['cluster'].isin(listOfClusters)]
+
+    # Remove columns:
     columnsFinal.remove('supNumberIntervention')
     columnsFinal.remove('subNumberIntervention')
     columnsFinal.remove('deckNumberIntervention')
@@ -153,12 +153,12 @@ def maintenance_pipeline(state):
     # Modeling features and groundtruth:
     X, y = dataScaled[columnsFinal], dataScaled['cluster']
 
-    # Oversampling
+    # Oversampling:
     oversample = SMOTE()
     print("\n Oversampling (SMOTE) ...")
     X, y = oversample.fit_resample(X, y)
 
-    # Summarize distribution
+    # Summarize distribution:
     print("\n Distribution of the clusters after oversampling: ",
             Counter(y))
 
@@ -174,16 +174,15 @@ def main():
     # States
     csvfiles = [
                 "nebraska",
-                "kansas",
-                "indiana",
-                #"illinois", # [X]
-                "ohio",
-                "wisconsin",
-                "missouri",
-                "minnesota"
+                #"kansas",
+                #"indiana",
+                ##"illinois", # [X]
+                #"ohio",
+                #"wisconsin",
+                #"missouri",
+                #"minnesota"
                 ]
 
-    filename = "nebraska"
     listOfKappaValues = list()
     listOfAccValues = list()
 

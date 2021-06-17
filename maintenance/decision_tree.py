@@ -6,13 +6,9 @@ Author: Akshay Kale
 Date: May 11th, 2021
 
 TODO:
-    1. Create Folders for the ouput [Done]
     2. Create Random forest model
     3. Complexity Parameters
     4. Select the important variables
-    5. Characterization of the clusters
-    6. Computing deterioration scores,
-        and intervention
 -----------------------------------------------"""
 # Data structures
 import pandas as pd
@@ -199,7 +195,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
                           eClassDict, gClassDict,
                           eAccDict, gAccDict,
                           #eRocsDict, gRocsDict,
-                          eModelsDict, gModelsDict):
+                          eModelsDict, gModelsDict,
+                          eFeatureDict, gFeatureDict):
     """
     Description:
         Summarize the prformance of the decision tree
@@ -215,6 +212,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
     eBestAcc = max(eAccDict.keys())
     eBestDepth = eKappaDict.get(eBestKappa)
     ecm = eConfDict.get(eBestDepth)
+    efi = eFeatureDict.get(eBestDepth)
+    efi = dict(sorted(efi.items(), key=lambda item: item[1]))
 
     print("""\n
             -------------- Performance of Entropy ---------------
@@ -224,6 +223,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\n Best Depth: ", eBestDepth)
     print("\n Classification Report: \n", eClassDict.get(eBestDepth))
     print("\n Confusion Matrix: \n", ecm)
+    print("\n Feature Importance: \n", efi)
     #print("\n AUC: ", eRocsDict[eBestDept])
 
     # GiniIndex 
@@ -231,6 +231,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
     gBestAcc = max(gAccDict.keys())
     gBestDepth = gKappaDict.get(gBestKappa)
     gcm = gConfDict.get(gBestDepth)
+    gfi = gFeatureDict.get(gBestDepth)
+    gfi = dict(sorted(gfi.items(), key=lambda item: item[1]))
 
     print("""\n
              ----------- Performance with GiniIndex ------------
@@ -242,6 +244,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     #print("\n AUC: ", gRocsDict[gBestDept])
     print("\n Classification Report: \n", gClassDict.get(gBestDepth))
     print("\n Confusion Matrix: \n", gcm)
+    print("\n Feature Importance: \n", gfi)
 
     # Plot Confusion Matrix
     conf_matrix(gcm, 'Gini')
@@ -279,7 +282,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     #plot_decision_tree(gBestModel, filename='Gini')
     return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc)
 
-def tree_utility(trainX, trainy, testX, testy, criteria='gini', maxDepth=7):
+def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7):
     """
     Description:
         Performs the modeling and returns performance metrics
@@ -303,9 +306,10 @@ def tree_utility(trainX, trainy, testX, testy, criteria='gini', maxDepth=7):
     acc = accuracy_score(testy, prediction)
     cm = confusion_matrix(testy, prediction)
     cr = classification_report(testy, prediction, zero_division=0)
+    fi = dict(zip(cols, model.feature_importances_))
     #rocAuc = roc_auc_score(testy, prediction, multi_class='ovr')
     kappa = cohen_kappa_score(prediction, testy, weights='quadratic')
-    return acc, cm, cr, kappa, model # rocAuc, model
+    return acc, cm, cr, kappa, model, fi# rocAuc
 
 # Decision Tree
 def decision_tree(X, y, nFold=5):
@@ -342,12 +346,17 @@ def decision_tree(X, y, nFold=5):
     eKappaValues = list()
 
     # Converting them to array
+    cols =  X.columns
     X = np.array(X)
     y = np.array(y)
 
     # Store models:
     eModels = list()
     gModels = list()
+
+    # Feature importance
+    eFeatures = list()
+    gFeatures = list()
 
     for depth in tqdm(range(1, 31), desc='\n Modeling DT:'):
         tempG = list()
@@ -357,15 +366,15 @@ def decision_tree(X, y, nFold=5):
                                           X[foldTestX], y[foldTestX]
 
             # Gini
-            gacc, gcm, gcr, gkappa, gmodel= tree_utility(trainX, trainy,
-                                                 testX, testy,
+            gacc, gcm, gcr, gkappa, gmodel, gfi = tree_utility(trainX, trainy,
+                                                 testX, testy, cols,
                                                  criteria='gini',
                                                  maxDepth=depth
                                                  )
 
             # Entropy
-            eacc, ecm, ecr, ekappa, emodel = tree_utility(trainX, trainy,
-                                                  testX, testy,
+            eacc, ecm, ecr, ekappa, emodel, efi = tree_utility(trainX, trainy,
+                                                  testX, testy, cols,
                                                   criteria='entropy',
                                                   maxDepth=depth
                                                   )
@@ -396,6 +405,11 @@ def decision_tree(X, y, nFold=5):
         eModels.append(emodel)
         gModels.append(gmodel)
 
+        # Feature importance
+        eFeatures.append(efi)
+        gFeatures.append(gfi)
+
+
     # Performance Summarizer
     depths = list(range(1, 31))
 
@@ -424,13 +438,19 @@ def decision_tree(X, y, nFold=5):
     eModelsDict = dict(zip(depths, eModels))
     gModelsDict = dict(zip(depths, gModels))
 
+    # Feature Importance
+    eFeatureDict = dict(zip(depths, eFeatures))
+    gFeatureDict = dict(zip(depths, gFeatures))
+
 
     kappaVals, accVals = performance_summarizer(eKappaDict, gKappaDict,
                                            eConfDict, gConfDict,
                                            eClassDict, gClassDict,
                                            eScoreDict, gScoreDict,
                                            #eRocsDict, gRocsDict,
-                                           eModelsDict, gModelsDict)
+                                           eModelsDict, gModelsDict,
+                                           eFeatureDict, gFeatureDict
+                                           )
     # Return the average kappa value for state
     return kappaVals, accVals
 
