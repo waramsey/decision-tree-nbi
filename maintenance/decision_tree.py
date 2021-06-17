@@ -394,7 +394,7 @@ def decision_tree(X, y, nFold=5):
                                           X[foldTestX], y[foldTestX]
 
             # Gini
-            gacc, gcm, gcr, gkappa, gmodel, gfi = tree_utility(trainX, trainy,
+            gacc, gcm, gcr, gkappa, gmodel, gfi = rf_utility(trainX, trainy,
                                                  testX, testy, cols,
                                                  criteria='gini',
                                                  maxDepth=depth
