@@ -1,9 +1,9 @@
 """
-description: functions to process precipitation data
-    features include:
-        1. Creates structure number -> precipitation map
-        2. Population and feteching of precipitation data into mongodb
-author: Akshay Kale
+Description: The following unctions to process precipitation data
+    1. Creates structure number (Key) -> precipitation (Value) map
+    2. Population and feteching of precipitation data into mongodb
+
+Author: Akshay Kale
 """
 import csv
 from collections import defaultdict
@@ -44,7 +44,6 @@ def make_fips_precp(listOfPrecip, state_code_mapping):
     return fips_precp_dict
 
 def query_db():
-    # define query
     fields ={"_id":0,
              "structureNumber":1,
              "countyCode":1,
@@ -56,9 +55,7 @@ def query_db():
     states=[31]
     nbiDB = get_db()
     collection = nbiDB['nbi']
-    #print(collection)
     results = query(fields, years, states, collection)
-    #print(results)
     return results
 
 
