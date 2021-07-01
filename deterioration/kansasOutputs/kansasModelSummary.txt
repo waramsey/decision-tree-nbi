@@ -6,13 +6,23 @@
  Number of members in cluster: Counter({2: 14546, 3: 1009, 0: 971, 1: 846})
 
  ANOVA: 
-                 Attribute     sum_sq   df            F   p-value
-0   supDeteriorationScore   0.002021  3.0     1.168231  0.320322
-1  deckDeteriorationScore   0.000222  3.0     0.209996  0.889526
-2   subDeteriorationScore   0.002116  3.0     2.069973  0.102045
-3   supNumberIntervention  68.365248  3.0  3421.349365  0.000000
-4  deckNumberIntervention  56.519405  3.0  1469.535709  0.000000
-5   subNumberIntervention  69.136426  3.0  2522.457309  0.000000
+                 Attribute  ...   p-value
+0   supDeteriorationScore  ...  0.064987
+1  deckDeteriorationScore  ...  0.353828
+2   subDeteriorationScore  ...  0.025135
+3   supNumberIntervention  ...  0.000000
+4  deckNumberIntervention  ...  0.000000
+5   subNumberIntervention  ...  0.000000
+
+[6 rows x 5 columns]
+
+ ANOVA Features: 
+              Attribute  ...       p-value
+0  averageDailyTraffic  ...  1.360173e-07
+1             material  ...  6.668347e-07
+2           designLoad  ...  6.355938e-36
+
+[3 rows x 5 columns] 846
 
  Cluster:  2
 
@@ -67,18 +77,18 @@
             
 
 
- Best Kappa Values:  0.7959093406577331
+ Best Kappa Values:  0.7829495480720925
 
- Best Accuracy:  0.8502224677105945
+ Best Accuracy:  0.8513908945099844
 
- Best Depth:  30
+ Best Depth:  27
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.86      0.87      0.86      2904
-           2       0.85      0.83      0.84      2888
-           3       0.85      0.86      0.85      2935
+           0       0.85      0.87      0.86      2904
+           2       0.85      0.82      0.83      2888
+           3       0.84      0.85      0.84      2935
 
     accuracy                           0.85      8727
    macro avg       0.85      0.85      0.85      8727
@@ -86,27 +96,27 @@ weighted avg       0.85      0.85      0.85      8727
 
 
  Confusion Matrix: 
- [[2524  198  182]
- [ 224 2387  277]
- [ 185  231 2519]]
+ [[2520  200  184]
+ [ 235 2365  288]
+ [ 218  225 2492]]
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.7752873617347714
+ Best Kappa Values:  0.7723197733476908
 
- Best Accuracy:  0.8449745865969861
+ Best Accuracy:  0.8452494901617523
 
- Best Depth:  26
+ Best Depth:  25
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.85      0.86      0.85      2904
-           2       0.84      0.83      0.84      2888
-           3       0.84      0.84      0.84      2935
+           0       0.85      0.85      0.85      2904
+           2       0.84      0.82      0.83      2888
+           3       0.83      0.85      0.84      2935
 
     accuracy                           0.84      8727
    macro avg       0.84      0.84      0.84      8727
@@ -114,9 +124,9 @@ weighted avg       0.84      0.84      0.84      8727
 
 
  Confusion Matrix: 
- [[2483  209  212]
- [ 226 2408  254]
- [ 212  245 2478]]
+ [[2478  201  225]
+ [ 246 2364  278]
+ [ 205  234 2496]]
 
  Saving decision trees 
 

@@ -202,20 +202,20 @@ def deterioration_pipeline(state):
 # Driver function
 def main():
     # States
-    #csvfiles = [
-    #            "nebraska",
-    #            "kansas",
-    #            "indiana",
-    #            "illinois",
-    #            "ohio",
-    #            #"northdakota", #[X]
-    #            "wisconsin",
-    #            "missouri",
-    #            "minnesota",
-    #            #"michigan" # [X]
-    #            ]
+    csvfiles = [
+                "nebraska",
+                "kansas",
+                "indiana",
+                "illinois",
+                "ohio",
+                #"northdakota", #[X]
+                "wisconsin",
+                "missouri",
+                "minnesota",
+                #"michigan" # [X]
+                ]
 
-    csvfiles = ['nebraska']
+    #csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     for filename in csvfiles:
