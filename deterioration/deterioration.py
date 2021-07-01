@@ -132,6 +132,11 @@ def deterioration_pipeline(state):
                        'deckNumberIntervention',
                        'subNumberIntervention']
 
+    # To understand the significance of important variables
+    listOfImportantFeatures = ['averageDailyTraffic',
+                              'material',
+                              'designLoad']
+
     # K-means clustering
     # Change in directory
     dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
@@ -139,6 +144,10 @@ def deterioration_pipeline(state):
     # Analysis of variance
     anovaTable = evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
     print("\n ANOVA: \n", anovaTable)
+
+    # Analysis of variance
+    anovaTableImp = evaluate_ANOVA(dataScaled, listOfImportantFeatures, lowestCount)
+    print("\n ANOVA Features: \n", anovaTableImp, lowestCount)
 
     # Analysis of the clusters:
     # Change in directory
@@ -193,19 +202,20 @@ def deterioration_pipeline(state):
 # Driver function
 def main():
     # States
-    csvfiles = [
-                "nebraska",
-                "kansas",
-                "indiana",
-                "illinois",
-                "ohio",
-                #"northdakota", #[X]
-                "wisconsin",
-                "missouri",
-                "minnesota",
-                #"michigan" # [X]
-                ]
+    #csvfiles = [
+    #            "nebraska",
+    #            "kansas",
+    #            "indiana",
+    #            "illinois",
+    #            "ohio",
+    #            #"northdakota", #[X]
+    #            "wisconsin",
+    #            "missouri",
+    #            "minnesota",
+    #            #"michigan" # [X]
+    #            ]
 
+    csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     for filename in csvfiles:

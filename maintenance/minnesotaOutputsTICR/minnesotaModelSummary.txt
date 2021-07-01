@@ -11,7 +11,7 @@
 1   subNumberIntervention  13.694712  3.0  215.139284   3.093156e-75
 2  deckNumberIntervention  21.297276  3.0  828.911705  4.192166e-147
 
- Cluster:  3
+ Cluster:  3 (All Component Intervention)
 
 
                             mean  medians  ...  minimums    stdDev
@@ -22,7 +22,7 @@ deckNumberIntervention  0.519231      0.5  ...       0.0  0.519231
 
 [3 rows x 5 columns]
 
- Cluster:  1
+ Cluster:  1 (None Component Intervention)
 
 
                             mean  medians  ...  minimums    stdDev
@@ -44,7 +44,7 @@ deckNumberIntervention  0.513966      0.5  ...       0.5  0.513966
 
 [3 rows x 5 columns]
 
- Cluster:  2
+ Cluster:  2 (Two Component Intervention (Sup and Sub))
 
 
                             mean  medians  ...  minimums    stdDev
