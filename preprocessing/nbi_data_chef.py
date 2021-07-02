@@ -5,7 +5,7 @@ Data: Nov 28, 2020
 
 # Todo:
     1. Computation of the deterioration slope [Done]
-    2. Compuation of the baseline difference score
+    2. Compuation of the baseline difference score [Done]
 -------------------------------------------------"""
 
 __author__ = 'Akshay Kale'

@@ -40,7 +40,7 @@ from sklearn.metrics import roc_auc_score
 # Visualization
 import seaborn as sns
 import matplotlib.pyplot as plt
-import graphviz
+#import graphviz
 
 # Function for normalizing
 def normalize(df, columns):

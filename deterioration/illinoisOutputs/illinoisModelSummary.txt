@@ -7,20 +7,20 @@
 
  ANOVA: 
                  Attribute  ...        p-value
-0   supDeteriorationScore  ...  1.381257e-254
-1  deckDeteriorationScore  ...  6.886472e-106
-2   subDeteriorationScore  ...   5.694033e-12
-3   supNumberIntervention  ...  5.954389e-241
-4  deckNumberIntervention  ...  5.823124e-248
+0   supDeteriorationScore  ...  1.149149e-237
+1  deckDeteriorationScore  ...   1.802625e-99
+2   subDeteriorationScore  ...   9.817429e-16
+3   supNumberIntervention  ...  8.199309e-242
+4  deckNumberIntervention  ...  4.564701e-277
 5   subNumberIntervention  ...   0.000000e+00
 
 [6 rows x 5 columns]
 
  ANOVA Features: 
-              Attribute  ...       p-value
-0  averageDailyTraffic  ...  9.742717e-16
-1             material  ...  7.900804e-02
-2           designLoad  ...  2.252562e-04
+              Attribute      sum_sq  ...          F       p-value
+0  averageDailyTraffic    0.249056  ...  19.627344  1.611534e-15
+1             material    5.993548  ...   0.678231  6.071377e-01
+2           designLoad  100.956989  ...   6.662359  2.751469e-05
 
 [3 rows x 5 columns] 186
 
@@ -81,67 +81,67 @@
 
  Oversampling (SMOTE) ...
 
- Distribution of the clusters after oversampling:  Counter({3: 20330, 0: 20330, 4: 20330, 2: 20330})
+ Distribution of the clusters after oversampling:  Counter({0: 20330, 4: 456, 2: 327, 3: 234})
 
 
             -------------- Performance of Entropy ---------------
             
 
 
- Best Kappa Values:  0.90656317612811
+ Best Kappa Values:  0.19872440371161904
 
- Best Accuracy:  0.9490531234628629
-
- Best Depth:  30
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-           0       0.93      0.92      0.93      4060
-           2       0.96      0.95      0.95      4135
-           3       0.97      0.98      0.97      4066
-           4       0.94      0.95      0.94      4003
-
-    accuracy                           0.95     16264
-   macro avg       0.95      0.95      0.95     16264
-weighted avg       0.95      0.95      0.95     16264
-
-
- Confusion Matrix: 
- [[3737   96   62  165]
- [ 118 3929   34   54]
- [  42   34 3970   20]
- [ 122   53   41 3787]]
-
-
-             ----------- Performance with GiniIndex ------------
-             
-
-
- Best Kappa Values:  0.9038618862757263
-
- Best Accuracy:  0.9443679291687161
+ Best Accuracy:  0.9523584383467106
 
  Best Depth:  28
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.93      0.92      0.92      4060
-           2       0.95      0.95      0.95      4135
-           3       0.97      0.98      0.97      4066
-           4       0.94      0.94      0.94      4003
+           0       0.96      0.96      0.96      4056
+           2       0.09      0.09      0.09        67
+           3       0.25      0.26      0.25        50
+           4       0.19      0.17      0.18        96
 
-    accuracy                           0.95     16264
-   macro avg       0.95      0.95      0.95     16264
-weighted avg       0.95      0.95      0.95     16264
+    accuracy                           0.92      4269
+   macro avg       0.37      0.37      0.37      4269
+weighted avg       0.92      0.92      0.92      4269
 
 
  Confusion Matrix: 
- [[3742  107   56  155]
- [ 116 3926   27   66]
- [  46   26 3965   29]
- [ 128   75   52 3748]]
+ [[3896   59   34   67]
+ [  59    6    2    0]
+ [  31    3   13    3]
+ [  76    0    4   16]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.1964876254266541
+
+ Best Accuracy:  0.9524052657824532
+
+ Best Depth:  23
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.96      0.95      0.96      4056
+           2       0.04      0.04      0.04        67
+           3       0.25      0.30      0.27        50
+           4       0.18      0.18      0.18        96
+
+    accuracy                           0.91      4269
+   macro avg       0.36      0.37      0.36      4269
+weighted avg       0.92      0.91      0.92      4269
+
+
+ Confusion Matrix: 
+ [[3871   72   41   72]
+ [  61    3    2    1]
+ [  30    2   15    3]
+ [  75    1    3   17]]
 
  Saving decision trees 
 
