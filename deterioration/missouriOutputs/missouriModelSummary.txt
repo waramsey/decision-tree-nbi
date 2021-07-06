@@ -6,23 +6,64 @@
  Number of members in cluster: Counter({0: 17242, 2: 930, 3: 667, 1: 181})
 
  ANOVA: 
-                 Attribute  ...        p-value
-0   supDeteriorationScore  ...   1.101925e-01
-1  deckDeteriorationScore  ...   3.403713e-01
-2   subDeteriorationScore  ...   3.078726e-02
-3   supNumberIntervention  ...   0.000000e+00
-4  deckNumberIntervention  ...  4.352221e-158
-5   subNumberIntervention  ...  1.500758e-218
-
-[6 rows x 5 columns]
+                 Attribute     sum_sq   df            F        p-value
+0   supDeteriorationScore   0.001446  3.0     1.720890   1.612877e-01
+1  deckDeteriorationScore   0.000761  3.0     0.819009   4.835616e-01
+2   subDeteriorationScore   0.001791  3.0     1.862378   1.345444e-01
+3   supNumberIntervention  47.279006  3.0  2557.658780   0.000000e+00
+4  deckNumberIntervention  30.857390  3.0   359.031740  1.638355e-142
+5   subNumberIntervention  46.788329  3.0   986.643204  1.664945e-254
 
  ANOVA Features: 
-              Attribute      sum_sq  ...          F       p-value
-0  averageDailyTraffic    0.074027  ...   5.694184  7.428549e-04
-1             material   38.944751  ...   6.984221  1.233898e-04
-2           designLoad  167.993094  ...  11.050872  4.238564e-07
+              Attribute      sum_sq   df          F   p-value
+0  averageDailyTraffic    0.059351  3.0   6.422968  0.000270
+1             material   17.860497  3.0   3.486259  0.015521
+2           designLoad  167.845304  3.0  10.434036  0.000001
 
-[3 rows x 5 columns] 181
+ Feature:  averageDailyTraffic
+
+ Tukeys test: 
+ Multiple Comparison of Means - Tukey HSD, FWER=0.05 
+====================================================
+group1 group2 meandiff p-adj   lower   upper  reject
+----------------------------------------------------
+     0      1   0.0156 0.0388  0.0006  0.0306   True
+     0      2   0.0004    0.9 -0.0147  0.0154  False
+     0      3   0.0204 0.0029  0.0053  0.0354   True
+     1      2  -0.0152 0.0458 -0.0302 -0.0002   True
+     1      3   0.0048 0.8251 -0.0102  0.0198  False
+     2      3     0.02 0.0036   0.005   0.035   True
+----------------------------------------------------
+
+ Feature:  material
+
+ Tukeys test: 
+ Multiple Comparison of Means - Tukey HSD, FWER=0.05
+===================================================
+group1 group2 meandiff p-adj   lower  upper  reject
+---------------------------------------------------
+     0      1   -0.011    0.9 -0.3648 0.3427  False
+     0      2  -0.2818 0.1706 -0.6355  0.072  False
+     0      3   0.1547 0.6533  -0.199 0.5084  False
+     1      2  -0.2707 0.2001 -0.6244  0.083  False
+     1      3   0.1657 0.6082  -0.188 0.5195  False
+     2      3   0.4365 0.0084  0.0827 0.7902   True
+---------------------------------------------------
+
+ Feature:  designLoad
+
+ Tukeys test: 
+ Multiple Comparison of Means - Tukey HSD, FWER=0.05 
+====================================================
+group1 group2 meandiff p-adj   lower   upper  reject
+----------------------------------------------------
+     0      1   0.2873 0.6229 -0.3395  0.9141  False
+     0      2  -0.7514 0.0113 -1.3782 -0.1246   True
+     0      3   0.5304 0.1299 -0.0964  1.1572  False
+     1      2  -1.0387  0.001 -1.6655 -0.4119   True
+     1      3   0.2431 0.7248 -0.3837  0.8699  False
+     2      3   1.2818  0.001   0.655  1.9086   True
+----------------------------------------------------
 
  Cluster:  0
 
@@ -77,7 +118,7 @@
             
 
 
- Best Kappa Values:  0.11631357864353098
+ Best Kappa Values:  0.11832101674766426
 
  Best Accuracy:  0.9152288253618275
 
@@ -87,8 +128,8 @@
                precision    recall  f1-score   support
 
            0       0.92      0.98      0.95      3432
-           2       0.25      0.08      0.12       195
-           3       0.23      0.08      0.12       140
+           2       0.27      0.08      0.13       195
+           3       0.24      0.08      0.12       140
 
     accuracy                           0.90      3767
    macro avg       0.47      0.38      0.40      3767
@@ -96,7 +137,7 @@ weighted avg       0.86      0.90      0.87      3767
 
 
  Confusion Matrix: 
- [[3357   41   34]
+ [[3361   38   33]
  [ 177   16    2]
  [ 123    6   11]]
 
@@ -105,28 +146,28 @@ weighted avg       0.86      0.90      0.87      3767
              
 
 
- Best Kappa Values:  0.11537409955639732
+ Best Kappa Values:  0.11949392734448994
 
  Best Accuracy:  0.9152288253618275
 
- Best Depth:  24
+ Best Depth:  30
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.92      0.93      0.92      3432
-           2       0.17      0.17      0.17       195
-           3       0.12      0.11      0.11       140
+           0       0.92      0.92      0.92      3432
+           2       0.16      0.17      0.17       195
+           3       0.12      0.11      0.12       140
 
-    accuracy                           0.86      3767
+    accuracy                           0.85      3767
    macro avg       0.40      0.40      0.40      3767
-weighted avg       0.85      0.86      0.86      3767
+weighted avg       0.85      0.85      0.85      3767
 
 
  Confusion Matrix: 
- [[3180  155   97]
- [ 150   33   12]
- [ 117    8   15]]
+ [[3161  169  102]
+ [ 147   34   14]
+ [ 116    8   16]]
 
  Saving decision trees 
 

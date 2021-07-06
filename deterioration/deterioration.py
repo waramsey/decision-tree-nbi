@@ -142,12 +142,17 @@ def deterioration_pipeline(state):
     dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
 
     # Analysis of variance
-    anovaTable = evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
+    anovaTable, tukeyCluster = evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
     print("\n ANOVA: \n", anovaTable)
 
     # Analysis of variance
-    anovaTableImp = evaluate_ANOVA(dataScaled, listOfImportantFeatures, lowestCount)
-    print("\n ANOVA Features: \n", anovaTableImp, lowestCount)
+    anovaTableImp, tukeyFeature = evaluate_ANOVA(dataScaled, listOfImportantFeatures, lowestCount)
+    print("\n ANOVA Features: \n", anovaTableImp)
+
+    # Print the tukeys test for all the important features
+    for feat, res in zip(listOfImportantFeatures, tukeyFeature):
+        print("\n Feature: ", feat)
+        print("\n Tukeys test: \n", res)
 
     # Analysis of the clusters:
     # Change in directory
@@ -215,7 +220,6 @@ def main():
                 #"michigan" # [X]
                 ]
 
-    #csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     for filename in csvfiles:
@@ -225,6 +229,7 @@ def main():
         listOfAccValues.append(acc)
 
     sys.stdout = open("OverallOutput.txt", "w")
+
     plot_overall_performance(csvfiles,
                              listOfKappaValues,
                              "KappaValues")

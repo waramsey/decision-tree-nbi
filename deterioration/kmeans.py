@@ -1,8 +1,8 @@
-"""--------------------------------------------------------------------->
+"""---------------------------------------------------------->
 Description: preprocessing library
 Author: Akshay Kale
 Date: May 7th, 2021
-<---------------------------------------------------------------------"""
+<----------------------------------------------------------"""
 
 # Data structures
 import pandas as pd
@@ -19,6 +19,7 @@ from sklearn.metrics import r2_score
 from scipy import stats
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 # Preprocessing
 from sklearn.preprocessing import StandardScaler
@@ -51,7 +52,9 @@ def drop_duplicate_rows(df):
     """
     Function to groupby bridge records
     """
-    df = df.drop_duplicates(subset=['structureNumber'], keep='first', inplace=True)
+    df = df.drop_duplicates(subset=['structureNumber'],
+                                keep='first',
+                                inplace=True)
     return df
 
 # Differences in between the clusters 
@@ -73,7 +76,10 @@ def ANOVA(df, feature):
     plot_box(dfMelt)
     model = ols('value ~ C(cluster)', data=dfMelt).fit()
     anovaTable = sm.stats.anova_lm(model, typ=2)
-    return anovaTable
+    tukey = pairwise_tukeyhsd(endog=dfMelt['value'],
+                             groups=dfMelt['cluster'],
+                             alpha=0.05)
+    return anovaTable, tukey
 
 def plot_elbow(sse):
     """
@@ -291,6 +297,7 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
     sumsqs = list()
     dfs = list()
     fvalues = list()
+    tukeys = list()
 
     for col in columns:
         temp = defaultdict()
@@ -298,7 +305,7 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
             cluster, records = rows
             temp[cluster] = np.random.choice(list(records), lowestCount)
         tempDf = pd.DataFrame.from_dict(temp)
-        anovaTable = ANOVA(tempDf, col)
+        anovaTable, tukey = ANOVA(tempDf, col)
 
         pvalue = anovaTable['PR(>F)'][0]
         pvalues.append(pvalue)
@@ -314,6 +321,9 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
 
         features.append(col)
 
+        # Collect the tukey results for all feature
+        tukeys.append(tukey)
+
     anovaDf = pd.DataFrame(columns=['Attribute',
                                     'sum_sq',
                                     'df',
@@ -324,7 +334,7 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
     anovaDf['df'] = dfs
     anovaDf['F'] = fvalues
     anovaDf['p-value'] = pvalues
-    return anovaDf
+    return anovaDf, tukeys
 
 def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
     """
