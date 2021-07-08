@@ -191,9 +191,9 @@ def deterioration_pipeline(state):
     X, y = dataScaled[columnsFinal], dataScaled['cluster']
 
     # Oversampling
-    #oversample = SMOTE()
+    oversample = SMOTE()
     print("\n Oversampling (SMOTE) ...")
-    #X, y = oversample.fit_resample(X, y)
+    X, y = oversample.fit_resample(X, y)
 
     # Summarize distribution
     print("\n Distribution of the clusters after oversampling: ",
@@ -224,7 +224,6 @@ def main():
                 #"michigan" # [X]
                 ]
 
-    csvfiles = ["nebraska"]
     listOfKappaValues = list()
     listOfAccValues = list()
     for filename in csvfiles:

@@ -6,45 +6,36 @@
  Number of members in cluster: Counter({0: 13240, 1: 1902, 2: 1442})
 
  ANOVA: 
-                 Attribute      sum_sq  ...             F        p-value
-0   supNumberIntervention  258.670365  ...  43027.284876   0.000000e+00
-1   subNumberIntervention   16.793702  ...    433.459213  2.693377e-172
-2  deckNumberIntervention   87.932039  ...   3879.422573   0.000000e+00
+ (                Attribute      sum_sq  ...             F        p-value
+0   supNumberIntervention  257.288951  ...  46088.480230   0.000000e+00
+1   subNumberIntervention   14.591925  ...    384.986147  1.352983e-154
+2  deckNumberIntervention   87.178661  ...   3881.173315   0.000000e+00
 
-[3 rows x 5 columns]
-
- Cluster:  0
-
-
-                            mean  medians  ...  minimums    stdDev
-parameter                                  ...                    
-supNumberIntervention   0.000000      0.0  ...       0.0  0.000000
-subNumberIntervention   0.021274      0.0  ...       0.0  0.021274
-deckNumberIntervention  0.000000      0.0  ...       0.0  0.000000
-
-[3 rows x 5 columns]
-
- Cluster:  2
+[3 rows x 5 columns], [<statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x14b404f70>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x14b48c580>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x14b798c70>])
+Cluster:  0
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.00 0.00   0.00     0.00     0.00
+0.02 0.00   1.00     0.00     0.02
+0.00 0.00   0.00     0.00     0.00
 
 
-                            mean   medians  ...  minimums    stdDev
-parameter                                   ...                    
-supNumberIntervention   0.000000  0.000000  ...  0.000000  0.000000
-subNumberIntervention   0.058484  0.000000  ...  0.000000  0.058484
-deckNumberIntervention  0.341655  0.333333  ...  0.333333  0.341655
-
-[3 rows x 5 columns]
-
- Cluster:  1
+Cluster:  2
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.00 0.00   0.00     0.00     0.00
+0.06 0.00   0.67     0.00     0.06
+0.34 0.33   1.00     0.33     0.34
 
 
-                            mean   medians  ...  minimums    stdDev
-parameter                                   ...                    
-supNumberIntervention   0.518927  0.500000  ...       0.5  0.518927
-subNumberIntervention   0.166667  0.000000  ...       0.0  0.166667
-deckNumberIntervention  0.232387  0.333333  ...       0.0  0.232387
+Cluster:  1
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.52 0.50   1.00     0.50     0.52
+0.17 0.00   1.00     0.00     0.17
+0.23 0.33   1.00     0.00     0.23
 
-[3 rows x 5 columns]
+
 
  Oversampling (SMOTE) ...
 
@@ -55,49 +46,46 @@ deckNumberIntervention  0.232387  0.333333  ...       0.0  0.232387
             
 
 
- Best Kappa Values:  0.7213437716550315
+ Best Kappa Values:  0.7039291854986933
 
- Best Accuracy:  0.8038267875125881
+ Best Accuracy:  0.7985146022155085
 
- Best Depth:  27
+ Best Depth:  28
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.81      0.78      0.79      2678
-           1       0.79      0.81      0.80      2624
-           2       0.82      0.83      0.82      2642
+           0       0.80      0.77      0.79      2678
+           1       0.78      0.79      0.78      2624
+           2       0.80      0.82      0.81      2642
 
-    accuracy                           0.81      7944
-   macro avg       0.81      0.81      0.81      7944
-weighted avg       0.81      0.81      0.81      7944
+    accuracy                           0.79      7944
+   macro avg       0.79      0.79      0.79      7944
+weighted avg       0.79      0.79      0.79      7944
 
 
  Confusion Matrix: 
- [[2089  339  250]
- [ 275 2131  218]
- [ 216  244 2182]]
-
- Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 7.20769970452265e-05, 'designLoad': 0.030472069158700946, 'substructure': 0.06912004083492482, 'material': 0.07160085527263123, 'deck': 0.133427841630189, 'avgDailyTruckTraffic': 0.1546070216111985, 'superstructure': 0.15883429712110023, 'yearBuilt': 0.18933176782645011, 'averageDailyTraffic': 0.19253402954776003}
+ [[2074  331  273]
+ [ 295 2072  257]
+ [ 225  263 2154]]
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.7182531340118551
+ Best Kappa Values:  0.7172785175219227
 
- Best Accuracy:  0.8002769385699899
+ Best Accuracy:  0.7974320241691844
 
- Best Depth:  25
+ Best Depth:  30
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.80      0.77      0.79      2678
-           1       0.78      0.80      0.79      2624
-           2       0.82      0.83      0.82      2642
+           0       0.80      0.79      0.80      2678
+           1       0.78      0.79      0.79      2624
+           2       0.81      0.81      0.81      2642
 
     accuracy                           0.80      7944
    macro avg       0.80      0.80      0.80      7944
@@ -105,12 +93,9 @@ weighted avg       0.80      0.80      0.80      7944
 
 
  Confusion Matrix: 
- [[2072  358  248]
- [ 289 2100  235]
- [ 219  230 2193]]
-
- Feature Importance: 
- {'freezethaw': 0.0, 'snowfall': 7.384543145163151e-05, 'designLoad': 0.032807789251866434, 'material': 0.0684037699610858, 'substructure': 0.06893506477426561, 'deck': 0.1530499366134956, 'superstructure': 0.1572652061451053, 'avgDailyTruckTraffic': 0.1609982912420761, 'averageDailyTraffic': 0.17844726118241475, 'yearBuilt': 0.1800188353982387}
+ [[2121  320  237]
+ [ 290 2082  252]
+ [ 228  272 2142]]
 
  Saving decision trees 
 

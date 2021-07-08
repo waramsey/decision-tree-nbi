@@ -221,9 +221,15 @@ def characterize_clusters(dataScaled,
                                   'maximums': maximums,
                                   'minimums': minimums,
                                   'stdDev': stdDevs})
-        print("\n Cluster: ", cluster)
+
+        print("Cluster: ", cluster)
+        print ("{:<4} {:<6} {:<7} {:<8} {:<8}".format('Mean','Median','Maximums', 'Minimums', 'StdDev'))
+        print("="*37)
+
+        for a, b, c, d, e in zip(means, medians, maximums, minimums, stdDevs):
+            print ("{:.2f} {:.2f}   {:.2f}     {:.2f}     {:.2f}".format(a, b, c, d, e))
         print("\n")
-        print(dataFrame)
+        #print(dataFrame)
 
 # Confusion matrix
 def print_confusion_matrix(cm):

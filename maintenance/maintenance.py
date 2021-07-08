@@ -155,13 +155,13 @@ def main():
 
     sys.stdout = open("OverallOutput.txt", "w")
 
-    #plot_overall_performance(csvfiles,
-    #                         listOfKappaValues,
-    #                         "kappaValues")
+    plot_overall_performance(csvfiles,
+                             listOfKappaValues,
+                             "kappaValues")
 
-    #plot_overall_performance(csvfiles,
-    #                         listOfAccValues,
-    #                         "AccValues")
+    plot_overall_performance(csvfiles,
+                             listOfAccValues,
+                             "AccValues")
 
     sys.stdout.close()
 

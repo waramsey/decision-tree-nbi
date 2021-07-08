@@ -24,9 +24,9 @@ import sys
 from imblearn.over_sampling import SMOTE
 from sklearn import preprocessing
 
-from decisionmethod import decision_tree
-#from decision_tree import *
-#from kmeans import *
+#from decisionmethod import decision_tree
+from decision_tree import *
+from kmeans import *
 
 def maintenance_pipeline(state):
     """
@@ -175,13 +175,13 @@ def main():
     # States
     csvfiles = [
                 "nebraska",
-                #"kansas",
-                #"indiana",
-                #"illinois",
-                #"ohio",
-                #"wisconsin",
-                #"missouri",
-                #"minnesota"
+                "kansas",
+                "indiana",
+                "illinois",
+                "ohio",
+                "wisconsin",
+                "missouri",
+                "minnesota"
                 ]
 
     listOfKappaValues = list()

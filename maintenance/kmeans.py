@@ -1,8 +1,8 @@
-"""--------------------------------------------------------------------->
+"""---------------------------------------------------------->
 Description: preprocessing library
 Author: Akshay Kale
 Date: May 7th, 2021
-<---------------------------------------------------------------------"""
+<----------------------------------------------------------"""
 
 # Data structures
 import pandas as pd
@@ -19,6 +19,7 @@ from sklearn.metrics import r2_score
 from scipy import stats
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 # Preprocessing
 from sklearn.preprocessing import StandardScaler
@@ -33,6 +34,7 @@ from kneed import KneeLocator
 # Visualization
 import seaborn as sns
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 # Function for normalizing
 def normalize(df, columns):
@@ -51,7 +53,9 @@ def drop_duplicate_rows(df):
     """
     Function to groupby bridge records
     """
-    df = df.drop_duplicates(subset=['structureNumber'], keep='first', inplace=True)
+    df = df.drop_duplicates(subset=['structureNumber'],
+                                keep='first',
+                                inplace=True)
     return df
 
 # Differences in between the clusters 
@@ -73,7 +77,10 @@ def ANOVA(df, feature):
     plot_box(dfMelt)
     model = ols('value ~ C(cluster)', data=dfMelt).fit()
     anovaTable = sm.stats.anova_lm(model, typ=2)
-    return anovaTable
+    tukey = pairwise_tukeyhsd(endog=dfMelt['value'],
+                             groups=dfMelt['cluster'],
+                             alpha=0.05)
+    return anovaTable, tukey
 
 def plot_elbow(sse):
     """
@@ -209,17 +216,20 @@ def characterize_clusters(dataScaled,
         plt.savefig(filename, bbox_inches='tight')
 
         # Cluster dataframe
-        dataFrame = pd.DataFrame({'parameter': listOfParameters,
-                                  'mean': means,
+        dataFrame = pd.DataFrame({'mean': means,
                                   'medians': medians,
                                   'maximums': maximums,
                                   'minimums': minimums,
                                   'stdDev': stdDevs})
 
-        dataFrame = dataFrame.set_index("parameter")
-        print("\n Cluster: ", cluster)
+        print("Cluster: ", cluster)
+        print ("{:<4} {:<6} {:<7} {:<8} {:<8}".format('Mean','Median','Maximums', 'Minimums', 'StdDev'))
+        print("="*37)
+
+        for a, b, c, d, e in zip(means, medians, maximums, minimums, stdDevs):
+            print ("{:.2f} {:.2f}   {:.2f}     {:.2f}     {:.2f}".format(a, b, c, d, e))
         print("\n")
-        print(dataFrame)
+        #print(dataFrame)
 
 # Confusion matrix
 def print_confusion_matrix(cm):
@@ -294,6 +304,7 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
     sumsqs = list()
     dfs = list()
     fvalues = list()
+    tukeys = list()
 
     for col in columns:
         temp = defaultdict()
@@ -301,7 +312,7 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
             cluster, records = rows
             temp[cluster] = np.random.choice(list(records), lowestCount)
         tempDf = pd.DataFrame.from_dict(temp)
-        anovaTable = ANOVA(tempDf, col)
+        anovaTable, tukey = ANOVA(tempDf, col)
 
         pvalue = anovaTable['PR(>F)'][0]
         pvalues.append(pvalue)
@@ -317,6 +328,9 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
 
         features.append(col)
 
+        # Collect the tukey results for all feature
+        tukeys.append(tukey)
+
     anovaDf = pd.DataFrame(columns=['Attribute',
                                     'sum_sq',
                                     'df',
@@ -327,7 +341,41 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
     anovaDf['df'] = dfs
     anovaDf['F'] = fvalues
     anovaDf['p-value'] = pvalues
-    return anovaDf
+    return anovaDf, tukeys
+
+def three_d_scatterplot(dataScaled, name=''):
+    """
+    Description:
+        Creates a 3d scatter plot of the attributes
+        provided
+
+    Args:
+        dataScaled (dataframe)
+
+    Returns:
+        Returns a scatter plot
+    """
+    xAxis = dataScaled['subNumberIntervention']
+    yAxis = dataScaled['supNumberIntervention']
+    zAxis = dataScaled['deckNumberIntervention']
+
+    filename = "results/" + name + "ThreeDScatterplot.png"
+
+    fig = plt.figure(figsize=(10, 10))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.set_title("Scatter plot of Intervention vs Components")
+
+    x = np.array(xAxis)
+    y = np.array(yAxis)
+    z = np.array(zAxis)
+
+    ax.scatter(x, y, z,
+               marker='s',
+               c=dataScaled['cluster'],
+               s=40,
+               cmap='RdBu')
+
+    plt.savefig(filename)
 
 def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
     """
@@ -374,4 +422,7 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
 
     # Save cluster as columns
     dataScaled['cluster'] = list(finalKmeans.labels_)
+
+    # Create 3D-clustering of the data
+    three_d_scatterplot(dataScaled)
     return dataScaled, lowestCount
