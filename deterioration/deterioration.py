@@ -62,8 +62,7 @@ def deterioration_pipeline(state):
                            "subDeteriorationScore",
                            "supDeteriorationScore",
                            "deckDeteriorationScore"
-                           ]
-                           )
+                          ])
 
     #df = df.dropna(subset=['snowfall'])
 
@@ -143,7 +142,7 @@ def deterioration_pipeline(state):
 
     # K-means clustering
     # Change in directory
-    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
+    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state=state)
 
     # Analysis of variance
     anovaTable, tukeyCluster = evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)

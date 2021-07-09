@@ -6,19 +6,21 @@
  Number of members in cluster: Counter({0: 13240, 1: 1902, 2: 1442})
 
  ANOVA: 
-                 Attribute      sum_sq   df             F        p-value
-0   supDeteriorationScore    0.003506  2.0      9.834333   5.478857e-05
-1  deckDeteriorationScore    0.000087  2.0      0.214669   8.068172e-01
-2   subDeteriorationScore    0.001015  2.0      3.302553   3.688197e-02
-3   supNumberIntervention  262.488326  2.0  36563.115010   0.000000e+00
-4  deckNumberIntervention   89.557148  2.0   4031.181343   0.000000e+00
-5   subNumberIntervention   16.457749  2.0    429.063904  1.051114e-170
+                 Attribute      sum_sq  ...             F        p-value
+0   supDeteriorationScore    0.009362  ...     23.889409   4.807021e-11
+1  deckDeteriorationScore    0.000116  ...      0.333256   7.166050e-01
+2   subDeteriorationScore    0.000167  ...      0.722891   4.854057e-01
+3   supNumberIntervention  261.096741  ...  38641.896096   0.000000e+00
+4  deckNumberIntervention   86.465763  ...   3850.920349   0.000000e+00
+5   subNumberIntervention   16.875533  ...    438.598420  3.741325e-174
+
+[6 rows x 5 columns]
 
  ANOVA Features: 
               Attribute      sum_sq   df          F       p-value
-0  averageDailyTraffic    0.042860  2.0   4.021877  1.798639e-02
-1             material  254.176144  2.0  41.714771  1.137897e-18
-2           designLoad   13.440129  2.0   1.414242  2.432222e-01
+0  averageDailyTraffic    0.041458  2.0   3.867962  2.097330e-02
+1             material  376.840962  2.0  64.667005  2.125164e-28
+2           designLoad   71.193250  2.0   7.526077  5.459382e-04
 
  Feature:  averageDailyTraffic
 
@@ -27,22 +29,22 @@
 ===================================================
 group1 group2 meandiff p-adj   lower  upper  reject
 ---------------------------------------------------
-     0      1   0.0077 0.0134  0.0013  0.014   True
-     0      2   0.0046 0.2123 -0.0018 0.0109  False
-     1      2  -0.0031 0.4933 -0.0095 0.0033  False
+     0      1   0.0075 0.0159  0.0011 0.0139   True
+     0      2   0.0045 0.2188 -0.0019 0.0109  False
+     1      2   -0.003 0.5166 -0.0094 0.0034  False
 ---------------------------------------------------
 
  Feature:  material
 
  Tukeys test: 
- Multiple Comparison of Means - Tukey HSD, FWER=0.05 
-====================================================
-group1 group2 meandiff p-adj   lower   upper  reject
-----------------------------------------------------
-     0      1  -0.2143 0.0028 -0.3667 -0.0619   True
-     0      2   0.3724  0.001    0.22  0.5248   True
-     1      2   0.5867  0.001  0.4343  0.7391   True
-----------------------------------------------------
+ Multiple Comparison of Means - Tukey HSD, FWER=0.05
+===================================================
+group1 group2 meandiff p-adj  lower   upper  reject
+---------------------------------------------------
+     0      1  -0.3419 0.001 -0.4909 -0.1928   True
+     0      2   0.3807 0.001  0.2317  0.5298   True
+     1      2   0.7226 0.001  0.5736  0.8716   True
+---------------------------------------------------
 
  Feature:  designLoad
 
@@ -51,9 +53,9 @@ group1 group2 meandiff p-adj   lower   upper  reject
 ===================================================
 group1 group2 meandiff p-adj   lower  upper  reject
 ---------------------------------------------------
-     0      1  -0.0007    0.9  -0.191 0.1896  False
-     0      2   0.1179 0.3149 -0.0724 0.3082  False
-     1      2   0.1186 0.3106 -0.0717 0.3089  False
+     0      1   0.1879 0.0531  -0.002 0.3778  False
+     0      2   0.3121  0.001  0.1222  0.502   True
+     1      2   0.1241 0.2762 -0.0658  0.314  False
 ---------------------------------------------------
 Cluster:  0
 Mean Median Maximums Minimums StdDev  
@@ -98,11 +100,37 @@ Mean Median Maximums Minimums StdDev
             
 
 
- Best Kappa Values:  0.671443403653291
+ Best Kappa Values:  0.6850280680936516
 
- Best Accuracy:  0.8374244712990937
+ Best Accuracy:  0.8435045317220544
 
  Best Depth:  30
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.84      0.84      0.84      2636
+           1       0.84      0.85      0.84      2660
+
+    accuracy                           0.84      5296
+   macro avg       0.84      0.84      0.84      5296
+weighted avg       0.84      0.84      0.84      5296
+
+
+ Confusion Matrix: 
+ [[2209  427]
+ [ 407 2253]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.6699305390751931
+
+ Best Accuracy:  0.8391238670694865
+
+ Best Depth:  28
 
  Classification Report: 
                precision    recall  f1-score   support
@@ -110,40 +138,14 @@ Mean Median Maximums Minimums StdDev
            0       0.83      0.83      0.83      2636
            1       0.84      0.84      0.84      2660
 
-    accuracy                           0.84      5296
-   macro avg       0.84      0.84      0.84      5296
-weighted avg       0.84      0.84      0.84      5296
+    accuracy                           0.83      5296
+   macro avg       0.83      0.83      0.83      5296
+weighted avg       0.83      0.83      0.83      5296
 
 
  Confusion Matrix: 
- [[2201  435]
+ [[2197  439]
  [ 435 2225]]
-
-
-             ----------- Performance with GiniIndex ------------
-             
-
-
- Best Kappa Values:  0.6771142510466505
-
- Best Accuracy:  0.8368957703927492
-
- Best Depth:  29
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-           0       0.84      0.84      0.84      2636
-           1       0.84      0.84      0.84      2660
-
-    accuracy                           0.84      5296
-   macro avg       0.84      0.84      0.84      5296
-weighted avg       0.84      0.84      0.84      5296
-
-
- Confusion Matrix: 
- [[2214  422]
- [ 433 2227]]
 
  Saving decision trees 
 

@@ -35,6 +35,8 @@ from kneed import KneeLocator
 import seaborn as sns
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import plotly
+import plotly.express as px
 
 # Function for normalizing
 def normalize(df, columns):
@@ -343,7 +345,7 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
     anovaDf['p-value'] = pvalues
     return anovaDf, tukeys
 
-def three_d_scatterplot(dataScaled, name=''):
+def three_d_scatterplot_old(dataScaled, name=''):
     """
     Description:
         Creates a 3d scatter plot of the attributes
@@ -377,7 +379,30 @@ def three_d_scatterplot(dataScaled, name=''):
 
     plt.savefig(filename)
 
-def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
+def three_d_scatterplot(dataScaled, name=''):
+    """
+    Description:
+        Creates a 3d scatter plot of the attributes
+        provided
+
+    Args:
+        dataScaled (dataframe)
+
+    Returns:
+        Returns a scatter plot
+    """
+    filename = "results/" + name +"3d.html"
+    title = "3D representation of clusters for the state " + name
+    fig = px.scatter_3d(dataScaled,
+                        x='subNumberIntervention',
+                        y='supNumberIntervention',
+                        z='deckNumberIntervention',
+                        color='cluster',
+                        title=title)
+
+    plotly.offline.plot(fig, filename=filename)
+
+def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state):
     """
     Description:
         Performs selection of optimal clusters and kmeans
@@ -424,5 +449,5 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
     dataScaled['cluster'] = list(finalKmeans.labels_)
 
     # Create 3D-clustering of the data
-    three_d_scatterplot(dataScaled)
+    three_d_scatterplot(dataScaled, name=state)
     return dataScaled, lowestCount
