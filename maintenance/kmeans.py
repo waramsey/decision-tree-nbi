@@ -35,6 +35,8 @@ from kneed import KneeLocator
 import seaborn as sns
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import plotly
+import plotly.express as px
 
 # Function for normalizing
 def normalize(df, columns):
@@ -353,31 +355,20 @@ def three_d_scatterplot(dataScaled, name=''):
         dataScaled (dataframe)
 
     Returns:
-        Returns a scatter plot
+        saves a three 3d scatter plot with .html extention
     """
-    xAxis = dataScaled['subNumberIntervention']
-    yAxis = dataScaled['supNumberIntervention']
-    zAxis = dataScaled['deckNumberIntervention']
+    filename = "results/" + name +"3d.html"
+    title = "3D representation of clusters for the state " + name
+    fig = px.scatter_3d(dataScaled,
+                        x='subNumberIntervention',
+                        y='supNumberIntervention',
+                        z='deckNumberIntervention',
+                        color='cluster',
+                        title=title)
 
-    filename = "results/" + name + "ThreeDScatterplot.png"
+    plotly.offline.plot(fig, filename=filename)
 
-    fig = plt.figure(figsize=(10, 10))
-    ax = fig.add_subplot(111, projection='3d')
-    ax.set_title("Scatter plot of Intervention vs Components")
-
-    x = np.array(xAxis)
-    y = np.array(yAxis)
-    z = np.array(zAxis)
-
-    ax.scatter(x, y, z,
-               marker='s',
-               c=dataScaled['cluster'],
-               s=40,
-               cmap='RdBu')
-
-    plt.savefig(filename)
-
-def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
+def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state):
     """
     Description:
         Performs selection of optimal clusters and kmeans
@@ -424,5 +415,5 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs):
     dataScaled['cluster'] = list(finalKmeans.labels_)
 
     # Create 3D-clustering of the data
-    three_d_scatterplot(dataScaled)
+    three_d_scatterplot(dataScaled, name=state)
     return dataScaled, lowestCount

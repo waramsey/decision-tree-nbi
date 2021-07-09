@@ -126,7 +126,7 @@ def maintenance_pipeline(state):
                        'deckNumberIntervention'
                       ]
 
-    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs)
+    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state=state)
 
     # Analysis of Variance:
     anovaTable =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
