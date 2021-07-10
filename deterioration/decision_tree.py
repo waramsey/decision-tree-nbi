@@ -434,11 +434,44 @@ def decision_tree(X, y, nFold=5):
     # Return the average kappa value for state
     return kappaVals, accVals
 
+def plot_centroids(states, listOfMetricValues, metricName):
+    """
+    Description:
+
+    Args:
+        states (sates)
+        listOfMetricsValues (list of list)
+        metricName (list)
+
+    Returns:
+        saves a 3d scatter plot
+    """
+    filename = "midwesternstates3d.html"
+    title = "3D representation of centroids for the midwestern"
+    print(listOfMetricValues, metricName)
+    """
+    fig = px.scatter_3d(dataFrame,
+                      x='subNumberIntervention',
+                      y='supNumberIntervention',
+                      z='deckNumberIntervention',
+                      color='cluster',
+                      #symbols='', # states
+                      title=title)
+
+    plotly.offline.plot(fig, filename=filename)
+    """
+
+
 def plot_overall_performance(states, listOfMetricValues, metricName):
     """
     Description:
+        plots a barchart of all states and their metrics values
     Args:
+        states (list)
+        listOfMetricValues (list of list)
+        metricName (list of names)
     Returns:
+        saves a barchart
     """
     filename = metricName + '.png'
 

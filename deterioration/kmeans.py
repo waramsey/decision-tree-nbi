@@ -398,6 +398,7 @@ def three_d_scatterplot(dataScaled, name=''):
                         y='supNumberIntervention',
                         z='deckNumberIntervention',
                         color='cluster',
+                        #symbols='', # states
                         title=title)
 
     plotly.offline.plot(fig, filename=filename)
@@ -438,7 +439,9 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state):
     # Use K-means with optimal numbe of cluster
     finalKmeans = KMeans(n_clusters=kl.elbow, **kmeans_kwargs)
     finalKmeans.fit(dataScaled[listOfParameters])
+    centroids = finalKmeans.cluster_centers_
 
+    print("\n Centroids: ", centroids)
     counts = Counter(finalKmeans.labels_)
     lowestCount = min(counts.values())
 
@@ -450,4 +453,4 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state):
 
     # Create 3D-clustering of the data
     three_d_scatterplot(dataScaled, name=state)
-    return dataScaled, lowestCount
+    return dataScaled, lowestCount, centroids

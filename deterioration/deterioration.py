@@ -14,7 +14,9 @@ from collections import defaultdict
 import os
 import sys
 
-# Matplotlib 
+# Matplotlib and plotly
+import plotly
+import plotly.express as px
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -142,7 +144,7 @@ def deterioration_pipeline(state):
 
     # K-means clustering
     # Change in directory
-    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state=state)
+    dataScaled, lowestCount, centroids = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state=state)
 
     # Analysis of variance
     anovaTable, tukeyCluster = evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
@@ -205,7 +207,7 @@ def deterioration_pipeline(state):
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return kappaVals, accVals
+    return kappaVals, accVals, centroids
 
 # Driver function
 def main():
@@ -223,15 +225,22 @@ def main():
                 #"michigan" # [X]
                 ]
 
+    csvfiles =['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
+    listOfCentroids = list()
     for filename in csvfiles:
         # Output
-        kappa, acc = deterioration_pipeline(filename)
+        kappa, acc, centroids = deterioration_pipeline(filename)
         listOfKappaValues.append(kappa)
         listOfAccValues.append(acc)
+        listOfCentroids.append(centroids)
 
     sys.stdout = open("OverallOutput.txt", "w")
+
+    plot_centroids(csvfiles,
+                   listOfCentroids,
+                   "Centroid")
 
     plot_overall_performance(csvfiles,
                              listOfKappaValues,
