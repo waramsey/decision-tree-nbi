@@ -159,7 +159,7 @@ def deterioration_pipeline(state):
         print("\n Feature: ", feat)
         print("\n Tukeys test: \n", res)
 
-    # Analysis of the clusters:
+    # Analysis of the clusters
     # Change in directory
     characterize_clusters(dataScaled, listOfParameters)
 
@@ -222,24 +222,57 @@ def main():
                 "wisconsin",
                 "missouri",
                 "minnesota",
-                #"michigan" # [X]
+                #"michigan" #[X]
                 ]
 
-    csvfiles =['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfCentroids = list()
+    listOfStates = list()
     for filename in csvfiles:
         # Output
         kappa, acc, centroids = deterioration_pipeline(filename)
         listOfKappaValues.append(kappa)
         listOfAccValues.append(acc)
         listOfCentroids.append(centroids)
+        listOfStates.append(filename)
 
     sys.stdout = open("OverallOutput.txt", "w")
 
+    # Change the orientation
+    subDeteriorationScores = list()
+    deckDeteriorationScores = list()
+    supDeteriorationScores = list()
+    supNumberIntervention = list()
+    deckNumberIntervention = list()
+    subNumberIntervention = list()
+    states =  list()
+
+    # print the values:
+    for cluster, state in zip(listOfCentroids, listOfStates):
+        numOfItems = len(cluster)
+        for item, item1 in zip (cluster, state):
+             subDeteriorationScores.append(item[0])
+             deckDeteriorationScores.append(item[1])
+             supDeteriorationScores.append(item[2])
+             supNumberIntervention.append(item[3])
+             deckNumberIntervention.append(item[4])
+             subNumberIntervention.append(item[5])
+             states.append(state)
+
+    centroidDf = pd.DataFrame({"states":states,
+                               "subDetScore":subDeteriorationScores,
+                               "deckDetScore":deckDeteriorationScores,
+                               "supDetScore":supDeteriorationScores,
+                               "supNumInt":supNumberIntervention,
+                               "deckNumInt":deckNumberIntervention,
+                               "subNumInt":subNumberIntervention})
+
+    print("\n Printing Centroids: ", centroidDf)
+
+
     plot_centroids(csvfiles,
-                   listOfCentroids,
+                   centroidDf,
                    "Centroid")
 
     plot_overall_performance(csvfiles,
