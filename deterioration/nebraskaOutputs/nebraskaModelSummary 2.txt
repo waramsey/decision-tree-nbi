@@ -1,0 +1,189 @@
+
+ State:  nebraska
+
+ Optimal number of cluster (Elbow Coefficient):  4
+
+ Centroids:  [[ 9.99631152e-01  9.99754101e-01  9.98545684e-01 -6.93889390e-18
+   8.11850587e-16  2.44844908e-02]
+ [ 1.25000000e-01  2.50000000e-01  6.50000000e-01  0.00000000e+00
+   8.33333333e-02  0.00000000e+00]
+ [ 9.99292286e-01  9.99056381e-01  9.97593772e-01  5.19815994e-01
+   2.16088700e-01  2.05001180e-01]
+ [ 9.99798874e-01  9.95977474e-01  9.98069187e-01 -6.93889390e-18
+   3.53982301e-01  8.12550282e-02]]
+
+ Number of members in cluster: Counter({0: 9489, 2: 1413, 3: 1243, 1: 4})
+
+ ANOVA: 
+                 Attribute    sum_sq   df           F       p-value
+0   supDeteriorationScore  2.296875  3.0  147.000000  1.001765e-09
+1  deckDeteriorationScore  1.687500  3.0   81.000000  3.120034e-08
+2   subDeteriorationScore  0.187500  3.0    2.777778  8.687906e-02
+3   supNumberIntervention  1.171875  3.0   25.000000  1.896207e-05
+4  deckNumberIntervention  0.277778  3.0    6.666667  6.714235e-03
+5   subNumberIntervention  0.131944  3.0    2.111111  1.521974e-01
+
+ ANOVA Features: 
+              Attribute     sum_sq   df         F   p-value
+0  averageDailyTraffic   0.000082  3.0  0.854402  0.490827
+1             material  27.000000  3.0  3.000000  0.072765
+2           designLoad  17.000000  3.0  2.428571  0.115895
+
+ Feature:  averageDailyTraffic
+
+ Tukeys test: 
+ Multiple Comparison of Means - Tukey HSD, FWER=0.05
+===================================================
+group1 group2 meandiff p-adj   lower  upper  reject
+---------------------------------------------------
+     0      1  -0.0056 0.5232 -0.0175 0.0063  False
+     0      2  -0.0048 0.6349 -0.0167 0.0071  False
+     0      3  -0.0052 0.5727 -0.0171 0.0067  False
+     1      2   0.0008    0.9 -0.0111 0.0127  False
+     1      3   0.0004    0.9 -0.0115 0.0123  False
+     2      3  -0.0005    0.9 -0.0124 0.0114  False
+---------------------------------------------------
+
+ Feature:  material
+
+ Tukeys test: 
+ Multiple Comparison of Means - Tukey HSD, FWER=0.05
+===================================================
+group1 group2 meandiff p-adj   lower  upper  reject
+---------------------------------------------------
+     0      1      2.0  0.399 -1.6366 5.6366  False
+     0      2      2.0  0.399 -1.6366 5.6366  False
+     0      3     -1.0 0.8325 -4.6366 2.6366  False
+     1      2      0.0    0.9 -3.6366 3.6366  False
+     1      3     -3.0 0.1201 -6.6366 0.6366  False
+     2      3     -3.0 0.1201 -6.6366 0.6366  False
+---------------------------------------------------
+
+ Feature:  designLoad
+
+ Tukeys test: 
+ Multiple Comparison of Means - Tukey HSD, FWER=0.05
+===================================================
+group1 group2 meandiff p-adj   lower  upper  reject
+---------------------------------------------------
+     0      1     -2.5 0.1491 -5.7072 0.7072  False
+     0      2     -2.0 0.2981 -5.2072 1.2072  False
+     0      3     -2.5 0.1491 -5.7072 0.7072  False
+     1      2      0.5    0.9 -2.7072 3.7072  False
+     1      3      0.0    0.9 -3.2072 3.2072  False
+     2      3     -0.5    0.9 -3.7072 2.7072  False
+---------------------------------------------------
+Cluster:  0
+Mean Median Maximums Minimums StdDev  
+=====================================
+1.00 1.00   1.00     0.50     1.00
+1.00 1.00   1.00     0.67     1.00
+1.00 1.00   1.00     0.00     1.00
+0.00 0.00   0.00     0.00     0.00
+0.00 0.00   0.00     0.00     0.00
+0.02 0.00   0.67     0.00     0.02
+
+
+Cluster:  2
+Mean Median Maximums Minimums StdDev  
+=====================================
+1.00 1.00   1.00     0.75     1.00
+1.00 1.00   1.00     0.67     1.00
+1.00 1.00   1.00     0.60     1.00
+0.52 0.50   1.00     0.00     0.52
+0.22 0.33   1.00     0.00     0.22
+0.21 0.33   1.00     0.00     0.21
+
+
+Cluster:  3
+Mean Median Maximums Minimums StdDev  
+=====================================
+1.00 1.00   1.00     0.75     1.00
+1.00 1.00   1.00     0.33     1.00
+1.00 1.00   1.00     0.80     1.00
+0.00 0.00   0.00     0.00     0.00
+0.35 0.33   0.67     0.33     0.35
+0.08 0.00   1.00     0.00     0.08
+
+
+Cluster:  1
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.12 0.12   0.25     0.00     0.12
+0.25 0.33   0.33     0.00     0.25
+0.65 0.60   1.00     0.40     0.65
+0.00 0.00   0.00     0.00     0.00
+0.08 0.00   0.33     0.00     0.08
+0.00 0.00   0.00     0.00     0.00
+
+
+
+ Cluster with lowest membership (<15):  1
+
+ Number of members in the cluster: 4
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({0: 9489, 2: 9489, 3: 9489})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.6643907971273535
+
+ Best Accuracy:  0.769101005918631
+
+ Best Depth:  30
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.78      0.78      0.78      1900
+           2       0.75      0.77      0.76      1869
+           3       0.77      0.76      0.76      1924
+
+    accuracy                           0.77      5693
+   macro avg       0.77      0.77      0.77      5693
+weighted avg       0.77      0.77      0.77      5693
+
+
+ Confusion Matrix: 
+ [[1481  217  202]
+ [ 204 1443  222]
+ [ 209  262 1453]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.6406049485763448
+
+ Best Accuracy:  0.765939518277766
+
+ Best Depth:  26
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.77      0.76      0.77      1900
+           2       0.76      0.76      0.76      1869
+           3       0.76      0.75      0.76      1924
+
+    accuracy                           0.76      5693
+   macro avg       0.76      0.76      0.76      5693
+weighted avg       0.76      0.76      0.76      5693
+
+
+ Confusion Matrix: 
+ [[1451  216  233]
+ [ 206 1429  234]
+ [ 227  245 1452]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+

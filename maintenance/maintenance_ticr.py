@@ -126,7 +126,7 @@ def maintenance_pipeline(state):
                        'deckNumberIntervention'
                       ]
 
-    dataScaled, lowestCount = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state=state)
+    dataScaled, lowestCount, centroids = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state=state)
 
     # Analysis of Variance:
     anovaTable =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
@@ -163,12 +163,12 @@ def maintenance_pipeline(state):
     print("\n Distribution of the clusters after oversampling: ",
             Counter(y))
 
-    # return to home directory
+    # Return to home directory:
     kappaValues, accValues = decision_tree(X, y)
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return kappaValues, accValues
+    return kappaValues, accValues, centroids
 
 # Driver function
 def main():
@@ -184,19 +184,52 @@ def main():
                 "minnesota"
                 ]
 
+    csvfiles = ["nebraska"]
     listOfKappaValues = list()
     listOfAccValues = list()
+    listOfCentroids = list()
+    listOfStates = list()
 
     for filename in csvfiles:
-        # Output
-         kappa, acc = maintenance_pipeline(filename)
+         # Output
+         kappa, acc, centroids = maintenance_pipeline(filename)
          listOfKappaValues.append(kappa)
          listOfAccValues.append(acc)
+         listOfCentroids.append(centroids)
+         listOfStates.append(filename)
 
     sys.stdout = open("OverallOutput.txt", "w")
+
+    # Change the orientation:
+    supNumberIntervention = list()
+    deckNumberIntervention = list()
+    subNumberIntervention = list()
+    states = list()
+
+    # Print the values:
+    for cluster, state in zip(listOfCentroids, listOfStates):
+        numOfItems = len(cluster)
+        for item, item1 in zip(cluster, state):
+            subNumberIntervention.append(item[0])
+            deckNumberIntervention.append(item[1])
+            supNumberIntervention.append(item[2])
+            states.append(state)
+
+    centroidDf = pd.DataFrame({'states': states,
+                               'subNumInt': subNumberIntervention,
+                               'deckNumInt': deckNumberIntervention,
+                               'supNumInt': supNumberIntervention})
+
+    print("\n Printing Centroids: ", centroidDf)
+
+    plot_centroids(csvfiles,
+                  centroidDf,
+                  "Centroid")
+
     plot_overall_performance(csvfiles,
                              listOfKappaValues,
                              "KappaValues")
+
     plot_overall_performance(csvfiles,
                              listOfAccValues,
                              "AccValues")

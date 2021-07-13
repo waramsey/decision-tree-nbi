@@ -38,8 +38,6 @@ from sklearn.metrics import cohen_kappa_score
 from sklearn.metrics import roc_auc_score
 
 # Visualization
-import plotly
-import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
 #import graphviz
@@ -436,42 +434,11 @@ def decision_tree(X, y, nFold=5):
     # Return the average kappa value for state
     return kappaVals, accVals
 
-def plot_centroids(states, centroidDf, metricName):
-    """
-    Description:
-
-    Args:
-        states (states)
-        listOfMetricsValues (list of list)
-        metricName (list)
-
-    Returns:
-        saves a 3d scatter plot
-    """
-    filename = metricName + ".html"
-    title = "3D representation of centroids for the midwestern states"
-
-    fig = px.scatter_3d(centroidDf,
-                      x='subNumInt',
-                      y='supNumInt',
-                      z='deckNumInt',
-                      color='states',
-                      #color='states', # states
-                      title=title)
-
-    plotly.offline.plot(fig, filename=filename)
-
-
 def plot_overall_performance(states, listOfMetricValues, metricName):
     """
     Description:
-        plots a barchart of all states and their metrics values
     Args:
-        states (list)
-        listOfMetricValues (list of list)
-        metricName (list of names)
     Returns:
-        saves a barchart
     """
     filename = metricName + '.png'
 
@@ -494,7 +461,7 @@ def plot_overall_performance(states, listOfMetricValues, metricName):
     plt.legend()
     plt.savefig(filename)
 
-    print("\n" + metricName + "Table: ")
+    print("\n" + metricName + " Table: ")
     dataFrame = pd.DataFrame()
     dataFrame['state'] = states
     dataFrame['gini'] = gMetricValues

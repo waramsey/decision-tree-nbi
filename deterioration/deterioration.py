@@ -229,6 +229,7 @@ def main():
     listOfAccValues = list()
     listOfCentroids = list()
     listOfStates = list()
+
     for filename in csvfiles:
         # Output
         kappa, acc, centroids = deterioration_pipeline(filename)
