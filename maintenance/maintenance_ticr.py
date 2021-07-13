@@ -184,7 +184,6 @@ def main():
                 "minnesota"
                 ]
 
-    csvfiles = ["nebraska"]
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfCentroids = list()

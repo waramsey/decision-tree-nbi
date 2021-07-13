@@ -3,13 +3,18 @@
 
  Optimal number of cluster (Elbow Coefficient):  4
 
+ Centroids:  [[ 9.07821229e-02  4.32960894e-02  5.13966480e-01]
+ [ 1.04083409e-16  7.89878373e-03 -3.92047506e-16]
+ [ 5.21739130e-01  1.34057971e-01  7.24637681e-03]
+ [ 5.19230769e-01  5.38461538e-01  5.19230769e-01]]
+
  Number of members in cluster: Counter({1: 7153, 0: 358, 2: 138, 3: 78})
 
  ANOVA: 
  (                Attribute     sum_sq   df           F        p-value
-0   supNumberIntervention  17.669071  3.0  359.806527  2.691332e-100
-1   subNumberIntervention  16.983173  3.0  412.437453  1.689095e-107
-2  deckNumberIntervention  21.835737  3.0  635.279140  1.582471e-131, [<statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x16b4b6280>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x1353e70d0>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x1356b6ca0>])
+0   supNumberIntervention  16.572917  3.0  287.108527   7.180218e-89
+1   subNumberIntervention  15.104968  3.0  202.021851   2.018606e-72
+2  deckNumberIntervention  21.032051  3.0  893.499558  1.383091e-151, [<statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x2a08d3e50>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x14949bd00>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x149882b80>])
 Cluster:  3
 Mean Median Maximums Minimums StdDev  
 =====================================
@@ -52,60 +57,60 @@ Mean Median Maximums Minimums StdDev
             
 
 
- Best Kappa Values:  0.9218574690991995
+ Best Kappa Values:  0.9128876185631221
 
- Best Accuracy:  0.9276178897087568
+ Best Accuracy:  0.9270934631398058
 
- Best Depth:  21
+ Best Depth:  20
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.91      0.90      0.90      1409
-           1       0.92      0.89      0.90      1464
+           0       0.90      0.90      0.90      1409
+           1       0.91      0.89      0.90      1464
            2       0.93      0.95      0.94      1393
            3       0.96      0.97      0.96      1456
 
-    accuracy                           0.93      5722
-   macro avg       0.93      0.93      0.93      5722
-weighted avg       0.93      0.93      0.93      5722
+    accuracy                           0.92      5722
+   macro avg       0.92      0.92      0.92      5722
+weighted avg       0.92      0.92      0.92      5722
 
 
  Confusion Matrix: 
- [[1270   69   37   33]
- [  83 1308   50   23]
- [  29   33 1323    8]
- [  16   19    5 1416]]
+ [[1262   77   40   30]
+ [  81 1298   63   22]
+ [  32   29 1322   10]
+ [  31   15    4 1406]]
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.9250863252178709
+ Best Kappa Values:  0.9110201234941785
 
- Best Accuracy:  0.9254860245849651
+ Best Accuracy:  0.922759674579105
 
- Best Depth:  22
+ Best Depth:  28
 
  Classification Report: 
                precision    recall  f1-score   support
 
            0       0.90      0.90      0.90      1409
            1       0.92      0.88      0.90      1464
-           2       0.93      0.95      0.94      1393
-           3       0.96      0.97      0.97      1456
+           2       0.92      0.94      0.93      1393
+           3       0.94      0.97      0.95      1456
 
-    accuracy                           0.93      5722
-   macro avg       0.93      0.93      0.93      5722
-weighted avg       0.93      0.93      0.93      5722
+    accuracy                           0.92      5722
+   macro avg       0.92      0.92      0.92      5722
+weighted avg       0.92      0.92      0.92      5722
 
 
  Confusion Matrix: 
- [[1268   76   37   28]
- [  97 1294   59   14]
- [  26   29 1328   10]
- [  20   15    4 1417]]
+ [[1266   64   37   42]
+ [  89 1288   58   29]
+ [  31   32 1316   14]
+ [  20   16   13 1407]]
 
  Saving decision trees 
 
