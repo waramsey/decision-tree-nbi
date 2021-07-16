@@ -11,7 +11,7 @@ from collections import Counter
 from collections import defaultdict
 from tqdm import tqdm
 
-#  Metrics and stats
+# Metrics and stats
 from sklearn.metrics import silhouette_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
@@ -41,7 +41,8 @@ import plotly.express as px
 # Function for normalizing
 def normalize(df, columns):
     """
-    Function for normalizing the data
+    Description:
+        Function for normalizing the data
     """
     for feature in columns:
         df[feature] = df[feature].astype(int)
@@ -53,7 +54,8 @@ def normalize(df, columns):
 # Function to group by
 def drop_duplicate_rows(df):
     """
-    Function to groupby bridge records
+    Description:
+        Function to groupby bridge records
     """
     df = df.drop_duplicates(subset=['structureNumber'],
                                 keep='first',
@@ -77,8 +79,10 @@ def ANOVA(df, feature):
     dfMelt = pd.melt(df.reset_index(), id_vars=['index'])
     dfMelt.columns = ['index', 'cluster', 'value']
     plot_box(dfMelt)
-    model = ols('value ~ C(cluster)', data=dfMelt).fit()
-    anovaTable = sm.stats.anova_lm(model, typ=2)
+    model = ols('value ~ C(cluster)',
+                data=dfMelt).fit()
+    anovaTable = sm.stats.anova_lm(model,
+                                   typ=2)
     tukey = pairwise_tukeyhsd(endog=dfMelt['value'],
                              groups=dfMelt['cluster'],
                              alpha=0.05)
@@ -102,7 +106,8 @@ def plot_elbow(sse):
 
 def plot_silhouette(silhouette):
     """
-    Plot silhouette constant for finding optimal number
+    Description:
+        Plot silhouette constant for finding optimal number
     of clusters
     """
     filename = "results/" + "Silhouette.png"
@@ -116,7 +121,8 @@ def plot_silhouette(silhouette):
 
 def plot_scatter(col1, col2, color=None):
     """
-    Scatter plot for maximum number of bridges
+    Description:
+        Scatter plot for maximum number of bridges
     """
     filename = "results/" + "ScatterPlot.png"
     plt.figure(figsize=(10, 10))
@@ -141,9 +147,19 @@ def plot_scatter_Kmeans(df):
     plt.figure(figsize=(10, 10))
     plt.style.use("fivethirtyeight")
     plt.title("Plotting Clusters")
-    plt.scatter(cluster1['deck'], cluster1['superstructure'], color='red')
-    plt.scatter(cluster2['deck'], cluster2['superstructure'], color='green')
-    plt.scatter(cluster3['deck'], cluster3['superstructure'], color='blue')
+
+    plt.scatter(cluster1['deck'],
+                cluster1['superstructure'],
+                color='red')
+
+    plt.scatter(cluster2['deck'],
+                cluster2['superstructure'],
+                color='green')
+
+    plt.scatter(cluster3['deck'],
+                cluster3['superstructure'],
+                color='blue')
+
     plt.xlabel("Column 1")
     plt.ylabel("Column 2")
     plt.savefig(filename)
@@ -225,13 +241,25 @@ def characterize_clusters(dataScaled,
                                   'stdDev': stdDevs})
 
         print("Cluster: ", cluster)
-        print ("{:<4} {:<6} {:<7} {:<8} {:<8}".format('Mean','Median','Maximums', 'Minimums', 'StdDev'))
+        print("{:<4} {:<6} {:<7} {:<8} {:<8}".format('Mean',
+                                                     'Median',
+                                                     'Maximums',
+                                                     'Minimums',
+                                                     'StdDev'))
         print("="*37)
 
-        for a, b, c, d, e in zip(means, medians, maximums, minimums, stdDevs):
-            print ("{:.2f} {:.2f}   {:.2f}     {:.2f}     {:.2f}".format(a, b, c, d, e))
+        for a, b, c, d, e in zip(means,
+                                 medians,
+                                 maximums,
+                                 minimums,
+                                 stdDevs):
+
+            print ("{:.2f} {:.2f}   {:.2f}     {:.2f}     {:.2f}".format(a,
+                                                                         b,
+                                                                         c,
+                                                                         d,
+                                                                         e))
         print("\n")
-        #print(dataFrame)
 
 # Confusion matrix
 def print_confusion_matrix(cm):
@@ -250,8 +278,7 @@ def print_confusion_matrix(cm):
 
     dfCm = pd.DataFrame(cm,
                         index=indexList,
-                        columns=columnList
-                        )
+                        columns=columnList)
 
     plt.subplots(figsize=(8, 8))
     sns.heatmap(dfCm, annot=True, fmt='g', cmap='BuPu')
@@ -270,8 +297,13 @@ def log_regression(df, X, y):
     Returns:
         model (sklearn model)
     """
-    trainX, testX, trainy, testy = train_test_split(X, y, test_size=0.33, random_state=42)
-    model = LogisticRegression(multi_class="multinomial", random_state=0)
+    trainX, testX, trainy, testy = train_test_split(X, y,
+                                                    test_size=0.33,
+                                                    random_state=42)
+
+    model = LogisticRegression(multi_class="multinomial",
+                               random_state=0)
+
     model.fit(trainX, trainy)
     prediction = model.predict(testX)
     cm = confusion_matrix(testy, prediction)
@@ -418,4 +450,4 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state):
 
     # Create 3D-clustering of the data
     three_d_scatterplot(dataScaled, name=state)
-    return dataScaled, lowestCount, centroids
+    return dataScaled, lowestCount, centroids, counts

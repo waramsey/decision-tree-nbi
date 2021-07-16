@@ -3,7 +3,7 @@
 
  Optimal number of cluster (Elbow Coefficient):  4
 
- Centroids:  [[ 0.00000000e+00  1.38083989e-15  3.46135609e-02]
+ Centroids:  [[-1.38777878e-17  1.38083989e-15  3.46135609e-02]
  [ 5.11786600e-01  7.81637717e-02  1.15384615e-01]
  [ 5.33112583e-01  3.70309051e-01  3.51545254e-01]
  [-1.38777878e-17  3.74953549e-01  1.11111111e-01]]
@@ -11,10 +11,10 @@
  Number of members in cluster: Counter({0: 9842, 3: 897, 1: 806, 2: 604})
 
  ANOVA: 
- (                Attribute      sum_sq   df            F        p-value
-0   supNumberIntervention  167.663079  3.0  9039.120067   0.000000e+00
-1   subNumberIntervention   67.945686  3.0  1728.770840   0.000000e+00
-2  deckNumberIntervention   34.639073  3.0   543.654943  7.299180e-270, [<statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x1523d18e0>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x1649a8700>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x15235cd90>])
+ (                Attribute      sum_sq   df             F        p-value
+0   supNumberIntervention  165.288390  3.0  10302.818952   0.000000e+00
+1   subNumberIntervention   70.123252  3.0   1770.293550   0.000000e+00
+2  deckNumberIntervention   34.131485  3.0    488.427729  5.822278e-248, [<statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x15b2e2ca0>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x14a7b0520>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x1491479d0>])
 Cluster:  0
 Mean Median Maximums Minimums StdDev  
 =====================================
@@ -57,19 +57,19 @@ Mean Median Maximums Minimums StdDev
             
 
 
- Best Kappa Values:  0.6933941939144889
+ Best Kappa Values:  0.6974471096427544
 
- Best Accuracy:  0.7703973328688433
+ Best Accuracy:  0.7699400029055361
 
- Best Depth:  23
+ Best Depth:  30
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.80      0.80      0.80      1909
-           1       0.74      0.77      0.76      2000
-           2       0.77      0.76      0.77      1999
-           3       0.76      0.73      0.75      1965
+           0       0.79      0.79      0.79      1909
+           1       0.74      0.76      0.75      2000
+           2       0.76      0.77      0.77      1999
+           3       0.77      0.75      0.76      1965
 
     accuracy                           0.77      7873
    macro avg       0.77      0.77      0.77      7873
@@ -77,40 +77,40 @@ weighted avg       0.77      0.77      0.77      7873
 
 
  Confusion Matrix: 
- [[1522  135  100  152]
- [ 126 1548  195  131]
- [  77  233 1527  162]
- [ 174  179  171 1441]]
+ [[1510  142  109  148]
+ [ 146 1518  205  131]
+ [  74  239 1537  149]
+ [ 174  160  161 1470]]
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.6815731563210611
+ Best Kappa Values:  0.6875634737539262
 
- Best Accuracy:  0.7672984266583293
+ Best Accuracy:  0.7697112992092109
 
- Best Depth:  29
+ Best Depth:  22
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.78      0.79      0.78      1909
+           0       0.79      0.79      0.79      1909
            1       0.75      0.78      0.76      2000
-           2       0.77      0.75      0.76      1999
-           3       0.76      0.73      0.75      1965
+           2       0.77      0.77      0.77      1999
+           3       0.77      0.75      0.76      1965
 
-    accuracy                           0.76      7873
-   macro avg       0.76      0.76      0.76      7873
-weighted avg       0.76      0.76      0.76      7873
+    accuracy                           0.77      7873
+   macro avg       0.77      0.77      0.77      7873
+weighted avg       0.77      0.77      0.77      7873
 
 
  Confusion Matrix: 
- [[1504  139  108  158]
- [ 136 1556  184  124]
- [  97  228 1509  165]
- [ 194  162  169 1440]]
+ [[1500  125  106  178]
+ [ 144 1554  182  120]
+ [  76  230 1544  149]
+ [ 179  155  163 1468]]
 
  Saving decision trees 
 

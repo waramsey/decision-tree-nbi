@@ -64,8 +64,7 @@ def maintenance_pipeline(state):
                            'deckNumberIntervention',
                            'subNumberIntervention',
                            'supNumberIntervention',
-                           ]
-                           )
+                           ])
 
     df = remove_duplicates(df)
 
@@ -126,7 +125,10 @@ def maintenance_pipeline(state):
                        'deckNumberIntervention'
                       ]
 
-    dataScaled, lowestCount, centroids = kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state=state)
+    dataScaled, lowestCount, centroids, counts = kmeans_clustering(dataScaled,
+                                                                   listOfParameters,
+                                                                   kmeans_kwargs,
+                                                                   state=state)
 
     # Analysis of Variance:
     anovaTable =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
@@ -168,7 +170,7 @@ def maintenance_pipeline(state):
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return kappaValues, accValues, centroids
+    return kappaValues, accValues, centroids, counts
 
 # Driver function
 def main():
@@ -184,18 +186,21 @@ def main():
                 "minnesota"
                 ]
 
+    #csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfCentroids = list()
     listOfStates = list()
+    listOfCounts = list()
 
     for filename in csvfiles:
          # Output
-         kappa, acc, centroids = maintenance_pipeline(filename)
+         kappa, acc, centroids, counts = maintenance_pipeline(filename)
          listOfKappaValues.append(kappa)
          listOfAccValues.append(acc)
          listOfCentroids.append(centroids)
          listOfStates.append(filename)
+         listOfCounts.append(counts)
 
     sys.stdout = open("OverallOutput.txt", "w")
 
@@ -204,22 +209,31 @@ def main():
     deckNumberIntervention = list()
     subNumberIntervention = list()
     states = list()
+    clusterNames = list()
+    countsTemp = list()
 
     # Print the values:
-    for cluster, state in zip(listOfCentroids, listOfStates):
+    for cluster, state, counts in zip(listOfCentroids,
+                                      listOfStates,
+                                      listOfCounts):
         numOfItems = len(cluster)
-        for item, item1 in zip(cluster, state):
+        counts = dict(counts).values()
+        for item, item1, count in zip(cluster, state, counts):
             subNumberIntervention.append(item[0])
             deckNumberIntervention.append(item[1])
             supNumberIntervention.append(item[2])
             states.append(state)
+            #clusterNames.append(count)
+            countsTemp.append(count)
 
     centroidDf = pd.DataFrame({'states': states,
                                'subNumInt': subNumberIntervention,
                                'deckNumInt': deckNumberIntervention,
-                               'supNumInt': supNumberIntervention})
+                               'supNumInt': supNumberIntervention,
+                               #'name':clusterNames,
+                               'membership':countsTemp})
 
-    print("\n Printing Centroids: ", centroidDf)
+    print("\n Printing Centroids: \n", centroidDf)
 
     plot_centroids(csvfiles,
                   centroidDf,

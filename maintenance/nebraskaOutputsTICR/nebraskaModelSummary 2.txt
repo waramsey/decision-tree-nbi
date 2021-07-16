@@ -1,0 +1,119 @@
+
+ state:  nebraska
+
+ Optimal number of cluster (Elbow Coefficient):  4
+
+ Centroids:  [[-1.38777878e-17  1.38083989e-15  3.46135609e-02]
+ [ 5.11786600e-01  7.81637717e-02  1.15384615e-01]
+ [ 5.33112583e-01  3.70309051e-01  3.51545254e-01]
+ [-1.38777878e-17  3.74953549e-01  1.11111111e-01]]
+
+ Number of members in cluster: Counter({0: 9842, 3: 897, 1: 806, 2: 604})
+
+ ANOVA: 
+ (                Attribute      sum_sq   df            F        p-value
+0   supNumberIntervention  167.016970  3.0  9206.664737   0.000000e+00
+1   subNumberIntervention   69.160412  3.0  1971.591421   0.000000e+00
+2  deckNumberIntervention   35.299669  3.0   540.786285  9.520658e-269, [<statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x130a63370>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x167988580>, <statsmodels.sandbox.stats.multicomp.TukeyHSDResults object at 0x130b7c6a0>])
+Cluster:  0
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.00 0.00   0.00     0.00     0.00
+0.00 0.00   0.00     0.00     0.00
+0.03 0.00   0.67     0.00     0.03
+
+
+Cluster:  3
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.00 0.00   0.00     0.00     0.00
+0.37 0.33   1.00     0.33     0.37
+0.11 0.00   0.67     0.00     0.11
+
+
+Cluster:  2
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.53 0.50   1.00     0.50     0.53
+0.37 0.33   1.00     0.00     0.37
+0.35 0.33   1.00     0.00     0.35
+
+
+Cluster:  1
+Mean Median Maximums Minimums StdDev  
+=====================================
+0.51 0.50   1.00     0.50     0.51
+0.08 0.00   0.33     0.00     0.08
+0.12 0.00   0.33     0.00     0.12
+
+
+
+ Oversampling (SMOTE) ...
+
+ Distribution of the clusters after oversampling:  Counter({0: 9842, 3: 9842, 2: 9842, 1: 9842})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.6887430571376948
+
+ Best Accuracy:  0.7707782626539468
+
+ Best Depth:  20
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.79      0.79      0.79      1909
+           1       0.74      0.77      0.75      2000
+           2       0.75      0.76      0.76      1999
+           3       0.76      0.73      0.75      1965
+
+    accuracy                           0.76      7873
+   macro avg       0.76      0.76      0.76      7873
+weighted avg       0.76      0.76      0.76      7873
+
+
+ Confusion Matrix: 
+ [[1500  147   95  167]
+ [ 130 1536  195  139]
+ [  95  242 1524  138]
+ [ 169  147  209 1440]]
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.6798603269198807
+
+ Best Accuracy:  0.7688224038965543
+
+ Best Depth:  26
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+           0       0.77      0.79      0.78      1909
+           1       0.75      0.76      0.75      2000
+           2       0.75      0.75      0.75      1999
+           3       0.77      0.73      0.75      1965
+
+    accuracy                           0.76      7873
+   macro avg       0.76      0.76      0.76      7873
+weighted avg       0.76      0.76      0.76      7873
+
+
+ Confusion Matrix: 
+ [[1510  128  124  147]
+ [ 139 1518  197  146]
+ [ 113  241 1508  137]
+ [ 190  150  183 1442]]
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
