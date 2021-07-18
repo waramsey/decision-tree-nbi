@@ -344,7 +344,8 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
         temp = defaultdict()
         for rows in dataScaled.groupby('cluster')[col]:
             cluster, records = rows
-            temp[cluster] = np.random.choice(list(records), lowestCount)
+            temp[cluster] = np.random.choice(list(records),
+                                             lowestCount)
         tempDf = pd.DataFrame.from_dict(temp)
         anovaTable, tukey = ANOVA(tempDf, col)
 
@@ -362,7 +363,7 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
 
         features.append(col)
 
-        # Collect the tukey results for all feature
+        # Error
         tukeys.append(tukey)
 
     anovaDf = pd.DataFrame(columns=['Attribute',
@@ -377,6 +378,102 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
     anovaDf['p-value'] = pvalues
     return anovaDf, tukeys
 
+def is_zero(value):
+    if value == 0:
+        return True
+    else:
+        return False
+
+def is_negative(value):
+    if value < 0:
+        return True
+    else:
+        return False
+def is_one(value):
+    if value == 1:
+        return True
+    else:
+        return False
+
+def is_low(value):
+    if value > 0 and value < 0.12:
+        return True
+    else:
+        return False
+
+def is_medium(value):
+    if value > 0.13 and value < 0.33:
+        return True
+    else:
+        return False
+
+def is_high(value):
+    if value > 0.33:
+        return True
+    else:
+        return False
+
+def provide_label(sub, deck, sup):
+    """
+    Description:
+        Return the label for the value of
+    subsructure, superstructure, and deck
+    """
+    componentDict = {0:'Substructure',
+                     1:'Deck',
+                     2:'Superstructure'}
+
+    values = [sub, deck, sup]
+    labels = list()
+    # Should we include condiiton function for zero?
+    for num in range(len(values)):
+        value = float(values[num])
+        #value = format(value, '0.2f')
+        if is_zero(value):
+            label = 'No ' + componentDict[num]
+        elif is_low(value):
+            label = 'Low ' + componentDict[num]
+        elif is_negative(value):
+            label = 'No ' + componentDict[num]
+        elif is_medium(value):
+            label = 'Medium ' + componentDict[num]
+        elif is_high(value):
+            label = 'High ' + componentDict[num]
+        else:
+            label = 'Error ' + componentDict[num]
+        labels.append(label)
+    return labels
+
+def semantic_labeling_utility(record):
+    """
+    Description:
+       Utility to assign a label depending on the values
+    """
+    sub, deck, sup = record
+    if sub == 0 and deck == 0 and sup == 0:
+        label = "No intervention"
+    elif sub == 1 and deck == 1 and sup == 1:
+        label = 'All intervention'
+    elif sub > 0 and deck > 0 and sup > 0:
+        label = provide_label(sub, deck, sup)
+    else:
+        label = "Other intervention"
+        label = provide_label(sub, deck, sup)
+
+    return label
+
+def semantic_labeling(centroids, listOfParameters, name=""):
+    """
+    Description:
+        Assign a semantic labeling of the clusters
+    """
+    semanticLabels = pd.DataFrame(centroids)
+    print("Printing Records: \n")
+    for record in centroids:
+        label = semantic_labeling_utility(record)
+        print(label)
+    return centroids
+
 def three_d_scatterplot(dataScaled, name=''):
     """
     Description:
@@ -389,7 +486,7 @@ def three_d_scatterplot(dataScaled, name=''):
     Returns:
         saves a three 3d scatter plot with .html extention
     """
-    filename = "results/" + name +"3d.html"
+    filename = "results/" + name + "3d.html"
     title = "3D representation of clusters for the state " + name
     fig = px.scatter_3d(dataScaled,
                         x='subNumberIntervention',

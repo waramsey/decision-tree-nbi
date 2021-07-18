@@ -130,9 +130,19 @@ def maintenance_pipeline(state):
                                                                    kmeans_kwargs,
                                                                    state=state)
 
+    # Data Scaled
+    dataS = semantic_labeling(centroids,
+                              listOfParameters,
+                              name="")
+
     # Analysis of Variance:
-    anovaTable =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
-    print("\n ANOVA: \n", anovaTable)
+    anovaTable, tukeys =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
+    print("\nANOVA: \n", anovaTable)
+
+    print("\nTukey's : \n")
+    for result in tukeys:
+        print(result)
+        print('\n')
 
     # Characterizing the clusters:
     characterize_clusters(dataScaled, listOfParameters)
@@ -186,7 +196,7 @@ def main():
                 "minnesota"
                 ]
 
-    #csvfiles = ['nebraska']
+    csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfCentroids = list()
