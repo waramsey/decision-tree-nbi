@@ -1,15 +1,15 @@
 
  Printing Centroids: 
       states     subNumInt    deckNumInt  supNumInt  membership
-0  nebraska -1.387779e-17  1.380840e-15   0.034614        9842
+0  nebraska -1.387779e-17  1.373901e-15   0.034614        9842
 1  nebraska  5.117866e-01  7.816377e-02   0.115385         897
 2  nebraska  5.331126e-01  3.703091e-01   0.351545         604
 3  nebraska -1.387779e-17  3.749535e-01   0.111111         806
 
 KappaValuesTable: 
       state      gini   entropy
-0  nebraska  0.687835  0.683422
+0  nebraska  0.689971  0.695995
 
 AccValuesTable: 
       state      gini   entropy
-0  nebraska  0.768086  0.768035
+0  nebraska  0.771007  0.772582
