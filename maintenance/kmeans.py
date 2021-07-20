@@ -425,10 +425,8 @@ def provide_label(sub, deck, sup):
 
     values = [sub, deck, sup]
     labels = list()
-    # Should we include condiiton function for zero?
     for num in range(len(values)):
         value = float(values[num])
-        #value = format(value, '0.2f')
         if is_zero(value):
             label = 'No ' + componentDict[num]
         elif is_low(value):
@@ -459,7 +457,6 @@ def semantic_labeling_utility(record):
     else:
         label = "Other intervention"
         label = provide_label(sub, deck, sup)
-
     return label
 
 def semantic_labeling(centroids, listOfParameters, name=""):
@@ -468,11 +465,13 @@ def semantic_labeling(centroids, listOfParameters, name=""):
         Assign a semantic labeling of the clusters
     """
     semanticLabels = pd.DataFrame(centroids)
-    print("Printing Records: \n")
+    labels = list()
     for record in centroids:
         label = semantic_labeling_utility(record)
-        print(label)
-    return centroids
+        if type(label) is type(list()):
+            label = ' - '.join(label)
+        labels.append(label)
+    return labels
 
 def three_d_scatterplot(dataScaled, name=''):
     """

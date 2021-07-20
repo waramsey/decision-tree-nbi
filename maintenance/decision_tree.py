@@ -456,8 +456,8 @@ def plot_centroids(states, centroidDf, metricName):
                       x='subNumInt',
                       y='supNumInt',
                       z='deckNumInt',
-                      color='states',
-                      #color='states', # states
+                      color='name',
+                      symbol='state',
                       title=title)
 
     plotly.offline.plot(fig, filename=filename)

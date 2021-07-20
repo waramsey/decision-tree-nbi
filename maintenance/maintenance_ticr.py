@@ -131,7 +131,7 @@ def maintenance_pipeline(state):
                                                                    state=state)
 
     # Data Scaled
-    dataS = semantic_labeling(centroids,
+    sLabels = semantic_labeling(centroids,
                               listOfParameters,
                               name="")
 
@@ -180,7 +180,7 @@ def maintenance_pipeline(state):
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return kappaValues, accValues, centroids, counts
+    return kappaValues, accValues, centroids, sLabels, counts
 
 # Driver function
 def main():
@@ -196,19 +196,20 @@ def main():
                 "minnesota"
                 ]
 
-    csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfCentroids = list()
+    listOfLabels = list()
     listOfStates = list()
     listOfCounts = list()
 
     for filename in csvfiles:
          # Output
-         kappa, acc, centroids, counts = maintenance_pipeline(filename)
+         kappa, acc, centroids, sLabel, counts = maintenance_pipeline(filename)
          listOfKappaValues.append(kappa)
          listOfAccValues.append(acc)
          listOfCentroids.append(centroids)
+         listOfLabels.append(sLabel)
          listOfStates.append(filename)
          listOfCounts.append(counts)
 
@@ -223,24 +224,25 @@ def main():
     countsTemp = list()
 
     # Print the values:
-    for cluster, state, counts in zip(listOfCentroids,
+    for cluster, sLabel, state, counts in zip(listOfCentroids,
+                                      listOfLabels,
                                       listOfStates,
                                       listOfCounts):
         numOfItems = len(cluster)
         counts = dict(counts).values()
-        for item, item1, count in zip(cluster, state, counts):
+        for item, label, item1, count in zip(cluster, sLabel, state, counts):
             subNumberIntervention.append(item[0])
             deckNumberIntervention.append(item[1])
             supNumberIntervention.append(item[2])
             states.append(state)
-            #clusterNames.append(count)
+            clusterNames.append(label)
             countsTemp.append(count)
 
-    centroidDf = pd.DataFrame({'states': states,
+    centroidDf = pd.DataFrame({'state': states,
                                'subNumInt': subNumberIntervention,
                                'deckNumInt': deckNumberIntervention,
                                'supNumInt': supNumberIntervention,
-                               #'name':clusterNames,
+                               'name':clusterNames,
                                'membership':countsTemp})
 
     print("\n Printing Centroids: \n", centroidDf)

@@ -3,24 +3,18 @@
 
  Optimal number of cluster (Elbow Coefficient):  4
 
- Centroids:  [[-1.38777878e-17  1.37390099e-15  3.46135609e-02]
+ Centroids:  [[ 0.00000000e+00  1.38083989e-15  3.46135609e-02]
  [ 5.11786600e-01  7.81637717e-02  1.15384615e-01]
  [ 5.33112583e-01  3.70309051e-01  3.51545254e-01]
  [-1.38777878e-17  3.74953549e-01  1.11111111e-01]]
 
  Number of members in cluster: Counter({0: 9842, 3: 897, 1: 806, 2: 604})
-Printing Records: 
-
-['No Substructure', 'Low Deck', 'Low Superstructure']
-['High Substructure', 'Low Deck', 'Low Superstructure']
-['High Substructure', 'High Deck', 'High Superstructure']
-['No Substructure', 'High Deck', 'Low Superstructure']
 
 ANOVA: 
-                 Attribute      sum_sq   df             F        p-value
-0   supNumberIntervention  165.592715  3.0  10176.470767   0.000000e+00
-1   subNumberIntervention   68.503495  3.0   1741.027529   0.000000e+00
-2  deckNumberIntervention   31.677152  3.0    484.345855  2.634911e-246
+                 Attribute      sum_sq   df            F        p-value
+0   supNumberIntervention  166.284251  3.0  9649.026766   0.000000e+00
+1   subNumberIntervention   69.025202  3.0  1885.367690   0.000000e+00
+2  deckNumberIntervention   34.318985  3.0   500.198862  1.046173e-252
 
 Tukey's : 
 
@@ -28,12 +22,12 @@ Multiple Comparison of Means - Tukey HSD, FWER=0.05
 ===================================================
 group1 group2 meandiff p-adj  lower   upper  reject
 ---------------------------------------------------
-     0      1   0.5083 0.001  0.4974  0.5192   True
-     0      2   0.5381 0.001  0.5272   0.549   True
-     0      3      0.0   0.9 -0.0109  0.0109  False
-     1      2   0.0298 0.001  0.0189  0.0407   True
-     1      3  -0.5083 0.001 -0.5192 -0.4974   True
-     2      3  -0.5381 0.001  -0.549 -0.5272   True
+     0      1   0.5124 0.001  0.5012  0.5236   True
+     0      2   0.5364 0.001  0.5252  0.5476   True
+     0      3      0.0   0.9 -0.0112  0.0112  False
+     1      2    0.024 0.001  0.0128  0.0352   True
+     1      3  -0.5124 0.001 -0.5236 -0.5012   True
+     2      3  -0.5364 0.001 -0.5476 -0.5252   True
 ---------------------------------------------------
 
 
@@ -41,26 +35,26 @@ Multiple Comparison of Means - Tukey HSD, FWER=0.05
 ===================================================
 group1 group2 meandiff p-adj   lower  upper  reject
 ---------------------------------------------------
-     0      1   0.0866  0.001  0.0697 0.1036   True
-     0      2   0.3714  0.001  0.3545 0.3884   True
-     0      3   0.3775  0.001  0.3605 0.3944   True
-     1      2   0.2848  0.001  0.2678 0.3017   True
-     1      3   0.2908  0.001  0.2739 0.3078   True
-     2      3   0.0061 0.7681 -0.0109  0.023  False
+     0      1   0.0789  0.001  0.0626 0.0953   True
+     0      2   0.3675  0.001  0.3512 0.3839   True
+     0      3    0.378  0.001  0.3617 0.3944   True
+     1      2   0.2886  0.001  0.2723  0.305   True
+     1      3   0.2991  0.001  0.2828 0.3155   True
+     2      3   0.0105 0.3515 -0.0059 0.0268  False
 ---------------------------------------------------
 
 
-Multiple Comparison of Means - Tukey HSD, FWER=0.05
-===================================================
-group1 group2 meandiff p-adj  lower   upper  reject
----------------------------------------------------
-     0      1   0.0966 0.001  0.0747  0.1184   True
-     0      2   0.3118 0.001    0.29  0.3337   True
-     0      3   0.0916 0.001  0.0698  0.1135   True
-     1      2   0.2152 0.001  0.1934  0.2371   True
-     1      3   -0.005   0.9 -0.0268  0.0169  False
-     2      3  -0.2202 0.001  -0.242 -0.1984   True
----------------------------------------------------
+Multiple Comparison of Means - Tukey HSD, FWER=0.05 
+====================================================
+group1 group2 meandiff p-adj   lower   upper  reject
+----------------------------------------------------
+     0      1   0.0844  0.001  0.0621  0.1068   True
+     0      2   0.3173  0.001   0.295  0.3397   True
+     0      3   0.0728  0.001  0.0505  0.0952   True
+     1      2   0.2329  0.001  0.2105  0.2553   True
+     1      3  -0.0116 0.5377  -0.034  0.0108  False
+     2      3  -0.2445  0.001 -0.2669 -0.2221   True
+----------------------------------------------------
 
 
 Cluster:  0
@@ -105,19 +99,19 @@ Mean Median Maximums Minimums StdDev
             
 
 
- Best Kappa Values:  0.6959952301296739
+ Best Kappa Values:  0.7056244278020329
 
- Best Accuracy:  0.7725816759394221
+ Best Accuracy:  0.7755792658543275
 
- Best Depth:  26
+ Best Depth:  30
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.78      0.80      0.79      1909
-           1       0.75      0.78      0.76      2000
-           2       0.78      0.78      0.78      1999
-           3       0.79      0.74      0.76      1965
+           0       0.80      0.81      0.81      1909
+           1       0.76      0.77      0.77      2000
+           2       0.77      0.77      0.77      1999
+           3       0.77      0.76      0.77      1965
 
     accuracy                           0.78      7873
    macro avg       0.78      0.78      0.78      7873
@@ -125,29 +119,29 @@ weighted avg       0.78      0.78      0.78      7873
 
 
  Confusion Matrix: 
- [[1531  128  103  147]
- [ 150 1551  186  113]
- [  79  221 1564  135]
- [ 193  165  148 1459]]
+ [[1543  117  101  148]
+ [ 125 1548  195  132]
+ [  79  228 1540  152]
+ [ 175  141  164 1485]]
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.689971338188889
+ Best Kappa Values:  0.6874239910398234
 
- Best Accuracy:  0.7710068631111477
+ Best Accuracy:  0.7699400674299888
 
- Best Depth:  27
+ Best Depth:  23
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.78      0.81      0.79      1909
-           1       0.76      0.78      0.77      2000
-           2       0.78      0.77      0.78      1999
-           3       0.78      0.74      0.76      1965
+           0       0.79      0.80      0.80      1909
+           1       0.76      0.77      0.76      2000
+           2       0.77      0.78      0.77      1999
+           3       0.77      0.74      0.75      1965
 
     accuracy                           0.77      7873
    macro avg       0.77      0.77      0.77      7873
@@ -155,10 +149,10 @@ weighted avg       0.77      0.77      0.77      7873
 
 
  Confusion Matrix: 
- [[1541  113  100  155]
- [ 148 1563  169  120]
- [ 108  212 1541  138]
- [ 187  171  156 1451]]
+ [[1532  124  100  153]
+ [ 110 1537  214  139]
+ [  98  198 1559  144]
+ [ 190  166  153 1456]]
 
  Saving decision trees 
 
