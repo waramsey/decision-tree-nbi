@@ -68,16 +68,23 @@ def maintenance_pipeline(state):
 
     df = remove_duplicates(df)
 
+    # TODO
     # Remove values encoded as N:
     df = df[~df['deck'].isin(['N'])]
     df = df[~df['substructure'].isin(['N'])]
     df = df[~df['superstructure'].isin(['N'])]
     df = df[~df['material'].isin(['N'])]
 
+    # New:
+    df = df[~df['scourCriticalBridges'].isin(['N', 'U'])]
+    df = df[~df['deckStructureType'].isin(['N', 'U'])]
+
     # Fill the null values with -1:
     df.snowfall.fillna(value=-1, inplace=True)
     df.precipitation.fillna(value=-1, inplace=True)
     df.freezethaw.fillna(value=-1, inplace=True)
+
+    # New Changes here:
 
     # Normalize features:
     columnsNormalize = [
@@ -89,8 +96,22 @@ def maintenance_pipeline(state):
                         "avgDailyTruckTraffic",
                         "supNumberIntervention",
                         "subNumberIntervention",
-                        "deckNumberIntervention"
-                      ]
+                        "deckNumberIntervention",
+
+        # New
+                        "latitude",
+                        "longitude",
+                        "skew",
+                        "numberOfSpansInMainUnit",
+                        "lengthOfMaximumSpan",
+                        "structureLength",
+                        "bridgeRoadwayWithCurbToCurb",
+                        "operatingRating",
+                        "scourCriticalBridges",
+                        "lanesOnStructure",
+                        ]
+
+
 
     # Select final columns:
     columnsFinal = [
@@ -107,7 +128,25 @@ def maintenance_pipeline(state):
                     "supNumberIntervention",
                     "subNumberIntervention",
                     "deckNumberIntervention",
+
+        #New
+                    "latitude",
+                    "longitude",
+                    "skew",
+                    "numberOfSpansInMainUnit",
+                    "lengthOfMaximumSpan",
+                    "structureLength",
+                    "bridgeRoadwayWithCurbToCurb",
+                    "operatingRating",
+                    "scourCriticalBridges",
+                    "lanesOnStructure",
+
+                    "toll",
+                    "designatedInspectionFrequency",
+                    "deckStructureType",
+                    "typeOfDesign",
                     ]
+
 
     dataScaled = normalize(df, columnsNormalize)
     dataScaled = dataScaled[columnsFinal]
@@ -196,6 +235,7 @@ def main():
                 "minnesota"
                 ]
 
+    csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfCentroids = list()
