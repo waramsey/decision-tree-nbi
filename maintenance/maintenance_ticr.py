@@ -76,8 +76,8 @@ def maintenance_pipeline(state):
     df = df[~df['material'].isin(['N'])]
 
     # New:
-    df = df[~df['scourCriticalBridges'].isin(['N', 'U'])]
-    df = df[~df['deckStructureType'].isin(['N', 'U'])]
+    #df = df[~df['scourCriticalBridges'].isin(['N', 'U'])]
+    #df = df[~df['deckStructureType'].isin(['N', 'U'])]
 
     # Fill the null values with -1:
     df.snowfall.fillna(value=-1, inplace=True)
@@ -99,16 +99,16 @@ def maintenance_pipeline(state):
                         "deckNumberIntervention",
 
         # New
-                        "latitude",
-                        "longitude",
-                        "skew",
-                        "numberOfSpansInMainUnit",
-                        "lengthOfMaximumSpan",
-                        "structureLength",
-                        "bridgeRoadwayWithCurbToCurb",
-                        "operatingRating",
-                        "scourCriticalBridges",
-                        "lanesOnStructure",
+                       # "latitude",
+                       # "longitude",
+                       # "skew",
+                       # "numberOfSpansInMainUnit",
+                       # "lengthOfMaximumSpan",
+                       # "structureLength",
+                       # "bridgeRoadwayWithCurbToCurb",
+                       # "operatingRating",
+                       # "scourCriticalBridges",
+                       # "lanesOnStructure",
                         ]
 
 
@@ -130,22 +130,23 @@ def maintenance_pipeline(state):
                     "deckNumberIntervention",
 
         #New
-                    "latitude",
-                    "longitude",
-                    "skew",
-                    "numberOfSpansInMainUnit",
-                    "lengthOfMaximumSpan",
-                    "structureLength",
-                    "bridgeRoadwayWithCurbToCurb",
-                    "operatingRating",
-                    "scourCriticalBridges",
-                    "lanesOnStructure",
+                   # "latitude",
+                   # "longitude",
+                   # "skew",
+                   # "numberOfSpansInMainUnit",
+                   # "lengthOfMaximumSpan",
+                   # "structureLength",
+                   # "bridgeRoadwayWithCurbToCurb",
+                   # "operatingRating",
+                   # "scourCriticalBridges",
+                   # "lanesOnStructure",
 
-                    "toll",
-                    "designatedInspectionFrequency",
-                    "deckStructureType",
-                    "typeOfDesign",
-                    ]
+                   # "toll",
+                   # "designatedInspectionFrequency",
+                   # "deckStructureType",
+                   # "typeOfDesign",
+
+                ]
 
 
     dataScaled = normalize(df, columnsNormalize)
@@ -173,7 +174,7 @@ def maintenance_pipeline(state):
     sLabels = semantic_labeling(centroids,
                               listOfParameters,
                               name="")
-
+    # what percentage of bridges are in each groups? -> decision tree ->
     # Analysis of Variance:
     anovaTable, tukeys =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
     print("\nANOVA: \n", anovaTable)
@@ -235,7 +236,7 @@ def main():
                 "minnesota"
                 ]
 
-    csvfiles = ['nebraska']
+    #csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfCentroids = list()
@@ -254,7 +255,6 @@ def main():
          listOfCounts.append(counts)
 
     sys.stdout = open("OverallOutput.txt", "w")
-
     # Change the orientation:
     supNumberIntervention = list()
     deckNumberIntervention = list()

@@ -3,7 +3,7 @@
 
  Optimal number of cluster (Elbow Coefficient):  6
 
- Centroids:  [[ 4.25573546e-03 -7.49400542e-16  3.52148866e-16]
+ Centroids:  [[ 4.25573546e-03 -7.49400542e-16  3.53883589e-16]
  [ 6.66666667e-01  1.00000000e+00  0.00000000e+00]
  [ 1.00000000e-01  1.00000000e+00  3.00000000e-01]
  [ 1.00000000e+00  1.25000000e-01  7.50000000e-01]
@@ -16,7 +16,7 @@ ANOVA:
                  Attribute    sum_sq   df     F       p-value
 0   supNumberIntervention  2.736111  5.0  19.7  2.077427e-05
 1   subNumberIntervention  3.277778  5.0  47.2  1.766097e-07
-2  deckNumberIntervention  1.777778  5.0  12.8  1.827188e-04
+2  deckNumberIntervention  1.277778  5.0   9.2  8.584839e-04
 
 Tukey's : 
 
@@ -69,19 +69,19 @@ Multiple Comparison of Means - Tukey HSD, FWER=0.05
 group1 group2 meandiff p-adj   lower   upper  reject
 ----------------------------------------------------
      0      1      0.0    0.9 -0.4572  0.4572  False
-     0      2   0.3333  0.214 -0.1238  0.7905  False
-     0      3   0.8333  0.001  0.3762  1.2905   True
+     0      2   0.1667 0.7969 -0.2905  0.6238  False
+     0      3   0.6667 0.0038  0.2095  1.1238   True
      0      4      0.0    0.9 -0.4572  0.4572  False
      0      5      0.5 0.0294  0.0428  0.9572   True
-     1      2   0.3333  0.214 -0.1238  0.7905  False
-     1      3   0.8333  0.001  0.3762  1.2905   True
+     1      2   0.1667 0.7969 -0.2905  0.6238  False
+     1      3   0.6667 0.0038  0.2095  1.1238   True
      1      4      0.0    0.9 -0.4572  0.4572  False
      1      5      0.5 0.0294  0.0428  0.9572   True
      2      3      0.5 0.0294  0.0428  0.9572   True
-     2      4  -0.3333  0.214 -0.7905  0.1238  False
-     2      5   0.1667 0.7969 -0.2905  0.6238  False
-     3      4  -0.8333  0.001 -1.2905 -0.3762   True
-     3      5  -0.3333  0.214 -0.7905  0.1238  False
+     2      4  -0.1667 0.7969 -0.6238  0.2905  False
+     2      5   0.3333  0.214 -0.1238  0.7905  False
+     3      4  -0.6667 0.0038 -1.1238 -0.2095   True
+     3      5  -0.1667 0.7969 -0.6238  0.2905  False
      4      5      0.5 0.0294  0.0428  0.9572   True
 ----------------------------------------------------
 
@@ -144,44 +144,44 @@ Mean Median Maximums Minimums StdDev
             
 
 
- Best Kappa Values:  0.9005958535226782
+ Best Kappa Values:  0.8996989800601938
 
- Best Accuracy:  0.9473331995502068
+ Best Accuracy:  0.9465179617806113
 
- Best Depth:  27
+ Best Depth:  28
 
  Classification Report: 
                precision    recall  f1-score   support
 
            0       0.93      0.93      0.93      3998
-           4       0.95      0.96      0.96      4156
-           5       0.95      0.94      0.95      4111
+           4       0.96      0.96      0.96      4156
+           5       0.95      0.95      0.95      4111
 
     accuracy                           0.95     12265
-   macro avg       0.94      0.94      0.94     12265
+   macro avg       0.95      0.95      0.95     12265
 weighted avg       0.95      0.95      0.95     12265
 
 
  Confusion Matrix: 
- [[3729  122  147]
- [ 110 3985   61]
- [ 165   69 3877]]
+ [[3728  102  168]
+ [ 112 4005   39]
+ [ 159   64 3888]]
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.8977584299293513
+ Best Kappa Values:  0.8907243618185876
 
- Best Accuracy:  0.943485135083845
+ Best Accuracy:  0.9423926299012999
 
- Best Depth:  25
+ Best Depth:  22
 
  Classification Report: 
                precision    recall  f1-score   support
 
-           0       0.93      0.93      0.93      3998
+           0       0.93      0.92      0.92      3998
            4       0.95      0.96      0.95      4156
            5       0.94      0.94      0.94      4111
 
@@ -191,9 +191,9 @@ weighted avg       0.94      0.94      0.94     12265
 
 
  Confusion Matrix: 
- [[3712  125  161]
- [ 118 3970   68]
- [ 158   70 3883]]
+ [[3665  151  182]
+ [ 100 4000   56]
+ [ 163   77 3871]]
 
  Saving decision trees 
 

@@ -1,17 +1,62 @@
 
  Printing Centroids: 
-       state  ...  membership
-0  nebraska  ...        7100
-1  nebraska  ...         636
-2  nebraska  ...         995
-3  nebraska  ...         795
+         state  ...  membership
+0    nebraska  ...        9842
+1    nebraska  ...         897
+2    nebraska  ...         604
+3    nebraska  ...         806
+4      kansas  ...       14546
+5      kansas  ...         846
+6      kansas  ...        1009
+7      kansas  ...         971
+8     indiana  ...       13240
+9     indiana  ...        1442
+10    indiana  ...        1902
+11   illinois  ...           3
+12   illinois  ...       20443
+13   illinois  ...          10
+14   illinois  ...         623
+15   illinois  ...         450
+16   illinois  ...           4
+17       ohio  ...       17082
+18       ohio  ...        5560
+19       ohio  ...        2340
+20       ohio  ...         748
+21  wisconsin  ...       10309
+22  wisconsin  ...         753
+23  wisconsin  ...         403
+24  wisconsin  ...         298
+25   missouri  ...       17152
+26   missouri  ...         936
+27   missouri  ...         873
+28   missouri  ...          19
+29   missouri  ...          16
+30   missouri  ...          24
+31  minnesota  ...          78
+32  minnesota  ...        7153
+33  minnesota  ...         358
+34  minnesota  ...         138
 
-[4 rows x 6 columns]
+[35 rows x 6 columns]
 
 KappaValuesTable: 
-      state      gini   entropy
-0  nebraska  0.705374  0.717234
+       state      gini   entropy
+0   nebraska  0.679769  0.685252
+1     kansas  0.786033  0.809669
+2    indiana  0.716058  0.713948
+3   illinois  0.890724  0.899699
+4       ohio  0.485313  0.506806
+5  wisconsin  0.853218  0.856928
+6   missouri  0.876181  0.874455
+7  minnesota  0.914495  0.918363
 
 AccValuesTable: 
-      state      gini   entropy
-0  nebraska  0.795141  0.800423
+       state      gini   entropy
+0   nebraska  0.770220  0.772328
+1     kansas  0.837361  0.844253
+2    indiana  0.804204  0.802266
+3   illinois  0.942393  0.946518
+4       ohio  0.727242  0.732306
+5  wisconsin  0.884955  0.888714
+6   missouri  0.937267  0.937199
+7  minnesota  0.921536  0.925835
