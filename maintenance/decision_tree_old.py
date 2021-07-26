@@ -477,8 +477,8 @@ def decision_tree(X, y, nFold=5):
                                            eScoreDict, gScoreDict,
                                            #eRocsDict, gRocsDict,
                                            eModelsDict, gModelsDict,
-                                           eFeatureDict, gFeatureDict
-                                           )
+                                           eFeatureDict, gFeatureDict)
+
     # Return the average kappa value for state
     return kappaVals, accVals
 

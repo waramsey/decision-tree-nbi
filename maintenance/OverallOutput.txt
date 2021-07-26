@@ -1,62 +1,53 @@
 
  Printing Centroids: 
-         state  ...  membership
-0    nebraska  ...        9842
-1    nebraska  ...         897
-2    nebraska  ...         604
-3    nebraska  ...         806
-4      kansas  ...       14546
-5      kansas  ...         846
-6      kansas  ...        1009
-7      kansas  ...         971
-8     indiana  ...       13240
-9     indiana  ...        1442
-10    indiana  ...        1902
-11   illinois  ...           3
-12   illinois  ...       20443
-13   illinois  ...          10
-14   illinois  ...         623
-15   illinois  ...         450
-16   illinois  ...           4
-17       ohio  ...       17082
-18       ohio  ...        5560
-19       ohio  ...        2340
-20       ohio  ...         748
-21  wisconsin  ...       10309
-22  wisconsin  ...         753
-23  wisconsin  ...         403
-24  wisconsin  ...         298
-25   missouri  ...       17152
-26   missouri  ...         936
-27   missouri  ...         873
-28   missouri  ...          19
-29   missouri  ...          16
-30   missouri  ...          24
-31  minnesota  ...          78
-32  minnesota  ...        7153
-33  minnesota  ...         358
-34  minnesota  ...         138
+              state  ...  membership
+0    nebraska_deep  ...        7100
+1    nebraska_deep  ...         636
+2    nebraska_deep  ...         995
+3    nebraska_deep  ...         795
+4      kansas_deep  ...       13857
+5      kansas_deep  ...         907
+6      kansas_deep  ...         671
+7     indiana_deep  ...       10914
+8     indiana_deep  ...        1160
+9     indiana_deep  ...        1465
+10   illinois_deep  ...         365
+11   illinois_deep  ...       16984
+12   illinois_deep  ...         527
+13       ohio_deep  ...        4402
+14       ohio_deep  ...        1632
+15       ohio_deep  ...       13817
+16  wisconsin_deep  ...        6941
+17  wisconsin_deep  ...         379
+18  wisconsin_deep  ...         346
+19   missouri_deep  ...       14709
+20   missouri_deep  ...         145
+21   missouri_deep  ...         653
+22   missouri_deep  ...         817
+23  minnesota_deep  ...          80
+24  minnesota_deep  ...        5276
+25  minnesota_deep  ...         225
 
-[35 rows x 6 columns]
+[26 rows x 6 columns]
 
 KappaValuesTable: 
        state      gini   entropy
-0   nebraska  0.679769  0.685252
-1     kansas  0.786033  0.809669
-2    indiana  0.716058  0.713948
-3   illinois  0.890724  0.899699
-4       ohio  0.485313  0.506806
-5  wisconsin  0.853218  0.856928
-6   missouri  0.876181  0.874455
-7  minnesota  0.914495  0.918363
+0   nebraska  0.701870  0.719072
+1     kansas  0.845336  0.855840
+2    indiana  0.756699  0.762233
+3   illinois  0.912851  0.911546
+4       ohio  0.524780  0.521263
+5  wisconsin  0.848062  0.857000
+6   missouri  0.895139  0.906338
+7  minnesota  0.886688  0.896109
 
 AccValuesTable: 
        state      gini   entropy
-0   nebraska  0.770220  0.772328
-1     kansas  0.837361  0.844253
-2    indiana  0.804204  0.802266
-3   illinois  0.942393  0.946518
-4       ohio  0.727242  0.732306
-5  wisconsin  0.884955  0.888714
-6   missouri  0.937267  0.937199
-7  minnesota  0.921536  0.925835
+0   nebraska  0.796549  0.792359
+1     kansas  0.892208  0.894374
+2    indiana  0.827347  0.830646
+3   illinois  0.949266  0.952779
+4       ohio  0.722685  0.724494
+5  wisconsin  0.903616  0.910291
+6   missouri  0.921460  0.927273
+7  minnesota  0.944529  0.949330

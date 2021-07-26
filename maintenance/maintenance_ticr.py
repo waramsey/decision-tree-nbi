@@ -68,23 +68,26 @@ def maintenance_pipeline(state):
 
     df = remove_duplicates(df)
 
-    # TODO
     # Remove values encoded as N:
     df = df[~df['deck'].isin(['N'])]
     df = df[~df['substructure'].isin(['N'])]
     df = df[~df['superstructure'].isin(['N'])]
     df = df[~df['material'].isin(['N'])]
 
-    # New:
-    #df = df[~df['scourCriticalBridges'].isin(['N', 'U'])]
-    #df = df[~df['deckStructureType'].isin(['N', 'U'])]
+    # New
+    df = df[~df['scourCriticalBridges'].isin(['N', 'U', np.nan])]
+    df = df[~df['deckStructureType'].isin(['N', 'U'])]
 
     # Fill the null values with -1:
     df.snowfall.fillna(value=-1, inplace=True)
     df.precipitation.fillna(value=-1, inplace=True)
     df.freezethaw.fillna(value=-1, inplace=True)
 
-    # New Changes here:
+    # TODO
+    df.toll.fillna(value=-1, inplace=True)
+    df.designatedInspectionFrequency.fillna(value=-1, inplace=True)
+    df.deckStructureType.fillna(value=-1, inplace=True)
+    df.typeOfDesign.fillna(value=-1, inplace=True)
 
     # Normalize features:
     columnsNormalize = [
@@ -99,16 +102,16 @@ def maintenance_pipeline(state):
                         "deckNumberIntervention",
 
         # New
-                       # "latitude",
-                       # "longitude",
-                       # "skew",
-                       # "numberOfSpansInMainUnit",
-                       # "lengthOfMaximumSpan",
-                       # "structureLength",
-                       # "bridgeRoadwayWithCurbToCurb",
-                       # "operatingRating",
-                       # "scourCriticalBridges",
-                       # "lanesOnStructure",
+                        "latitude",
+                        "longitude",
+                        "skew",
+                        "numberOfSpansInMainUnit",
+                        "lengthOfMaximumSpan",
+                        "structureLength",
+                        "bridgeRoadwayWithCurbToCurb",
+                        "operatingRating",
+                        "scourCriticalBridges",
+                        "lanesOnStructure",
                         ]
 
 
@@ -130,27 +133,30 @@ def maintenance_pipeline(state):
                     "deckNumberIntervention",
 
         #New
-                   # "latitude",
-                   # "longitude",
-                   # "skew",
-                   # "numberOfSpansInMainUnit",
-                   # "lengthOfMaximumSpan",
-                   # "structureLength",
-                   # "bridgeRoadwayWithCurbToCurb",
-                   # "operatingRating",
-                   # "scourCriticalBridges",
-                   # "lanesOnStructure",
+                    "latitude",
+                    "longitude",
+                    "skew",
+                    "numberOfSpansInMainUnit",
+                    "lengthOfMaximumSpan",
+                    "structureLength",
+                    "bridgeRoadwayWithCurbToCurb",
+                    "operatingRating",
+                    "scourCriticalBridges",
+                    "lanesOnStructure",
 
-                   # "toll",
-                   # "designatedInspectionFrequency",
-                   # "deckStructureType",
-                   # "typeOfDesign",
+                    "toll",
+                    "designatedInspectionFrequency",
+                    "deckStructureType",
+                    "typeOfDesign",
 
                 ]
 
 
     dataScaled = normalize(df, columnsNormalize)
+
+    # TODO:
     dataScaled = dataScaled[columnsFinal]
+    dataScaled = remove_null_values(dataScaled)
 
     # K-means:
     kmeans_kwargs = {
@@ -174,7 +180,6 @@ def maintenance_pipeline(state):
     sLabels = semantic_labeling(centroids,
                               listOfParameters,
                               name="")
-    # what percentage of bridges are in each groups? -> decision tree ->
     # Analysis of Variance:
     anovaTable, tukeys =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
     print("\nANOVA: \n", anovaTable)
@@ -206,6 +211,12 @@ def maintenance_pipeline(state):
     # Modeling features and groundtruth:
     X, y = dataScaled[columnsFinal], dataScaled['cluster']
 
+    # TODO:
+    # Check for null values here:
+    print("printing columns of X\n")
+    for col in X:
+        print(col)
+
     # Oversampling:
     oversample = SMOTE()
     print("\n Oversampling (SMOTE) ...")
@@ -236,7 +247,7 @@ def main():
                 "minnesota"
                 ]
 
-    #csvfiles = ['nebraska']
+    #csvfiles = ["missouri_deep"]
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfCentroids = list()
@@ -246,6 +257,7 @@ def main():
 
     for filename in csvfiles:
          # Output
+         filename = filename+'_deep'
          kappa, acc, centroids, sLabel, counts = maintenance_pipeline(filename)
          listOfKappaValues.append(kappa)
          listOfAccValues.append(acc)

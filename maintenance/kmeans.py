@@ -45,6 +45,9 @@ def normalize(df, columns):
         Function for normalizing the data
     """
     for feature in columns:
+        print("Feature:\n",feature)
+        print(feature)
+        print(df[feature].unique())
         df[feature] = df[feature].astype(int)
         maxValue = df[feature].max()
         minValue = df[feature].min()
