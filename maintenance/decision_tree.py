@@ -538,3 +538,13 @@ def plot_overall_performance(states, listOfMetricValues, metricName):
     dataFrame['gini'] = gMetricValues
     dataFrame['entropy'] = eMetricValues
     print(dataFrame)
+
+def to_csv(listOfDataFrames):
+    """
+    Description:
+        Convert the dataframe into csv files
+    Args:
+        listOfDataFrames: (list of dataframe)
+    """
+    concatDf = pd.concat(listOfDataFrames)
+    concatDf.to_csv('allFiles.csv', sep=',', index=False)

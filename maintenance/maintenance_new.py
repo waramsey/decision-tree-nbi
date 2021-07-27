@@ -73,8 +73,6 @@ def maintenance_pipeline(state):
     df = df[~df['substructure'].isin(['N'])]
     df = df[~df['superstructure'].isin(['N'])]
     df = df[~df['material'].isin(['N'])]
-
-    # New
     df = df[~df['scourCriticalBridges'].isin(['N', 'U', np.nan])]
     df = df[~df['deckStructureType'].isin(['N', 'U'])]
 
@@ -113,7 +111,6 @@ def maintenance_pipeline(state):
                         "scourCriticalBridges",
                         "lanesOnStructure",
                         ]
-
 
 
     # Select final columns:
@@ -177,13 +174,11 @@ def maintenance_pipeline(state):
                                                                    state=state)
 
     # Data Scaled
-    sLabels = semantic_labeling(centroids,
-                              #listOfParameters,
-                              name="")
+    sLabels = semantic_labeling(centroids, name="")
+
     # Analysis of Variance:
     anovaTable, tukeys =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
     print("\nANOVA: \n", anovaTable)
-
     print("\nTukey's : \n")
     for result in tukeys:
         print(result)
@@ -202,36 +197,34 @@ def maintenance_pipeline(state):
             listOfClusters.append(cluster)
 
     dataScaled = dataScaled[~dataScaled['cluster'].isin(listOfClusters)]
+    dataScaled['state'] = [state]*len(dataScaled)
 
-    # Remove columns:
-    columnsFinal.remove('supNumberIntervention')
-    columnsFinal.remove('subNumberIntervention')
-    columnsFinal.remove('deckNumberIntervention')
+    ## Remove columns:
+    #columnsFinal.remove('supNumberIntervention')
+    #columnsFinal.remove('subNumberIntervention')
+    #columnsFinal.remove('deckNumberIntervention')
 
-    # Modeling features and groundtruth:
-    X, y = dataScaled[columnsFinal], dataScaled['cluster']
+    ## Modeling features and groundtruth:
+    #X, y = dataScaled[columnsFinal], dataScaled['cluster']
 
-    # TODO:
-    # Check for null values here:
-    print("printing columns of X\n")
-    for col in X:
-        print(col)
+    ## Check for null values here:
+    #print("printing columns of X\n")
 
-    # Oversampling:
-    oversample = SMOTE()
-    print("\n Oversampling (SMOTE) ...")
-    X, y = oversample.fit_resample(X, y)
+    ## Oversampling:
+    #oversample = SMOTE()
+    #print("\n Oversampling (SMOTE) ...")
+    #X, y = oversample.fit_resample(X, y)
 
-    # Summarize distribution:
-    print("\n Distribution of the clusters after oversampling: ",
-            Counter(y))
+    ## Summarize distribution:
+    #print("\n Distribution of the clusters after oversampling: ",
+    #        Counter(y))
 
-    # Return to home directory:
-    kappaValues, accValues = decision_tree(X, y)
+    ## Return to home directory:
+    #kappaValues, accValues = decision_tree(X, y)
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return kappaValues, accValues, centroids, sLabels, counts
+    return dataScaled, centroids, sLabels, counts
 
 # Driver function
 def main():
@@ -247,24 +240,27 @@ def main():
                 "minnesota"
                 ]
 
-    csvfiles = ["missouri"]
-    listOfKappaValues = list()
-    listOfAccValues = list()
+    #csvfiles = ["missouri"]
+    #listOfKappaValues = list()
+    #listOfAccValues = list()
     listOfCentroids = list()
     listOfLabels = list()
     listOfStates = list()
     listOfCounts = list()
+    listOfDataFrames = list()
 
     for filename in csvfiles:
          # Output
          filename = filename+'_deep'
-         kappa, acc, centroids, sLabel, counts = maintenance_pipeline(filename)
-         listOfKappaValues.append(kappa)
-         listOfAccValues.append(acc)
+         dataScaled, centroids, sLabel, counts = maintenance_pipeline(filename)
+
+         #listOfKappaValues.append(kappa)
+         #listOfAccValues.append(acc)
          listOfCentroids.append(centroids)
          listOfLabels.append(sLabel)
          listOfStates.append(filename)
          listOfCounts.append(counts)
+         listOfDataFrames.append(dataScaled)
 
     sys.stdout = open("OverallOutput.txt", "w")
     # Change the orientation:
@@ -298,18 +294,18 @@ def main():
                                'membership':countsTemp})
 
     print("\n Printing Centroids: \n", centroidDf)
-
     plot_centroids(csvfiles,
                   centroidDf,
                   "Centroid")
+    to_csv(listOfDataFrames)
 
-    plot_overall_performance(csvfiles,
-                             listOfKappaValues,
-                             "KappaValues")
+    #plot_overall_performance(csvfiles,
+    #                         listOfKappaValues,
+    #                         "KappaValues")
 
-    plot_overall_performance(csvfiles,
-                             listOfAccValues,
-                             "AccValues")
+    #plot_overall_performance(csvfiles,
+    #                         listOfAccValues,
+    #                         "AccValues")
     sys.stdout.close()
 
 if __name__=="__main__":

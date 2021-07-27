@@ -45,9 +45,6 @@ def normalize(df, columns):
         Function for normalizing the data
     """
     for feature in columns:
-        print("Feature:\n",feature)
-        print(feature)
-        print(df[feature].unique())
         df[feature] = df[feature].astype(int)
         maxValue = df[feature].max()
         minValue = df[feature].min()
@@ -462,7 +459,7 @@ def semantic_labeling_utility(record):
         label = provide_label(sub, deck, sup)
     return label
 
-def semantic_labeling(centroids, listOfParameters, name=""):
+def semantic_labeling(centroids, name=""):
     """
     Description:
         Assign a semantic labeling of the clusters
@@ -536,16 +533,21 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state):
     finalKmeans = KMeans(n_clusters=kl.elbow, **kmeans_kwargs)
     finalKmeans.fit(dataScaled[listOfParameters])
     centroids = finalKmeans.cluster_centers_
+    labels = finalKmeans.labels_
 
     print("\n Centroids: ", centroids)
-    counts = Counter(finalKmeans.labels_)
+    counts = Counter(labels)
     lowestCount = min(counts.values())
 
-    print("\n Number of members in cluster:",
-            counts)
+    print("\n Number of members in cluster:", counts)
+
+    slabels = semantic_labeling(centroids, name='')
+    newNames = dict(zip(list(range(len(counts.keys()))), slabels))
+
+    newLabels = [newNames[label] for label in labels]
 
     # Save cluster as columns
-    dataScaled['cluster'] = list(finalKmeans.labels_)
+    dataScaled['cluster'] = list(newLabels)
 
     # Create 3D-clustering of the data
     three_d_scatterplot(dataScaled, name=state)
