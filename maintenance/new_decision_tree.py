@@ -23,15 +23,24 @@ from sklearn import preprocessing
 from decision_tree import *
 from kmeans import *
 
-def utility_decision_tree(temp, state, category, modelOutput):
+def utility_decision_tree(temp,
+                          state,
+                          category,
+                          modelOutput):
     """
     Description:
-    Args:
-    Returns:
-    """
-    #sys.stdout = open(modelOutput, "w")
-    directory = category
+        This function describes the pipeline
+        of the events
 
+    Args:
+        temp (dataframe)
+        state (string)
+        modelOutput(string)
+
+    Returns:
+        kappaValues
+        accuracyValues
+    """
     # Final columns
     columnsFinal = [
                       "deck",
@@ -75,7 +84,6 @@ def utility_decision_tree(temp, state, category, modelOutput):
         if numOfMembers < 15:
             listOfClusters.append(cluster)
 
-    print(listOfClusters)
     temp = temp[~temp['cluster'].isin(listOfClusters)]
     # Remove columns
     columnsFinal.remove('deckDeteriorationScore')
@@ -120,7 +128,6 @@ def main():
               'missouri_deep',
               'minnesota_deep']
 
-    #states = ['missouri_deep']
     # Substructure
     categories = categorize_attribute(df,
                                       'subDeteriorationScore',
@@ -161,7 +168,6 @@ def main():
                 modelOutput = state + 'ModelSummary.txt'
                 print('State: %s' %(state))
                 #print("--------------------------")
-                #print("Temporary Dataframe: ", temp.head())
                 #print("\n")
 
                 try:
