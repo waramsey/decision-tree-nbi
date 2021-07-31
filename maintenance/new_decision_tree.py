@@ -130,12 +130,12 @@ def main():
 
     # Substructure
     categories = categorize_attribute(df,
-                                      'subDeteriorationScore',
+                                      'deckDeteriorationScore',
                                       category=4)
     df['deterioration'] = categories
     uniqueCategories = df['cluster'].unique()
     currentDir = os.getcwd()
-    modelOutput = 'clusterResults.csv'
+    modelOutput = 'supClusterResults.csv'
     sys.stdout = open(modelOutput, "w")
     for category in uniqueCategories:
         # Creating directory for Category
@@ -145,7 +145,6 @@ def main():
 
         # Creating temprorary dataframe
         tempCat = df[df['cluster'] == category]
-
         print("\n")
         print("Category: %s" % (category))
         print("----"*4)
