@@ -167,9 +167,6 @@ def main():
             if len(temp) != 0:
                 modelOutput = state + 'ModelSummary.txt'
                 print('State: %s' %(state))
-                #print("--------------------------")
-                #print("\n")
-
                 try:
                     utility_decision_tree(temp, state, category, modelOutput)
                 except:
