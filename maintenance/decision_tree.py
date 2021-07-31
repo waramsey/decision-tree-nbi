@@ -7,7 +7,7 @@ Date: May 11th, 2021
 
 TODO:
     1. Create Folders for the ouput [Done]
-    2. Create Random forest model
+    2. Create Random forest model [Done]
     3. Complexity Parameters
     4. Select the important variables
     5. Characterization of the clusters
