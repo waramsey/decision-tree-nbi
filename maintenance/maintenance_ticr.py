@@ -82,8 +82,6 @@ def maintenance_pipeline(state):
     df.snowfall.fillna(value=-1, inplace=True)
     df.precipitation.fillna(value=-1, inplace=True)
     df.freezethaw.fillna(value=-1, inplace=True)
-
-    # TODO
     df.toll.fillna(value=-1, inplace=True)
     df.designatedInspectionFrequency.fillna(value=-1, inplace=True)
     df.deckStructureType.fillna(value=-1, inplace=True)
@@ -100,8 +98,7 @@ def maintenance_pipeline(state):
                         "supNumberIntervention",
                         "subNumberIntervention",
                         "deckNumberIntervention",
-
-        # New
+    # New
                         "latitude",
                         "longitude",
                         "skew",
@@ -131,8 +128,7 @@ def maintenance_pipeline(state):
                     "supNumberIntervention",
                     "subNumberIntervention",
                     "deckNumberIntervention",
-
-        #New
+    #New
                     "latitude",
                     "longitude",
                     "skew",
@@ -143,7 +139,6 @@ def maintenance_pipeline(state):
                     "operatingRating",
                     "scourCriticalBridges",
                     "lanesOnStructure",
-
                     "toll",
                     "designatedInspectionFrequency",
                     "deckStructureType",
@@ -152,13 +147,12 @@ def maintenance_pipeline(state):
                 ]
 
 
+    # Normalize
     dataScaled = normalize(df, columnsNormalize)
-
-    # TODO:
     dataScaled = dataScaled[columnsFinal]
     dataScaled = remove_null_values(dataScaled)
 
-    # K-means:
+    # K-means
     kmeans_kwargs = {
                         "init": "random",
                         "n_init": 10,
@@ -178,12 +172,10 @@ def maintenance_pipeline(state):
 
     # Data Scaled
     sLabels = semantic_labeling(centroids,
-                              #listOfParameters,
                               name="")
     # Analysis of Variance:
     anovaTable, tukeys =  evaluate_ANOVA(dataScaled, listOfParameters, lowestCount)
     print("\nANOVA: \n", anovaTable)
-
     print("\nTukey's : \n")
     for result in tukeys:
         print(result)
@@ -211,7 +203,6 @@ def maintenance_pipeline(state):
     # Modeling features and groundtruth:
     X, y = dataScaled[columnsFinal], dataScaled['cluster']
 
-    # TODO:
     # Check for null values here:
     print("printing columns of X\n")
     for col in X:
@@ -256,7 +247,6 @@ def main():
     listOfCounts = list()
 
     for filename in csvfiles:
-         # Output
          filename = filename+'_deep'
          kappa, acc, centroids, sLabel, counts = maintenance_pipeline(filename)
          listOfKappaValues.append(kappa)
@@ -267,6 +257,7 @@ def main():
          listOfCounts.append(counts)
 
     sys.stdout = open("OverallOutput.txt", "w")
+
     # Change the orientation:
     supNumberIntervention = list()
     deckNumberIntervention = list()
@@ -298,7 +289,6 @@ def main():
                                'membership':countsTemp})
 
     print("\n Printing Centroids: \n", centroidDf)
-
     plot_centroids(csvfiles,
                   centroidDf,
                   "Centroid")

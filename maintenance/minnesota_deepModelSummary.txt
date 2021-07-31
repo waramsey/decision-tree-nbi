@@ -1,0 +1,6 @@
+[]
+
+Distribution before sampling: Counter({'Good': 79, 'Bad': 1})
+
+ Oversampling (SMOTE) .. 
+Can not build decision tree..

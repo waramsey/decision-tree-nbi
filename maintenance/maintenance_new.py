@@ -110,6 +110,10 @@ def maintenance_pipeline(state):
                         "operatingRating",
                         "scourCriticalBridges",
                         "lanesOnStructure",
+
+                        "deckDeteriorationScore",
+                        "subDeteriorationScore",
+                        "supDeteriorationScore"
                         ]
 
 
@@ -146,12 +150,14 @@ def maintenance_pipeline(state):
                     "deckStructureType",
                     "typeOfDesign",
 
+                    "deckDeteriorationScore",
+                    "subDeteriorationScore",
+                    "supDeteriorationScore"
                 ]
 
 
     dataScaled = normalize(df, columnsNormalize)
 
-    # TODO:
     dataScaled = dataScaled[columnsFinal]
     dataScaled = remove_null_values(dataScaled)
 
@@ -221,7 +227,7 @@ def maintenance_pipeline(state):
 
     ## Return to home directory:
     #kappaValues, accValues = decision_tree(X, y)
-    sys.stdout.close()
+    #sys.stdout.close()
     os.chdir(currentDir)
 
     return dataScaled, centroids, sLabels, counts
@@ -240,7 +246,6 @@ def main():
                 "minnesota"
                 ]
 
-    #csvfiles = ["missouri"]
     #listOfKappaValues = list()
     #listOfAccValues = list()
     listOfCentroids = list()
@@ -306,6 +311,7 @@ def main():
     #plot_overall_performance(csvfiles,
     #                         listOfAccValues,
     #                         "AccValues")
+
     sys.stdout.close()
 
 if __name__=="__main__":

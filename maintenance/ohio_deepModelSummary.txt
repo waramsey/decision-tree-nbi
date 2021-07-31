@@ -1,0 +1,11 @@
+[]
+
+Distribution before sampling: Counter({'Bad': 13817})
+
+ Oversampling (SMOTE) .. 
+Can not build decision tree..
+
+
+Category: Low Substructure - High Deck - Medium Superstructure
+----------------
+State: wisconsin_deep

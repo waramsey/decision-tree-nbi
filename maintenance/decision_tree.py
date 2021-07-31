@@ -109,6 +109,9 @@ def categorize_attribute(df, fieldname, category=2):
 
     Args:
         df (Dataframe)
+        category of attributes: Divide the attributes types
+        either into a total number of 2 categories
+        or 4 categories
 
     Returns:
        categories (list)
@@ -121,9 +124,9 @@ def categorize_attribute(df, fieldname, category=2):
             if value > mean and value < (mean + std):
                 categories.append('Good')
             elif value > mean + std:
-                categories.append('Very Good')
+                categories.append('Good')
             elif value < (mean - std):
-                categories.append('Very Bad')
+                categories.append('Bad')
             else:
                 categories.append('Bad')
 

@@ -1,0 +1,72 @@
+[]
+
+Distribution before sampling: Counter({'Good': 14640, 'Bad': 69})
+
+ Oversampling (SMOTE) .. 
+
+Distribution after sampling: Counter({'Good': 14640, 'Bad': 14640})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.9887294845334851
+
+ Best Accuracy:  0.9931693989071038
+
+ Best Depth:  19
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+         Bad       0.99      0.99      0.99      2922
+        Good       0.99      0.99      0.99      2934
+
+    accuracy                           0.99      5856
+   macro avg       0.99      0.99      0.99      5856
+weighted avg       0.99      0.99      0.99      5856
+
+
+ Confusion Matrix: 
+ [[2907   15]
+ [  18 2916]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.00027333906706430083, 'material': 0.00045892664512297426, 'typeOfDesign': 0.001561878246284333, 'scourCriticalBridges': 0.0023094215830936006, 'deckStructureType': 0.0056018038579996815, 'structureLength': 0.009479739468709725, 'skew': 0.009956053091035609, 'lengthOfMaximumSpan': 0.011646582179264658, 'yearBuilt': 0.013301372252628476, 'avgDailyTruckTraffic': 0.013944540290665016, 'designLoad': 0.016876709145284847, 'deck': 0.01888064604206978, 'longitude': 0.025369225145159192, 'operatingRating': 0.028638047722430768, 'averageDailyTraffic': 0.04282599578723033, 'bridgeRoadwayWithCurbToCurb': 0.04338319114220767, 'latitude': 0.04940087504192404, 'substructure': 0.07274921504272105, 'lanesOnStructure': 0.11586378077711534, 'numberOfSpansInMainUnit': 0.17059685925121207, 'superstructure': 0.34688179822077664}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.9866803744779963
+
+ Best Accuracy:  0.9928278688524589
+
+ Best Depth:  30
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+         Bad       0.99      1.00      0.99      2922
+        Good       1.00      0.99      0.99      2934
+
+    accuracy                           0.99      5856
+   macro avg       0.99      0.99      0.99      5856
+weighted avg       0.99      0.99      0.99      5856
+
+
+ Confusion Matrix: 
+ [[2908   14]
+ [  25 2909]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.00027333906706430083, 'material': 0.00045892664512297426, 'typeOfDesign': 0.001561878246284333, 'scourCriticalBridges': 0.0023094215830936006, 'deckStructureType': 0.0056018038579996815, 'structureLength': 0.009479739468709725, 'skew': 0.009956053091035609, 'lengthOfMaximumSpan': 0.011646582179264658, 'yearBuilt': 0.013301372252628476, 'avgDailyTruckTraffic': 0.013944540290665016, 'designLoad': 0.016876709145284847, 'deck': 0.01888064604206978, 'longitude': 0.025369225145159192, 'operatingRating': 0.028638047722430768, 'averageDailyTraffic': 0.04282599578723033, 'bridgeRoadwayWithCurbToCurb': 0.04338319114220767, 'latitude': 0.04940087504192404, 'substructure': 0.07274921504272105, 'lanesOnStructure': 0.11586378077711534, 'numberOfSpansInMainUnit': 0.17059685925121207, 'superstructure': 0.34688179822077664}
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
+State minnesota_deep

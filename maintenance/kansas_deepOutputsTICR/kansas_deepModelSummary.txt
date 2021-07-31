@@ -11,9 +11,9 @@
 
 ANOVA: 
                  Attribute     sum_sq   df            F  p-value
-0   supNumberIntervention  43.777226  2.0  2165.948088      0.0
-1   subNumberIntervention  39.950654  2.0  1717.684259      0.0
-2  deckNumberIntervention  44.233482  2.0  2362.137314      0.0
+0   supNumberIntervention  45.052603  2.0  2455.220800      0.0
+1   subNumberIntervention  40.114699  2.0  1677.950667      0.0
+2  deckNumberIntervention  44.799801  2.0  2299.432793      0.0
 
 Tukey's : 
 
@@ -21,9 +21,9 @@ Tukey's :
 =============================================================================================================================================
                         group1                                              group2                      meandiff p-adj  lower   upper  reject
 ---------------------------------------------------------------------------------------------------------------------------------------------
-High Substructure - Medium Deck - High Superstructure Low Substructure - High Deck - Low Superstructure  -0.2832 0.001  -0.296 -0.2703   True
-High Substructure - Medium Deck - High Superstructure   Low Substructure - No Deck - Low Superstructure  -0.3358 0.001 -0.3487 -0.3229   True
-    Low Substructure - High Deck - Low Superstructure   Low Substructure - No Deck - Low Superstructure  -0.0527 0.001 -0.0655 -0.0398   True
+High Substructure - Medium Deck - High Superstructure Low Substructure - High Deck - Low Superstructure  -0.3005 0.001 -0.3128 -0.2883   True
+High Substructure - Medium Deck - High Superstructure   Low Substructure - No Deck - Low Superstructure  -0.3318 0.001 -0.3441 -0.3196   True
+    Low Substructure - High Deck - Low Superstructure   Low Substructure - No Deck - Low Superstructure  -0.0313 0.001 -0.0436  -0.019   True
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -31,9 +31,9 @@ High Substructure - Medium Deck - High Superstructure   Low Substructure - No De
 =============================================================================================================================================
                         group1                                              group2                      meandiff p-adj  lower   upper  reject
 ---------------------------------------------------------------------------------------------------------------------------------------------
-High Substructure - Medium Deck - High Superstructure Low Substructure - High Deck - Low Superstructure   0.1331 0.001  0.1193  0.1469   True
-High Substructure - Medium Deck - High Superstructure   Low Substructure - No Deck - Low Superstructure  -0.2091 0.001 -0.2229 -0.1953   True
-    Low Substructure - High Deck - Low Superstructure   Low Substructure - No Deck - Low Superstructure  -0.3423 0.001 -0.3561 -0.3285   True
+High Substructure - Medium Deck - High Superstructure Low Substructure - High Deck - Low Superstructure   0.1441 0.001  0.1301  0.1581   True
+High Substructure - Medium Deck - High Superstructure   Low Substructure - No Deck - Low Superstructure  -0.2002 0.001 -0.2142 -0.1862   True
+    Low Substructure - High Deck - Low Superstructure   Low Substructure - No Deck - Low Superstructure  -0.3443 0.001 -0.3583 -0.3303   True
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -41,9 +41,9 @@ High Substructure - Medium Deck - High Superstructure   Low Substructure - No De
 =============================================================================================================================================
                         group1                                              group2                      meandiff p-adj  lower   upper  reject
 ---------------------------------------------------------------------------------------------------------------------------------------------
-High Substructure - Medium Deck - High Superstructure Low Substructure - High Deck - Low Superstructure  -0.2906 0.001  -0.303 -0.2782   True
-High Substructure - Medium Deck - High Superstructure   Low Substructure - No Deck - Low Superstructure  -0.3338 0.001 -0.3462 -0.3214   True
-    Low Substructure - High Deck - Low Superstructure   Low Substructure - No Deck - Low Superstructure  -0.0432 0.001 -0.0556 -0.0308   True
+High Substructure - Medium Deck - High Superstructure Low Substructure - High Deck - Low Superstructure  -0.3055 0.001 -0.3182 -0.2929   True
+High Substructure - Medium Deck - High Superstructure   Low Substructure - No Deck - Low Superstructure  -0.3264 0.001  -0.339 -0.3137   True
+    Low Substructure - High Deck - Low Superstructure   Low Substructure - No Deck - Low Superstructure  -0.0209 0.001 -0.0335 -0.0082   True
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 

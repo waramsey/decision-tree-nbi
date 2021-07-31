@@ -1,0 +1,76 @@
+[]
+
+Distribution before sampling: Counter({'Good': 513, 'Bad': 14})
+
+ Oversampling (SMOTE) .. 
+
+Distribution after sampling: Counter({'Good': 513, 'Bad': 513})
+
+
+            -------------- Performance of Entropy ---------------
+            
+
+
+ Best Kappa Values:  0.9804519881758368
+
+ Best Accuracy:  0.9707695950745915
+
+ Best Depth:  30
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+         Bad       0.98      1.00      0.99       106
+        Good       1.00      0.98      0.99        99
+
+    accuracy                           0.99       205
+   macro avg       0.99      0.99      0.99       205
+weighted avg       0.99      0.99      0.99       205
+
+
+ Confusion Matrix: 
+ [[106   0]
+ [  2  97]]
+
+ Feature Importance: 
+ {'yearBuilt': 0.0, 'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'structureLength': 0.0, 'bridgeRoadwayWithCurbToCurb': 0.0, 'operatingRating': 0.0, 'scourCriticalBridges': 0.0, 'lanesOnStructure': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0, 'deckStructureType': 0.0, 'superstructure': 0.005712791581385469, 'avgDailyTruckTraffic': 0.009300697254179728, 'material': 0.011462123035584677, 'typeOfDesign': 0.014837135991992507, 'designLoad': 0.02431762574458019, 'longitude': 0.03482620607536751, 'skew': 0.04200767366007164, 'numberOfSpansInMainUnit': 0.04419024528082824, 'lengthOfMaximumSpan': 0.0767478820408988, 'deck': 0.21726320398034174, 'substructure': 0.21862516648179597, 'averageDailyTraffic': 0.30070924887297346}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.980465027634839
+
+ Best Accuracy:  0.9678427658062988
+
+ Best Depth:  22
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+         Bad       0.99      0.99      0.99       106
+        Good       0.99      0.99      0.99        99
+
+    accuracy                           0.99       205
+   macro avg       0.99      0.99      0.99       205
+weighted avg       0.99      0.99      0.99       205
+
+
+ Confusion Matrix: 
+ [[105   1]
+ [  1  98]]
+
+ Feature Importance: 
+ {'yearBuilt': 0.0, 'snowfall': 0.0, 'freezethaw': 0.0, 'latitude': 0.0, 'structureLength': 0.0, 'bridgeRoadwayWithCurbToCurb': 0.0, 'operatingRating': 0.0, 'scourCriticalBridges': 0.0, 'lanesOnStructure': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0, 'deckStructureType': 0.0, 'superstructure': 0.005712791581385469, 'avgDailyTruckTraffic': 0.009300697254179728, 'material': 0.011462123035584677, 'typeOfDesign': 0.014837135991992507, 'designLoad': 0.02431762574458019, 'longitude': 0.03482620607536751, 'skew': 0.04200767366007164, 'numberOfSpansInMainUnit': 0.04419024528082824, 'lengthOfMaximumSpan': 0.0767478820408988, 'deck': 0.21726320398034174, 'substructure': 0.21862516648179597, 'averageDailyTraffic': 0.30070924887297346}
+
+ Saving decision trees 
+
+
+ Plotting decision trees 
+
+
+
+Category: Medium Substructure - Medium Deck - High Superstructure
+----------------
+State: ohio_deep
