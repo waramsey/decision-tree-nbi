@@ -1,7 +1,0 @@
-[]
-
-Distribution before sampling: Counter({'Good': 649, 'Bad': 4})
-
- Oversampling (SMOTE) .. 
-Can not build decision tree..
-State minnesota_deep
