@@ -5,15 +5,15 @@
 
  Centroids:  [[ 1.66515220e-01  1.36358473e-01  3.67863093e-01]
  [ 5.63725490e-02  2.67310049e-01  2.45098039e-03]
- [ 1.06028805e-02  7.28583860e-16 -1.08246745e-15]]
+ [ 1.06028805e-02  7.28583860e-16 -1.06858966e-15]]
 
  Number of members in cluster: Counter({2: 13817, 0: 4402, 1: 1632})
 
 ANOVA: 
-                 Attribute      sum_sq   df             F        p-value
-0   supNumberIntervention   21.452614  2.0    863.210193  8.102677e-322
-1   subNumberIntervention   59.624489  2.0   2945.263699   0.000000e+00
-2  deckNumberIntervention  147.716549  2.0  16616.241054   0.000000e+00
+                 Attribute      sum_sq   df             F  p-value
+0   supNumberIntervention   22.848141  2.0    877.384977      0.0
+1   subNumberIntervention   57.773616  2.0   2989.320329      0.0
+2  deckNumberIntervention  146.979893  2.0  18097.662379      0.0
 
 Tukey's : 
 
@@ -21,29 +21,29 @@ Tukey's :
 ===============================================================================================================================================
                        group1                                                group2                         meandiff p-adj lower  upper  reject
 -----------------------------------------------------------------------------------------------------------------------------------------------
-    Low Substructure - Low Deck - No Superstructure     Low Substructure - Medium Deck - Low Superstructure   0.0429 0.001 0.0337  0.052   True
-    Low Substructure - Low Deck - No Superstructure Medium Substructure - Medium Deck - High Superstructure   0.1569 0.001 0.1477  0.166   True
-Low Substructure - Medium Deck - Low Superstructure Medium Substructure - Medium Deck - High Superstructure    0.114 0.001 0.1048 0.1231   True
+    Low Substructure - Low Deck - No Superstructure     Low Substructure - Medium Deck - Low Superstructure   0.0438 0.001 0.0344 0.0532   True
+    Low Substructure - Low Deck - No Superstructure Medium Substructure - Medium Deck - High Superstructure   0.1618 0.001 0.1524 0.1711   True
+Low Substructure - Medium Deck - Low Superstructure Medium Substructure - Medium Deck - High Superstructure    0.118 0.001 0.1086 0.1273   True
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
 
-                                               Multiple Comparison of Means - Tukey HSD, FWER=0.05                                               
-=================================================================================================================================================
-                       group1                                                group2                         meandiff p-adj  lower   upper  reject
--------------------------------------------------------------------------------------------------------------------------------------------------
-    Low Substructure - Low Deck - No Superstructure     Low Substructure - Medium Deck - Low Superstructure   0.2702 0.001   0.262  0.2785   True
-    Low Substructure - Low Deck - No Superstructure Medium Substructure - Medium Deck - High Superstructure   0.1412 0.001   0.133  0.1495   True
-Low Substructure - Medium Deck - Low Superstructure Medium Substructure - Medium Deck - High Superstructure   -0.129 0.001 -0.1372 -0.1207   True
--------------------------------------------------------------------------------------------------------------------------------------------------
+                                              Multiple Comparison of Means - Tukey HSD, FWER=0.05                                               
+================================================================================================================================================
+                       group1                                                group2                         meandiff p-adj lower   upper  reject
+------------------------------------------------------------------------------------------------------------------------------------------------
+    Low Substructure - Low Deck - No Superstructure     Low Substructure - Medium Deck - Low Superstructure   0.2661 0.001  0.258  0.2742   True
+    Low Substructure - Low Deck - No Superstructure Medium Substructure - Medium Deck - High Superstructure   0.1331 0.001 0.1251  0.1412   True
+Low Substructure - Medium Deck - Low Superstructure Medium Substructure - Medium Deck - High Superstructure   -0.133 0.001 -0.141 -0.1249   True
+------------------------------------------------------------------------------------------------------------------------------------------------
 
 
                                                Multiple Comparison of Means - Tukey HSD, FWER=0.05                                               
 =================================================================================================================================================
                        group1                                                group2                         meandiff p-adj   lower  upper  reject
 -------------------------------------------------------------------------------------------------------------------------------------------------
-    Low Substructure - Low Deck - No Superstructure     Low Substructure - Medium Deck - Low Superstructure    0.002 0.6429 -0.0034 0.0075  False
-    Low Substructure - Low Deck - No Superstructure Medium Substructure - Medium Deck - High Superstructure   0.3695  0.001   0.364  0.375   True
-Low Substructure - Medium Deck - Low Superstructure Medium Substructure - Medium Deck - High Superstructure   0.3674  0.001   0.362 0.3729   True
+    Low Substructure - Low Deck - No Superstructure     Low Substructure - Medium Deck - Low Superstructure   0.0018 0.6722 -0.0034 0.0071  False
+    Low Substructure - Low Deck - No Superstructure Medium Substructure - Medium Deck - High Superstructure   0.3685  0.001  0.3632 0.3737   True
+Low Substructure - Medium Deck - Low Superstructure Medium Substructure - Medium Deck - High Superstructure   0.3666  0.001  0.3614 0.3719   True
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
 

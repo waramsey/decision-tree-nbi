@@ -104,8 +104,7 @@ def remove_null_values(df):
 def categorize_attribute(df, fieldname, category=2):
     """
     Description:
-        Categerize numerical variables into categories
-        by mean and standard deviation
+        Categerize numerical values by normal distribution
 
     Args:
         df (Dataframe)

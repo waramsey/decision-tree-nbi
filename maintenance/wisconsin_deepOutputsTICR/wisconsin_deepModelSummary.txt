@@ -3,7 +3,7 @@
 
  Optimal number of cluster (Elbow Coefficient):  3
 
- Centroids:  [[6.86740623e-03 4.16333634e-17 5.20417043e-16]
+ Centroids:  [[6.86740623e-03 3.46944695e-17 5.20417043e-16]
  [1.01143360e-01 1.45118734e-02 5.19788918e-01]
  [9.44123314e-02 5.14450867e-01 1.61849711e-01]]
 
@@ -11,9 +11,9 @@
 
 ANOVA: 
                  Attribute     sum_sq   df            F        p-value
-0   supNumberIntervention   2.068294  2.0    54.261143   3.890750e-23
-1   subNumberIntervention  59.030829  2.0  7817.873521   0.000000e+00
-2  deckNumberIntervention  48.554913  2.0  1094.686477  4.085112e-256
+0   supNumberIntervention   2.001499  2.0    55.042920   1.918418e-23
+1   subNumberIntervention  59.368497  2.0  7411.696880   0.000000e+00
+2  deckNumberIntervention  47.471580  2.0  1077.418481  1.075077e-253
 
 Tukey's : 
 
@@ -21,9 +21,19 @@ Tukey's :
 =============================================================================================================================================
                        group1                                              group2                      meandiff p-adj   lower   upper  reject
 ---------------------------------------------------------------------------------------------------------------------------------------------
-Low Substructure - High Deck - Medium Superstructure Low Substructure - Low Deck - High Superstructure   0.0337 0.0039  0.0091  0.0584   True
-Low Substructure - High Deck - Medium Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.0732  0.001 -0.0979 -0.0486   True
-   Low Substructure - Low Deck - High Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.1069  0.001 -0.1316 -0.0823   True
+Low Substructure - High Deck - Medium Superstructure Low Substructure - Low Deck - High Superstructure   0.0067 0.7674 -0.0173  0.0308  False
+Low Substructure - High Deck - Medium Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.0896  0.001 -0.1137 -0.0655   True
+   Low Substructure - Low Deck - High Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.0963  0.001 -0.1204 -0.0723   True
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                             Multiple Comparison of Means - Tukey HSD, FWER=0.05                                             
+=============================================================================================================================================
+                       group1                                              group2                      meandiff p-adj   lower   upper  reject
+---------------------------------------------------------------------------------------------------------------------------------------------
+Low Substructure - High Deck - Medium Superstructure Low Substructure - Low Deck - High Superstructure  -0.5014  0.001 -0.5127 -0.4902   True
+Low Substructure - High Deck - Medium Superstructure  Low Substructure - Low Deck - Low Superstructure   -0.513  0.001 -0.5243 -0.5017   True
+   Low Substructure - Low Deck - High Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.0116 0.0434 -0.0229 -0.0003   True
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -31,19 +41,9 @@ Low Substructure - High Deck - Medium Superstructure  Low Substructure - Low Dec
 ============================================================================================================================================
                        group1                                              group2                      meandiff p-adj  lower   upper  reject
 --------------------------------------------------------------------------------------------------------------------------------------------
-Low Substructure - High Deck - Medium Superstructure Low Substructure - Low Deck - High Superstructure     -0.5 0.001  -0.511  -0.489   True
-Low Substructure - High Deck - Medium Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.5116 0.001 -0.5225 -0.5006   True
-   Low Substructure - Low Deck - High Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.0116 0.036 -0.0225 -0.0006   True
---------------------------------------------------------------------------------------------------------------------------------------------
-
-
-                                            Multiple Comparison of Means - Tukey HSD, FWER=0.05                                             
-============================================================================================================================================
-                       group1                                              group2                      meandiff p-adj  lower   upper  reject
---------------------------------------------------------------------------------------------------------------------------------------------
-Low Substructure - High Deck - Medium Superstructure Low Substructure - Low Deck - High Superstructure   0.3468 0.001  0.3202  0.3734   True
-Low Substructure - High Deck - Medium Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.1734 0.001    -0.2 -0.1468   True
-   Low Substructure - Low Deck - High Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.5202 0.001 -0.5468 -0.4937   True
+Low Substructure - High Deck - Medium Superstructure Low Substructure - Low Deck - High Superstructure   0.3483 0.001  0.3218  0.3748   True
+Low Substructure - High Deck - Medium Superstructure  Low Substructure - Low Deck - Low Superstructure  -0.1647 0.001 -0.1912 -0.1383   True
+   Low Substructure - Low Deck - High Superstructure  Low Substructure - Low Deck - Low Superstructure   -0.513 0.001 -0.5395 -0.4865   True
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 

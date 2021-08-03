@@ -34,7 +34,7 @@ def main():
                 "yearBuilt":1,
                 "yearReconstructured":1,
                 "averageDailyTraffic":1,
-                "avgDailyTruckTraffic":1,
+                "avgDailyTruckTraffic":1, 
                 "deck":1,
                 "substructure":1,
                 "superstructure":1,

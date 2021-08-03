@@ -111,9 +111,9 @@ def maintenance_pipeline(state):
                         "scourCriticalBridges",
                         "lanesOnStructure",
 
-                        "deckDeteriorationScore",
-                        "subDeteriorationScore",
-                        "supDeteriorationScore"
+                   #     "deckDeteriorationScore",
+                   #     "subDeteriorationScore",
+                   #     "supDeteriorationScore"
                         ]
 
 
@@ -157,7 +157,6 @@ def maintenance_pipeline(state):
 
 
     dataScaled = normalize(df, columnsNormalize)
-
     dataScaled = dataScaled[columnsFinal]
     dataScaled = remove_null_values(dataScaled)
 
