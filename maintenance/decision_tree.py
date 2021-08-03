@@ -101,6 +101,25 @@ def remove_null_values(df):
         df = df[~df[feature].isin([np.nan])]
     return df
 
+def create_labels(df, label):
+    """
+    Description:
+        Create binary categories from
+        multiple categories.
+    Args:
+        df (dataframe)
+        label (string): primary label
+    Returns:
+        df (dataframe): a dataframe with additional
+        attributes
+    """
+    positiveClass = df[df['cluster'].isin([label])]
+    negativeClass = df[~df['cluster'].isin([label, 'No intervention'])]
+    positiveClass['label'] = ['positive']*len(positiveClass)
+    negativeClass['label'] = ['negative']*len(negativeClass)
+    df = pd.concat([positiveClass, negativeClass])
+    return df
+
 def categorize_attribute(df, fieldname, category=2):
     """
     Description:
@@ -303,8 +322,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
         fout.write(gTextRepresentation)
 
     print("\n Plotting decision trees \n")
-    #plot_decision_tree(eBestModel, filename='Entropy')
-    #plot_decision_tree(gBestModel, filename='Gini')
+    plot_decision_tree(eBestModel, filename='Entropy')
+    plot_decision_tree(gBestModel, filename='Gini')
     return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc)
 
 def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7):

@@ -125,6 +125,25 @@ def categorize_attribute(df, fieldname, category=2):
 
     return categories
 
+def create_labels(df, label):
+    """
+    Description:
+        Create binary categories from
+        multiple categories.
+    Args:
+        df (dataframe)
+        label (string): primary label
+    Returns:
+        df (dataframe): a dataframe with additional
+        attributes
+    """
+    positiveClass = df[df['cluster'] == label]
+    negativeClass = df[~df['cluster'] == label]
+    positiveClass['label'] = ['positive']*len(positiveClass)
+    negativeClass['label'] = ['negative']*len(negativeClass)
+    df = pd.concat([positiveClass, negativeClass])
+    return df
+
 # Confusion Matrix
 def conf_matrix(cm, filename=''):
     """

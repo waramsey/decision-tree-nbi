@@ -363,7 +363,6 @@ def evaluate_ANOVA(dataScaled, columns, lowestCount):
 
         features.append(col)
 
-        # Error
         tukeys.append(tukey)
 
     anovaDf = pd.DataFrame(columns=['Attribute',
@@ -459,15 +458,21 @@ def semantic_labeling_utility(record):
         label = provide_label(sub, deck, sup)
     return label
 
-def semantic_labeling(centroids, name=""):
+def semantic_labeling(features, name=""):
     """
     Description:
-        Assign a semantic labeling of the clusters
+       Assign a semantic label
     """
-    semanticLabels = pd.DataFrame(centroids)
+    #semanticLabels = pd.DataFrame(features)
     labels = list()
-    for record in centroids:
-        label = semantic_labeling_utility(record)
+    for index, record in features.iterrows():
+        subInt = record['subNumberIntervention']
+        deckInt = record['deckNumberIntervention']
+        supInt = record['supNumberIntervention']
+
+        label = semantic_labeling_utility([subInt,
+                                          deckInt,
+                                          supInt])
         if type(label) is type(list()):
             label = ' - '.join(label)
         labels.append(label)
