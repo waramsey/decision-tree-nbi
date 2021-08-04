@@ -189,13 +189,19 @@ def plot_sankey(title):
                 + ['saddlebrown']*6
 
         #label = []
-      ))])
-    fig.update_layout(title_text=title, font_size=15)
+      ),
+      )])
+    fig.update_layout(title_text=title,
+                      font_size=15,
+                      font=dict(size=15, color='white'),
+                      plot_bgcolor='black',
+                      paper_bgcolor='black')
     fig.show()
+    fig.write_html('important_features.html')
 
 # Driver Function
 def main():
-    title = 'Respresentation of important variables'
+    title = 'Important features with respect to states and clustes'
     plot_sankey(title)
 
 if __name__=='__main__':
