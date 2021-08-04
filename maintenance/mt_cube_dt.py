@@ -157,7 +157,6 @@ def maintenance_pipeline(state):
 
     sLabels = semantic_labeling(dataScaled[features], name="")
     dataScaled['cluster'] = sLabels
-    print("\n Clusters:", Counter(list(dataScaled['cluster'])))
 
     # Analysis of Variance:
     #anovaTable, tukeys =  evaluate_ANOVA(dataScaled, features, lowestCount)
@@ -183,8 +182,8 @@ def maintenance_pipeline(state):
     accValues = list()
 
     for label in labels:
-        print("\nCategory: ", label)
-        print("----------"*8)
+        print("\nCategory (Positive Class): ", label)
+        print("----------"*5)
         dataScaled = create_labels(dataScaled, label)
         clusters = Counter(dataScaled['label'])
         listOfClusters = list()
@@ -200,6 +199,9 @@ def maintenance_pipeline(state):
 
                 # Modeling features and groundtruth:
         X, y = dataScaled[columnsFinal], dataScaled['label']
+
+        # Summarize distribution before:
+        print("\n Distribution of the clusters before oversampling: ", Counter(y))
 
         # Oversampling:
         oversample = SMOTE()
@@ -232,7 +234,6 @@ def main():
                 "minnesota"
                 ]
 
-    csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfLabels = list()
