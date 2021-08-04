@@ -63,7 +63,7 @@ def plot_sankey(title):
                    "Year",
                    "Deck Structure Type",
                    "Design Load",
-                   "Average Daily Traffic"
+                   "Average Daily Traffic",
                    "Lanes on Sturcture",
                    "Bridge Roadway Curb to Curb",
                    "Length of Maximum Span"
@@ -201,7 +201,7 @@ def plot_sankey(title):
 
 # Driver Function
 def main():
-    title = 'Important features with respect to states and clustes'
+    title = 'Important features with respect to states and clusters'
     plot_sankey(title)
 
 if __name__=='__main__':
