@@ -157,6 +157,7 @@ def maintenance_pipeline(state):
 
     sLabels = semantic_labeling(dataScaled[features], name="")
     dataScaled['cluster'] = sLabels
+    print("\n Clusters:", Counter(list(dataScaled['cluster'])))
 
     # Analysis of Variance:
     #anovaTable, tukeys =  evaluate_ANOVA(dataScaled, features, lowestCount)
@@ -169,43 +170,49 @@ def maintenance_pipeline(state):
     # Characterizing the clusters:
     characterize_clusters(dataScaled, features)
 
-    # Create separate labels:
-    label = 'No Substructure - High Deck - No Superstructure'
-    dataScaled = create_labels(dataScaled, label)
-    clusters = Counter(dataScaled['label'])
-
-    listOfClusters = list()
-    for cluster in clusters.keys():
-        numOfMembers = clusters[cluster]
-        if numOfMembers < 15:
-            listOfClusters.append(cluster)
-
-    dataScaled = dataScaled[~dataScaled['label'].isin(listOfClusters)]
-
-    # State column:
-    dataScaled['state'] = [state]*len(dataScaled)
-
     # Remove columns:
     columnsFinal.remove('supNumberIntervention')
     columnsFinal.remove('subNumberIntervention')
     columnsFinal.remove('deckNumberIntervention')
 
-    # Modeling features and groundtruth:
-    X, y = dataScaled[columnsFinal], dataScaled['label']
+    labels = ['No Substructure - High Deck - No Superstructure',
+             'High Substructure - No Deck - No Superstructure',
+             'No Substructure - No Deck - High Superstructure']
 
-    # Check for null values here:
-    print("printing columns of X\n")
+    kappaValues = list()
+    accValues = list()
 
-    # Oversampling:
-    oversample = SMOTE()
-    print("\n Oversampling (SMOTE) ...")
-    X, y = oversample.fit_resample(X, y)
+    for label in labels:
+        print("\nCategory: ", label)
+        print("----------"*8)
+        dataScaled = create_labels(dataScaled, label)
+        clusters = Counter(dataScaled['label'])
+        listOfClusters = list()
+        for cluster in clusters.keys():
+            numOfMembers = clusters[cluster]
+            if numOfMembers < 15:
+                listOfClusters.append(cluster)
 
-    # Summarize distribution:
-    print("\n Distribution of the clusters after oversampling: ", Counter(y))
+        dataScaled = dataScaled[~dataScaled['label'].isin(listOfClusters)]
 
-    # Return to home directory:
-    kappaValues, accValues = decision_tree(X, y)
+        # State column:
+        dataScaled['state'] = [state]*len(dataScaled)
+
+                # Modeling features and groundtruth:
+        X, y = dataScaled[columnsFinal], dataScaled['label']
+
+        # Oversampling:
+        oversample = SMOTE()
+        print("\n Oversampling (SMOTE) ...")
+        X, y = oversample.fit_resample(X, y)
+
+        # Summarize distribution:
+        print("\n Distribution of the clusters after oversampling: ", Counter(y))
+
+        # Return to home directory:
+        kappaValue, accValue = decision_tree(X, y)
+        kappaValues.append(kappaValue)
+        accValues.append(accValue)
     sys.stdout.close()
     os.chdir(currentDir)
 
@@ -258,16 +265,20 @@ def main():
             states.append(state)
             clusterNames.append(label)
             countsTemp.append(count)
-
     to_csv(listOfDataFrames)
 
-    plot_overall_performance(csvfiles,
-                             listOfKappaValues,
-                             "KappaValues")
+    # TODO
+    # For values in kappa values and accvalues
+    # Edit kappaValues 
+    #plot_overall_performance(csvfiles, # State values
+    #                         listOfKappaValues,
+    #                         "KappaValues",
+    #                          state) # should be cluster value
 
-    plot_overall_performance(csvfiles,
-                             listOfAccValues,
-                             "AccValues")
+    #plot_overall_performance(csvfiles,
+    #                         listOfAccValues,
+    #                         "AccValues"
+    #                         state)
 
     sys.stdout.close()
 

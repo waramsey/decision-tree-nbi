@@ -521,7 +521,7 @@ def plot_centroids(states, centroidDf, metricName):
     plotly.offline.plot(fig, filename=filename)
 
 
-def plot_overall_performance(states, listOfMetricValues, metricName):
+def plot_overall_performance(states, listOfMetricValues, metricName, state):
     """
     Description:
         plots a barchart of all states and their metrics values
