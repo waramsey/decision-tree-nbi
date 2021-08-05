@@ -1,6 +1,6 @@
 """
 Description:
-    Contains function to plotting functions
+    Contains graphing functions
 
 Author:
     Akshay Kale
@@ -124,7 +124,7 @@ def plot_sankey(title):
                     9, 11, 13, 12, 15, 14,  # Kansas
 
             # High Superstructure
-                    10, 13, 11, 12, 17, 18, # Nebraska 14
+                    10, 13, 11, 12, 17, 14, # Nebraska
                     10, 13, 11, 18, 12, 15, # Illinois
                     10, 17, 13, 11, 12, 18, # Indiana
                     10, 12, 13, 16, 11, 22, # Missouri

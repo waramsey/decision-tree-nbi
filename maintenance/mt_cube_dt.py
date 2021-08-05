@@ -105,9 +105,9 @@ def maintenance_pipeline(state):
                         "scourCriticalBridges",
                         "lanesOnStructure",
 
-                   #     "deckDeteriorationScore",
-                   #     "subDeteriorationScore",
-                   #     "supDeteriorationScore"
+                        "deckDeteriorationScore",
+                        "subDeteriorationScore",
+                        "supDeteriorationScore"
                         ]
 
 
@@ -174,9 +174,9 @@ def maintenance_pipeline(state):
     columnsFinal.remove('subNumberIntervention')
     columnsFinal.remove('deckNumberIntervention')
 
-    labels = ['No Substructure - High Deck - No Superstructure',
-             'High Substructure - No Deck - No Superstructure',
-             'No Substructure - No Deck - High Superstructure']
+    labels = ['No Substructure - Low Deck - No Superstructure',
+              'Low Substructure - No Deck - No Superstructure',
+              'No Substructure - No Deck - Low Superstructure']
 
     kappaValues = list()
     accValues = list()
