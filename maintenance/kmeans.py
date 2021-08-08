@@ -395,19 +395,19 @@ def is_one(value):
         return False
 
 def is_low(value):
-    if value > 0 and value < 0.12:
+    if value > 0 and value < 0.125:
         return True
     else:
         return False
 
 def is_medium(value):
-    if value > 0.13 and value < 0.33:
+    if value > 0.125 and value < 0.45:
         return True
     else:
         return False
 
 def is_high(value):
-    if value > 0.33:
+    if value >= 0.45:
         return True
     else:
         return False

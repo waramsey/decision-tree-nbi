@@ -35,6 +35,7 @@ def plot_sankey(title):
           pad = 15,
           thickness = 20,
           line = dict(color = "black", width = 0.5),
+
           # Set of unique values
           label = ["Nebraska",
                    "Illinois",
@@ -67,13 +68,12 @@ def plot_sankey(title):
                    "Lanes on Sturcture",
                    "Bridge Roadway Curb to Curb",
                    "Length of Maximum Span"
-
                   ],
 
           color = "blue"
         ),
         link = dict(
-            #High Substructure
+         #High Substructure
           source = [0, 8, 8, 8, 8, 8,
                     1, 8, 8, 8, 8, 8,
                     2, 8, 8, 8, 8, 8,
@@ -83,7 +83,7 @@ def plot_sankey(title):
                     6, 8, 8, 8, 8, 8,
                     7, 8, 8, 8, 8, 8,
 
-            # High Deck
+         #High Deck
                     0, 9, 9, 9, 9, 9,
                     1, 9, 9, 9, 9, 9,
                     2, 9, 9, 9, 9, 9,
@@ -93,7 +93,7 @@ def plot_sankey(title):
                     6, 9, 9, 9, 9, 9,
                     7, 9, 9, 9, 9, 9,
 
-            # High Superstructure
+         #High Superstructure
                     0, 10, 10, 10, 10, 10,
                     1, 10, 10, 10, 10, 10,
                     2, 10, 10, 10, 10, 10,

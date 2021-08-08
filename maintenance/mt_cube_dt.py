@@ -140,9 +140,9 @@ def maintenance_pipeline(state):
                     "designatedInspectionFrequency",
                     "deckStructureType",
                     "typeOfDesign",
-                    "deckDeteriorationScore",
-                    "subDeteriorationScore",
-                    "supDeteriorationScore"
+                    #"deckDeteriorationScore",
+                    #"subDeteriorationScore",
+                    #"supDeteriorationScore"
                 ]
 
 
@@ -157,6 +157,10 @@ def maintenance_pipeline(state):
 
     sLabels = semantic_labeling(dataScaled[features], name="")
     dataScaled['cluster'] = sLabels
+
+    print("\n")
+    print(dataScaled['cluster'].unique())
+    print("\n")
 
     # Analysis of Variance:
     #anovaTable, tukeys =  evaluate_ANOVA(dataScaled, features, lowestCount)
@@ -174,9 +178,9 @@ def maintenance_pipeline(state):
     columnsFinal.remove('subNumberIntervention')
     columnsFinal.remove('deckNumberIntervention')
 
-    labels = ['No Substructure - Low Deck - No Superstructure',
-              'Low Substructure - No Deck - No Superstructure',
-              'No Substructure - No Deck - Low Superstructure']
+    labels = ['No Substructure - High Deck - No Superstructure',
+              'High Substructure - No Deck - No Superstructure',
+              'No Substructure - No Deck - High Superstructure']
 
     kappaValues = list()
     accValues = list()
@@ -197,7 +201,7 @@ def maintenance_pipeline(state):
         # State column:
         dataScaled['state'] = [state]*len(dataScaled)
 
-                # Modeling features and groundtruth:
+        # Modeling features and groundtruth:
         X, y = dataScaled[columnsFinal], dataScaled['label']
 
         # Summarize distribution before:
@@ -218,7 +222,7 @@ def maintenance_pipeline(state):
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return dataScaled, sLabels, kappaValues, accValues
+    return dataScaled, labels, kappaValues, accValues
 
 # Driver function
 def main():
@@ -234,6 +238,7 @@ def main():
                 "minnesota"
                 ]
 
+    csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfLabels = list()
@@ -245,7 +250,7 @@ def main():
          filename = filename+'_deep'
          dataScaled, sLabel, kappaValues, accValues = maintenance_pipeline(filename)
          listOfLabels.append(sLabel)
-         listOfStates.append(filename)
+         listOfStates.append([filename[:-5]]*3)
          listOfDataFrames.append(dataScaled)
          listOfKappaValues.append(kappaValues)
          listOfAccValues.append(accValues)
@@ -268,9 +273,44 @@ def main():
             countsTemp.append(count)
     to_csv(listOfDataFrames)
 
-    # TODO
-    # For values in kappa values and accvalues
-    # Edit kappaValues 
+    # printing acc, kappa, and labels
+    newListOfKappaValues = list()
+    newListOfAccValues = list()
+    newListOfLabels = list()
+    newListOfStates = list()
+
+    for valuesPerState in listOfKappaValues:
+        for values in valuesPerState:
+            entropy, gini = values
+            newListOfKappaValues.append(entropy)
+
+    for valuesPerState in listOfAccValues:
+        for values in valuesPerState:
+            entropy, gini = values
+            newListOfAccValues.append(entropy)
+
+    for valuePerState in listOfLabels:
+        for value in valuePerState:
+            newListOfLabels.append(value)
+
+    for valuePerState in listOfStates:
+        for value in valuePerState:
+            newListOfStates.append(value)
+
+    # Create a new dataframe 
+    metricsDf = pd.DataFrame({'state': newListOfStates,
+                              'kappa': newListOfKappaValues,
+                              'accuracy': newListOfAccValues,
+                              'cluster': newListOfLabels})
+    print(metricsDf)
+   # print(newListOfStates)
+   # print(newListOfKappaValues)
+   # print(newListOfAccValues)
+   # print(newListOfLabels)
+
+    #TODO:
+    # Create a dataframe with kappa values: entropy
+
     #plot_overall_performance(csvfiles, # State values
     #                         listOfKappaValues,
     #                         "KappaValues",
