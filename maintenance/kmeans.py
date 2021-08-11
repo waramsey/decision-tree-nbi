@@ -401,13 +401,13 @@ def is_low(value):
         return False
 
 def is_medium(value):
-    if value > 0.125 and value < 0.45:
+    if value > 0.125 and value < 0.33:
         return True
     else:
         return False
 
 def is_high(value):
-    if value >= 0.45:
+    if value >= 0.33:
         return True
     else:
         return False
@@ -545,7 +545,6 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state):
     lowestCount = min(counts.values())
 
     print("\n Number of members in cluster:", counts)
-
     slabels = semantic_labeling(centroids, name='')
     newNames = dict(zip(list(range(len(counts.keys()))), slabels))
 

@@ -1,4 +1,7 @@
       state     kappa  accuracy                                          cluster
-0  nebraska  0.966516  0.979925  No Substructure - High Deck - No Superstructure
-1  nebraska  0.936624  0.972560  High Substructure - No Deck - No Superstructure
-2  nebraska  0.740801  0.888073  No Substructure - No Deck - High Superstructure
+0  nebraska  0.559474  0.776738  No Substructure - High Deck - No Superstructure
+1  nebraska  0.688988  0.821284  High Substructure - No Deck - No Superstructure
+2  nebraska  0.814228  0.896330  No Substructure - No Deck - High Superstructure
+3    kansas  0.670705  0.803785  No Substructure - High Deck - No Superstructure
+4    kansas  0.660692  0.810714  High Substructure - No Deck - No Superstructure
+5    kansas  0.791636  0.880435  No Substructure - No Deck - High Superstructure

@@ -11,6 +11,7 @@ import pandas as pd
 import numpy as np
 from collections import Counter
 from collections import defaultdict
+from collections import OrderedDict
 
 # System Libraries
 import os
@@ -23,6 +24,101 @@ from sklearn import preprocessing
 #from decisionmethod import decision_tree
 from decision_tree import *
 from kmeans import *
+from gplot import *
+
+def scale(values):
+    newValues = list()
+    minVal = min(values)
+    maxVal = max(values)
+    rangeMin = 1
+    rangeMax = 5
+    for val in values:
+        valNormalized = ((rangeMax - rangeMin) * (val- minVal) / (maxVal - minVal)) + rangeMin
+        newValues.append(valNormalized)
+    return newValues
+
+def codify(listOfValues, dictionary):
+    """
+    Description:
+        Generate codify
+    """
+    newListOfValues = list()
+    for val in listOfValues:
+        newListOfValues.append(dictionary.get(val))
+    return newListOfValues
+
+def generate_dictionary(uniques):
+    """
+    Description:
+        Generate sankey dictionary
+    """
+    sankeyDict = defaultdict()
+    for index, label in enumerate(uniques):
+       sankeyDict[label] = index
+    return sankeyDict
+
+def generate_sankey_data(listOfStates, listOfClusters, listOfFeatures):
+    """
+    Description:
+        Generate data for sankey plot
+
+    Args:
+        states (list of list)
+        clusters (list of list)
+        features (list of dictionary)
+
+    Returns:
+        dataframe (a pandas dataframe)
+    """
+    sources = list()
+    targets = list()
+    values = list()
+    uniques = set()
+
+    for states, features, clusters in zip (listOfStates, listOfFeatures, listOfClusters):
+        for state, cluster, feature in zip(states, clusters, features):
+            # Create a dictionary of keys and ranks
+            feat = OrderedDict()
+            for key, value in feature.items():
+                feat[key] = value
+
+            for value, key in enumerate(feat.keys()):
+                set1 = (state, key)
+                set2 = (key, cluster)
+
+                sources.append(set1[0])
+                targets.append(set1[1])
+                values.append(1)
+
+                sources.append(set2[0])
+                targets.append(set2[1])
+                values.append(2)
+                values.append(value)
+
+                uniques.add(state)
+                uniques.add(cluster)
+                uniques.add(key)
+
+    return sources, targets, values, uniques
+
+def flatten_list(nestedList):
+    """
+    Description:
+        Function to flatten the list
+    Args:
+        nestedList (a list of nested list)
+    Returns:
+        newNestedList ( a revised nested list)
+    """
+    newNestedList = list()
+    for valuesPerState in newNestedList:
+        if len(np.shape(valuesPerState)) != 1:
+            for value in valuesPerState:
+                newNestedList.append(value[0])
+        else:
+            for values in valuesPerState:
+                newNestedList.append(value)
+    return newNestedList
 
 def maintenance_pipeline(state):
     """
@@ -113,10 +209,10 @@ def maintenance_pipeline(state):
 
     # Select final columns:
     columnsFinal = [
-                    "deck",
+                    #"deck",
+                    #"substructure",
+                    #"superstructure",
                     "yearBuilt",
-                    "superstructure",
-                    "substructure",
                     "averageDailyTraffic",
                     "avgDailyTruckTraffic",
                     "material",
@@ -184,7 +280,7 @@ def maintenance_pipeline(state):
 
     kappaValues = list()
     accValues = list()
-
+    featImps = list()
     for label in labels:
         print("\nCategory (Positive Class): ", label)
         print("----------"*5)
@@ -216,13 +312,15 @@ def maintenance_pipeline(state):
         print("\n Distribution of the clusters after oversampling: ", Counter(y))
 
         # Return to home directory:
-        kappaValue, accValue = decision_tree(X, y)
+        kappaValue, accValue, featImp = decision_tree(X, y)
         kappaValues.append(kappaValue)
         accValues.append(accValue)
+        featImps.append(featImp)
+
     sys.stdout.close()
     os.chdir(currentDir)
 
-    return dataScaled, labels, kappaValues, accValues
+    return dataScaled, labels, kappaValues, accValues, featImps
 
 # Driver function
 def main():
@@ -238,90 +336,110 @@ def main():
                 "minnesota"
                 ]
 
-    csvfiles = ['nebraska']
+    modelName = 'mt_midwest_wo_det_cr'
+    #csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfLabels = list()
     listOfStates = list()
     listOfCounts = list()
     listOfDataFrames = list()
+    listOfFeatureImps = list()
 
     for filename in csvfiles:
          filename = filename+'_deep'
-         dataScaled, sLabel, kappaValues, accValues = maintenance_pipeline(filename)
+         dataScaled, sLabel, kappaValues, accValues, featImps = maintenance_pipeline(filename)
          listOfLabels.append(sLabel)
          listOfStates.append([filename[:-5]]*3)
          listOfDataFrames.append(dataScaled)
          listOfKappaValues.append(kappaValues)
          listOfAccValues.append(accValues)
+         listOfFeatureImps.append(featImps)
 
-    sys.stdout = open("OverallOutput.txt", "w")
+    summaryfilename = modelName + '.txt'
+    sys.stdout = open(summaryfilename, "w")
 
-    ## Change the orientation:
+    # Refactor
+    oneListOfFeaturesImp = list()
+    for forStates in listOfFeatureImps:
+        maps = list()
+        for tempMap in forStates:
+            maps.append(tempMap[0])
+        oneListOfFeaturesImp.append(maps)
+
+    ## change the orientation:
     states = list()
-    clusterNames = list()
-    countsTemp = list()
+    clusternames = list()
+    countstemp = list()
 
-    ## Print the values:
-    for  sLabel, state, counts in zip(listOfLabels,
+    ## print the values:
+    for  slabel, state, counts in zip(listOfLabels,
                                       listOfStates,
                                       listOfCounts):
         counts = dict(counts).values()
-        for label, item1, count in zip(sLabel, state, counts):
+        for label, item1, count in zip(slabel, state, counts):
             states.append(state)
-            clusterNames.append(label)
-            countsTemp.append(count)
+            clusternames.append(label)
+            countstemp.append(count)
     to_csv(listOfDataFrames)
 
     # printing acc, kappa, and labels
-    newListOfKappaValues = list()
-    newListOfAccValues = list()
-    newListOfLabels = list()
-    newListOfStates = list()
+    newlistofkappavalues = list()
+    newlistofaccvalues = list()
+    newlistoflabels = list()
+    newlistofstates = list()
+    newlistoffeatimps = list()
 
-    for valuesPerState in listOfKappaValues:
-        for values in valuesPerState:
+    # TODO: Refactor
+    for valuesperstate in listOfKappaValues:
+        for values in valuesperstate:
             entropy, gini = values
-            newListOfKappaValues.append(entropy)
+            newlistofkappavalues.append(entropy)
 
-    for valuesPerState in listOfAccValues:
-        for values in valuesPerState:
+    for valuesperstate in listOfAccValues:
+        for values in valuesperstate:
             entropy, gini = values
-            newListOfAccValues.append(entropy)
+            newlistofaccvalues.append(entropy)
 
-    for valuePerState in listOfLabels:
-        for value in valuePerState:
-            newListOfLabels.append(value)
+    for valueperstate in listOfLabels:
+        for value in valueperstate:
+            newlistoflabels.append(value)
 
-    for valuePerState in listOfStates:
-        for value in valuePerState:
-            newListOfStates.append(value)
+    for valueperstate in listOfStates:
+        for value in valueperstate:
+            newlistofstates.append(value)
+
+    for valuesperstate in oneListOfFeaturesImp:
+        for value in valuesperstate:
+            newlistoffeatimps.append(value)
 
     # Create a new dataframe 
-    metricsDf = pd.DataFrame({'state': newListOfStates,
-                              'kappa': newListOfKappaValues,
-                              'accuracy': newListOfAccValues,
-                              'cluster': newListOfLabels})
-    print(metricsDf)
-   # print(newListOfStates)
-   # print(newListOfKappaValues)
-   # print(newListOfAccValues)
-   # print(newListOfLabels)
+    metricsdf = pd.DataFrame({'state': newlistofstates,
+                              'kappa': newlistofkappavalues,
+                              'accuracy': newlistofaccvalues,
+                              'cluster': newlistoflabels})
 
-    #TODO:
-    # Create a dataframe with kappa values: entropy
+    # Plot sankey
+    sources, targets, values, labels = generate_sankey_data(listOfStates, listOfLabels, oneListOfFeaturesImp)
+    sankeyDict = generate_dictionary(labels)
 
-    #plot_overall_performance(csvfiles, # State values
-    #                         listOfKappaValues,
-    #                         "KappaValues",
-    #                          state) # should be cluster value
+    sources = codify(sources, sankeyDict)
+    targets = codify(targets, sankeyDict)
 
-    #plot_overall_performance(csvfiles,
-    #                         listOfAccValues,
-    #                         "AccValues"
-    #                         state)
+    values = scale(values)
+    labels = list(labels)
+    title = 'Important features with respect to states and cluster'
+    plot_sankey_new(sources, targets, values, labels, title)
 
+    # Plot barchart
+    kappaTitle='Kappa values with respect to states'
+    accTitle='Acc values with respect to states'
+    kappa='kappa'
+    acc='accuracy'
+    state='state'
+    plot_barchart(metricsdf, kappa, state, kappaTitle)
+    plot_barchart(metricsdf, acc, state, accTitle)
     sys.stdout.close()
 
-if __name__=="__main__":
+if __name__=='__main__':
     main()

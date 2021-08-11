@@ -8,6 +8,7 @@ Date: May 11th, 2021
 TODO:
     3. Complexity Parameters
 -----------------------------------------------"""
+
 # Data structures
 import pandas as pd
 import numpy as np
@@ -279,7 +280,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\n Plotting decision trees \n")
     #plot_decision_tree(eBestModel, filename='Entropy')
     #plot_decision_tree(gBestModel, filename='Gini')
-    return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc)
+    return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc), (efi, gfi)
 
 def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7):
     """
@@ -471,7 +472,7 @@ def decision_tree(X, y, nFold=5):
     gFeatureDict = dict(zip(depths, gFeatures))
 
 
-    kappaVals, accVals = performance_summarizer(eKappaDict, gKappaDict,
+    kappaVals, accVals, featImps = performance_summarizer(eKappaDict, gKappaDict,
                                            eConfDict, gConfDict,
                                            eClassDict, gClassDict,
                                            eScoreDict, gScoreDict,
@@ -480,7 +481,7 @@ def decision_tree(X, y, nFold=5):
                                            eFeatureDict, gFeatureDict
                                            )
     # Return the average kappa value for state
-    return kappaVals, accVals
+    return kappaVals, accVals, featImps
 
 def plot_overall_performance(states, listOfMetricValues, metricName):
     """
