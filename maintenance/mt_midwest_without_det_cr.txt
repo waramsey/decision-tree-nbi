@@ -1,0 +1,25 @@
+        state     kappa  accuracy                                          cluster
+0    nebraska  0.465613  0.721448  No Substructure - High Deck - No Superstructure
+1    nebraska  0.638438  0.801823  High Substructure - No Deck - No Superstructure
+2    nebraska  0.720188  0.847706  No Substructure - No Deck - High Superstructure
+3      kansas  0.553867  0.752204  No Substructure - High Deck - No Superstructure
+4      kansas  0.530649  0.748214  High Substructure - No Deck - No Superstructure
+5      kansas  0.626150  0.815898  No Substructure - No Deck - High Superstructure
+6     indiana  0.448830  0.723462  No Substructure - High Deck - No Superstructure
+7     indiana  0.533222  0.760381  High Substructure - No Deck - No Superstructure
+8     indiana  0.759211  0.874417  No Substructure - No Deck - High Superstructure
+9    illinois  0.573438  0.766273  No Substructure - High Deck - No Superstructure
+10   illinois  0.396499  0.696044  High Substructure - No Deck - No Superstructure
+11   illinois  0.727273  0.850395  No Substructure - No Deck - High Superstructure
+12       ohio  0.589421  0.783986  No Substructure - High Deck - No Superstructure
+13       ohio  0.954828  0.980254  High Substructure - No Deck - No Superstructure
+14       ohio  0.985532  0.993301  No Substructure - No Deck - High Superstructure
+15  wisconsin  0.360260  0.682905  No Substructure - High Deck - No Superstructure
+16  wisconsin  0.542118  0.754187  High Substructure - No Deck - No Superstructure
+17  wisconsin  0.640901  0.793793  No Substructure - No Deck - High Superstructure
+18   missouri  0.583329  0.794496  No Substructure - High Deck - No Superstructure
+19   missouri  0.397101  0.702026  High Substructure - No Deck - No Superstructure
+20   missouri  0.664165  0.834883  No Substructure - No Deck - High Superstructure
+21  minnesota  0.377454  0.688650  No Substructure - High Deck - No Superstructure
+22  minnesota  0.732507  0.790223  High Substructure - No Deck - No Superstructure
+23  minnesota  0.565602  0.807692  No Substructure - No Deck - High Superstructure
