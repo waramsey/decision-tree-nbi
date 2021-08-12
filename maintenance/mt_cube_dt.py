@@ -27,6 +27,14 @@ from kmeans import *
 from gplot import *
 
 def scale(values):
+    """
+    Description:
+        A function to scale the values
+    Args:
+        values
+    Return:
+        Scaled values
+    """
     newValues = list()
     minVal = min(values)
     maxVal = max(values)
@@ -40,7 +48,8 @@ def scale(values):
 def codify(listOfValues, dictionary):
     """
     Description:
-        Generate codify
+         Codify values according to the provides
+         dictionary
     """
     newListOfValues = list()
     for val in listOfValues:
@@ -56,6 +65,44 @@ def generate_dictionary(uniques):
     for index, label in enumerate(uniques):
        sankeyDict[label] = index
     return sankeyDict
+
+def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
+    """
+    Description:
+        Generate data for heatmap
+
+    Args:
+        states (list of list)
+        clusters (list of list)
+        features (list of dictionary)
+
+    Returns:
+        dataframe (a pandas dataframe)
+    """
+    data = list()
+    heatMapDict = defaultdict(list)
+    for clusters, features, states in zip(listOfClusters,
+                                       listOfFeatures,
+                                       listOfStates):
+        for clus, feat, state in zip(clusters,
+                                     features,
+                                     states):
+            heatMapDict[clus].append((state, feat))
+
+    clusters = heatMapDict.keys()
+    for cluster in clusters:
+        clusterVals = heatMapDict[cluster]
+        tempData = list()
+        for val in clusterVals:
+            state, featMap = val
+            tempSeries = pd.Series(data=featMap,
+                                   index=featMap.keys(),
+                                   name=state)
+            tempData.append(tempSeries)
+        tempDf = pd.concat(tempData, axis=1).reset_index()
+        tempDf.set_index('index', inplace=True)
+        data.append(tempDf)
+    return clusters, data
 
 def generate_sankey_data(listOfStates, listOfClusters, listOfFeatures):
     """
@@ -209,9 +256,9 @@ def maintenance_pipeline(state):
 
     # Select final columns:
     columnsFinal = [
-                    #"deck",
-                    #"substructure",
-                    #"superstructure",
+    #                "deck",
+    #                "substructure",
+    #                "superstructure",
                     "yearBuilt",
                     "averageDailyTraffic",
                     "avgDailyTruckTraffic",
@@ -236,9 +283,9 @@ def maintenance_pipeline(state):
                     "designatedInspectionFrequency",
                     "deckStructureType",
                     "typeOfDesign",
-                    #"deckDeteriorationScore",
-                    #"subDeteriorationScore",
-                    #"supDeteriorationScore"
+    #                "deckDeteriorationScore",
+    #                "subDeteriorationScore",
+    #                "supDeteriorationScore"
                 ]
 
 
@@ -246,6 +293,8 @@ def maintenance_pipeline(state):
     dataScaled = dataScaled[columnsFinal]
     dataScaled = remove_null_values(dataScaled)
 
+    # TODO:
+    # Apply recursive feature elimination
     # Data Scaled
     features = ["supNumberIntervention",
                 "subNumberIntervention",
@@ -336,7 +385,7 @@ def main():
                 "minnesota"
                 ]
 
-    modelName = 'mt_midwest_wo_det_cr'
+    modelName = 'testing'
     #csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
@@ -419,6 +468,14 @@ def main():
                               'accuracy': newlistofaccvalues,
                               'cluster': newlistoflabels})
 
+    # Plot heatmap
+    col, data = generate_heat_map(listOfStates, listOfLabels, oneListOfFeaturesImp)
+
+    for col, val in zip(col, data):
+        print('\nCluster:', col)
+        print(val)
+        plot_heatmap(val, col)
+
     # Plot sankey
     sources, targets, values, labels = generate_sankey_data(listOfStates, listOfLabels, oneListOfFeaturesImp)
     sankeyDict = generate_dictionary(labels)
@@ -433,7 +490,7 @@ def main():
 
     # Plot barchart
     kappaTitle='Kappa values with respect to states'
-    accTitle='Acc values with respect to states'
+    accTitle='Accuracy values with respect to states'
     kappa='kappa'
     acc='accuracy'
     state='state'

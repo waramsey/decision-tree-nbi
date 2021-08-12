@@ -344,6 +344,7 @@ def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7
         kappa: Kappa Value
         model: Decision Tree Model
     """
+    # TODO: Implement Recursive feature elimination
     model = DecisionTreeClassifier(criterion=criteria, max_depth=maxDepth)
     model.fit(trainX, trainy)
     prediction = model.predict(testX)

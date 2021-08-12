@@ -8,7 +8,6 @@ Author:
 Date: July 26, 2021
 """
 import pandas as pd
-
 import plotly.graph_objects as go
 import plotly.express as px
 
@@ -26,7 +25,25 @@ def plot_us():
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     fig.show()
 
-#def plot_barchart(x, y, name):
+def df_to_plotly(df):
+    return {'z':df.values.tolist(),
+            'x':df.columns.tolist(),
+            'y':df.index.tolist()}
+
+def plot_heatmap(df, title):
+    dataHeatMap = df_to_plotly(df)
+    print(dataHeatMap)
+    fig = go.Figure(data=go.Heatmap(dataHeatMap))
+    fig.update_layout(title_text=title,
+                      font_size=15,
+                      font=dict(size=15, color='black'),
+                      plot_bgcolor='white',
+                      paper_bgcolor='white',
+                      barmode='group')
+    savefile = title+'.html'
+    fig.write_html(savefile)
+    fig.show()
+
 def plot_barchart(df, attribute, state, title):
     """
     Args:
@@ -112,14 +129,13 @@ def plot_sankey_new(sources, targets, values, labels, title):
           #      + ['royalblue']*6
           #      + ['rebeccapurple']*6
           #      + ['saddlebrown']*6
-
         #label = []
       ),
       )])
     fig.update_layout(title_text=title,
                       font_size=15,
-                      font=dict(size=15, color='white'),
-                      plot_bgcolor='black',
-                      paper_bgcolor='black')
+                      font=dict(size=15, color='black'),
+                      plot_bgcolor='white',
+                      paper_bgcolor='white')
     fig.show()
     fig.write_html('important_features.html')
