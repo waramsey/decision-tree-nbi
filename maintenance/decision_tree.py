@@ -230,28 +230,40 @@ def plot_decision_tree(model, filename=''):
     fig.savefig(filename)
 
 # Print splitnodes
-def printSplitNodes(leaves, treeStructure):
+def print_split_nodes(leaves, treeStructure, features):
     """
-    print the splitnodes
+    Print the tree structure that includes
+    leaves and split nodes.
+
+    Collect the split nodes
     """
+    # Unpack the tree stucture
     nNodes, childrenLeft, childrenRight, feature, threshold= treeStructure
+
+    # Initialize the nodeDepth and splitNodes
     nodeDepth = np.zeros(shape=nNodes, dtype=np.int64)
-    # TODO: get features
-    # Some of the split nodes are leaves
+    splitNodes = list()
+
+    # Create feature dictionary
+    featureDict = {index:feat for index, feat in enumerate(features)}
+
+    # Traverse the decision tree
     for i in range(nNodes):
         if leaves[i]:
-           pass
+           print("{space} node={node} is a leaf node and has"
+                 " the following tree structure:\n".format(
+                 space=nodeDepth[i]*"\t",
+                 node=i))
         else:
             print("{space} node is a split-node: "
-                  "go to node {left} if X[:, {feature} <= {threshold} "
-                 " else to node {right}.".format(
-                 space=nodeDepth[i]*'\t',
+                  " go to node {left} if X[:, {feature}] <= {threshold} "
+                  " else to node {right}.".format(
+                 space=nodeDepth[i]*"\t",
                  node=i,
                  left=childrenLeft[i],
                  right=childrenRight[i],
                  threshold=threshold[i],
-                 #feature=featureDict[feature[i]],
-                 feature=feature[i],
+                 feature=featureDict[feature[i]],
                  ))
 
 # Navigate the decision tree
@@ -275,7 +287,7 @@ def find_leaves(eBestModel):
                      threshold)
 
     # Initialize
-    node_depth = np.zeros(shape=nNodes, dtype=np.int64)
+    #nodeDepth = np.zeros(shape=nNodes, dtype=np.int64)
     leaves = np.zeros(shape=nNodes, dtype=bool)
 
     # Start with the root node
@@ -288,7 +300,7 @@ def find_leaves(eBestModel):
         # If a split node, append left and right children and depth to the 'stack'
         if isSplitNode:
             stack.append((childrenLeft[nodeId], depth + 1))
-            stack.append((childrenLeft[nodeId], depth + 1))
+            stack.append((childrenRight[nodeId], depth + 1))
         else:
             leaves[nodeId] = True
     return leaves, treeStructure
@@ -300,7 +312,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
                           eAccDict, gAccDict,
                           #eRocsDict, gRocsDict,
                           eModelsDict, gModelsDict,
-                          eFeatureDict, gFeatureDict):
+                          eFeatureDict, gFeatureDict, cols):
 
     """
     Description:
@@ -375,18 +387,10 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     # Printing Node Counts
     # TODO: DELETE the create nNodes
-    featDictionary = defaultdict()
-    # For features, we need to construct a feature dictionary
-    # Create a dictionary of features
-    nNodes = eBestModel.tree_.node_count
-    childrenLeft = eBestModel.tree_.children_left
-    childrenRight = eBestModel.tree_.children_right
-    feature = eBestModel.tree_.feature
-    threshold = eBestModel.tree_.threshold
 
-    leaves, treeStructure = find_leaves(eBestModel)
     print("\nPrinting split-nodes")
-    printSplitNodes(leaves, treeStructure)
+    leaves, treeStructure = find_leaves(eBestModel)
+    print_split_nodes(leaves, treeStructure, cols)
 
     # Print decision tree of the Best Model
     # Entropy
@@ -471,8 +475,6 @@ def decision_tree(X, y, nFold=5):
 
     # Converting them to array
     cols = X.columns
-    print("\nPrinting Columns")
-    print(cols)
     X = np.array(X)
     y = np.array(y)
 
@@ -572,7 +574,7 @@ def decision_tree(X, y, nFold=5):
                                            eScoreDict, gScoreDict,
                                            #eRocsDict, gRocsDict,
                                            eModelsDict, gModelsDict,
-                                           eFeatureDict, gFeatureDict)
+                                           eFeatureDict, gFeatureDict, cols)
 
     # Return the average kappa value for state
     return kappaVals, accVals, featImps
