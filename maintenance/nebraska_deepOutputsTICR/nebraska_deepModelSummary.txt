@@ -85,51 +85,60 @@ Category (Positive Class):  No Substructure - High Deck - No Superstructure
 
  Distribution of the clusters after oversampling:  Counter({'positive': 1646, 'negative': 1646})
 
+Printing Columns
+Index(['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'material',
+       'designLoad', 'snowfall', 'freezethaw', 'latitude', 'longitude', 'skew',
+       'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength',
+       'bridgeRoadwayWithCurbToCurb', 'operatingRating',
+       'scourCriticalBridges', 'lanesOnStructure', 'toll',
+       'designatedInspectionFrequency', 'deckStructureType', 'typeOfDesign'],
+      dtype='object')
+
 
             -------------- Performance of Entropy ---------------
             
 
 
- Best Kappa Values:  0.4948106488076518
+ Best Kappa Values:  0.4687722017696828
 
- Best Accuracy:  0.7135523566608706
+ Best Accuracy:  0.7253898556807542
 
- Best Depth:  18
+ Best Depth:  13
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.76      0.71      0.73       324
-    positive       0.74      0.78      0.76       334
+    negative       0.71      0.78      0.74       324
+    positive       0.76      0.69      0.72       334
 
-    accuracy                           0.75       658
-   macro avg       0.75      0.75      0.75       658
-weighted avg       0.75      0.75      0.75       658
+    accuracy                           0.73       658
+   macro avg       0.74      0.73      0.73       658
+weighted avg       0.74      0.73      0.73       658
 
 
  Confusion Matrix: 
- [[230  94]
- [ 72 262]]
+ [[253  71]
+ [104 230]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'lanesOnStructure': 0.003312808683713229, 'designatedInspectionFrequency': 0.0034647743038928006, 'typeOfDesign': 0.004278197769477091, 'designLoad': 0.007583049642265806, 'material': 0.008172486753005807, 'skew': 0.008367177089662291, 'avgDailyTruckTraffic': 0.016876283665033798, 'numberOfSpansInMainUnit': 0.0181746409664991, 'deckStructureType': 0.02359776180193197, 'scourCriticalBridges': 0.04344180714260342, 'lengthOfMaximumSpan': 0.05087776214113478, 'structureLength': 0.05963613971798429, 'bridgeRoadwayWithCurbToCurb': 0.09333899207467493, 'averageDailyTraffic': 0.11539047997187665, 'operatingRating': 0.12873825371481648, 'yearBuilt': 0.13427712439181883, 'longitude': 0.13678667965381822, 'latitude': 0.14368558051579036}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.004938806642628514, 'lanesOnStructure': 0.005621416817906812, 'designLoad': 0.007093789675981197, 'material': 0.008727281811897199, 'skew': 0.015101892491373087, 'typeOfDesign': 0.025979035566441273, 'avgDailyTruckTraffic': 0.02767000897538037, 'deckStructureType': 0.028652465697503394, 'numberOfSpansInMainUnit': 0.04200245470512337, 'lengthOfMaximumSpan': 0.04961841781282817, 'structureLength': 0.05120242882684493, 'bridgeRoadwayWithCurbToCurb': 0.07442100294495982, 'averageDailyTraffic': 0.07478422574549881, 'scourCriticalBridges': 0.07697176257466337, 'operatingRating': 0.09914297410037692, 'latitude': 0.1023201129498736, 'yearBuilt': 0.14573810020394226, 'longitude': 0.16001382245677678}
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.5013585198602666
+ Best Kappa Values:  0.4950441954214283
 
- Best Accuracy:  0.7187255259188878
+ Best Accuracy:  0.7126418862511589
 
- Best Depth:  10
+ Best Depth:  29
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.75      0.74      0.75       324
-    positive       0.75      0.76      0.76       334
+    negative       0.75      0.73      0.74       324
+    positive       0.74      0.77      0.76       334
 
     accuracy                           0.75       658
    macro avg       0.75      0.75      0.75       658
@@ -137,11 +146,557 @@ weighted avg       0.75      0.75      0.75       658
 
 
  Confusion Matrix: 
- [[241  83]
- [ 81 253]]
+ [[235  89]
+ [ 77 257]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'lanesOnStructure': 0.003312808683713229, 'designatedInspectionFrequency': 0.0034647743038928006, 'typeOfDesign': 0.004278197769477091, 'designLoad': 0.007583049642265806, 'material': 0.008172486753005807, 'skew': 0.008367177089662291, 'avgDailyTruckTraffic': 0.016876283665033798, 'numberOfSpansInMainUnit': 0.0181746409664991, 'deckStructureType': 0.02359776180193197, 'scourCriticalBridges': 0.04344180714260342, 'lengthOfMaximumSpan': 0.05087776214113478, 'structureLength': 0.05963613971798429, 'bridgeRoadwayWithCurbToCurb': 0.09333899207467493, 'averageDailyTraffic': 0.11539047997187665, 'operatingRating': 0.12873825371481648, 'yearBuilt': 0.13427712439181883, 'longitude': 0.13678667965381822, 'latitude': 0.14368558051579036}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.004938806642628514, 'lanesOnStructure': 0.005621416817906812, 'designLoad': 0.007093789675981197, 'material': 0.008727281811897199, 'skew': 0.015101892491373087, 'typeOfDesign': 0.025979035566441273, 'avgDailyTruckTraffic': 0.02767000897538037, 'deckStructureType': 0.028652465697503394, 'numberOfSpansInMainUnit': 0.04200245470512337, 'lengthOfMaximumSpan': 0.04961841781282817, 'structureLength': 0.05120242882684493, 'bridgeRoadwayWithCurbToCurb': 0.07442100294495982, 'averageDailyTraffic': 0.07478422574549881, 'scourCriticalBridges': 0.07697176257466337, 'operatingRating': 0.09914297410037692, 'latitude': 0.1023201129498736, 'yearBuilt': 0.14573810020394226, 'longitude': 0.16001382245677678}
+
+Printing split-nodes
+ node is a split-node: go to node 1 if X[:, 0 <= 0.6849494576454163else to node 306.
+ node is a split-node: go to node 2 if X[:, 15 <= 0.22568393498659134else to node 15.
+ node is a split-node: go to node 3 if X[:, 8 <= 0.925239622592926else to node 14.
+ node is a split-node: go to node 4 if X[:, 8 <= 0.9236082434654236else to node 5.
+ node is a split-node: go to node 6 if X[:, 1 <= 0.00016034465079428628else to node 13.
+ node is a split-node: go to node 7 if X[:, 12 <= 0.009029345354065299else to node 12.
+ node is a split-node: go to node 8 if X[:, 14 <= 0.14500000327825546else to node 9.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 10 if X[:, 19 <= 4.5else to node 11.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 16 if X[:, 8 <= 0.9347000122070312else to node 159.
+ node is a split-node: go to node 17 if X[:, 10 <= 0.05099829100072384else to node 136.
+ node is a split-node: go to node 18 if X[:, 19 <= 8.5else to node 123.
+ node is a split-node: go to node 19 if X[:, 8 <= 0.9261528849601746else to node 62.
+ node is a split-node: go to node 20 if X[:, 10 <= 0.02874730434268713else to node 61.
+ node is a split-node: go to node 21 if X[:, 2 <= 0.15625else to node 58.
+ node is a split-node: go to node 22 if X[:, 7 <= 0.9417283236980438else to node 39.
+ node is a split-node: go to node 23 if X[:, 15 <= 0.5000000149011612else to node 30.
+ node is a split-node: go to node 24 if X[:, 1 <= 0.00016034465079428628else to node 29.
+ node is a split-node: go to node 25 if X[:, 8 <= 0.9256299138069153else to node 28.
+ node is a split-node: go to node 26 if X[:, 1 <= 0.00013009094254812226else to node 27.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 31 if X[:, 7 <= 0.939248263835907else to node 38.
+ node is a split-node: go to node 32 if X[:, 7 <= 0.9384426176548004else to node 35.
+ node is a split-node: go to node 33 if X[:, 7 <= 0.9372997879981995else to node 34.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 36 if X[:, 1 <= 0.00038724744808860123else to node 37.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 40 if X[:, 7 <= 0.9447839558124542else to node 51.
+ node is a split-node: go to node 41 if X[:, 1 <= 0.00012319973029661924else to node 46.
+ node is a split-node: go to node 42 if X[:, 8 <= 0.9185699224472046else to node 45.
+ node is a split-node: go to node 43 if X[:, 15 <= 0.3888888955116272else to node 44.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 47 if X[:, 14 <= 0.26500000059604645else to node 50.
+ node is a split-node: go to node 48 if X[:, 8 <= 0.9231247007846832else to node 49.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 52 if X[:, 3 <= 3.5else to node 57.
+ node is a split-node: go to node 53 if X[:, 7 <= 0.986334890127182else to node 56.
+ node is a split-node: go to node 54 if X[:, 11 <= 0.14556961506605148else to node 55.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 59 if X[:, 7 <= 0.9413981437683105else to node 60.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 63 if X[:, 8 <= 0.9324797093868256else to node 96.
+ node is a split-node: go to node 64 if X[:, 8 <= 0.9286657273769379else to node 95.
+ node is a split-node: go to node 65 if X[:, 8 <= 0.9271156489849091else to node 80.
+ node is a split-node: go to node 66 if X[:, 9 <= 0.5158730298280716else to node 79.
+ node is a split-node: go to node 67 if X[:, 7 <= 0.939716637134552else to node 72.
+ node is a split-node: go to node 68 if X[:, 12 <= 0.00790067738853395else to node 69.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 70 if X[:, 7 <= 0.9381873607635498else to node 71.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 73 if X[:, 13 <= 0.07840097323060036else to node 76.
+ node is a split-node: go to node 74 if X[:, 12 <= 0.0229495856910944else to node 75.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 77 if X[:, 8 <= 0.9268767535686493else to node 78.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 81 if X[:, 1 <= 0.00044133601477369666else to node 90.
+ node is a split-node: go to node 82 if X[:, 0 <= 0.22649572789669037else to node 83.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 84 if X[:, 7 <= 0.9422167539596558else to node 87.
+ node is a split-node: go to node 85 if X[:, 7 <= 0.9389999806880951else to node 86.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 88 if X[:, 11 <= 0.14744624495506287else to node 89.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 91 if X[:, 14 <= 0.45000000298023224else to node 92.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 93 if X[:, 20 <= 3.5else to node 94.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 97 if X[:, 20 <= 1.5else to node 98.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 99 if X[:, 11 <= 0.052586907520890236else to node 112.
+ node is a split-node: go to node 100 if X[:, 14 <= 0.087661013007164else to node 105.
+ node is a split-node: go to node 101 if X[:, 13 <= 0.03858427703380585else to node 102.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 103 if X[:, 15 <= 0.3888888955116272else to node 104.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 106 if X[:, 15 <= 0.3888888955116272else to node 111.
+ node is a split-node: go to node 107 if X[:, 9 <= 0.2380952388048172else to node 110.
+ node is a split-node: go to node 108 if X[:, 7 <= 0.9867002069950104else to node 109.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 113 if X[:, 12 <= 0.0045008789747953415else to node 114.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 115 if X[:, 14 <= 0.36113621294498444else to node 122.
+ node is a split-node: go to node 116 if X[:, 13 <= 0.05743131600320339else to node 119.
+ node is a split-node: go to node 117 if X[:, 13 <= 0.02687996346503496else to node 118.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 120 if X[:, 2 <= 0.2890625else to node 121.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 124 if X[:, 0 <= 0.679080069065094else to node 135.
+ node is a split-node: go to node 125 if X[:, 7 <= 0.9879953265190125else to node 130.
+ node is a split-node: go to node 126 if X[:, 0 <= 0.662393182516098else to node 127.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 128 if X[:, 15 <= 0.6666666716337204else to node 129.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 131 if X[:, 1 <= 0.00016034465079428628else to node 134.
+ node is a split-node: go to node 132 if X[:, 11 <= 0.09810126572847366else to node 133.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 137 if X[:, 1 <= 0.2350652515888214else to node 158.
+ node is a split-node: go to node 138 if X[:, 3 <= 2.5else to node 139.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 140 if X[:, 3 <= 4.5else to node 157.
+ node is a split-node: go to node 141 if X[:, 2 <= 0.421875else to node 156.
+ node is a split-node: go to node 142 if X[:, 11 <= 0.12974683940410614else to node 151.
+ node is a split-node: go to node 143 if X[:, 12 <= 0.04732911102473736else to node 150.
+ node is a split-node: go to node 144 if X[:, 12 <= 0.012039127293974161else to node 145.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 146 if X[:, 8 <= 0.9187929630279541else to node 147.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 148 if X[:, 9 <= 0.0793650820851326else to node 149.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 152 if X[:, 14 <= 0.5699999928474426else to node 153.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 154 if X[:, 0 <= 0.602564126253128else to node 155.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 160 if X[:, 10 <= 0.0500714723020792else to node 261.
+ node is a split-node: go to node 161 if X[:, 15 <= 0.3337898552417755else to node 200.
+ node is a split-node: go to node 162 if X[:, 20 <= 2.5else to node 187.
+ node is a split-node: go to node 163 if X[:, 14 <= 0.27291473746299744else to node 178.
+ node is a split-node: go to node 164 if X[:, 7 <= 0.9399367570877075else to node 165.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 166 if X[:, 14 <= 0.2199999988079071else to node 177.
+ node is a split-node: go to node 167 if X[:, 14 <= 0.19999999552965164else to node 176.
+ node is a split-node: go to node 168 if X[:, 13 <= 0.05218547023832798else to node 171.
+ node is a split-node: go to node 169 if X[:, 16 <= 0.013093581423163414else to node 170.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 172 if X[:, 10 <= 0.005740663968026638else to node 175.
+ node is a split-node: go to node 173 if X[:, 14 <= 0.17000000178813934else to node 174.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 179 if X[:, 1 <= 0.0003116131847491488else to node 186.
+ node is a split-node: go to node 180 if X[:, 14 <= 0.43583694100379944else to node 185.
+ node is a split-node: go to node 181 if X[:, 1 <= 0.00020905229030176997else to node 182.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 183 if X[:, 8 <= 0.9362919628620148else to node 184.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 188 if X[:, 14 <= 0.028751344420015812else to node 191.
+ node is a split-node: go to node 189 if X[:, 13 <= 0.02941176574677229else to node 190.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 192 if X[:, 14 <= 0.17500000447034836else to node 193.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 194 if X[:, 18 <= 18.0else to node 195.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 196 if X[:, 8 <= 0.9365557730197906else to node 199.
+ node is a split-node: go to node 197 if X[:, 13 <= 0.02805836033076048else to node 198.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 201 if X[:, 14 <= 0.101996511220932else to node 222.
+ node is a split-node: go to node 202 if X[:, 0 <= 0.1504736766219139else to node 203.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 204 if X[:, 0 <= 0.5598290860652924else to node 221.
+ node is a split-node: go to node 205 if X[:, 7 <= 0.9416112303733826else to node 206.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 207 if X[:, 14 <= 0.019999999552965164else to node 208.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 209 if X[:, 15 <= 0.4472728818655014else to node 216.
+ node is a split-node: go to node 210 if X[:, 12 <= 0.019783574156463146else to node 213.
+ node is a split-node: go to node 211 if X[:, 11 <= 0.028481011278927326else to node 212.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 214 if X[:, 10 <= 0.012820512987673283else to node 215.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 217 if X[:, 0 <= 0.4444444477558136else to node 220.
+ node is a split-node: go to node 218 if X[:, 9 <= 0.00404061283916235else to node 219.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 223 if X[:, 15 <= 0.44422367215156555else to node 224.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 225 if X[:, 13 <= 0.0595077108591795else to node 246.
+ node is a split-node: go to node 226 if X[:, 7 <= 0.9912881851196289else to node 243.
+ node is a split-node: go to node 227 if X[:, 13 <= 0.058499548584222794else to node 236.
+ node is a split-node: go to node 228 if X[:, 13 <= 0.039902638643980026else to node 235.
+ node is a split-node: go to node 229 if X[:, 12 <= 0.005036777816712856else to node 232.
+ node is a split-node: go to node 230 if X[:, 15 <= 0.6609166860580444else to node 231.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 233 if X[:, 19 <= 7.0else to node 234.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 237 if X[:, 12 <= 0.008415695978328586else to node 242.
+ node is a split-node: go to node 238 if X[:, 8 <= 0.9457812309265137else to node 241.
+ node is a split-node: go to node 239 if X[:, 1 <= 0.0004506917030084878else to node 240.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 244 if X[:, 8 <= 0.9696390330791473else to node 245.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 247 if X[:, 11 <= 0.019879793748259544else to node 248.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 249 if X[:, 13 <= 0.13513969630002975else to node 258.
+ node is a split-node: go to node 250 if X[:, 11 <= 0.031118077225983143else to node 251.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 252 if X[:, 15 <= 0.5559213161468506else to node 255.
+ node is a split-node: go to node 253 if X[:, 14 <= 0.2149999961256981else to node 254.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 256 if X[:, 7 <= 0.9701896905899048else to node 257.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 259 if X[:, 11 <= 0.05379746854305267else to node 260.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 262 if X[:, 14 <= 0.32500000298023224else to node 275.
+ node is a split-node: go to node 263 if X[:, 0 <= 0.38461539149284363else to node 274.
+ node is a split-node: go to node 264 if X[:, 14 <= 0.1249999962747097else to node 267.
+ node is a split-node: go to node 265 if X[:, 10 <= 0.10864066332578659else to node 266.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 268 if X[:, 7 <= 0.948491781949997else to node 269.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 270 if X[:, 7 <= 0.9817681610584259else to node 271.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 272 if X[:, 20 <= 6.0else to node 273.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 276 if X[:, 20 <= 1.5else to node 285.
+ node is a split-node: go to node 277 if X[:, 2 <= 0.1796875else to node 284.
+ node is a split-node: go to node 278 if X[:, 9 <= 0.16146388230845332else to node 283.
+ node is a split-node: go to node 279 if X[:, 8 <= 0.9448592960834503else to node 280.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 281 if X[:, 13 <= 0.06862745247781277else to node 282.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 286 if X[:, 10 <= 0.1666666716337204else to node 305.
+ node is a split-node: go to node 287 if X[:, 13 <= 0.10266239196062088else to node 298.
+ node is a split-node: go to node 288 if X[:, 11 <= 0.06645569577813148else to node 289.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 290 if X[:, 1 <= 0.0073304735124111176else to node 297.
+ node is a split-node: go to node 291 if X[:, 8 <= 0.9586091339588165else to node 296.
+ node is a split-node: go to node 292 if X[:, 8 <= 0.9463887810707092else to node 295.
+ node is a split-node: go to node 293 if X[:, 15 <= 0.3888888955116272else to node 294.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 299 if X[:, 14 <= 0.40259894728660583else to node 304.
+ node is a split-node: go to node 300 if X[:, 10 <= 0.07913035526871681else to node 303.
+ node is a split-node: go to node 301 if X[:, 13 <= 0.11246631294488907else to node 302.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 307 if X[:, 8 <= 0.9271228611469269else to node 362.
+ node is a split-node: go to node 308 if X[:, 7 <= 0.9740377068519592else to node 355.
+ node is a split-node: go to node 309 if X[:, 2 <= 0.09989830479025841else to node 354.
+ node is a split-node: go to node 310 if X[:, 13 <= 0.0807083211839199else to node 319.
+ node is a split-node: go to node 311 if X[:, 14 <= 0.26999999582767487else to node 318.
+ node is a split-node: go to node 312 if X[:, 12 <= 0.017306245863437653else to node 317.
+ node is a split-node: go to node 313 if X[:, 14 <= 0.1600000038743019else to node 314.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 315 if X[:, 15 <= 0.4444444626569748else to node 316.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 320 if X[:, 19 <= 7.0else to node 353.
+ node is a split-node: go to node 321 if X[:, 1 <= 0.14254319667816162else to node 352.
+ node is a split-node: go to node 322 if X[:, 12 <= 0.009405568242073059else to node 335.
+ node is a split-node: go to node 323 if X[:, 0 <= 0.8461538553237915else to node 334.
+ node is a split-node: go to node 324 if X[:, 12 <= 0.006158655043691397else to node 329.
+ node is a split-node: go to node 325 if X[:, 1 <= 0.00020572521316353232else to node 328.
+ node is a split-node: go to node 326 if X[:, 0 <= 0.782051295042038else to node 327.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 330 if X[:, 13 <= 0.10257796570658684else to node 333.
+ node is a split-node: go to node 331 if X[:, 18 <= 18.0else to node 332.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 336 if X[:, 11 <= 0.2097572460770607else to node 351.
+ node is a split-node: go to node 337 if X[:, 2 <= 0.015818054787814617else to node 350.
+ node is a split-node: go to node 338 if X[:, 1 <= 0.016936025582253933else to node 345.
+ node is a split-node: go to node 339 if X[:, 7 <= 0.9376440346240997else to node 342.
+ node is a split-node: go to node 340 if X[:, 8 <= 0.9223498702049255else to node 341.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 343 if X[:, 12 <= 0.05532527342438698else to node 344.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 346 if X[:, 13 <= 0.10784313827753067else to node 347.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 348 if X[:, 11 <= 0.10443038120865822else to node 349.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 356 if X[:, 12 <= 0.015801354311406612else to node 359.
+ node is a split-node: go to node 357 if X[:, 13 <= 0.05882353149354458else to node 358.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 360 if X[:, 8 <= 0.9269277155399323else to node 361.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 363 if X[:, 1 <= 0.0024596264120191336else to node 528.
+ node is a split-node: go to node 364 if X[:, 14 <= 0.3310663104057312else to node 419.
+ node is a split-node: go to node 365 if X[:, 14 <= 0.11025786399841309else to node 376.
+ node is a split-node: go to node 366 if X[:, 13 <= 0.02941176574677229else to node 367.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 368 if X[:, 0 <= 0.7649572789669037else to node 369.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 370 if X[:, 12 <= 0.00790067738853395else to node 375.
+ node is a split-node: go to node 371 if X[:, 9 <= 0.1190476194024086else to node 374.
+ node is a split-node: go to node 372 if X[:, 7 <= 0.941569060087204else to node 373.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 377 if X[:, 8 <= 0.9466986060142517else to node 406.
+ node is a split-node: go to node 378 if X[:, 8 <= 0.9451900124549866else to node 403.
+ node is a split-node: go to node 379 if X[:, 14 <= 0.1850000023841858else to node 382.
+ node is a split-node: go to node 380 if X[:, 2 <= 0.6015625else to node 381.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 383 if X[:, 19 <= 1.8635768294334412else to node 394.
+ node is a split-node: go to node 384 if X[:, 7 <= 0.989028126001358else to node 391.
+ node is a split-node: go to node 385 if X[:, 7 <= 0.9383325576782227else to node 386.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 387 if X[:, 8 <= 0.9336031675338745else to node 388.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 389 if X[:, 20 <= 1.5else to node 390.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 392 if X[:, 20 <= 1.5else to node 393.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 395 if X[:, 11 <= 0.08544303476810455else to node 402.
+ node is a split-node: go to node 396 if X[:, 0 <= 0.7905983030796051else to node 397.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 398 if X[:, 9 <= 0.2380952388048172else to node 401.
+ node is a split-node: go to node 399 if X[:, 7 <= 0.9469836056232452else to node 400.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 404 if X[:, 13 <= 0.10530008003115654else to node 405.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 407 if X[:, 7 <= 0.9618477821350098else to node 412.
+ node is a split-node: go to node 408 if X[:, 11 <= 0.17687830328941345else to node 409.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 410 if X[:, 8 <= 0.9565480649471283else to node 411.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 413 if X[:, 0 <= 0.7575240433216095else to node 414.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 415 if X[:, 8 <= 0.9917124211788177else to node 416.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 417 if X[:, 1 <= 0.00048616453568683937else to node 418.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 420 if X[:, 15 <= 0.4548356533050537else to node 429.
+ node is a split-node: go to node 421 if X[:, 19 <= 1.5else to node 428.
+ node is a split-node: go to node 422 if X[:, 0 <= 0.7055448889732361else to node 423.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 424 if X[:, 0 <= 0.7360565364360809else to node 425.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 426 if X[:, 15 <= 0.23281630128622055else to node 427.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 430 if X[:, 8 <= 0.9379090070724487else to node 485.
+ node is a split-node: go to node 431 if X[:, 7 <= 0.9431405365467072else to node 432.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 433 if X[:, 10 <= 0.05028325691819191else to node 470.
+ node is a split-node: go to node 434 if X[:, 0 <= 0.7611236870288849else to node 453.
+ node is a split-node: go to node 435 if X[:, 7 <= 0.9734710156917572else to node 446.
+ node is a split-node: go to node 436 if X[:, 0 <= 0.749919980764389else to node 441.
+ node is a split-node: go to node 437 if X[:, 7 <= 0.9690547585487366else to node 440.
+ node is a split-node: go to node 438 if X[:, 0 <= 0.7182701528072357else to node 439.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 442 if X[:, 0 <= 0.7535498142242432else to node 443.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 444 if X[:, 1 <= 0.0005385160038713366else to node 445.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 447 if X[:, 2 <= 0.03348726965487003else to node 450.
+ node is a split-node: go to node 448 if X[:, 1 <= 0.0008500435797031969else to node 449.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 451 if X[:, 11 <= 0.08544303849339485else to node 452.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 454 if X[:, 1 <= 0.00036227259261067957else to node 465.
+ node is a split-node: go to node 455 if X[:, 15 <= 0.880736231803894else to node 460.
+ node is a split-node: go to node 456 if X[:, 1 <= 0.0002531223726691678else to node 457.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 458 if X[:, 12 <= 0.003762227250263095else to node 459.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 461 if X[:, 8 <= 0.9375416934490204else to node 464.
+ node is a split-node: go to node 462 if X[:, 13 <= 0.09717341139912605else to node 463.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 466 if X[:, 3 <= 4.0else to node 467.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 468 if X[:, 20 <= 3.0else to node 469.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 471 if X[:, 2 <= 0.01709699258208275else to node 482.
+ node is a split-node: go to node 472 if X[:, 11 <= 0.06962025165557861else to node 473.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 474 if X[:, 9 <= 0.3968254029750824else to node 479.
+ node is a split-node: go to node 475 if X[:, 11 <= 0.0791139230132103else to node 478.
+ node is a split-node: go to node 476 if X[:, 12 <= 0.022573363035917282else to node 477.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 480 if X[:, 7 <= 0.9806042313575745else to node 481.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 483 if X[:, 11 <= 0.04113923944532871else to node 484.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 486 if X[:, 7 <= 0.9478032886981964else to node 507.
+ node is a split-node: go to node 487 if X[:, 0 <= 0.9230769276618958else to node 502.
+ node is a split-node: go to node 488 if X[:, 19 <= 7.0else to node 501.
+ node is a split-node: go to node 489 if X[:, 19 <= 1.553758978843689else to node 498.
+ node is a split-node: go to node 490 if X[:, 0 <= 0.8686688840389252else to node 495.
+ node is a split-node: go to node 491 if X[:, 1 <= 0.00015267938579199836else to node 494.
+ node is a split-node: go to node 492 if X[:, 1 <= 0.00013009094254812226else to node 493.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 496 if X[:, 0 <= 0.8931623995304108else to node 497.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 499 if X[:, 0 <= 0.8760683834552765else to node 500.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 503 if X[:, 12 <= 0.004151822184212506else to node 504.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 505 if X[:, 0 <= 0.9474145472049713else to node 506.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 508 if X[:, 8 <= 0.9434290826320648else to node 509.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 510 if X[:, 13 <= 0.06577097810804844else to node 511.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 512 if X[:, 12 <= 0.01275229873135686else to node 521.
+ node is a split-node: go to node 513 if X[:, 13 <= 0.07895271107554436else to node 516.
+ node is a split-node: go to node 514 if X[:, 1 <= 0.0002824649491230957else to node 515.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 517 if X[:, 14 <= 0.9883309900760651else to node 518.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 519 if X[:, 8 <= 0.9925775825977325else to node 520.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 522 if X[:, 7 <= 0.9907775223255157else to node 527.
+ node is a split-node: go to node 523 if X[:, 14 <= 0.6269839704036713else to node 524.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 525 if X[:, 0 <= 0.722222238779068else to node 526.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 529 if X[:, 4 <= 4.5else to node 540.
+ node is a split-node: go to node 530 if X[:, 13 <= 0.09931395575404167else to node 535.
+ node is a split-node: go to node 531 if X[:, 14 <= 0.4722553789615631else to node 532.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 533 if X[:, 4 <= 3.0else to node 534.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 536 if X[:, 7 <= 0.9502680897712708else to node 537.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 538 if X[:, 1 <= 0.0026307643856853247else to node 539.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 541 if X[:, 16 <= 0.14787257462739944else to node 544.
+ node is a split-node: go to node 542 if X[:, 0 <= 0.7008547186851501else to node 543.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
 
  Saving decision trees 
 
@@ -158,51 +713,31 @@ Category (Positive Class):  High Substructure - No Deck - No Superstructure
 
  Distribution of the clusters after oversampling:  Counter({'positive': 1978, 'negative': 1978})
 
+Printing Columns
+Index(['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'material',
+       'designLoad', 'snowfall', 'freezethaw', 'latitude', 'longitude', 'skew',
+       'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength',
+       'bridgeRoadwayWithCurbToCurb', 'operatingRating',
+       'scourCriticalBridges', 'lanesOnStructure', 'toll',
+       'designatedInspectionFrequency', 'deckStructureType', 'typeOfDesign'],
+      dtype='object')
+
 
             -------------- Performance of Entropy ---------------
             
 
 
- Best Kappa Values:  0.5877033375010793
+ Best Kappa Values:  0.5571207811695147
 
- Best Accuracy:  0.7967679321661623
+ Best Accuracy:  0.7863981151591771
 
- Best Depth:  20
-
- Classification Report: 
-               precision    recall  f1-score   support
-
-    negative       0.80      0.78      0.79       391
-    positive       0.79      0.81      0.80       400
-
-    accuracy                           0.79       791
-   macro avg       0.79      0.79      0.79       791
-weighted avg       0.79      0.79      0.79       791
-
-
- Confusion Matrix: 
- [[305  86]
- [ 77 323]]
-
- Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'lanesOnStructure': 0.005536175308577279, 'designatedInspectionFrequency': 0.00580663716416427, 'avgDailyTruckTraffic': 0.007396719873478024, 'designLoad': 0.013417579533162178, 'material': 0.01433706284716225, 'numberOfSpansInMainUnit': 0.014551210587338027, 'skew': 0.01646837596153974, 'typeOfDesign': 0.01749472110863503, 'deckStructureType': 0.028685005139047003, 'structureLength': 0.051123376760582824, 'yearBuilt': 0.06413623936571904, 'lengthOfMaximumSpan': 0.06575125685156129, 'bridgeRoadwayWithCurbToCurb': 0.07081219049088543, 'latitude': 0.09486804808470158, 'longitude': 0.0966369305129951, 'averageDailyTraffic': 0.09825569690883422, 'operatingRating': 0.11876208998775126, 'scourCriticalBridges': 0.21596068351386546}
-
-
-             ----------- Performance with GiniIndex ------------
-             
-
-
- Best Kappa Values:  0.5552176052243145
-
- Best Accuracy:  0.788169942152243
-
- Best Depth:  30
+ Best Depth:  18
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.76      0.80      0.78       391
-    positive       0.80      0.75      0.77       400
+    negative       0.80      0.74      0.77       391
+    positive       0.76      0.81      0.79       400
 
     accuracy                           0.78       791
    macro avg       0.78      0.78      0.78       791
@@ -210,11 +745,886 @@ weighted avg       0.78      0.78      0.78       791
 
 
  Confusion Matrix: 
- [[314  77]
- [ 99 301]]
+ [[290 101]
+ [ 74 326]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'lanesOnStructure': 0.005536175308577279, 'designatedInspectionFrequency': 0.00580663716416427, 'avgDailyTruckTraffic': 0.007396719873478024, 'designLoad': 0.013417579533162178, 'material': 0.01433706284716225, 'numberOfSpansInMainUnit': 0.014551210587338027, 'skew': 0.01646837596153974, 'typeOfDesign': 0.01749472110863503, 'deckStructureType': 0.028685005139047003, 'structureLength': 0.051123376760582824, 'yearBuilt': 0.06413623936571904, 'lengthOfMaximumSpan': 0.06575125685156129, 'bridgeRoadwayWithCurbToCurb': 0.07081219049088543, 'latitude': 0.09486804808470158, 'longitude': 0.0966369305129951, 'averageDailyTraffic': 0.09825569690883422, 'operatingRating': 0.11876208998775126, 'scourCriticalBridges': 0.21596068351386546}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.005131601267379129, 'lanesOnStructure': 0.005827024299366174, 'material': 0.013498432342759844, 'skew': 0.020249215518621678, 'designLoad': 0.021280691395214154, 'numberOfSpansInMainUnit': 0.021986635315203996, 'avgDailyTruckTraffic': 0.0241872915999789, 'deckStructureType': 0.030256471456134085, 'typeOfDesign': 0.030593375824426443, 'bridgeRoadwayWithCurbToCurb': 0.050607280995926186, 'yearBuilt': 0.060570535700255994, 'lengthOfMaximumSpan': 0.06950981156118854, 'structureLength': 0.07603732803153551, 'averageDailyTraffic': 0.07771255634827418, 'latitude': 0.0941502673734473, 'operatingRating': 0.10824726940634401, 'longitude': 0.1155489197186137, 'scourCriticalBridges': 0.17460529184533022}
+
+
+             ----------- Performance with GiniIndex ------------
+             
+
+
+ Best Kappa Values:  0.5828365770321196
+
+ Best Accuracy:  0.7773040135871995
+
+ Best Depth:  25
+
+ Classification Report: 
+               precision    recall  f1-score   support
+
+    negative       0.78      0.80      0.79       391
+    positive       0.80      0.79      0.79       400
+
+    accuracy                           0.79       791
+   macro avg       0.79      0.79      0.79       791
+weighted avg       0.79      0.79      0.79       791
+
+
+ Confusion Matrix: 
+ [[312  79]
+ [ 86 314]]
+
+ Feature Importance: 
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.005131601267379129, 'lanesOnStructure': 0.005827024299366174, 'material': 0.013498432342759844, 'skew': 0.020249215518621678, 'designLoad': 0.021280691395214154, 'numberOfSpansInMainUnit': 0.021986635315203996, 'avgDailyTruckTraffic': 0.0241872915999789, 'deckStructureType': 0.030256471456134085, 'typeOfDesign': 0.030593375824426443, 'bridgeRoadwayWithCurbToCurb': 0.050607280995926186, 'yearBuilt': 0.060570535700255994, 'lengthOfMaximumSpan': 0.06950981156118854, 'structureLength': 0.07603732803153551, 'averageDailyTraffic': 0.07771255634827418, 'latitude': 0.0941502673734473, 'operatingRating': 0.10824726940634401, 'longitude': 0.1155489197186137, 'scourCriticalBridges': 0.17460529184533022}
+
+Printing split-nodes
+ node is a split-node: go to node 1 if X[:, 15 <= 0.4442111551761627else to node 226.
+ node is a split-node: go to node 2 if X[:, 15 <= 0.3336780518293381else to node 225.
+ node is a split-node: go to node 3 if X[:, 15 <= 0.3329697400331497else to node 52.
+ node is a split-node: go to node 4 if X[:, 15 <= 0.2222999557852745else to node 51.
+ node is a split-node: go to node 5 if X[:, 7 <= 0.9407150745391846else to node 20.
+ node is a split-node: go to node 6 if X[:, 0 <= 0.2905982956290245else to node 7.
+ node is a split-node: go to node 8 if X[:, 10 <= 0.015783820301294327else to node 17.
+ node is a split-node: go to node 9 if X[:, 13 <= 0.040551308542490005else to node 16.
+ node is a split-node: go to node 10 if X[:, 12 <= 0.006395786302164197else to node 11.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 12 if X[:, 11 <= 0.08502773940563202else to node 13.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 14 if X[:, 8 <= 0.917028933763504else to node 15.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 18 if X[:, 0 <= 0.4316239356994629else to node 19.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 21 if X[:, 14 <= 0.18259210884571075else to node 38.
+ node is a split-node: go to node 22 if X[:, 9 <= 0.3861483484506607else to node 37.
+ node is a split-node: go to node 23 if X[:, 1 <= 0.0001905983590404503else to node 36.
+ node is a split-node: go to node 24 if X[:, 12 <= 0.021467769518494606else to node 35.
+ node is a split-node: go to node 25 if X[:, 12 <= 0.00790067738853395else to node 34.
+ node is a split-node: go to node 26 if X[:, 8 <= 0.92460897564888else to node 27.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 28 if X[:, 11 <= 0.06546404212713242else to node 33.
+ node is a split-node: go to node 29 if X[:, 16 <= 0.0625else to node 32.
+ node is a split-node: go to node 30 if X[:, 12 <= 0.004138450021855533else to node 31.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 39 if X[:, 7 <= 0.9695011675357819else to node 50.
+ node is a split-node: go to node 40 if X[:, 3 <= 3.5else to node 49.
+ node is a split-node: go to node 41 if X[:, 14 <= 0.2149999961256981else to node 44.
+ node is a split-node: go to node 42 if X[:, 1 <= 0.00024323082470800728else to node 43.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 45 if X[:, 4 <= 1.0else to node 48.
+ node is a split-node: go to node 46 if X[:, 20 <= 6.5else to node 47.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 53 if X[:, 19 <= 1.5else to node 122.
+ node is a split-node: go to node 54 if X[:, 13 <= 0.039319662377238274else to node 85.
+ node is a split-node: go to node 55 if X[:, 14 <= 0.41231510043144226else to node 84.
+ node is a split-node: go to node 56 if X[:, 8 <= 0.9457923173904419else to node 83.
+ node is a split-node: go to node 57 if X[:, 7 <= 0.9373957812786102else to node 58.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 59 if X[:, 8 <= 0.9273545444011688else to node 62.
+ node is a split-node: go to node 60 if X[:, 14 <= 0.39000000059604645else to node 61.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 63 if X[:, 7 <= 0.947093665599823else to node 64.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 65 if X[:, 7 <= 0.949711948633194else to node 66.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 67 if X[:, 16 <= 0.12948179990053177else to node 82.
+ node is a split-node: go to node 68 if X[:, 16 <= 0.11448337137699127else to node 75.
+ node is a split-node: go to node 69 if X[:, 16 <= 0.006353527307510376else to node 74.
+ node is a split-node: go to node 70 if X[:, 8 <= 0.937168687582016else to node 71.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 72 if X[:, 7 <= 0.9926791489124298else to node 73.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 76 if X[:, 8 <= 0.9276823401451111else to node 77.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 78 if X[:, 8 <= 0.9397614002227783else to node 79.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 80 if X[:, 14 <= 0.10499999858438969else to node 81.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 86 if X[:, 13 <= 0.058389198035001755else to node 87.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 88 if X[:, 13 <= 0.05909453146159649else to node 101.
+ node is a split-node: go to node 89 if X[:, 14 <= 0.10500000044703484else to node 92.
+ node is a split-node: go to node 90 if X[:, 14 <= 0.024999999441206455else to node 91.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 93 if X[:, 12 <= 0.010158013552427292else to node 100.
+ node is a split-node: go to node 94 if X[:, 1 <= 0.00041750115633476526else to node 99.
+ node is a split-node: go to node 95 if X[:, 0 <= 0.4362635314464569else to node 96.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 97 if X[:, 14 <= 0.36500000953674316else to node 98.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 102 if X[:, 1 <= 0.006559003610163927else to node 121.
+ node is a split-node: go to node 103 if X[:, 11 <= 0.02694888785481453else to node 104.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 105 if X[:, 14 <= 0.20122569799423218else to node 114.
+ node is a split-node: go to node 106 if X[:, 13 <= 0.07634009793400764else to node 107.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 108 if X[:, 11 <= 0.04113924130797386else to node 109.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 110 if X[:, 8 <= 0.931341141462326else to node 113.
+ node is a split-node: go to node 111 if X[:, 8 <= 0.9276034832000732else to node 112.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 115 if X[:, 20 <= 1.5else to node 118.
+ node is a split-node: go to node 116 if X[:, 8 <= 0.9301539063453674else to node 117.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 119 if X[:, 9 <= 0.46295692026615143else to node 120.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 123 if X[:, 20 <= 3.5else to node 168.
+ node is a split-node: go to node 124 if X[:, 4 <= 3.0else to node 165.
+ node is a split-node: go to node 125 if X[:, 9 <= 0.00044668628834187984else to node 158.
+ node is a split-node: go to node 126 if X[:, 8 <= 0.9254314005374908else to node 131.
+ node is a split-node: go to node 127 if X[:, 8 <= 0.9177893400192261else to node 130.
+ node is a split-node: go to node 128 if X[:, 7 <= 0.9421896934509277else to node 129.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 132 if X[:, 8 <= 0.9271279573440552else to node 139.
+ node is a split-node: go to node 133 if X[:, 14 <= 0.1899999976158142else to node 134.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 135 if X[:, 0 <= 0.6709401905536652else to node 136.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 137 if X[:, 14 <= 0.26389507204294205else to node 138.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 140 if X[:, 14 <= 0.44046302139759064else to node 155.
+ node is a split-node: go to node 141 if X[:, 13 <= 0.023496443405747414else to node 142.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 143 if X[:, 7 <= 0.9395035207271576else to node 146.
+ node is a split-node: go to node 144 if X[:, 20 <= 2.5else to node 145.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 147 if X[:, 7 <= 0.9507474899291992else to node 148.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 149 if X[:, 12 <= 0.0043654488399624825else to node 154.
+ node is a split-node: go to node 150 if X[:, 20 <= 2.5else to node 153.
+ node is a split-node: go to node 151 if X[:, 7 <= 0.9879812598228455else to node 152.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 156 if X[:, 14 <= 0.48000000417232513else to node 157.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 159 if X[:, 18 <= 18.0else to node 160.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 161 if X[:, 19 <= 8.5else to node 162.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 163 if X[:, 14 <= 0.15499999932944775else to node 164.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 166 if X[:, 1 <= 6.958352696528891e-05else to node 167.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 169 if X[:, 12 <= 0.02182091772556305else to node 224.
+ node is a split-node: go to node 170 if X[:, 14 <= 0.06174078397452831else to node 177.
+ node is a split-node: go to node 171 if X[:, 0 <= 0.29131224751472473else to node 176.
+ node is a split-node: go to node 172 if X[:, 7 <= 0.9558311104774475else to node 173.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 174 if X[:, 13 <= 0.03921568673104048else to node 175.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 178 if X[:, 1 <= 0.00014509101310977712else to node 197.
+ node is a split-node: go to node 179 if X[:, 8 <= 0.9369168281555176else to node 196.
+ node is a split-node: go to node 180 if X[:, 1 <= 0.00011681935939122923else to node 195.
+ node is a split-node: go to node 181 if X[:, 1 <= 0.00011386462938389741else to node 192.
+ node is a split-node: go to node 182 if X[:, 12 <= 0.008794487919658422else to node 183.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 184 if X[:, 0 <= 0.33241479098796844else to node 189.
+ node is a split-node: go to node 185 if X[:, 14 <= 0.10958579182624817else to node 186.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 187 if X[:, 18 <= 18.0else to node 188.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 190 if X[:, 1 <= 9.87377752608154e-05else to node 191.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 193 if X[:, 14 <= 0.20499999821186066else to node 194.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 198 if X[:, 1 <= 0.00023796172172296792else to node 209.
+ node is a split-node: go to node 199 if X[:, 14 <= 0.09825055301189423else to node 202.
+ node is a split-node: go to node 200 if X[:, 7 <= 0.9400941431522369else to node 201.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 203 if X[:, 2 <= 0.07984316349029541else to node 208.
+ node is a split-node: go to node 204 if X[:, 14 <= 0.11499999836087227else to node 207.
+ node is a split-node: go to node 205 if X[:, 12 <= 0.00790067738853395else to node 206.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 210 if X[:, 7 <= 0.9608150124549866else to node 215.
+ node is a split-node: go to node 211 if X[:, 7 <= 0.9406017065048218else to node 212.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 213 if X[:, 11 <= 0.06012658216059208else to node 214.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 216 if X[:, 14 <= 0.1249999962747097else to node 217.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 218 if X[:, 8 <= 0.9332485198974609else to node 223.
+ node is a split-node: go to node 219 if X[:, 14 <= 0.1550000011920929else to node 222.
+ node is a split-node: go to node 220 if X[:, 12 <= 0.005598296644166112else to node 221.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 227 if X[:, 15 <= 0.44457443058490753else to node 320.
+ node is a split-node: go to node 228 if X[:, 1 <= 0.00028135947650298476else to node 301.
+ node is a split-node: go to node 229 if X[:, 7 <= 0.962419182062149else to node 256.
+ node is a split-node: go to node 230 if X[:, 8 <= 0.9371715784072876else to node 255.
+ node is a split-node: go to node 231 if X[:, 0 <= 0.19542314112186432else to node 234.
+ node is a split-node: go to node 232 if X[:, 0 <= 0.14102564379572868else to node 233.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 235 if X[:, 8 <= 0.9274650812149048else to node 242.
+ node is a split-node: go to node 236 if X[:, 11 <= 0.17405062913894653else to node 241.
+ node is a split-node: go to node 237 if X[:, 10 <= 0.012820512987673283else to node 238.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 239 if X[:, 8 <= 0.9242696166038513else to node 240.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 243 if X[:, 12 <= 0.030097818933427334else to node 254.
+ node is a split-node: go to node 244 if X[:, 12 <= 0.009781790897250175else to node 249.
+ node is a split-node: go to node 245 if X[:, 1 <= 0.00020572521316353232else to node 248.
+ node is a split-node: go to node 246 if X[:, 20 <= 6.5else to node 247.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 250 if X[:, 1 <= 6.958352605579421e-05else to node 253.
+ node is a split-node: go to node 251 if X[:, 7 <= 0.9461498856544495else to node 252.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 257 if X[:, 20 <= 2.5else to node 266.
+ node is a split-node: go to node 258 if X[:, 19 <= 8.5else to node 263.
+ node is a split-node: go to node 259 if X[:, 14 <= 0.06499999947845936else to node 262.
+ node is a split-node: go to node 260 if X[:, 11 <= 0.04306994937360287else to node 261.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 264 if X[:, 8 <= 0.9644165337085724else to node 265.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 267 if X[:, 12 <= 0.019187359139323235else to node 300.
+ node is a split-node: go to node 268 if X[:, 8 <= 0.9274592995643616else to node 271.
+ node is a split-node: go to node 269 if X[:, 14 <= 0.0800000000745058else to node 270.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 272 if X[:, 0 <= 0.3989461362361908else to node 299.
+ node is a split-node: go to node 273 if X[:, 13 <= 0.04901960864663124else to node 296.
+ node is a split-node: go to node 274 if X[:, 7 <= 0.984454333782196else to node 283.
+ node is a split-node: go to node 275 if X[:, 12 <= 0.013095036149024963else to node 282.
+ node is a split-node: go to node 276 if X[:, 19 <= 4.5else to node 281.
+ node is a split-node: go to node 277 if X[:, 8 <= 0.9343412518501282else to node 280.
+ node is a split-node: go to node 278 if X[:, 14 <= 0.1437426693737507else to node 279.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 284 if X[:, 13 <= 0.038367735221982else to node 293.
+ node is a split-node: go to node 285 if X[:, 11 <= 0.0937013253569603else to node 286.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 287 if X[:, 1 <= 9.983723430195823e-05else to node 288.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 289 if X[:, 1 <= 0.00025110576825682074else to node 292.
+ node is a split-node: go to node 290 if X[:, 11 <= 0.12974683567881584else to node 291.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 294 if X[:, 11 <= 0.07911392487585545else to node 295.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 297 if X[:, 8 <= 0.9426030814647675else to node 298.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 302 if X[:, 8 <= 0.9271709322929382else to node 303.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 304 if X[:, 3 <= 4.5else to node 317.
+ node is a split-node: go to node 305 if X[:, 8 <= 0.9354777336120605else to node 316.
+ node is a split-node: go to node 306 if X[:, 12 <= 0.0015048909117467701else to node 307.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 308 if X[:, 20 <= 7.0else to node 309.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 310 if X[:, 14 <= 0.1865941733121872else to node 315.
+ node is a split-node: go to node 311 if X[:, 12 <= 0.011518210638314486else to node 312.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 313 if X[:, 0 <= 0.5384615510702133else to node 314.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 318 if X[:, 8 <= 0.9437509179115295else to node 319.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 321 if X[:, 15 <= 0.555067628622055else to node 322.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 323 if X[:, 0 <= 0.3769098371267319else to node 462.
+ node is a split-node: go to node 324 if X[:, 0 <= 0.2094017118215561else to node 325.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 326 if X[:, 11 <= 0.03171669319272041else to node 353.
+ node is a split-node: go to node 327 if X[:, 10 <= 0.02285279519855976else to node 352.
+ node is a split-node: go to node 328 if X[:, 2 <= 0.09375else to node 351.
+ node is a split-node: go to node 329 if X[:, 7 <= 0.9474871158599854else to node 330.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 331 if X[:, 14 <= 0.32500000298023224else to node 350.
+ node is a split-node: go to node 332 if X[:, 7 <= 0.9704235196113586else to node 345.
+ node is a split-node: go to node 333 if X[:, 7 <= 0.9695690870285034else to node 344.
+ node is a split-node: go to node 334 if X[:, 14 <= 0.24499999731779099else to node 341.
+ node is a split-node: go to node 335 if X[:, 1 <= 0.00038724746264051646else to node 340.
+ node is a split-node: go to node 336 if X[:, 8 <= 0.9401766657829285else to node 337.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 338 if X[:, 7 <= 0.9644449651241302else to node 339.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 342 if X[:, 11 <= 0.028481013141572475else to node 343.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 346 if X[:, 11 <= 0.03076622076332569else to node 349.
+ node is a split-node: go to node 347 if X[:, 13 <= 0.04901960864663124else to node 348.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 354 if X[:, 11 <= 0.036513397470116615else to node 355.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 356 if X[:, 14 <= 0.48953641951084137else to node 461.
+ node is a split-node: go to node 357 if X[:, 1 <= 0.00023798855545464903else to node 424.
+ node is a split-node: go to node 358 if X[:, 15 <= 0.5622826516628265else to node 385.
+ node is a split-node: go to node 359 if X[:, 11 <= 0.057544467970728874else to node 366.
+ node is a split-node: go to node 360 if X[:, 14 <= 0.024999999441206455else to node 361.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 362 if X[:, 7 <= 0.9889110028743744else to node 363.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 364 if X[:, 12 <= 0.002633559051901102else to node 365.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 367 if X[:, 12 <= 0.019187359139323235else to node 384.
+ node is a split-node: go to node 368 if X[:, 8 <= 0.9214825332164764else to node 373.
+ node is a split-node: go to node 369 if X[:, 8 <= 0.9169779717922211else to node 370.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 371 if X[:, 1 <= 3.932981871912489e-05else to node 372.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 374 if X[:, 8 <= 0.9378839135169983else to node 379.
+ node is a split-node: go to node 375 if X[:, 12 <= 0.009831461124122143else to node 376.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 377 if X[:, 12 <= 0.01029185950756073else to node 378.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 380 if X[:, 2 <= 0.03132694587111473else to node 383.
+ node is a split-node: go to node 381 if X[:, 12 <= 0.00790067738853395else to node 382.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 386 if X[:, 15 <= 0.8823231756687164else to node 391.
+ node is a split-node: go to node 387 if X[:, 8 <= 0.9503495395183563else to node 390.
+ node is a split-node: go to node 388 if X[:, 10 <= 0.012820512987673283else to node 389.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 392 if X[:, 13 <= 0.04298265650868416else to node 409.
+ node is a split-node: go to node 393 if X[:, 13 <= 0.038886796683073044else to node 408.
+ node is a split-node: go to node 394 if X[:, 14 <= 0.10500000044703484else to node 395.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 396 if X[:, 13 <= 0.024054639041423798else to node 407.
+ node is a split-node: go to node 397 if X[:, 7 <= 0.986348956823349else to node 402.
+ node is a split-node: go to node 398 if X[:, 18 <= 18.0else to node 401.
+ node is a split-node: go to node 399 if X[:, 20 <= 6.5else to node 400.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 403 if X[:, 12 <= 0.009029345354065299else to node 404.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 405 if X[:, 14 <= 0.17999999970197678else to node 406.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 410 if X[:, 13 <= 0.06862745247781277else to node 423.
+ node is a split-node: go to node 411 if X[:, 20 <= 2.5else to node 422.
+ node is a split-node: go to node 412 if X[:, 14 <= 0.16045087575912476else to node 419.
+ node is a split-node: go to node 413 if X[:, 12 <= 0.0022857532603666186else to node 414.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 415 if X[:, 10 <= 0.03846153896301985else to node 418.
+ node is a split-node: go to node 416 if X[:, 7 <= 0.9441803097724915else to node 417.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 420 if X[:, 7 <= 0.9899789392948151else to node 421.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 425 if X[:, 1 <= 0.0002889193856390193else to node 430.
+ node is a split-node: go to node 426 if X[:, 8 <= 0.9274083375930786else to node 427.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 428 if X[:, 14 <= 0.13658281415700912else to node 429.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 431 if X[:, 14 <= 0.11028799414634705else to node 436.
+ node is a split-node: go to node 432 if X[:, 15 <= 0.6111111342906952else to node 435.
+ node is a split-node: go to node 433 if X[:, 19 <= 4.5else to node 434.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 437 if X[:, 7 <= 0.9415011703968048else to node 438.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 439 if X[:, 8 <= 0.9505517184734344else to node 460.
+ node is a split-node: go to node 440 if X[:, 14 <= 0.2578235864639282else to node 453.
+ node is a split-node: go to node 441 if X[:, 20 <= 2.5else to node 450.
+ node is a split-node: go to node 442 if X[:, 14 <= 0.2149999961256981else to node 445.
+ node is a split-node: go to node 443 if X[:, 10 <= 0.025641025975346565else to node 444.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 446 if X[:, 1 <= 0.0003401161666261032else to node 449.
+ node is a split-node: go to node 447 if X[:, 14 <= 0.22500000149011612else to node 448.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 451 if X[:, 8 <= 0.9239449501037598else to node 452.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 454 if X[:, 19 <= 3.5else to node 455.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 456 if X[:, 14 <= 0.3023347854614258else to node 457.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 458 if X[:, 8 <= 0.9376858770847321else to node 459.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 463 if X[:, 8 <= 0.9325750768184662else to node 600.
+ node is a split-node: go to node 464 if X[:, 8 <= 0.9286451041698456else to node 595.
+ node is a split-node: go to node 465 if X[:, 4 <= 4.5else to node 550.
+ node is a split-node: go to node 466 if X[:, 20 <= 2.5else to node 535.
+ node is a split-node: go to node 467 if X[:, 7 <= 0.9853981137275696else to node 534.
+ node is a split-node: go to node 468 if X[:, 7 <= 0.9454402923583984else to node 485.
+ node is a split-node: go to node 469 if X[:, 19 <= 8.5else to node 484.
+ node is a split-node: go to node 470 if X[:, 7 <= 0.9440257549285889else to node 477.
+ node is a split-node: go to node 471 if X[:, 3 <= 1.5else to node 472.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 473 if X[:, 10 <= 0.020331453531980515else to node 474.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 475 if X[:, 11 <= 0.054884590208530426else to node 476.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 478 if X[:, 14 <= 0.5049999952316284else to node 479.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 480 if X[:, 12 <= 0.01521077798679471else to node 483.
+ node is a split-node: go to node 481 if X[:, 12 <= 0.006395786302164197else to node 482.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 486 if X[:, 7 <= 0.9641714990139008else to node 515.
+ node is a split-node: go to node 487 if X[:, 19 <= 3.6010574102401733else to node 512.
+ node is a split-node: go to node 488 if X[:, 0 <= 0.76996049284935else to node 511.
+ node is a split-node: go to node 489 if X[:, 10 <= 0.05127570033073425else to node 500.
+ node is a split-node: go to node 490 if X[:, 13 <= 0.11750079691410065else to node 497.
+ node is a split-node: go to node 491 if X[:, 7 <= 0.9477782249450684else to node 496.
+ node is a split-node: go to node 492 if X[:, 8 <= 0.925867348909378else to node 493.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 494 if X[:, 12 <= 0.00790067738853395else to node 495.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 498 if X[:, 11 <= 0.04113923944532871else to node 499.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 501 if X[:, 2 <= 0.16315270960330963else to node 510.
+ node is a split-node: go to node 502 if X[:, 15 <= 0.8333333432674408else to node 503.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 504 if X[:, 8 <= 0.9263509213924408else to node 507.
+ node is a split-node: go to node 505 if X[:, 11 <= 0.12974683940410614else to node 506.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 508 if X[:, 13 <= 0.10784313827753067else to node 509.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 513 if X[:, 14 <= 0.3679340034723282else to node 514.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 516 if X[:, 4 <= 3.0else to node 533.
+ node is a split-node: go to node 517 if X[:, 14 <= 0.6299999952316284else to node 532.
+ node is a split-node: go to node 518 if X[:, 7 <= 0.9715553522109985else to node 527.
+ node is a split-node: go to node 519 if X[:, 15 <= 0.8677494823932648else to node 520.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 521 if X[:, 7 <= 0.9655784368515015else to node 522.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 523 if X[:, 0 <= 0.8162393271923065else to node 524.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 525 if X[:, 1 <= 0.0018999328895006329else to node 526.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 528 if X[:, 1 <= 0.0004665342712542042else to node 529.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 530 if X[:, 12 <= 0.005643340991809964else to node 531.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 536 if X[:, 14 <= 0.22677122801542282else to node 541.
+ node is a split-node: go to node 537 if X[:, 1 <= 0.0001905983590404503else to node 540.
+ node is a split-node: go to node 538 if X[:, 14 <= 0.0950000025331974else to node 539.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 542 if X[:, 1 <= 0.00118602579459548else to node 549.
+ node is a split-node: go to node 543 if X[:, 0 <= 0.705557107925415else to node 548.
+ node is a split-node: go to node 544 if X[:, 8 <= 0.9247682988643646else to node 547.
+ node is a split-node: go to node 545 if X[:, 15 <= 0.722222238779068else to node 546.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 551 if X[:, 7 <= 0.9715948402881622else to node 590.
+ node is a split-node: go to node 552 if X[:, 1 <= 0.1037885770201683else to node 585.
+ node is a split-node: go to node 553 if X[:, 13 <= 0.29553836584091187else to node 584.
+ node is a split-node: go to node 554 if X[:, 0 <= 0.9273504316806793else to node 581.
+ node is a split-node: go to node 555 if X[:, 10 <= 0.050444258376955986else to node 560.
+ node is a split-node: go to node 556 if X[:, 14 <= 0.6749999821186066else to node 559.
+ node is a split-node: go to node 557 if X[:, 14 <= 0.42027123272418976else to node 558.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 561 if X[:, 1 <= 0.0356365367770195else to node 578.
+ node is a split-node: go to node 562 if X[:, 12 <= 0.06809631362557411else to node 577.
+ node is a split-node: go to node 563 if X[:, 8 <= 0.9236169159412384else to node 566.
+ node is a split-node: go to node 564 if X[:, 0 <= 0.910256415605545else to node 565.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 567 if X[:, 11 <= 0.06805421784520149else to node 572.
+ node is a split-node: go to node 568 if X[:, 1 <= 0.00046960967301856726else to node 571.
+ node is a split-node: go to node 569 if X[:, 0 <= 0.8504273593425751else to node 570.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 573 if X[:, 9 <= 0.3571428656578064else to node 574.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 575 if X[:, 12 <= 0.02784048207104206else to node 576.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 579 if X[:, 14 <= 0.925000011920929else to node 580.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 582 if X[:, 4 <= 7.0else to node 583.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 586 if X[:, 10 <= 0.027188718202523887else to node 589.
+ node is a split-node: go to node 587 if X[:, 8 <= 0.9258512556552887else to node 588.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 591 if X[:, 12 <= 0.02784048207104206else to node 592.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 593 if X[:, 0 <= 0.7435897588729858else to node 594.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 596 if X[:, 8 <= 0.932449609041214else to node 597.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 598 if X[:, 8 <= 0.9325087368488312else to node 599.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 601 if X[:, 2 <= 0.018018338829278946else to node 782.
+ node is a split-node: go to node 602 if X[:, 8 <= 0.9536016583442688else to node 761.
+ node is a split-node: go to node 603 if X[:, 14 <= 0.6387703120708466else to node 732.
+ node is a split-node: go to node 604 if X[:, 14 <= 0.13239547610282898else to node 617.
+ node is a split-node: go to node 605 if X[:, 8 <= 0.9436217248439789else to node 616.
+ node is a split-node: go to node 606 if X[:, 8 <= 0.9433183073997498else to node 615.
+ node is a split-node: go to node 607 if X[:, 8 <= 0.9360881149768829else to node 614.
+ node is a split-node: go to node 608 if X[:, 15 <= 0.6804025769233704else to node 609.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 610 if X[:, 1 <= 0.00014482867845799774else to node 611.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 612 if X[:, 0 <= 0.8162393271923065else to node 613.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 618 if X[:, 11 <= 0.05684993602335453else to node 675.
+ node is a split-node: go to node 619 if X[:, 11 <= 0.038110051304101944else to node 658.
+ node is a split-node: go to node 620 if X[:, 1 <= 0.00017498749366495758else to node 637.
+ node is a split-node: go to node 621 if X[:, 7 <= 0.9427822232246399else to node 622.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 623 if X[:, 8 <= 0.9375205934047699else to node 632.
+ node is a split-node: go to node 624 if X[:, 11 <= 0.03305952064692974else to node 625.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 626 if X[:, 7 <= 0.967636376619339else to node 627.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 628 if X[:, 7 <= 0.9686905443668365else to node 629.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 630 if X[:, 8 <= 0.9359602332115173else to node 631.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 633 if X[:, 10 <= 0.015194982290267944else to node 636.
+ node is a split-node: go to node 634 if X[:, 14 <= 0.45287421345710754else to node 635.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 638 if X[:, 7 <= 0.9897517561912537else to node 657.
+ node is a split-node: go to node 639 if X[:, 8 <= 0.9447602927684784else to node 656.
+ node is a split-node: go to node 640 if X[:, 1 <= 0.001126537681557238else to node 655.
+ node is a split-node: go to node 641 if X[:, 1 <= 0.00025110576825682074else to node 648.
+ node is a split-node: go to node 642 if X[:, 7 <= 0.9702037274837494else to node 645.
+ node is a split-node: go to node 643 if X[:, 0 <= 0.7402237951755524else to node 644.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 646 if X[:, 13 <= 0.09810046851634979else to node 647.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 649 if X[:, 7 <= 0.9458477795124054else to node 652.
+ node is a split-node: go to node 650 if X[:, 8 <= 0.937250405550003else to node 651.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 653 if X[:, 12 <= 0.0019639907986856997else to node 654.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 659 if X[:, 11 <= 0.04424305073916912else to node 660.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 661 if X[:, 11 <= 0.044336164370179176else to node 668.
+ node is a split-node: go to node 662 if X[:, 7 <= 0.9672622978687286else to node 667.
+ node is a split-node: go to node 663 if X[:, 8 <= 0.9433999955654144else to node 664.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 665 if X[:, 9 <= 0.2380952388048172else to node 666.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 669 if X[:, 7 <= 0.9688642024993896else to node 670.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 671 if X[:, 14 <= 0.35500000417232513else to node 672.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 673 if X[:, 0 <= 0.8459165096282959else to node 674.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 676 if X[:, 11 <= 0.05701724998652935else to node 697.
+ node is a split-node: go to node 677 if X[:, 19 <= 8.5else to node 694.
+ node is a split-node: go to node 678 if X[:, 1 <= 0.00020384838717291132else to node 687.
+ node is a split-node: go to node 679 if X[:, 13 <= 0.09959705173969269else to node 686.
+ node is a split-node: go to node 680 if X[:, 1 <= 0.00014199785800883546else to node 681.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 682 if X[:, 8 <= 0.9404256939888else to node 685.
+ node is a split-node: go to node 683 if X[:, 9 <= 0.2380952388048172else to node 684.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 688 if X[:, 8 <= 0.9353306591510773else to node 693.
+ node is a split-node: go to node 689 if X[:, 14 <= 0.4599999934434891else to node 692.
+ node is a split-node: go to node 690 if X[:, 14 <= 0.3799999952316284else to node 691.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 695 if X[:, 15 <= 0.722222238779068else to node 696.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 698 if X[:, 11 <= 0.06313690170645714else to node 699.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 700 if X[:, 0 <= 0.7442187368869781else to node 713.
+ node is a split-node: go to node 701 if X[:, 1 <= 0.012940912507474422else to node 712.
+ node is a split-node: go to node 702 if X[:, 12 <= 0.006164614809677005else to node 707.
+ node is a split-node: go to node 703 if X[:, 8 <= 0.9362554550170898else to node 704.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 705 if X[:, 15 <= 0.8131572902202606else to node 706.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 708 if X[:, 9 <= 0.3968254029750824else to node 709.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 710 if X[:, 8 <= 0.9349679946899414else to node 711.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 714 if X[:, 1 <= 0.0002493371139280498else to node 723.
+ node is a split-node: go to node 715 if X[:, 7 <= 0.9712154567241669else to node 718.
+ node is a split-node: go to node 716 if X[:, 12 <= 0.042513168416917324else to node 717.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 719 if X[:, 7 <= 0.9874918162822723else to node 720.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 721 if X[:, 7 <= 0.9938430786132812else to node 722.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 724 if X[:, 15 <= 0.8741346895694733else to node 725.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 726 if X[:, 12 <= 0.007126430980861187else to node 727.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 728 if X[:, 0 <= 0.9120195508003235else to node 731.
+ node is a split-node: go to node 729 if X[:, 0 <= 0.8768734633922577else to node 730.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 733 if X[:, 12 <= 0.002130154869519174else to node 742.
+ node is a split-node: go to node 734 if X[:, 7 <= 0.9841226935386658else to node 741.
+ node is a split-node: go to node 735 if X[:, 12 <= 0.000798974564531818else to node 740.
+ node is a split-node: go to node 736 if X[:, 8 <= 0.935811311006546else to node 737.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 738 if X[:, 3 <= 4.0else to node 739.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 743 if X[:, 12 <= 0.04447001591324806else to node 760.
+ node is a split-node: go to node 744 if X[:, 1 <= 0.019498658482916653else to node 759.
+ node is a split-node: go to node 745 if X[:, 3 <= 1.5else to node 754.
+ node is a split-node: go to node 746 if X[:, 9 <= 0.11377138644456863else to node 751.
+ node is a split-node: go to node 747 if X[:, 0 <= 0.8632478713989258else to node 750.
+ node is a split-node: go to node 748 if X[:, 15 <= 0.722222238779068else to node 749.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 752 if X[:, 20 <= 1.5else to node 753.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 755 if X[:, 1 <= 0.00016034465079428628else to node 758.
+ node is a split-node: go to node 756 if X[:, 14 <= 0.6649999916553497else to node 757.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 762 if X[:, 10 <= 0.004100271500647068else to node 769.
+ node is a split-node: go to node 763 if X[:, 13 <= 0.04459609463810921else to node 764.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 765 if X[:, 3 <= 6.0else to node 766.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 767 if X[:, 4 <= 3.5else to node 768.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 770 if X[:, 13 <= 0.1011747196316719else to node 779.
+ node is a split-node: go to node 771 if X[:, 3 <= 3.5else to node 778.
+ node is a split-node: go to node 772 if X[:, 14 <= 0.32500000298023224else to node 773.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 774 if X[:, 3 <= 1.5else to node 777.
+ node is a split-node: go to node 775 if X[:, 15 <= 0.6111111342906952else to node 776.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 780 if X[:, 19 <= 5.0else to node 781.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 783 if X[:, 2 <= 0.15594695508480072else to node 800.
+ node is a split-node: go to node 784 if X[:, 14 <= 0.41850681602954865else to node 785.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 786 if X[:, 0 <= 0.7259328961372375else to node 795.
+ node is a split-node: go to node 787 if X[:, 12 <= 0.07568998448550701else to node 794.
+ node is a split-node: go to node 788 if X[:, 1 <= 0.0004075502074556425else to node 789.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 790 if X[:, 7 <= 0.9517253339290619else to node 791.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 792 if X[:, 11 <= 0.15230713039636612else to node 793.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 796 if X[:, 19 <= 1.81025230884552else to node 799.
+ node is a split-node: go to node 797 if X[:, 3 <= 5.5else to node 798.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 801 if X[:, 11 <= 0.043916719034314156else to node 814.
+ node is a split-node: go to node 802 if X[:, 12 <= 0.002419017720967531else to node 807.
+ node is a split-node: go to node 803 if X[:, 14 <= 0.12532880157232285else to node 806.
+ node is a split-node: go to node 804 if X[:, 12 <= 0.0003762227133847773else to node 805.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 808 if X[:, 8 <= 0.9767157137393951else to node 813.
+ node is a split-node: go to node 809 if X[:, 1 <= 0.006252672290429473else to node 810.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 811 if X[:, 12 <= 0.011947632767260075else to node 812.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 815 if X[:, 1 <= 0.004248324315994978else to node 826.
+ node is a split-node: go to node 816 if X[:, 12 <= 0.019187359139323235else to node 825.
+ node is a split-node: go to node 817 if X[:, 14 <= 0.5041684061288834else to node 820.
+ node is a split-node: go to node 818 if X[:, 9 <= 0.5952381044626236else to node 819.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 821 if X[:, 14 <= 0.6672211587429047else to node 824.
+ node is a split-node: go to node 822 if X[:, 13 <= 0.10880852118134499else to node 823.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 827 if X[:, 0 <= 0.5555555820465088else to node 834.
+ node is a split-node: go to node 828 if X[:, 1 <= 0.011472334619611502else to node 829.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 830 if X[:, 11 <= 0.05544259585440159else to node 831.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 832 if X[:, 13 <= 0.16792067885398865else to node 833.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 835 if X[:, 9 <= 0.341269850730896else to node 842.
+ node is a split-node: go to node 836 if X[:, 11 <= 0.0829453207552433else to node 841.
+ node is a split-node: go to node 837 if X[:, 0 <= 0.6536590456962585else to node 840.
+ node is a split-node: go to node 838 if X[:, 2 <= 0.19457601010799408else to node 839.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 843 if X[:, 13 <= 0.12745098397135735else to node 844.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
 
  Saving decision trees 
 
@@ -231,22 +1641,31 @@ Category (Positive Class):  No Substructure - No Deck - High Superstructure
 
  Distribution of the clusters after oversampling:  Counter({'positive': 2180, 'negative': 2180})
 
+Printing Columns
+Index(['yearBuilt', 'averageDailyTraffic', 'avgDailyTruckTraffic', 'material',
+       'designLoad', 'snowfall', 'freezethaw', 'latitude', 'longitude', 'skew',
+       'numberOfSpansInMainUnit', 'lengthOfMaximumSpan', 'structureLength',
+       'bridgeRoadwayWithCurbToCurb', 'operatingRating',
+       'scourCriticalBridges', 'lanesOnStructure', 'toll',
+       'designatedInspectionFrequency', 'deckStructureType', 'typeOfDesign'],
+      dtype='object')
+
 
             -------------- Performance of Entropy ---------------
             
 
 
- Best Kappa Values:  0.7109559562456265
+ Best Kappa Values:  0.7224537037037038
 
- Best Accuracy:  0.8577981651376148
+ Best Accuracy:  0.861467889908257
 
- Best Depth:  18
+ Best Depth:  27
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.89      0.82      0.85       435
-    positive       0.83      0.89      0.86       437
+    negative       0.87      0.84      0.86       435
+    positive       0.85      0.88      0.86       437
 
     accuracy                           0.86       872
    macro avg       0.86      0.86      0.86       872
@@ -254,40 +1673,776 @@ weighted avg       0.86      0.86      0.86       872
 
 
  Confusion Matrix: 
- [[355  80]
- [ 46 391]]
+ [[367  68]
+ [ 53 384]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0008282614121126573, 'typeOfDesign': 0.004818379991801566, 'material': 0.0093441578908957, 'deckStructureType': 0.012686175249268303, 'numberOfSpansInMainUnit': 0.01683418404745383, 'skew': 0.01818592683981104, 'designLoad': 0.02017926964559444, 'lanesOnStructure': 0.028141381430686535, 'structureLength': 0.04140637788125062, 'avgDailyTruckTraffic': 0.042336772506639475, 'bridgeRoadwayWithCurbToCurb': 0.07182289552613448, 'lengthOfMaximumSpan': 0.07258544019852299, 'yearBuilt': 0.07313101577233048, 'operatingRating': 0.08861811449978478, 'scourCriticalBridges': 0.1046063806242045, 'averageDailyTraffic': 0.10517913511670414, 'longitude': 0.11541633649589875, 'latitude': 0.1738797948709059}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0012474229998585176, 'material': 0.01064823679909368, 'typeOfDesign': 0.01099727457219939, 'designLoad': 0.012687438333554799, 'skew': 0.017765211386879764, 'deckStructureType': 0.027123545774205605, 'numberOfSpansInMainUnit': 0.02841900835944447, 'yearBuilt': 0.034086902169736484, 'bridgeRoadwayWithCurbToCurb': 0.04185826735468523, 'avgDailyTruckTraffic': 0.04275944764531388, 'lanesOnStructure': 0.04644102755913814, 'structureLength': 0.04949627382636006, 'lengthOfMaximumSpan': 0.07348158164013133, 'scourCriticalBridges': 0.07526532942008121, 'operatingRating': 0.09209058894192704, 'averageDailyTraffic': 0.10175061712961715, 'longitude': 0.15035478054126467, 'latitude': 0.1835270455465087}
 
 
              ----------- Performance with GiniIndex ------------
              
 
 
- Best Kappa Values:  0.6834745829585089
+ Best Kappa Values:  0.708666554423773
 
- Best Accuracy:  0.851605504587156
+ Best Accuracy:  0.8486238532110091
 
- Best Depth:  28
+ Best Depth:  18
 
  Classification Report: 
                precision    recall  f1-score   support
 
-    negative       0.85      0.83      0.84       435
-    positive       0.84      0.85      0.84       437
+    negative       0.88      0.82      0.85       435
+    positive       0.83      0.89      0.86       437
 
-    accuracy                           0.84       872
-   macro avg       0.84      0.84      0.84       872
-weighted avg       0.84      0.84      0.84       872
+    accuracy                           0.85       872
+   macro avg       0.86      0.85      0.85       872
+weighted avg       0.86      0.85      0.85       872
 
 
  Confusion Matrix: 
- [[363  72]
- [ 66 371]]
+ [[356  79]
+ [ 48 389]]
 
  Feature Importance: 
- {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0008282614121126573, 'typeOfDesign': 0.004818379991801566, 'material': 0.0093441578908957, 'deckStructureType': 0.012686175249268303, 'numberOfSpansInMainUnit': 0.01683418404745383, 'skew': 0.01818592683981104, 'designLoad': 0.02017926964559444, 'lanesOnStructure': 0.028141381430686535, 'structureLength': 0.04140637788125062, 'avgDailyTruckTraffic': 0.042336772506639475, 'bridgeRoadwayWithCurbToCurb': 0.07182289552613448, 'lengthOfMaximumSpan': 0.07258544019852299, 'yearBuilt': 0.07313101577233048, 'operatingRating': 0.08861811449978478, 'scourCriticalBridges': 0.1046063806242045, 'averageDailyTraffic': 0.10517913511670414, 'longitude': 0.11541633649589875, 'latitude': 0.1738797948709059}
+ {'snowfall': 0.0, 'freezethaw': 0.0, 'toll': 0.0, 'designatedInspectionFrequency': 0.0012474229998585176, 'material': 0.01064823679909368, 'typeOfDesign': 0.01099727457219939, 'designLoad': 0.012687438333554799, 'skew': 0.017765211386879764, 'deckStructureType': 0.027123545774205605, 'numberOfSpansInMainUnit': 0.02841900835944447, 'yearBuilt': 0.034086902169736484, 'bridgeRoadwayWithCurbToCurb': 0.04185826735468523, 'avgDailyTruckTraffic': 0.04275944764531388, 'lanesOnStructure': 0.04644102755913814, 'structureLength': 0.04949627382636006, 'lengthOfMaximumSpan': 0.07348158164013133, 'scourCriticalBridges': 0.07526532942008121, 'operatingRating': 0.09209058894192704, 'averageDailyTraffic': 0.10175061712961715, 'longitude': 0.15035478054126467, 'latitude': 0.1835270455465087}
+
+Printing split-nodes
+ node is a split-node: go to node 1 if X[:, 7 <= 0.960880696773529else to node 442.
+ node is a split-node: go to node 2 if X[:, 7 <= 0.9506592154502869else to node 407.
+ node is a split-node: go to node 3 if X[:, 16 <= 0.0005745896487496793else to node 86.
+ node is a split-node: go to node 4 if X[:, 11 <= 0.06387840956449509else to node 35.
+ node is a split-node: go to node 5 if X[:, 15 <= 0.3100181519985199else to node 16.
+ node is a split-node: go to node 6 if X[:, 8 <= 0.9245637953281403else to node 15.
+ node is a split-node: go to node 7 if X[:, 15 <= 0.22249428927898407else to node 14.
+ node is a split-node: go to node 8 if X[:, 10 <= 0.012820512987673283else to node 13.
+ node is a split-node: go to node 9 if X[:, 12 <= 0.004932538140565157else to node 12.
+ node is a split-node: go to node 10 if X[:, 8 <= 0.9180748462677002else to node 11.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 17 if X[:, 7 <= 0.9464317858219147else to node 22.
+ node is a split-node: go to node 18 if X[:, 8 <= 0.9175547659397125else to node 21.
+ node is a split-node: go to node 19 if X[:, 19 <= 4.5else to node 20.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 23 if X[:, 1 <= 0.00018244014790980145else to node 30.
+ node is a split-node: go to node 24 if X[:, 7 <= 0.9466322958469391else to node 25.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 26 if X[:, 12 <= 0.0033860044786706567else to node 29.
+ node is a split-node: go to node 27 if X[:, 15 <= 0.5000000149011612else to node 28.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 31 if X[:, 1 <= 0.00027723124367184937else to node 34.
+ node is a split-node: go to node 32 if X[:, 8 <= 0.9229408204555511else to node 33.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 36 if X[:, 15 <= 0.5433053374290466else to node 81.
+ node is a split-node: go to node 37 if X[:, 12 <= 0.018609884195029736else to node 78.
+ node is a split-node: go to node 38 if X[:, 15 <= 0.3334638178348541else to node 65.
+ node is a split-node: go to node 39 if X[:, 14 <= 0.07205924764275551else to node 40.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 41 if X[:, 8 <= 0.9352040886878967else to node 60.
+ node is a split-node: go to node 42 if X[:, 14 <= 0.0950000025331974else to node 45.
+ node is a split-node: go to node 43 if X[:, 1 <= 0.00022085206728661433else to node 44.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 46 if X[:, 1 <= 0.0002082517894450575else to node 53.
+ node is a split-node: go to node 47 if X[:, 7 <= 0.9495527148246765else to node 52.
+ node is a split-node: go to node 48 if X[:, 0 <= 0.18376068770885468else to node 51.
+ node is a split-node: go to node 49 if X[:, 7 <= 0.9446514248847961else to node 50.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 54 if X[:, 14 <= 0.2032320499420166else to node 59.
+ node is a split-node: go to node 55 if X[:, 1 <= 0.0002327732290723361else to node 56.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 57 if X[:, 11 <= 0.11708860844373703else to node 58.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 61 if X[:, 1 <= 0.00016949372366070747else to node 62.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 63 if X[:, 1 <= 0.000216284126508981else to node 64.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 66 if X[:, 15 <= 0.44344495236873627else to node 67.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 68 if X[:, 11 <= 0.08544303849339485else to node 69.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 70 if X[:, 1 <= 8.751277164265048e-05else to node 71.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 72 if X[:, 19 <= 6.7961976528167725else to node 73.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 74 if X[:, 11 <= 0.12384289130568504else to node 75.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 76 if X[:, 14 <= 0.09999999776482582else to node 77.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 79 if X[:, 8 <= 0.9360806047916412else to node 80.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 82 if X[:, 13 <= 0.013069537933915854else to node 83.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 84 if X[:, 11 <= 0.20253164321184158else to node 85.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 87 if X[:, 16 <= 0.12452057749032974else to node 88.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 89 if X[:, 2 <= 0.3105518966913223else to node 402.
+ node is a split-node: go to node 90 if X[:, 8 <= 0.9421160817146301else to node 301.
+ node is a split-node: go to node 91 if X[:, 15 <= 0.3335445076227188else to node 132.
+ node is a split-node: go to node 92 if X[:, 10 <= 0.0009230602881871164else to node 123.
+ node is a split-node: go to node 93 if X[:, 8 <= 0.9334068894386292else to node 110.
+ node is a split-node: go to node 94 if X[:, 12 <= 0.004331038799136877else to node 105.
+ node is a split-node: go to node 95 if X[:, 11 <= 0.051000675186514854else to node 104.
+ node is a split-node: go to node 96 if X[:, 1 <= 0.00022085206728661433else to node 103.
+ node is a split-node: go to node 97 if X[:, 14 <= 0.2499999925494194else to node 98.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 99 if X[:, 12 <= 0.0022443050984293222else to node 100.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 101 if X[:, 7 <= 0.9452060759067535else to node 102.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 106 if X[:, 1 <= 0.0007956725021358579else to node 107.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 108 if X[:, 13 <= 0.04901960864663124else to node 109.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 111 if X[:, 15 <= 0.30900146067142487else to node 114.
+ node is a split-node: go to node 112 if X[:, 19 <= 8.5else to node 113.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 115 if X[:, 8 <= 0.9384206533432007else to node 122.
+ node is a split-node: go to node 116 if X[:, 14 <= 0.17458248138427734else to node 117.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 118 if X[:, 14 <= 0.2199999988079071else to node 121.
+ node is a split-node: go to node 119 if X[:, 1 <= 0.00011496408842504025else to node 120.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 124 if X[:, 10 <= 0.040127553045749664else to node 131.
+ node is a split-node: go to node 125 if X[:, 20 <= 2.5else to node 130.
+ node is a split-node: go to node 126 if X[:, 11 <= 0.019876047037541866else to node 129.
+ node is a split-node: go to node 127 if X[:, 7 <= 0.9384215474128723else to node 128.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 133 if X[:, 15 <= 0.44386571645736694else to node 134.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 135 if X[:, 8 <= 0.9380910694599152else to node 300.
+ node is a split-node: go to node 136 if X[:, 1 <= 5.9183530538575724e-05else to node 141.
+ node is a split-node: go to node 137 if X[:, 11 <= 0.13291139155626297else to node 138.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 139 if X[:, 0 <= 0.5683760792016983else to node 140.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 142 if X[:, 8 <= 0.9372662603855133else to node 289.
+ node is a split-node: go to node 143 if X[:, 8 <= 0.9266514480113983else to node 224.
+ node is a split-node: go to node 144 if X[:, 19 <= 1.0092447996139526else to node 189.
+ node is a split-node: go to node 145 if X[:, 8 <= 0.9176903069019318else to node 146.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 147 if X[:, 7 <= 0.9493609368801117else to node 186.
+ node is a split-node: go to node 148 if X[:, 0 <= 0.879762202501297else to node 185.
+ node is a split-node: go to node 149 if X[:, 14 <= 0.20882925391197205else to node 152.
+ node is a split-node: go to node 150 if X[:, 7 <= 0.9458068311214447else to node 151.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 153 if X[:, 7 <= 0.9449753761291504else to node 170.
+ node is a split-node: go to node 154 if X[:, 2 <= 0.14926303923130035else to node 169.
+ node is a split-node: go to node 155 if X[:, 13 <= 0.09796429798007011else to node 156.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 157 if X[:, 14 <= 0.3957091420888901else to node 162.
+ node is a split-node: go to node 158 if X[:, 11 <= 0.04775622859597206else to node 161.
+ node is a split-node: go to node 159 if X[:, 8 <= 0.9256183803081512else to node 160.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 163 if X[:, 12 <= 0.06621520221233368else to node 168.
+ node is a split-node: go to node 164 if X[:, 1 <= 0.00019891919509973377else to node 167.
+ node is a split-node: go to node 165 if X[:, 7 <= 0.9376440346240997else to node 166.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 171 if X[:, 2 <= 0.19245035201311111else to node 184.
+ node is a split-node: go to node 172 if X[:, 11 <= 0.04353353567421436else to node 173.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 174 if X[:, 7 <= 0.9456141293048859else to node 175.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 176 if X[:, 1 <= 0.0009931961249094456else to node 177.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 178 if X[:, 11 <= 0.0791139230132103else to node 183.
+ node is a split-node: go to node 179 if X[:, 11 <= 0.07221509143710136else to node 182.
+ node is a split-node: go to node 180 if X[:, 7 <= 0.9474566280841827else to node 181.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 187 if X[:, 0 <= 0.9475513100624084else to node 188.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 190 if X[:, 11 <= 0.06878866627812386else to node 213.
+ node is a split-node: go to node 191 if X[:, 13 <= 0.040144944563508034else to node 198.
+ node is a split-node: go to node 192 if X[:, 7 <= 0.9432224929332733else to node 197.
+ node is a split-node: go to node 193 if X[:, 14 <= 0.2290123775601387else to node 194.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 195 if X[:, 11 <= 0.029743699356913567else to node 196.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 199 if X[:, 0 <= 0.782051295042038else to node 210.
+ node is a split-node: go to node 200 if X[:, 0 <= 0.6223069727420807else to node 209.
+ node is a split-node: go to node 201 if X[:, 15 <= 0.44658343493938446else to node 204.
+ node is a split-node: go to node 202 if X[:, 11 <= 0.03569161891937256else to node 203.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 205 if X[:, 12 <= 0.0008561749709770083else to node 208.
+ node is a split-node: go to node 206 if X[:, 14 <= 0.11500000208616257else to node 207.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 211 if X[:, 10 <= 0.011050879023969173else to node 212.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 214 if X[:, 8 <= 0.9172692596912384else to node 215.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 216 if X[:, 15 <= 0.7362159192562103else to node 221.
+ node is a split-node: go to node 217 if X[:, 2 <= 0.037874938920140266else to node 218.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 219 if X[:, 1 <= 0.0005338203045539558else to node 220.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 222 if X[:, 11 <= 0.08545099571347237else to node 223.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 225 if X[:, 11 <= 0.14289899915456772else to node 286.
+ node is a split-node: go to node 226 if X[:, 14 <= 0.07299259305000305else to node 227.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 228 if X[:, 7 <= 0.9468735158443451else to node 265.
+ node is a split-node: go to node 229 if X[:, 7 <= 0.9382299482822418else to node 238.
+ node is a split-node: go to node 230 if X[:, 11 <= 0.04089657962322235else to node 231.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 232 if X[:, 11 <= 0.07357668876647949else to node 237.
+ node is a split-node: go to node 233 if X[:, 1 <= 0.00015845910093048587else to node 234.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 235 if X[:, 7 <= 0.9381738603115082else to node 236.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 239 if X[:, 13 <= 0.02941176574677229else to node 240.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 241 if X[:, 10 <= 0.0769230779260397else to node 264.
+ node is a split-node: go to node 242 if X[:, 15 <= 0.5552331805229187else to node 243.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 244 if X[:, 14 <= 0.7704313099384308else to node 263.
+ node is a split-node: go to node 245 if X[:, 8 <= 0.9281149506568909else to node 258.
+ node is a split-node: go to node 246 if X[:, 1 <= 0.0006897845305502415else to node 253.
+ node is a split-node: go to node 247 if X[:, 8 <= 0.9274875223636627else to node 248.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 249 if X[:, 12 <= 0.003894250257872045else to node 252.
+ node is a split-node: go to node 250 if X[:, 9 <= 0.09530368447303772else to node 251.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 254 if X[:, 1 <= 0.009105917764827609else to node 257.
+ node is a split-node: go to node 255 if X[:, 9 <= 0.33933377265930176else to node 256.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 259 if X[:, 8 <= 0.9361554980278015else to node 260.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 261 if X[:, 8 <= 0.9362850189208984else to node 262.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 266 if X[:, 9 <= 0.489996537566185else to node 285.
+ node is a split-node: go to node 267 if X[:, 19 <= 2.184895157814026else to node 282.
+ node is a split-node: go to node 268 if X[:, 20 <= 1.5else to node 269.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 270 if X[:, 12 <= 0.011286681983619928else to node 277.
+ node is a split-node: go to node 271 if X[:, 14 <= 0.4091646373271942else to node 276.
+ node is a split-node: go to node 272 if X[:, 15 <= 0.5862403512001038else to node 273.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 274 if X[:, 7 <= 0.9496603012084961else to node 275.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 278 if X[:, 11 <= 0.11612265557050705else to node 279.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 280 if X[:, 7 <= 0.9501930177211761else to node 281.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 283 if X[:, 2 <= 0.09375else to node 284.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 287 if X[:, 14 <= 0.09500000067055225else to node 288.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 290 if X[:, 7 <= 0.9483022093772888else to node 299.
+ node is a split-node: go to node 291 if X[:, 14 <= 0.5550000071525574else to node 298.
+ node is a split-node: go to node 292 if X[:, 10 <= 0.0018429075134918094else to node 297.
+ node is a split-node: go to node 293 if X[:, 13 <= 0.052166908979415894else to node 294.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 295 if X[:, 12 <= 0.001128668140154332else to node 296.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 302 if X[:, 3 <= 4.5else to node 353.
+ node is a split-node: go to node 303 if X[:, 1 <= 0.0009354014182463288else to node 334.
+ node is a split-node: go to node 304 if X[:, 12 <= 0.019875945523381233else to node 327.
+ node is a split-node: go to node 305 if X[:, 8 <= 0.9507672190666199else to node 326.
+ node is a split-node: go to node 306 if X[:, 1 <= 0.00029454007744789124else to node 325.
+ node is a split-node: go to node 307 if X[:, 1 <= 0.0002481251285644248else to node 324.
+ node is a split-node: go to node 308 if X[:, 7 <= 0.9400949478149414else to node 319.
+ node is a split-node: go to node 309 if X[:, 12 <= 0.005643340991809964else to node 318.
+ node is a split-node: go to node 310 if X[:, 8 <= 0.9437451362609863else to node 313.
+ node is a split-node: go to node 311 if X[:, 12 <= 0.0033860045950859785else to node 312.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 314 if X[:, 13 <= 0.02941176574677229else to node 317.
+ node is a split-node: go to node 315 if X[:, 14 <= 0.19500000029802322else to node 316.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 320 if X[:, 11 <= 0.0791139230132103else to node 321.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 322 if X[:, 12 <= 0.009405568242073059else to node 323.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 328 if X[:, 14 <= 0.34448519349098206else to node 333.
+ node is a split-node: go to node 329 if X[:, 7 <= 0.9426651298999786else to node 332.
+ node is a split-node: go to node 330 if X[:, 11 <= 0.1487341783940792else to node 331.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 335 if X[:, 2 <= 0.1171875else to node 344.
+ node is a split-node: go to node 336 if X[:, 12 <= 0.016045664437115192else to node 343.
+ node is a split-node: go to node 337 if X[:, 0 <= 0.568947046995163else to node 342.
+ node is a split-node: go to node 338 if X[:, 7 <= 0.949180543422699else to node 339.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 340 if X[:, 9 <= 0.035356950014829636else to node 341.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 345 if X[:, 8 <= 0.9554525911808014else to node 352.
+ node is a split-node: go to node 346 if X[:, 14 <= 0.39499999582767487else to node 347.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 348 if X[:, 7 <= 0.9443053603172302else to node 351.
+ node is a split-node: go to node 349 if X[:, 1 <= 0.0070884437300264835else to node 350.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 354 if X[:, 0 <= 0.8760683834552765else to node 401.
+ node is a split-node: go to node 355 if X[:, 7 <= 0.9385245740413666else to node 356.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 357 if X[:, 14 <= 0.0999712236225605else to node 372.
+ node is a split-node: go to node 358 if X[:, 8 <= 0.9460166096687317else to node 367.
+ node is a split-node: go to node 359 if X[:, 14 <= 0.07057898491621017else to node 364.
+ node is a split-node: go to node 360 if X[:, 9 <= 0.05517692491412163else to node 361.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 362 if X[:, 8 <= 0.9436999261379242else to node 363.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 365 if X[:, 0 <= 0.8333333432674408else to node 366.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 368 if X[:, 7 <= 0.946670651435852else to node 369.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 370 if X[:, 9 <= 0.048811398446559906else to node 371.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 373 if X[:, 1 <= 0.00040430853550788015else to node 390.
+ node is a split-node: go to node 374 if X[:, 8 <= 0.9530661404132843else to node 385.
+ node is a split-node: go to node 375 if X[:, 0 <= 0.811965823173523else to node 384.
+ node is a split-node: go to node 376 if X[:, 8 <= 0.9454755187034607else to node 381.
+ node is a split-node: go to node 377 if X[:, 8 <= 0.9427533149719238else to node 380.
+ node is a split-node: go to node 378 if X[:, 14 <= 0.11193026974797249else to node 379.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 382 if X[:, 1 <= 0.00012428972695488483else to node 383.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 386 if X[:, 12 <= 0.002633559051901102else to node 389.
+ node is a split-node: go to node 387 if X[:, 7 <= 0.9457025825977325else to node 388.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 391 if X[:, 10 <= 0.004306810908019543else to node 396.
+ node is a split-node: go to node 392 if X[:, 19 <= 1.5else to node 393.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 394 if X[:, 20 <= 1.5else to node 395.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 397 if X[:, 11 <= 0.12943635880947113else to node 398.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 399 if X[:, 7 <= 0.9475450813770294else to node 400.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 403 if X[:, 13 <= 0.12898766621947289else to node 404.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 405 if X[:, 1 <= 0.06013831868767738else to node 406.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 408 if X[:, 7 <= 0.9601651430130005else to node 413.
+ node is a split-node: go to node 409 if X[:, 1 <= 6.410236528608948e-05else to node 412.
+ node is a split-node: go to node 410 if X[:, 11 <= 0.04113923944532871else to node 411.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 414 if X[:, 8 <= 0.9426591098308563else to node 437.
+ node is a split-node: go to node 415 if X[:, 2 <= 0.40625else to node 436.
+ node is a split-node: go to node 416 if X[:, 1 <= 6.595839295187034e-05else to node 417.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 418 if X[:, 20 <= 1.5else to node 419.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 420 if X[:, 11 <= 0.14592713117599487else to node 429.
+ node is a split-node: go to node 421 if X[:, 15 <= 0.8732290267944336else to node 422.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 423 if X[:, 1 <= 0.00037212060124147683else to node 428.
+ node is a split-node: go to node 424 if X[:, 1 <= 0.00025137022021226585else to node 427.
+ node is a split-node: go to node 425 if X[:, 7 <= 0.9603430032730103else to node 426.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 430 if X[:, 15 <= 0.5000000149011612else to node 431.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 432 if X[:, 7 <= 0.9606531262397766else to node 435.
+ node is a split-node: go to node 433 if X[:, 12 <= 0.36866503953933716else to node 434.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 438 if X[:, 7 <= 0.9605305790901184else to node 439.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 440 if X[:, 12 <= 0.013512969948351383else to node 441.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 443 if X[:, 11 <= 0.025489930994808674else to node 444.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 445 if X[:, 19 <= 1.0032333135604858else to node 568.
+ node is a split-node: go to node 446 if X[:, 2 <= 0.01730521209537983else to node 529.
+ node is a split-node: go to node 447 if X[:, 14 <= 0.3298042267560959else to node 494.
+ node is a split-node: go to node 448 if X[:, 8 <= 0.9285934269428253else to node 455.
+ node is a split-node: go to node 449 if X[:, 9 <= 0.33514276146888733else to node 450.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 451 if X[:, 12 <= 0.00948275183327496else to node 452.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 453 if X[:, 11 <= 0.1582278460264206else to node 454.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 456 if X[:, 8 <= 0.9353674054145813else to node 475.
+ node is a split-node: go to node 457 if X[:, 16 <= 0.005366393830627203else to node 460.
+ node is a split-node: go to node 458 if X[:, 14 <= 0.24344546347856522else to node 459.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 461 if X[:, 8 <= 0.9332226514816284else to node 462.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 463 if X[:, 11 <= 0.05680920369923115else to node 468.
+ node is a split-node: go to node 464 if X[:, 1 <= 0.0001905983590404503else to node 467.
+ node is a split-node: go to node 465 if X[:, 12 <= 0.003756171092391014else to node 466.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 469 if X[:, 15 <= 0.6615679860115051else to node 470.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 471 if X[:, 14 <= 0.2565266340970993else to node 474.
+ node is a split-node: go to node 472 if X[:, 0 <= 0.7478632628917694else to node 473.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 476 if X[:, 10 <= 0.0013668708270415664else to node 491.
+ node is a split-node: go to node 477 if X[:, 13 <= 0.05052846856415272else to node 486.
+ node is a split-node: go to node 478 if X[:, 8 <= 0.936167448759079else to node 479.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 480 if X[:, 14 <= 0.16204843670129776else to node 485.
+ node is a split-node: go to node 481 if X[:, 1 <= 0.0001594725326867774else to node 482.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 483 if X[:, 14 <= 0.15204843878746033else to node 484.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 487 if X[:, 14 <= 0.3208426833152771else to node 490.
+ node is a split-node: go to node 488 if X[:, 1 <= 6.958352605579421e-05else to node 489.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 492 if X[:, 10 <= 0.024433236569166183else to node 493.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 495 if X[:, 8 <= 0.9335022568702698else to node 524.
+ node is a split-node: go to node 496 if X[:, 7 <= 0.9818251430988312else to node 523.
+ node is a split-node: go to node 497 if X[:, 8 <= 0.9252586662769318else to node 502.
+ node is a split-node: go to node 498 if X[:, 14 <= 0.7900000214576721else to node 499.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 500 if X[:, 8 <= 0.9212645292282104else to node 501.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 503 if X[:, 1 <= 0.0008543079602532089else to node 516.
+ node is a split-node: go to node 504 if X[:, 12 <= 0.009405568242073059else to node 515.
+ node is a split-node: go to node 505 if X[:, 11 <= 0.06579401157796383else to node 514.
+ node is a split-node: go to node 506 if X[:, 1 <= 0.000283970934106037else to node 513.
+ node is a split-node: go to node 507 if X[:, 8 <= 0.9280841946601868else to node 510.
+ node is a split-node: go to node 508 if X[:, 15 <= 0.5975821018218994else to node 509.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 511 if X[:, 8 <= 0.9334176778793335else to node 512.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 517 if X[:, 14 <= 0.5843349695205688else to node 522.
+ node is a split-node: go to node 518 if X[:, 8 <= 0.9291459619998932else to node 521.
+ node is a split-node: go to node 519 if X[:, 7 <= 0.9674572348594666else to node 520.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 525 if X[:, 1 <= 0.001400746637955308else to node 526.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 527 if X[:, 7 <= 0.9838979244232178else to node 528.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 530 if X[:, 15 <= 0.555713415145874else to node 539.
+ node is a split-node: go to node 531 if X[:, 2 <= 0.13507363945245743else to node 534.
+ node is a split-node: go to node 532 if X[:, 13 <= 0.08910609781742096else to node 533.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 535 if X[:, 1 <= 0.02891649305820465else to node 536.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 537 if X[:, 11 <= 0.4430379830300808else to node 538.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 540 if X[:, 7 <= 0.9845503568649292else to node 567.
+ node is a split-node: go to node 541 if X[:, 4 <= 3.0else to node 544.
+ node is a split-node: go to node 542 if X[:, 2 <= 0.063063595443964else to node 543.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 545 if X[:, 11 <= 0.15744049102067947else to node 564.
+ node is a split-node: go to node 546 if X[:, 2 <= 0.15620779991149902else to node 547.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 548 if X[:, 0 <= 0.8226103782653809else to node 561.
+ node is a split-node: go to node 549 if X[:, 8 <= 0.9371709227561951else to node 556.
+ node is a split-node: go to node 550 if X[:, 8 <= 0.9254349172115326else to node 553.
+ node is a split-node: go to node 551 if X[:, 4 <= 4.5else to node 552.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 554 if X[:, 13 <= 0.18723677843809128else to node 555.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 557 if X[:, 2 <= 0.23479406535625458else to node 558.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 559 if X[:, 13 <= 0.17609290033578873else to node 560.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 562 if X[:, 14 <= 0.394016832113266else to node 563.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 565 if X[:, 14 <= 0.7729525566101074else to node 566.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 569 if X[:, 1 <= 0.0001457090547773987else to node 620.
+ node is a split-node: go to node 570 if X[:, 8 <= 0.938269704580307else to node 587.
+ node is a split-node: go to node 571 if X[:, 14 <= 0.2523699849843979else to node 582.
+ node is a split-node: go to node 572 if X[:, 13 <= 0.015539824031293392else to node 573.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 574 if X[:, 8 <= 0.925095409154892else to node 577.
+ node is a split-node: go to node 575 if X[:, 7 <= 0.9750732183456421else to node 576.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 578 if X[:, 0 <= 0.5726495981216431else to node 579.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 580 if X[:, 8 <= 0.9364689588546753else to node 581.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 583 if X[:, 14 <= 0.3200000077486038else to node 586.
+ node is a split-node: go to node 584 if X[:, 1 <= 9.290368689107709e-05else to node 585.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 588 if X[:, 12 <= 0.009251450654119253else to node 603.
+ node is a split-node: go to node 589 if X[:, 9 <= 0.017449472099542618else to node 598.
+ node is a split-node: go to node 590 if X[:, 7 <= 0.963642418384552else to node 597.
+ node is a split-node: go to node 591 if X[:, 15 <= 0.722222238779068else to node 596.
+ node is a split-node: go to node 592 if X[:, 14 <= 0.1058196984231472else to node 595.
+ node is a split-node: go to node 593 if X[:, 20 <= 6.5else to node 594.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 599 if X[:, 15 <= 0.4344059079885483else to node 600.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 601 if X[:, 19 <= 8.5else to node 602.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 604 if X[:, 8 <= 0.9557656049728394else to node 617.
+ node is a split-node: go to node 605 if X[:, 12 <= 0.021444695070385933else to node 616.
+ node is a split-node: go to node 606 if X[:, 8 <= 0.9436583518981934else to node 611.
+ node is a split-node: go to node 607 if X[:, 0 <= 0.3873255252838135else to node 610.
+ node is a split-node: go to node 608 if X[:, 0 <= 0.3655892461538315else to node 609.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 612 if X[:, 15 <= 0.3591522127389908else to node 613.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 614 if X[:, 9 <= 0.1349206417798996else to node 615.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 618 if X[:, 15 <= 0.4768512696027756else to node 619.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 621 if X[:, 1 <= 0.00017420009680790827else to node 622.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 623 if X[:, 8 <= 0.9917547106742859else to node 734.
+ node is a split-node: go to node 624 if X[:, 13 <= 0.059248872101306915else to node 703.
+ node is a split-node: go to node 625 if X[:, 14 <= 0.2665141820907593else to node 702.
+ node is a split-node: go to node 626 if X[:, 11 <= 0.05691093951463699else to node 671.
+ node is a split-node: go to node 627 if X[:, 1 <= 0.0005804317188449204else to node 670.
+ node is a split-node: go to node 628 if X[:, 1 <= 0.0002058917743852362else to node 645.
+ node is a split-node: go to node 629 if X[:, 7 <= 0.9809494614601135else to node 644.
+ node is a split-node: go to node 630 if X[:, 12 <= 0.002241335576400161else to node 635.
+ node is a split-node: go to node 631 if X[:, 13 <= 0.05509113520383835else to node 632.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 633 if X[:, 12 <= 0.001128668140154332else to node 634.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 636 if X[:, 0 <= 0.5889323651790619else to node 643.
+ node is a split-node: go to node 637 if X[:, 11 <= 0.029873182997107506else to node 638.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 639 if X[:, 8 <= 0.9340867102146149else to node 642.
+ node is a split-node: go to node 640 if X[:, 8 <= 0.9334166646003723else to node 641.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 646 if X[:, 1 <= 0.0002355515825911425else to node 647.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 648 if X[:, 12 <= 0.002356761251576245else to node 659.
+ node is a split-node: go to node 649 if X[:, 20 <= 2.5else to node 656.
+ node is a split-node: go to node 650 if X[:, 8 <= 0.9363313615322113else to node 651.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 652 if X[:, 14 <= 0.1599999964237213else to node 655.
+ node is a split-node: go to node 653 if X[:, 12 <= 0.0015048909117467701else to node 654.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 657 if X[:, 7 <= 0.9715071618556976else to node 658.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 660 if X[:, 14 <= 0.08263743296265602else to node 663.
+ node is a split-node: go to node 661 if X[:, 15 <= 0.6666666716337204else to node 662.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 664 if X[:, 8 <= 0.9267686605453491else to node 665.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 666 if X[:, 11 <= 0.044419871643185616else to node 669.
+ node is a split-node: go to node 667 if X[:, 12 <= 0.0034787445329129696else to node 668.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 672 if X[:, 12 <= 0.016803603619337082else to node 691.
+ node is a split-node: go to node 673 if X[:, 7 <= 0.9841879308223724else to node 690.
+ node is a split-node: go to node 674 if X[:, 0 <= 0.19494377821683884else to node 675.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 676 if X[:, 8 <= 0.9254719913005829else to node 677.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 678 if X[:, 8 <= 0.9276503324508667else to node 683.
+ node is a split-node: go to node 679 if X[:, 12 <= 0.011518482118844986else to node 682.
+ node is a split-node: go to node 680 if X[:, 13 <= 0.03920937702059746else to node 681.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 684 if X[:, 7 <= 0.9660921692848206else to node 689.
+ node is a split-node: go to node 685 if X[:, 12 <= 0.008755905320867896else to node 688.
+ node is a split-node: go to node 686 if X[:, 19 <= 8.5else to node 687.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 692 if X[:, 15 <= 0.38439492881298065else to node 693.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 694 if X[:, 0 <= 0.28153806179761887else to node 697.
+ node is a split-node: go to node 695 if X[:, 7 <= 0.9740653336048126else to node 696.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 698 if X[:, 12 <= 0.04303093068301678else to node 701.
+ node is a split-node: go to node 699 if X[:, 1 <= 0.0001841842895373702else to node 700.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 704 if X[:, 4 <= 4.5else to node 731.
+ node is a split-node: go to node 705 if X[:, 8 <= 0.9340953528881073else to node 722.
+ node is a split-node: go to node 706 if X[:, 1 <= 0.0010528290295042098else to node 721.
+ node is a split-node: go to node 707 if X[:, 15 <= 0.5038016140460968else to node 708.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 709 if X[:, 14 <= 0.38159462809562683else to node 712.
+ node is a split-node: go to node 710 if X[:, 18 <= 18.0else to node 711.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 713 if X[:, 1 <= 0.00017570357158547267else to node 716.
+ node is a split-node: go to node 714 if X[:, 0 <= 0.7264957427978516else to node 715.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 717 if X[:, 13 <= 0.11103346198797226else to node 718.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 719 if X[:, 14 <= 0.5249999761581421else to node 720.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 723 if X[:, 8 <= 0.9468609094619751else to node 724.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 725 if X[:, 13 <= 0.09683575108647346else to node 726.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 727 if X[:, 11 <= 0.13870248943567276else to node 730.
+ node is a split-node: go to node 728 if X[:, 20 <= 2.5else to node 729.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node 732 if X[:, 19 <= 1.5304492712020874else to node 733.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
+ node is a split-node: go to node -1 if X[:, -2 <= -2.0else to node -1.
 
  Saving decision trees 
 

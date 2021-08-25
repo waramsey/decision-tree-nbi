@@ -21,7 +21,7 @@ import sys
 from imblearn.over_sampling import SMOTE
 from sklearn import preprocessing
 
-#from decisionmethod import decision_tree
+# Custom files
 from decision_tree import *
 from kmeans import *
 from gplot import *
@@ -87,22 +87,61 @@ def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
         for clus, feat, state in zip(clusters,
                                      features,
                                      states):
-            heatMapDict[clus].append((state, feat))
+            heatMapDict[state].append((clus, feat))
 
-    clusters = heatMapDict.keys()
-    for cluster in clusters:
-        clusterVals = heatMapDict[cluster]
+    states = heatMapDict.keys()
+    for state in states:
+        clusterVals = heatMapDict[state]
         tempData = list()
         for val in clusterVals:
-            state, featMap = val
+            clus, featMap = val
             tempSeries = pd.Series(data=featMap,
                                    index=featMap.keys(),
-                                   name=state)
+                                   name=clus)
             tempData.append(tempSeries)
         tempDf = pd.concat(tempData, axis=1).reset_index()
         tempDf.set_index('index', inplace=True)
         data.append(tempDf)
-    return clusters, data
+    return states, data
+
+def generate_heat_map(listOfStates, listOfClusters, listOfFeatures):
+    """
+    Description:
+        Generate data for heatmap
+
+    Args:
+        states (list of list)
+        clusters (list of list)
+        features (list of dictionary)
+
+    Returns:
+        dataframe (a pandas dataframe)
+    """
+    data = list()
+    heatMapDict = defaultdict(list)
+    for clusters, features, states in zip(listOfClusters,
+                                       listOfFeatures,
+                                       listOfStates):
+        for clus, feat, state in zip(clusters,
+                                     features,
+                                     states):
+            heatMapDict[state].append((clus, feat))
+
+    states = heatMapDict.keys()
+    for state in states:
+        clusterVals = heatMapDict[state]
+        tempData = list()
+        for val in clusterVals:
+            clus, featMap = val
+            tempSeries = pd.Series(data=featMap,
+                                   index=featMap.keys(),
+                                   name=clus)
+            tempData.append(tempSeries)
+        #tempDf = pd.concat(tempData, axis=1).reset_index()
+        #tempDf.set_index('index', inplace=True)
+        data.append(tempData)
+    print(data)
+    return states, data
 
 def generate_sankey_data(listOfStates, listOfClusters, listOfFeatures):
     """
@@ -288,12 +327,10 @@ def maintenance_pipeline(state):
     #                "supDeteriorationScore"
                 ]
 
-
     dataScaled = normalize(df, columnsNormalize)
     dataScaled = dataScaled[columnsFinal]
     dataScaled = remove_null_values(dataScaled)
 
-    # TODO:
     # Apply recursive feature elimination
     # Data Scaled
     features = ["supNumberIntervention",
@@ -301,8 +338,10 @@ def maintenance_pipeline(state):
                 "deckNumberIntervention"]
 
     sLabels = semantic_labeling(dataScaled[features], name="")
-    dataScaled['cluster'] = sLabels
 
+    dataScaled['cluster'] = sLabels
+    newFeatures = features + ['cluster']
+    plot_scatterplot(dataScaled[newFeatures], name="cluster")
     print("\n")
     print(dataScaled['cluster'].unique())
     print("\n")
@@ -386,7 +425,7 @@ def main():
                 ]
 
     modelName = 'testing'
-    #csvfiles = ['nebraska']
+    csvfiles = ['nebraska']
     listOfKappaValues = list()
     listOfAccValues = list()
     listOfLabels = list()
@@ -416,7 +455,7 @@ def main():
             maps.append(tempMap[0])
         oneListOfFeaturesImp.append(maps)
 
-    ## change the orientation:
+    # Change the orientation:
     states = list()
     clusternames = list()
     countstemp = list()
@@ -472,7 +511,9 @@ def main():
     col, data = generate_heat_map(listOfStates, listOfLabels, oneListOfFeaturesImp)
 
     for col, val in zip(col, data):
-        print('\nCluster:', col)
+        fname = col + '_heatmap.csv'
+        #val.to_csv(fname)
+        #print('\nCluster:', col)
         print(val)
         plot_heatmap(val, col)
 

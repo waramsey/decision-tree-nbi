@@ -9,10 +9,10 @@ TODO:
     1. Create Folders for the ouput [Done]
     2. Create Random forest model [Done]
     3. Complexity Parameters
-    4. Select the important variables
-    5. Characterization of the clusters
+    4. Select the important variables [Done]
+    5. Characterization of the clusters [Done]
     6. Computing deterioration scores,
-        and intervention
+        and intervention [Done]
 -----------------------------------------------"""
 
 # Data structures
@@ -229,6 +229,70 @@ def plot_decision_tree(model, filename=''):
                    filled=True)
     fig.savefig(filename)
 
+# Print splitnodes
+def printSplitNodes(leaves, treeStructure):
+    """
+    print the splitnodes
+    """
+    nNodes, childrenLeft, childrenRight, feature, threshold= treeStructure
+    nodeDepth = np.zeros(shape=nNodes, dtype=np.int64)
+    # TODO: get features
+    # Some of the split nodes are leaves
+    for i in range(nNodes):
+        if leaves[i]:
+           pass
+        else:
+            print("{space} node is a split-node: "
+                  "go to node {left} if X[:, {feature} <= {threshold} "
+                 " else to node {right}.".format(
+                 space=nodeDepth[i]*'\t',
+                 node=i,
+                 left=childrenLeft[i],
+                 right=childrenRight[i],
+                 threshold=threshold[i],
+                 #feature=featureDict[feature[i]],
+                 feature=feature[i],
+                 ))
+
+# Navigate the decision tree
+def find_leaves(eBestModel):
+    """
+    Navigate decision tree to find
+    leaves
+    """
+
+    # Tree structure
+    nNodes = eBestModel.tree_.node_count
+    childrenLeft = eBestModel.tree_.children_left
+    childrenRight = eBestModel.tree_.children_right
+    feature = eBestModel.tree_.feature
+    threshold = eBestModel.tree_.threshold
+
+    treeStructure = (nNodes,
+                     childrenLeft,
+                     childrenRight,
+                     feature,
+                     threshold)
+
+    # Initialize
+    node_depth = np.zeros(shape=nNodes, dtype=np.int64)
+    leaves = np.zeros(shape=nNodes, dtype=bool)
+
+    # Start with the root node
+    stack = [[0, 0]] # [[nodeId, depth]]
+    while len(stack) > 0:
+        nodeId, depth = stack.pop()
+
+        # If the left and right child of a node is not the same we have a split
+        isSplitNode = childrenLeft[nodeId] != childrenRight[nodeId]
+        # If a split node, append left and right children and depth to the 'stack'
+        if isSplitNode:
+            stack.append((childrenLeft[nodeId], depth + 1))
+            stack.append((childrenLeft[nodeId], depth + 1))
+        else:
+            leaves[nodeId] = True
+    return leaves, treeStructure
+
 # To summarize performance
 def performance_summarizer(eKappaDict, gKappaDict,
                           eConfDict, gConfDict,
@@ -240,7 +304,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     """
     Description:
-        Summarize the prformance of the decision tree
+        Summarize the prformance of the decision
 
     Args:
         Kappa Values (list):
@@ -309,7 +373,22 @@ def performance_summarizer(eKappaDict, gKappaDict,
     eBestModel = eModelsDict.get(eBestDepth)
     gBestModel = gModelsDict.get(gBestDepth)
 
-    # rint decision tree of the Best Model
+    # Printing Node Counts
+    # TODO: DELETE the create nNodes
+    featDictionary = defaultdict()
+    # For features, we need to construct a feature dictionary
+    # Create a dictionary of features
+    nNodes = eBestModel.tree_.node_count
+    childrenLeft = eBestModel.tree_.children_left
+    childrenRight = eBestModel.tree_.children_right
+    feature = eBestModel.tree_.feature
+    threshold = eBestModel.tree_.threshold
+
+    leaves, treeStructure = find_leaves(eBestModel)
+    print("\nPrinting split-nodes")
+    printSplitNodes(leaves, treeStructure)
+
+    # Print decision tree of the Best Model
     # Entropy
     print("\n Saving decision trees \n")
     eTextRepresentation = tree.export_text(eBestModel)
@@ -392,6 +471,8 @@ def decision_tree(X, y, nFold=5):
 
     # Converting them to array
     cols = X.columns
+    print("\nPrinting Columns")
+    print(cols)
     X = np.array(X)
     y = np.array(y)
 
