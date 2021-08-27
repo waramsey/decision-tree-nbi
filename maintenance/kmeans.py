@@ -414,8 +414,6 @@ def is_high(value):
 
 #TODO:
     # Compare: Histogram for all the components (intervention)
-    #  
-
 def provide_label(sub, deck, sup):
     """
     Description:
@@ -467,8 +465,9 @@ def semantic_labeling(features, name=""):
     Description:
        Assign a semantic label
     """
-    #semanticLabels = pd.DataFrame(features)
     labels = list()
+    # printng structure numbers for high deck
+    print("\nPrinting structure numbers for high deck")
     for index, record in features.iterrows():
         subInt = record['subNumberIntervention']
         deckInt = record['deckNumberIntervention']
@@ -479,6 +478,9 @@ def semantic_labeling(features, name=""):
                                           supInt])
         if type(label) is type(list()):
             label = ' - '.join(label)
+            # TODO: print out structure numbers with High deck
+            if label == 'High Substructure - No Deck - No Superstructure':
+                print(record['structureNumber'])
         labels.append(label)
     return labels
 

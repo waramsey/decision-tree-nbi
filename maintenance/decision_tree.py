@@ -98,7 +98,8 @@ def remove_null_values(df):
         df (dataframe): dataframe
     """
     for feature in df:
-        df = df[~df[feature].isin([np.nan])]
+        if feature != 'structureNumber':
+            df = df[~df[feature].isin([np.nan])]
     return df
 
 def create_labels(df, label):
@@ -237,34 +238,53 @@ def print_split_nodes(leaves, treeStructure, features):
 
     Collect the split nodes
     """
-    # Unpack the tree stucture
-    nNodes, childrenLeft, childrenRight, feature, threshold= treeStructure
 
-    # Initialize the nodeDepth and splitNodes
-    nodeDepth = np.zeros(shape=nNodes, dtype=np.int64)
+    # Unpack the tree stucture
+    nNodes, nodeDepth, childrenLeft, childrenRight, feature, threshold= treeStructure
+
+    # TODO:
+    # Collect decision split nodes and convert them into csvfiles
     splitNodes = list()
 
     # Create feature dictionary
     featureDict = {index:feat for index, feat in enumerate(features)}
 
     # Traverse the decision tree
+    header = ['space',
+             'node',
+             'leftChild',
+             'rightChild',
+             'threshold',
+             'feature']
+
+    temp = list()
     for i in range(nNodes):
         if leaves[i]:
-           print("{space} node={node} is a leaf node and has"
-                 " the following tree structure:\n".format(
-                 space=nodeDepth[i]*"\t",
-                 node=i))
+           #print("{space} node={node} is a leaf node and has"
+           #      " the following tree structure:\n".format(
+           #      space=nodeDepth[i]*"\t",
+           #      node=i))
+           temp.append(i)
         else:
-            print("{space} node is a split-node: "
-                  " go to node {left} if X[:, {feature}] <= {threshold} "
-                  " else to node {right}.".format(
-                 space=nodeDepth[i]*"\t",
-                 node=i,
-                 left=childrenLeft[i],
-                 right=childrenRight[i],
-                 threshold=threshold[i],
-                 feature=featureDict[feature[i]],
-                 ))
+            #print("{space} node is a split-node: "
+            #      " go to node {left} if X[:, {feature}] <= {threshold} "
+            #      " else to node {right}.".format(
+            #     space=nodeDepth[i]*"\t",
+            #     node=i,
+            #     left=childrenLeft[i],
+            #     right=childrenRight[i],
+            #     threshold=threshold[i],
+            #     feature=featureDict[feature[i]],
+            #     ))
+
+            splitNodes.append([nodeDepth[i],
+                               i,
+                               childrenLeft[i],
+                               childrenRight[i],
+                               threshold[i],
+                               feature])
+
+    return header, splitNodes
 
 # Navigate the decision tree
 def find_leaves(eBestModel):
@@ -280,20 +300,16 @@ def find_leaves(eBestModel):
     feature = eBestModel.tree_.feature
     threshold = eBestModel.tree_.threshold
 
-    treeStructure = (nNodes,
-                     childrenLeft,
-                     childrenRight,
-                     feature,
-                     threshold)
-
     # Initialize
-    #nodeDepth = np.zeros(shape=nNodes, dtype=np.int64)
+    nodeDepth = np.zeros(shape=nNodes, dtype=np.int64)
     leaves = np.zeros(shape=nNodes, dtype=bool)
 
     # Start with the root node
     stack = [[0, 0]] # [[nodeId, depth]]
     while len(stack) > 0:
+        # `pop` ensures each node is only visited once
         nodeId, depth = stack.pop()
+        nodeDepth[nodeId] = depth
 
         # If the left and right child of a node is not the same we have a split
         isSplitNode = childrenLeft[nodeId] != childrenRight[nodeId]
@@ -303,6 +319,14 @@ def find_leaves(eBestModel):
             stack.append((childrenRight[nodeId], depth + 1))
         else:
             leaves[nodeId] = True
+
+    treeStructure = (nNodes,
+                     nodeDepth,
+                     childrenLeft,
+                     childrenRight,
+                     feature,
+                     threshold)
+
     return leaves, treeStructure
 
 # To summarize performance

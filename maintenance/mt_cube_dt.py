@@ -244,6 +244,7 @@ def maintenance_pipeline(state):
                            'supNumberIntervention',
                            ])
 
+    # Only take the last record to avoid double counting:
     df = remove_duplicates(df)
 
     # Remove values encoded as N:
@@ -298,6 +299,7 @@ def maintenance_pipeline(state):
     #                "deck",
     #                "substructure",
     #                "superstructure",
+                    "structureNumber",
                     "yearBuilt",
                     "averageDailyTraffic",
                     "avgDailyTruckTraffic",
@@ -329,19 +331,27 @@ def maintenance_pipeline(state):
 
     dataScaled = normalize(df, columnsNormalize)
     dataScaled = dataScaled[columnsFinal]
+    #print(dataScaled.columns)
     dataScaled = remove_null_values(dataScaled)
 
     # Apply recursive feature elimination
     # Data Scaled
-    features = ["supNumberIntervention",
+    features = ["structureNumber",
+                "supNumberIntervention",
                 "subNumberIntervention",
                 "deckNumberIntervention"]
 
-    sLabels = semantic_labeling(dataScaled[features], name="")
+    sLabels = semantic_labeling(dataScaled[features],
+                                name="")
+
+    columnsFinal.remove('structureNumber')
+    features.remove('structureNumber')
+    dataScaled = dataScaled[columnsFinal]
 
     dataScaled['cluster'] = sLabels
     newFeatures = features + ['cluster']
     plot_scatterplot(dataScaled[newFeatures], name="cluster")
+
     print("\n")
     print(dataScaled['cluster'].unique())
     print("\n")
