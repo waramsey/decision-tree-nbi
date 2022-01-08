@@ -133,7 +133,6 @@ def plot_scatter(col1, col2, color=None):
     plt.ylabel("DeteriorationScore")
     plt.savefig(filename)
 
-# Plot Scatter plot
 def plot_scatter_Kmeans(df):
     """
     Description:
@@ -413,7 +412,10 @@ def is_high(value):
         return False
 
 #TODO:
-    # Compare: Histogram for all the components (intervention)
+    # Compare:
+        # Histogram for all the components 
+        # (intervention)
+
 def provide_label(sub, deck, sup):
     """
     Description:
@@ -431,17 +433,41 @@ def provide_label(sub, deck, sup):
         if is_zero(value):
             label = 'No ' + componentDict[num]
         elif is_low(value):
-            label = 'Low ' + componentDict[num]
+            #label = 'Low ' + componentDict[num]
+            label = 'Yes' + componentDict[num]
         elif is_negative(value):
-            label = 'No ' + componentDict[num]
+            #label = 'No ' + componentDict[num]
+            label = 'Yes' + componentDict[num]
         elif is_medium(value):
-            label = 'Medium ' + componentDict[num]
+            #label = 'Medium ' + componentDict[num]
+            label = 'No ' + componentDict[num]
         elif is_high(value):
-            label = 'High ' + componentDict[num]
+            #label = 'High ' + componentDict[num]
+            label = 'Yes' + componentDict[num]
         else:
             label = 'Error ' + componentDict[num]
         labels.append(label)
     return labels
+
+# TODO:
+    # Fix this function to create a binary cluster
+
+#def semantic_labeling_utility(record):
+#    """
+#    Description:
+#       Utility to assign a label depending on the values
+#    """
+#    sub, deck, sup = record
+#    if sub == 0 and deck == 0 and sup == 0:
+#        label = "No intervention"
+#    elif sub == 1 and deck == 1 and sup == 1:
+#        label = 'All intervention'
+#    elif sub > 0 and deck > 0 and sup > 0:
+#        label = provide_label(sub, deck, sup)
+#    else:
+#        label = "Other intervention"
+#        label = provide_label(sub, deck, sup)
+#    return label
 
 def semantic_labeling_utility(record):
     """
@@ -466,8 +492,8 @@ def semantic_labeling(features, name=""):
        Assign a semantic label
     """
     labels = list()
-    # printng structure numbers for high deck
-    print("\nPrinting structure numbers for high deck")
+    # printng structure numbers for High substructure
+    #print("\nPrinting structure numbers for high substructure")
     for index, record in features.iterrows():
         subInt = record['subNumberIntervention']
         deckInt = record['deckNumberIntervention']
@@ -478,9 +504,12 @@ def semantic_labeling(features, name=""):
                                           supInt])
         if type(label) is type(list()):
             label = ' - '.join(label)
-            # TODO: print out structure numbers with High deck
-            if label == 'High Substructure - No Deck - No Superstructure':
-                print(record['structureNumber'])
+            # TODO: 
+                # Print out structure numbers with High substructure
+            #if label == 'High Substructure - No Deck - No Superstructure':
+                #print("\n")
+                #print(label)
+                #print(record)
         labels.append(label)
     return labels
 
@@ -489,10 +518,8 @@ def three_d_scatterplot(dataScaled, name=''):
     Description:
         Creates a 3d scatter plot of the attributes
         provided
-
     Args:
         dataScaled (dataframe)
-
     Returns:
         saves a three 3d scatter plot with .html extention
     """
@@ -552,6 +579,7 @@ def kmeans_clustering(dataScaled, listOfParameters, kmeans_kwargs, state):
 
     print("\n Number of members in cluster:", counts)
     slabels = semantic_labeling(centroids, name='')
+    print("\n Printing semantic labeling:")
     newNames = dict(zip(list(range(len(counts.keys()))), slabels))
 
     newLabels = [newNames[label] for label in labels]

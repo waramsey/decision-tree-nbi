@@ -51,6 +51,23 @@ def df_to_plotly(df):
 
     return newList
 
+def plot_barchart1(df, name):
+    """
+    Plot a barchart
+    x: Column name of X-axis
+    y: Column name of y-axis
+    """
+    sort = sorted(df.items(), lambda kv:kv[2])
+    print(sort[:5])
+    fig = px.bar(sort,
+                 x=sort.keys(),
+                 y=sort.values(),
+                 barmode='group')
+
+    savefile = name + '.html'
+    fig.write_html(savefile)
+    fig.show()
+
 def plot_scatterplot(df, name):
     """
     Plot a three scatter plot
@@ -105,34 +122,6 @@ def plot_heatmap(df, title):
     dataHeatMap = df_to_plotly(df)
     for index in range(3):
         heatmap_utility(dataHeatMap[index], title, index)
-    #fig = make_subplots(rows=1, cols=3)
-                        #subplot_titles=('plot1', 'plot2', 'plot3'))
-    #fig.add_trace(go.Heatmap(dataHeatMap[0],
-    #                         zmin=0,
-    #                         zmax=0.5),
-    #                         row=1,
-    #                         col=1)
-    #fig.add_trace(go.Heatmap(dataHeatMap[1],
-    #                         zmin=0,
-    #                         zmax=0.5),
-    #                         row=1,
-    #                         col=2)
-    #fig.add_trace(go.Heatmap(dataHeatMap[2],
-    #                         colorbar=dict(title='Feature Importance'),
-    #                         zmin=0, zmax=0.5),
-    #                         row=1,
-    #                         col=3)
-    #fig.update_layout(title_text=title,
-    #                  font_size=15,
-    #                  width=900,
-    #                  height=700,
-    #                  font=dict(size=10, color='black'),
-    #                  plot_bgcolor='white',
-    #                  paper_bgcolor='white',
-    #                  barmode='group')
-    #savefile = title+'.html'
-    #fig.write_html(savefile)
-    #fig.show()
 
 def plot_barchart(df, attribute, state, title):
     """
@@ -191,34 +180,6 @@ def plot_sankey_new(sources, targets, values, labels, title):
          target = targets,
          value = values,
 
-          #value = values,
-
-          #color = ['plum']*6
-          #      + ['powderblue']*6
-          #      + ['purple']*6
-          #      + ['red']*6
-          #      + ['rosybrown']*6
-          #      + ['royalblue']*6
-          #      + ['rebeccapurple']*6
-          #      + ['saddlebrown']*6
-
-          #      + ['plum']*6
-          #      + ['powderblue']*6
-          #      + ['purple']*6
-          #      + ['red']*6
-          #      + ['rosybrown']*6
-          #      + ['royalblue']*6
-          #      + ['rebeccapurple']*6
-          #      + ['saddlebrown']*6
-          #      + ['plum']*6
-          #      + ['powderblue']*6
-          #      + ['purple']*6
-          #      + ['red']*6
-          #      + ['rosybrown']*6
-          #      + ['royalblue']*6
-          #      + ['rebeccapurple']*6
-          #      + ['saddlebrown']*6
-        #label = []
       ),
       )])
     fig.update_layout(title_text=title,

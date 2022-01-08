@@ -114,8 +114,16 @@ def create_labels(df, label):
         df (dataframe): a dataframe with additional
         attributes
     """
+    ## TODO: Create a new definition for positive class and negative class
+
+    #positiveClass = df[df['cluster'].isin([label])]
+    #negativeClass = df[~df['cluster'].isin([label, 'No intervention'])]
+    print('Using this function')
+    label = 'All intervention'
+    label2 = 'No intervention'
     positiveClass = df[df['cluster'].isin([label])]
-    negativeClass = df[~df['cluster'].isin([label, 'No intervention'])]
+    negativeClass = df[df['cluster'].isin([label2])]
+
     positiveClass['label'] = ['positive']*len(positiveClass)
     negativeClass['label'] = ['negative']*len(negativeClass)
     df = pd.concat([positiveClass, negativeClass])
@@ -213,7 +221,6 @@ def line_plot(scores, filename='', col='accuracy'):
     font = {'weight': 'bold',
             'size': 25
             }
-
     plt.figure(figsize=(10, 10))
     plt.title("Performance: Accuracy", **font)
     sns.lineplot(data=dfScore)
@@ -240,7 +247,7 @@ def print_split_nodes(leaves, treeStructure, features):
     """
 
     # Unpack the tree stucture
-    nNodes, nodeDepth, childrenLeft, childrenRight, feature, threshold= treeStructure
+    nNodes, nodeDepth, childrenLeft, childrenRight, feature, threshold = treeStructure
 
     # TODO:
     # Collect decision split nodes and convert them into csvfiles
@@ -329,6 +336,61 @@ def find_leaves(eBestModel):
 
     return leaves, treeStructure
 
+def print_decision_paths(clf, X_test, feature):
+    """
+    Description;
+    Args:
+    Returns:
+    """
+    n_nodes = clf.tree_.node_count
+    feature = clf.tree_.feature
+    threshold = clf.tree_.threshold
+    node_indicator = clf.decision_path(X_test)
+    leaf_id = clf.apply(X_test)
+
+    sample_id = 0
+    # obtain ids of the nodes `sample_id` goes through, i.e., row `sample_id`
+    node_index = node_indicator.indices[
+        node_indicator.indptr[sample_id] : node_indicator.indptr[sample_id + 1]
+    ]
+
+    print("Rules used to predict sample {id}:\n".format(id=sample_id))
+    for node_id in node_index:
+        # continue to the next node if it is a leaf node
+        if leaf_id[sample_id] == node_id:
+            continue
+
+        # check if value of the split feature for sample 0 is below threshold
+        if X_test[sample_id, feature[node_id]] <= threshold[node_id]:
+            threshold_sign = "<="
+        else:
+            threshold_sign = ">"
+
+        print(
+            "decision node {node} : (X_test[{sample}, {feature}] = {value}) "
+            "{inequality} {threshold})".format(
+                node=node_id,
+                sample=sample_id,
+                feature=feature[node_id],
+                value=X_test[sample_id, feature[node_id]],
+                inequality=threshold_sign,
+                threshold=threshold[node_id],
+            )
+        )
+    sample_ids = [0, 1]
+    # boolean array indicating the nodes both samples go through
+    common_nodes = node_indicator.toarray()[sample_ids].sum(axis=0) == len(sample_ids)
+    # obtain node ids using position in array
+    common_node_id = np.arange(n_nodes)[common_nodes]
+
+    print(
+    "\nThe following samples {samples} share the node(s) {nodes} in the tree.".format(
+        samples=sample_ids, nodes=common_node_id
+    )
+    )
+    print("This is {prop}% of all nodes.".format(prop=100 * len(common_node_id) / n_nodes))
+#   return 
+
 # To summarize performance
 def performance_summarizer(eKappaDict, gKappaDict,
                           eConfDict, gConfDict,
@@ -336,7 +398,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
                           eAccDict, gAccDict,
                           #eRocsDict, gRocsDict,
                           eModelsDict, gModelsDict,
-                          eFeatureDict, gFeatureDict, cols):
+                          eFeatureDict, gFeatureDict, testX, cols):
 
     """
     Description:
@@ -414,7 +476,8 @@ def performance_summarizer(eKappaDict, gKappaDict,
 
     print("\nPrinting split-nodes")
     leaves, treeStructure = find_leaves(eBestModel)
-    print_split_nodes(leaves, treeStructure, cols)
+    splitNodes = print_split_nodes(leaves, treeStructure, cols)
+    print_decision_paths(eBestModel, testX, cols)
 
     # Print decision tree of the Best Model
     # Entropy
@@ -429,9 +492,14 @@ def performance_summarizer(eKappaDict, gKappaDict,
         fout.write(gTextRepresentation)
 
     print("\n Plotting decision trees \n")
+
     plot_decision_tree(eBestModel, filename='Entropy')
     plot_decision_tree(gBestModel, filename='Gini')
-    return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc), (efi, gfi)
+
+    #with open("models/splitnodes.log", "w") as fout:
+    #    fout.write(splitNodes)
+
+    return (eBestKappa, gBestKappa),  (eBestAcc, gBestAcc), (efi, gfi), (eBestModel, gBestModel)
 
 def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7):
     """
@@ -464,7 +532,7 @@ def tree_utility(trainX, trainy, testX, testy, cols, criteria='gini', maxDepth=7
     return acc, cm, cr, kappa, model, fi# rocAuc, model
 
 # Decision Tree
-def decision_tree(X, y, nFold=5):
+def decision_tree(X, y, features, nFold=5):
     """
     Description:
         Performs training testing split
@@ -592,15 +660,18 @@ def decision_tree(X, y, nFold=5):
     eFeatureDict = dict(zip(depths, eFeatures))
     gFeatureDict = dict(zip(depths, gFeatures))
 
-    kappaVals, accVals, featImps = performance_summarizer(eKappaDict, gKappaDict,
+    kappaVals, accVals, featImps, models = performance_summarizer(eKappaDict, gKappaDict,
                                            eConfDict, gConfDict,
                                            eClassDict, gClassDict,
                                            eScoreDict, gScoreDict,
                                            #eRocsDict, gRocsDict,
                                            eModelsDict, gModelsDict,
-                                           eFeatureDict, gFeatureDict, cols)
+                                           eFeatureDict, gFeatureDict, testX, cols)
 
     # Return the average kappa value for state
+    eBestModel, gBestModel = models
+    #leaves = find_leaves(eBestModel)
+    #splitNodes = print_split_nodes(leaves, eBestModel, features)
     return kappaVals, accVals, featImps
 
 def plot_centroids(states, centroidDf, metricName):

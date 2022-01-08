@@ -275,8 +275,7 @@ def maintenance_pipeline(state):
                         "supNumberIntervention",
                         "subNumberIntervention",
                         "deckNumberIntervention",
-
-        # New
+    # New
                         "latitude",
                         "longitude",
                         "skew",
@@ -296,9 +295,9 @@ def maintenance_pipeline(state):
 
     # Select final columns:
     columnsFinal = [
-    #                "deck",
-    #                "substructure",
-    #                "superstructure",
+    #               "deck",
+    #               "substructure",
+    #               "superstructure",
                     "structureNumber",
                     "yearBuilt",
                     "averageDailyTraffic",
@@ -324,13 +323,14 @@ def maintenance_pipeline(state):
                     "designatedInspectionFrequency",
                     "deckStructureType",
                     "typeOfDesign",
-    #                "deckDeteriorationScore",
-    #                "subDeteriorationScore",
-    #                "supDeteriorationScore"
+    #               "deckDeteriorationScore",
+    #               "subDeteriorationScore",
+    #               "supDeteriorationScore"
                 ]
 
-    dataScaled = normalize(df, columnsNormalize)
-    dataScaled = dataScaled[columnsFinal]
+    #dataScaled = normalize(df, columnsNormalize)
+    dataScaled = df[columnsFinal]
+    #dataScaled = dataScaled[columnsFinal]
     #print(dataScaled.columns)
     dataScaled = remove_null_values(dataScaled)
 
@@ -341,6 +341,9 @@ def maintenance_pipeline(state):
                 "subNumberIntervention",
                 "deckNumberIntervention"]
 
+    print("\nPrinting the labels")
+    # Clean data up until here:
+    print(dataScaled.head())
     sLabels = semantic_labeling(dataScaled[features],
                                 name="")
 
@@ -372,13 +375,24 @@ def maintenance_pipeline(state):
     columnsFinal.remove('subNumberIntervention')
     columnsFinal.remove('deckNumberIntervention')
 
-    labels = ['No Substructure - High Deck - No Superstructure',
-              'High Substructure - No Deck - No Superstructure',
-              'No Substructure - No Deck - High Superstructure']
+    #labels = ['No Substructure - High Deck - No Superstructure',
+    #          'High Substructure - No Deck - No Superstructure',
+    #          'No Substructure - No Deck - High Superstructure']
+
+    #labels = ['No Substructure - YesDeck - No Superstructure',
+    #          'YesSubstructure - No Deck - No Superstructure',
+    #          'No Substructure - No Deck - YesSuperstructure']
+
+    labels = ['All intervention',
+              'All intervention',
+              'All intervention']
 
     kappaValues = list()
     accValues = list()
     featImps = list()
+    models = list()
+
+    ## TODO: This loop takes into account defined labels
     for label in labels:
         print("\nCategory (Positive Class): ", label)
         print("----------"*5)
@@ -389,8 +403,11 @@ def maintenance_pipeline(state):
             numOfMembers = clusters[cluster]
             if numOfMembers < 15:
                 listOfClusters.append(cluster)
-
         dataScaled = dataScaled[~dataScaled['label'].isin(listOfClusters)]
+        # Divide these the dataset into two categories:
+            # Negative and Positive
+            # Negative: Show YearBuilt
+            # Show YearBuilt for negative and positive classes 
 
         # State column:
         dataScaled['state'] = [state]*len(dataScaled)
@@ -403,18 +420,55 @@ def maintenance_pipeline(state):
 
         # Oversampling:
         oversample = SMOTE()
-        print("\n Oversampling (SMOTE) ...")
+        # TODO: Run a independent test / Bayesian test: 
+            # What is the probability of getting a year built given the cluster is 0 or 1?
+        # print(dataScaled.columns())
+        neg = dataScaled[dataScaled['label'] == 'negative']
+        pos = dataScaled[dataScaled['label'] == 'positive']
+
+        # Create a dictionary:
+        negativeDict = defaultdict()
+        positiveDict = defaultdict()
+
+        print("Index and length of the rows")
+        for index, row in neg.groupby(['yearBuilt']):
+            negativeDict[index] = len(row)
+
+        for index, row in pos.groupby(['yearBuilt']):
+            positiveDict[index] = len(row)
+
+        #TODO:
+        #print(positiveDict)
+        #print(negativeDict)
+
+        #plot_barchart1(positiveDict, 'barchart positive')
+        #plot_barchart1(negativeDict, 'barchart negative')
+
+        #print(neg.groupby(['yearBuilt']).count())
+        #print(pos.groupby(['yearBuilt']).count())
+        #print(pos['yearBuilt'].head())
+        #plot_barchart(dataScaled,
+        #              'yearBuilt',
+        #              'label',
+        #              'barchart1')
+
+        #print("\n Oversampling (SMOTE) ...")
         X, y = oversample.fit_resample(X, y)
 
         # Summarize distribution:
         print("\n Distribution of the clusters after oversampling: ", Counter(y))
 
         # Return to home directory:
-        kappaValue, accValue, featImp = decision_tree(X, y)
+        kappaValue, accValue, featImp = decision_tree(X, y, columnsFinal)
         kappaValues.append(kappaValue)
         accValues.append(accValue)
         featImps.append(featImp)
+        #models.append(leaves) # models ->> change into leaves
 
+        # Find leaves first
+        # 
+
+    #print(dataScaled.head())
     sys.stdout.close()
     os.chdir(currentDir)
 
@@ -457,7 +511,8 @@ def main():
     summaryfilename = modelName + '.txt'
     sys.stdout = open(summaryfilename, "w")
 
-    # Refactor
+    #TODO: Refactor
+        # Simplfy the some of the hard coded segments of the program
     oneListOfFeaturesImp = list()
     for forStates in listOfFeatureImps:
         maps = list()
@@ -530,7 +585,6 @@ def main():
     # Plot sankey
     sources, targets, values, labels = generate_sankey_data(listOfStates, listOfLabels, oneListOfFeaturesImp)
     sankeyDict = generate_dictionary(labels)
-
     sources = codify(sources, sankeyDict)
     targets = codify(targets, sankeyDict)
 
