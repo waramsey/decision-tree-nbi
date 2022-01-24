@@ -157,7 +157,6 @@ def integrate_ext_dataset_list(extDict, groupedRecords, fieldname):
     #    groupedRecords[structureNumber] = encoding
     return newGroupedRecords
 
-
 def divide_record_utility(fields, record, startIndex, endIndex):
     """
     Description: A utility function to divide the timeline of the records
