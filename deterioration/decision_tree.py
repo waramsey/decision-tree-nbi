@@ -445,7 +445,7 @@ def decision_tree(X, y, nFold=5):
     eModelsDict = dict(zip(depths, eModels))
     gModelsDict = dict(zip(depths, gModels))
 
-
+    print("Called performance_summarizer")
     kappaVals, accVals = performance_summarizer(eKappaDict, gKappaDict,
                                            eConfDict, gConfDict,
                                            eClassDict, gClassDict,

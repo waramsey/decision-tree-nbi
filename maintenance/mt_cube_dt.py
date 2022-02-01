@@ -458,6 +458,7 @@ def maintenance_pipeline(state):
         # Summarize distribution:
         print("\n Distribution of the clusters after oversampling: ", Counter(y))
 
+        print("Called decision_tree")
         # Return to home directory:
         kappaValue, accValue, featImp = decision_tree(X, y, columnsFinal)
         kappaValues.append(kappaValue)
@@ -469,6 +470,7 @@ def maintenance_pipeline(state):
         # 
 
     #print(dataScaled.head())
+    print("\n\n\n\n\n\n\n\nWE'RE CLOSING THE STDOUT\n\n\n\n\n\n\n")
     sys.stdout.close()
     os.chdir(currentDir)
 
@@ -498,6 +500,7 @@ def main():
     listOfDataFrames = list()
     listOfFeatureImps = list()
 
+    print("Called maintenance_pipeline")
     for filename in csvfiles:
          filename = filename+'_deep'
          dataScaled, sLabel, kappaValues, accValues, featImps = maintenance_pipeline(filename)
@@ -507,6 +510,7 @@ def main():
          listOfKappaValues.append(kappaValues)
          listOfAccValues.append(accValues)
          listOfFeatureImps.append(featImps)
+
 
     summaryfilename = modelName + '.txt'
     sys.stdout = open(summaryfilename, "w")
@@ -566,7 +570,7 @@ def main():
         for value in valuesperstate:
             newlistoffeatimps.append(value)
 
-    # Create a new dataframe 
+    # Create a new dataframe
     metricsdf = pd.DataFrame({'state': newlistofstates,
                               'kappa': newlistofkappavalues,
                               'accuracy': newlistofaccvalues,

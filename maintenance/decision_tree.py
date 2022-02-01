@@ -342,6 +342,11 @@ def print_decision_paths(clf, X_test, feature):
     Args:
     Returns:
     """
+    print(clf)
+    print(X_test)
+    print(feature)
+
+
     n_nodes = clf.tree_.node_count
     feature = clf.tree_.feature
     threshold = clf.tree_.threshold
@@ -477,6 +482,7 @@ def performance_summarizer(eKappaDict, gKappaDict,
     print("\nPrinting split-nodes")
     leaves, treeStructure = find_leaves(eBestModel)
     splitNodes = print_split_nodes(leaves, treeStructure, cols)
+    print("Called print_decision_paths")
     print_decision_paths(eBestModel, testX, cols)
 
     # Print decision tree of the Best Model
