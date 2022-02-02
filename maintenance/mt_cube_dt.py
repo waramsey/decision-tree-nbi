@@ -210,6 +210,8 @@ def maintenance_pipeline(state):
     """
     Description:
         Pipeline for determining future maintenance of the bridges
+
+        state - string name of state
     """
 
     # Creating directory
@@ -217,10 +219,13 @@ def maintenance_pipeline(state):
     directory = state + 'OutputsTICR'
 
     # Create a state folder/ Change directory and then come out
+    #     'pd' is pandas, used for data manipulation/analysis
+    #     pd.read_csv opens file 'nebraska_deep.csv' and puts it into a dataframe (2D tabular data holding object)
     df = pd.read_csv(csvfilename, index_col=None, low_memory=False)
 
-    # Change directory
+    # Make directory
     os.mkdir(directory)
+    # OS, gets the current directory
     currentDir = os.getcwd()
 
     # Create results folders
@@ -228,6 +233,7 @@ def maintenance_pipeline(state):
     os.chdir(newDir)
     modelOutput = state + 'ModelSummary.txt'
 
+    # sets print to write to state_deepModelSummary.txt
     sys.stdout = open(modelOutput, "w")
     print("\n state: ", state)
     resultsFolder = 'results'
@@ -235,7 +241,7 @@ def maintenance_pipeline(state):
     os.mkdir(resultsFolder)
     os.mkdir(modelsFolder)
 
-    # Remove null values:
+    # Remove null values from state_deep.csv dataframe:
     df = df.dropna(subset=['deck',
                            'substructure',
                            'superstructure',
@@ -470,7 +476,6 @@ def maintenance_pipeline(state):
         # 
 
     #print(dataScaled.head())
-    print("\n\n\n\n\n\n\n\nWE'RE CLOSING THE STDOUT\n\n\n\n\n\n\n")
     sys.stdout.close()
     os.chdir(currentDir)
 
@@ -478,7 +483,7 @@ def maintenance_pipeline(state):
 
 # Driver function
 def main():
-    # States
+    # An array containing the states we will be making decision trees for
     csvfiles = [
                 "nebraska",
                 "kansas",
@@ -490,20 +495,43 @@ def main():
                 "minnesota"
                 ]
 
+    # name the ML model
     modelName = 'testing'
+
+    # We are only working with the Nebraska data for now
     csvfiles = ['nebraska']
+
+    # Empty array for Kappa vals
     listOfKappaValues = list()
+
+    # Empty array for Accuracy vals
     listOfAccValues = list()
+
+    # Empty array for Label vals
     listOfLabels = list()
+
+    # Empty array for state vals
     listOfStates = list()
+
+    # Empty array for counts
     listOfCounts = list()
+
+    # Empty array for data frames
     listOfDataFrames = list()
+
+    # Empty array for feature imps..?
     listOfFeatureImps = list()
 
-    print("Called maintenance_pipeline")
+
+    # For each state...
     for filename in csvfiles:
+         # create a file state_deep
          filename = filename+'_deep'
+
+         # Call the maintenance pipeline and store this information
          dataScaled, sLabel, kappaValues, accValues, featImps = maintenance_pipeline(filename)
+
+
          listOfLabels.append(sLabel)
          listOfStates.append([filename[:-5]]*3)
          listOfDataFrames.append(dataScaled)
