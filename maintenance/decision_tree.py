@@ -488,7 +488,27 @@ def performance_summarizer(eKappaDict, gKappaDict,
     # Print decision tree of the Best Model
     # Entropy
     print("\n Saving decision trees \n")
-    eTextRepresentation = tree.export_text(eBestModel)
+    eTextRepresentation = tree.export_text(eBestModel, feature_names=["yearBuilt",
+                    "averageDailyTraffic",
+                    "avgDailyTruckTraffic",
+                    "material",
+                    "designLoad",
+                    "snowfall",
+                    "freezethaw",
+                    "latitude",
+                    "longitude",
+                    "skew",
+                    "numberOfSpansInMainUnit",
+                    "lengthOfMaximumSpan",
+                    "structureLength",
+                    "bridgeRoadwayWithCurbToCurb",
+                    "operatingRating",
+                    "scourCriticalBridges",
+                    "lanesOnStructure",
+                    "toll",
+                    "designatedInspectionFrequency",
+                    "deckStructureType",
+                    "typeOfDesign"])
     with open("models/entropy_decision_tree.log", "w") as fout:
         fout.write(eTextRepresentation)
 

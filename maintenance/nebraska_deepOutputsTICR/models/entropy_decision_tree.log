@@ -1,865 +1,904 @@
-|--- feature_0 <= 1973.50
-|   |--- feature_19 <= 1.00
-|   |   |--- feature_12 <= 12.53
-|   |   |   |--- feature_13 <= 5.89
-|   |   |   |   |--- feature_1 <= 35.50
-|   |   |   |   |   |--- feature_8 <= 98292700.00
-|   |   |   |   |   |   |--- feature_11 <= 12.05
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_11 >  12.05
-|   |   |   |   |   |   |   |--- feature_15 <= 6.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_15 >  6.00
-|   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_8 >  98292700.00
-|   |   |   |   |   |   |--- feature_0 <= 1931.00
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_0 >  1931.00
-|   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |--- feature_1 >  35.50
-|   |   |   |   |   |--- feature_8 <= 96430004.00
-|   |   |   |   |   |   |--- feature_15 <= 3.89
-|   |   |   |   |   |   |   |--- feature_11 <= 9.34
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_11 >  9.34
-|   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_15 >  3.89
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_8 >  96430004.00
-|   |   |   |   |   |   |--- feature_14 <= 24.20
-|   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_14 >  24.20
-|   |   |   |   |   |   |   |--- feature_3 <= 2.50
-|   |   |   |   |   |   |   |   |--- feature_13 <= 5.10
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_13 >  5.10
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_3 >  2.50
-|   |   |   |   |   |   |   |   |--- feature_1 <= 43.50
-|   |   |   |   |   |   |   |   |   |--- feature_7 <= 41264780.00
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_7 >  41264780.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_1 >  43.50
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |--- feature_13 >  5.89
-|   |   |   |   |--- feature_15 <= 3.00
-|   |   |   |   |   |--- feature_13 <= 7.25
+|--- yearBuilt <= 1969.50
+|   |--- deckStructureType <= 1.00
+|   |   |--- structureLength <= 12.51
+|   |   |   |--- bridgeRoadwayWithCurbToCurb <= 5.79
+|   |   |   |   |--- material <= 2.50
+|   |   |   |   |   |--- numberOfSpansInMainUnit <= 1.50
 |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_13 >  7.25
+|   |   |   |   |   |--- numberOfSpansInMainUnit >  1.50
 |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |--- feature_15 >  3.00
-|   |   |   |   |   |--- feature_12 <= 9.60
-|   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_12 >  9.60
-|   |   |   |   |   |   |--- feature_3 <= 3.50
-|   |   |   |   |   |   |   |--- feature_0 <= 1958.50
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_0 >  1958.50
-|   |   |   |   |   |   |   |   |--- feature_13 <= 7.25
-|   |   |   |   |   |   |   |   |   |--- feature_20 <= 2.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 1.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
-|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  1.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_20 >  2.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 155.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  155.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_13 >  7.25
-|   |   |   |   |   |   |   |   |   |--- feature_18 <= 23.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 <= 96277304.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 >  96277304.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_18 >  23.50
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_3 >  3.50
-|   |   |   |   |   |   |   |--- feature_11 <= 9.34
+|   |   |   |   |--- material >  2.50
+|   |   |   |   |   |--- structureLength <= 9.80
+|   |   |   |   |   |   |--- structureLength <= 9.45
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- structureLength >  9.45
+|   |   |   |   |   |   |   |--- operatingRating <= 5.40
 |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_11 >  9.34
+|   |   |   |   |   |   |   |--- operatingRating >  5.40
+|   |   |   |   |   |   |   |   |--- yearBuilt <= 1933.00
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- yearBuilt >  1933.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- structureLength >  9.80
+|   |   |   |   |   |   |--- latitude <= 40452426.00
+|   |   |   |   |   |   |   |--- typeOfDesign <= 5.00
 |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |--- feature_12 >  12.53
-|   |   |   |--- feature_8 <= 96361192.00
-|   |   |   |   |--- feature_1 <= 7782.50
-|   |   |   |   |   |--- feature_0 <= 1954.50
-|   |   |   |   |   |   |--- feature_1 <= 132.00
-|   |   |   |   |   |   |   |--- feature_14 <= 27.49
-|   |   |   |   |   |   |   |   |--- feature_8 <= 96220016.00
-|   |   |   |   |   |   |   |   |   |--- feature_8 <= 95471800.00
+|   |   |   |   |   |   |   |--- typeOfDesign >  5.00
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- latitude >  40452426.00
+|   |   |   |   |   |   |   |--- longitude <= 96243128.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- longitude >  96243128.00
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 11.89
+|   |   |   |   |   |   |   |   |   |--- operatingRating <= 24.02
 |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_8 >  95471800.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 14.15
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  14.15
+|   |   |   |   |   |   |   |   |   |--- operatingRating >  24.02
+|   |   |   |   |   |   |   |   |   |   |--- yearBuilt <= 1930.00
 |   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_8 >  96220016.00
-|   |   |   |   |   |   |   |   |   |--- feature_11 <= 10.12
+|   |   |   |   |   |   |   |   |   |   |--- yearBuilt >  1930.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  11.89
+|   |   |   |   |   |   |   |   |   |--- latitude <= 41081200.00
+|   |   |   |   |   |   |   |   |   |   |--- designatedInspectionFrequency <= 18.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- designatedInspectionFrequency >  18.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- latitude >  41081200.00
 |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_11 >  10.12
-|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 32.90
+|   |   |   |--- bridgeRoadwayWithCurbToCurb >  5.79
+|   |   |   |   |--- scourCriticalBridges <= 2.89
+|   |   |   |   |   |--- yearBuilt <= 1946.00
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- yearBuilt >  1946.00
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- scourCriticalBridges >  2.89
+|   |   |   |   |   |--- structureLength <= 9.60
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- structureLength >  9.60
+|   |   |   |   |   |   |--- lengthOfMaximumSpan <= 9.34
+|   |   |   |   |   |   |   |--- material <= 3.50
+|   |   |   |   |   |   |   |   |--- operatingRating <= 34.11
+|   |   |   |   |   |   |   |   |   |--- latitude <= 41316500.00
+|   |   |   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 4.92
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- scourCriticalBridges >  4.92
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- latitude >  41316500.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- operatingRating >  34.11
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- material >  3.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- lengthOfMaximumSpan >  9.34
+|   |   |   |   |   |   |   |--- lanesOnStructure <= 1.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- lanesOnStructure >  1.50
+|   |   |   |   |   |   |   |   |--- yearBuilt <= 1965.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- yearBuilt >  1965.50
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 35.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic >  35.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |--- structureLength >  12.51
+|   |   |   |--- longitude <= 96360600.00
+|   |   |   |   |--- averageDailyTraffic <= 7677.50
+|   |   |   |   |   |--- operatingRating <= 43.17
+|   |   |   |   |   |   |--- longitude <= 95459576.00
+|   |   |   |   |   |   |   |--- yearBuilt <= 1964.00
+|   |   |   |   |   |   |   |   |--- structureLength <= 21.35
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- structureLength >  21.35
+|   |   |   |   |   |   |   |   |   |--- designLoad <= 4.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- designLoad >  4.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- yearBuilt >  1964.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- longitude >  95459576.00
+|   |   |   |   |   |   |   |--- longitude <= 96140992.00
+|   |   |   |   |   |   |   |   |--- operatingRating <= 42.46
+|   |   |   |   |   |   |   |   |   |--- latitude <= 40010900.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- latitude >  40010900.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- operatingRating >  42.46
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- longitude >  96140992.00
+|   |   |   |   |   |   |   |   |--- yearBuilt <= 1954.50
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 9.50
+|   |   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 3.50
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
-|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  32.90
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_14 >  27.49
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_1 >  132.00
-|   |   |   |   |   |   |   |--- feature_9 <= 29.50
-|   |   |   |   |   |   |   |   |--- feature_8 <= 95493852.00
-|   |   |   |   |   |   |   |   |   |--- feature_4 <= 4.50
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_4 >  4.50
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_8 >  95493852.00
-|   |   |   |   |   |   |   |   |   |--- feature_7 <= 40541368.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 14.28
+|   |   |   |   |   |   |   |   |   |   |--- typeOfDesign >  3.50
 |   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  14.28
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign >  9.50
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating <= 1.35
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating >  1.35
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- yearBuilt >  1954.50
+|   |   |   |   |   |   |   |   |   |--- longitude <= 96239904.00
+|   |   |   |   |   |   |   |   |   |   |--- skew <= 16.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- skew >  16.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- longitude >  96239904.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- operatingRating >  43.17
+|   |   |   |   |   |   |--- scourCriticalBridges <= 7.97
+|   |   |   |   |   |   |   |--- scourCriticalBridges <= 6.00
+|   |   |   |   |   |   |   |   |--- latitude <= 40345600.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- latitude >  40345600.00
+|   |   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 15.42
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 40481736.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  40481736.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  15.42
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 41211004.00
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |   |--- feature_7 >  40541368.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 7.06
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  7.06
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
-|   |   |   |   |   |   |   |--- feature_9 >  29.50
-|   |   |   |   |   |   |   |   |--- feature_2 <= 3.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_2 >  3.50
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_0 >  1954.50
-|   |   |   |   |   |   |--- feature_2 <= 8.50
-|   |   |   |   |   |   |   |--- feature_2 <= 0.50
-|   |   |   |   |   |   |   |   |--- feature_11 <= 22.85
-|   |   |   |   |   |   |   |   |   |--- feature_13 <= 7.32
-|   |   |   |   |   |   |   |   |   |   |--- feature_4 <= 0.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_4 >  0.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
-|   |   |   |   |   |   |   |   |   |--- feature_13 >  7.32
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 12.47
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  12.47
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
-|   |   |   |   |   |   |   |   |--- feature_11 >  22.85
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_2 >  0.50
-|   |   |   |   |   |   |   |   |--- feature_7 <= 41150280.00
-|   |   |   |   |   |   |   |   |   |--- feature_4 <= 3.50
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_4 >  3.50
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_7 >  41150280.00
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_2 >  8.50
-|   |   |   |   |   |   |   |--- feature_15 <= 3.50
-|   |   |   |   |   |   |   |   |--- feature_14 <= 57.01
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_14 >  57.01
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_15 >  3.50
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |--- feature_1 >  7782.50
-|   |   |   |   |   |--- feature_16 <= 3.50
-|   |   |   |   |   |   |--- feature_13 <= 11.69
-|   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_13 >  11.69
-|   |   |   |   |   |   |   |--- feature_7 <= 40865276.00
-|   |   |   |   |   |   |   |   |--- feature_7 <= 40541500.00
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_7 >  40541500.00
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_7 >  40865276.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_16 >  3.50
-|   |   |   |   |   |   |--- class: negative
-|   |   |   |--- feature_8 >  96361192.00
-|   |   |   |   |--- feature_4 <= 4.50
-|   |   |   |   |   |--- feature_15 <= 8.00
-|   |   |   |   |   |   |--- feature_15 <= 6.02
-|   |   |   |   |   |   |   |--- feature_0 <= 1966.50
-|   |   |   |   |   |   |   |   |--- feature_8 <= 97216800.00
-|   |   |   |   |   |   |   |   |   |--- feature_13 <= 7.25
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 15.05
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  15.05
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
-|   |   |   |   |   |   |   |   |   |--- feature_13 >  7.25
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_8 >  97216800.00
-|   |   |   |   |   |   |   |   |   |--- feature_15 <= 4.99
-|   |   |   |   |   |   |   |   |   |   |--- feature_15 <= 4.02
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
-|   |   |   |   |   |   |   |   |   |   |--- feature_15 >  4.02
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  41211004.00
 |   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_15 >  4.99
-|   |   |   |   |   |   |   |   |   |   |--- feature_1 <= 254.50
+|   |   |   |   |   |   |   |--- scourCriticalBridges >  6.00
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- scourCriticalBridges >  7.97
+|   |   |   |   |   |   |   |--- operatingRating <= 44.66
+|   |   |   |   |   |   |   |   |--- latitude <= 41233712.00
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- latitude >  41233712.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- operatingRating >  44.66
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 74.40
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  74.40
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- averageDailyTraffic >  7677.50
+|   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 14.00
+|   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 11.70
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  11.70
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 11.66
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  11.66
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  14.00
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |--- longitude >  96360600.00
+|   |   |   |   |--- designLoad <= 4.50
+|   |   |   |   |   |--- operatingRating <= 36.84
+|   |   |   |   |   |   |--- yearBuilt <= 1935.50
+|   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 4.66
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 19.80
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  19.80
+|   |   |   |   |   |   |   |   |   |--- latitude <= 41891500.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- latitude >  41891500.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  4.66
+|   |   |   |   |   |   |   |   |--- typeOfDesign <= 9.50
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 5.50
+|   |   |   |   |   |   |   |   |   |   |--- designLoad <= 2.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |   |   |--- designLoad >  2.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign >  5.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- typeOfDesign >  9.50
+|   |   |   |   |   |   |   |   |   |--- longitude <= 97226800.00
+|   |   |   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 42.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- averageDailyTraffic >  42.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- longitude >  97226800.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- yearBuilt >  1935.50
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 13.11
+|   |   |   |   |   |   |   |   |--- latitude <= 40491276.00
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 2.50
+|   |   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 6.97
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  6.97
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign >  2.50
+|   |   |   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 3.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- scourCriticalBridges >  3.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- latitude >  40491276.00
+|   |   |   |   |   |   |   |   |   |--- skew <= 12.50
+|   |   |   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit <= 2.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit >  2.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
+|   |   |   |   |   |   |   |   |   |--- skew >  12.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  13.11
+|   |   |   |   |   |   |   |   |--- yearBuilt <= 1954.50
+|   |   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 3.03
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- scourCriticalBridges >  3.03
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 100310988.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  100310988.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- yearBuilt >  1954.50
+|   |   |   |   |   |   |   |   |   |--- latitude <= 41300192.00
+|   |   |   |   |   |   |   |   |   |   |--- material <= 4.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- material >  4.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- latitude >  41300192.00
+|   |   |   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit <= 2.50
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
-|   |   |   |   |   |   |   |   |   |   |--- feature_1 >  254.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
-|   |   |   |   |   |   |   |--- feature_0 >  1966.50
-|   |   |   |   |   |   |   |   |--- feature_3 <= 5.50
-|   |   |   |   |   |   |   |   |   |--- feature_12 <= 56.48
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_12 >  56.48
-|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 2.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  2.50
+|   |   |   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit >  2.50
 |   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_3 >  5.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_15 >  6.02
-|   |   |   |   |   |   |   |--- feature_4 <= 3.50
-|   |   |   |   |   |   |   |   |--- feature_0 <= 1936.50
-|   |   |   |   |   |   |   |   |   |--- feature_11 <= 17.69
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_11 >  17.69
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_0 >  1936.50
-|   |   |   |   |   |   |   |   |   |--- feature_11 <= 6.68
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_11 >  6.68
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_4 >  3.50
-|   |   |   |   |   |   |   |   |--- feature_7 <= 40729884.00
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_7 >  40729884.00
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_15 >  8.00
-|   |   |   |   |   |   |--- feature_12 <= 70.66
-|   |   |   |   |   |   |   |--- feature_8 <= 97200748.00
-|   |   |   |   |   |   |   |   |--- feature_8 <= 97051560.00
-|   |   |   |   |   |   |   |   |   |--- feature_18 <= 20.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 41221500.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  41221500.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_18 >  20.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_3 <= 4.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_3 >  4.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |--- feature_8 >  97051560.00
-|   |   |   |   |   |   |   |   |   |--- feature_7 <= 41379510.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_20 <= 3.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_20 >  3.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_7 >  41379510.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 42250900.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  42250900.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_8 >  97200748.00
-|   |   |   |   |   |   |   |   |--- feature_2 <= 16.50
-|   |   |   |   |   |   |   |   |   |--- feature_13 <= 7.60
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 <= 7.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 >  7.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_13 >  7.60
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_2 >  16.50
-|   |   |   |   |   |   |   |   |   |--- feature_8 <= 99166800.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 42387400.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  42387400.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_8 >  99166800.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 <= 101698600.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 >  101698600.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_12 >  70.66
-|   |   |   |   |   |   |   |--- feature_8 <= 100329964.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_8 >  100329964.00
-|   |   |   |   |   |   |   |   |--- feature_14 <= 29.25
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_14 >  29.25
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |--- feature_4 >  4.50
-|   |   |   |   |   |--- feature_10 <= 3.50
-|   |   |   |   |   |   |--- feature_8 <= 96418808.00
-|   |   |   |   |   |   |   |--- feature_0 <= 1961.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_0 >  1961.00
-|   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_8 >  96418808.00
-|   |   |   |   |   |   |   |--- feature_7 <= 42166500.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_7 >  42166500.00
-|   |   |   |   |   |   |   |   |--- feature_15 <= 7.53
-|   |   |   |   |   |   |   |   |   |--- feature_1 <= 1085.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 <= 8.55
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 >  8.55
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_1 >  1085.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_15 >  7.53
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_10 >  3.50
-|   |   |   |   |   |   |--- feature_15 <= 7.74
-|   |   |   |   |   |   |   |--- feature_7 <= 41032952.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_7 >  41032952.00
-|   |   |   |   |   |   |   |   |--- feature_11 <= 25.90
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_11 >  25.90
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_15 >  7.74
-|   |   |   |   |   |   |   |--- feature_2 <= 43.50
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_2 >  43.50
-|   |   |   |   |   |   |   |   |--- feature_0 <= 1963.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_0 >  1963.50
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |--- feature_19 >  1.00
-|   |   |--- feature_19 <= 8.00
-|   |   |   |--- feature_15 <= 8.00
-|   |   |   |   |--- feature_19 <= 6.00
-|   |   |   |   |   |--- feature_19 <= 6.00
-|   |   |   |   |   |   |--- feature_12 <= 9.11
-|   |   |   |   |   |   |   |--- feature_13 <= 5.86
-|   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_13 >  5.86
-|   |   |   |   |   |   |   |   |--- feature_15 <= 5.91
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_15 >  5.91
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_12 >  9.11
-|   |   |   |   |   |   |   |--- feature_16 <= 1.50
-|   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_16 >  1.50
-|   |   |   |   |   |   |   |   |--- feature_1 <= 50.50
-|   |   |   |   |   |   |   |   |   |--- feature_10 <= 2.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_0 <= 1957.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
-|   |   |   |   |   |   |   |   |   |   |--- feature_0 >  1957.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
-|   |   |   |   |   |   |   |   |   |--- feature_10 >  2.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 11.21
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  11.21
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_1 >  50.50
-|   |   |   |   |   |   |   |   |   |--- feature_0 <= 1970.50
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_0 >  1970.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 <= 8.83
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 >  8.83
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_19 >  6.00
-|   |   |   |   |   |   |--- feature_12 <= 25.38
-|   |   |   |   |   |   |   |--- feature_13 <= 5.01
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_13 >  5.01
-|   |   |   |   |   |   |   |   |--- feature_13 <= 6.55
-|   |   |   |   |   |   |   |   |   |--- feature_11 <= 12.80
-|   |   |   |   |   |   |   |   |   |   |--- feature_15 <= 3.51
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_15 >  3.51
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_11 >  12.80
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_13 >  6.55
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_12 >  25.38
-|   |   |   |   |   |   |   |--- feature_13 <= 7.59
-|   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_13 >  7.59
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |--- feature_19 >  6.00
-|   |   |   |   |   |--- feature_4 <= 4.50
-|   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_4 >  4.50
-|   |   |   |   |   |   |--- class: negative
-|   |   |   |--- feature_15 >  8.00
-|   |   |   |   |--- feature_0 <= 1935.50
-|   |   |   |   |   |--- feature_19 <= 6.00
-|   |   |   |   |   |   |--- feature_19 <= 5.96
-|   |   |   |   |   |   |   |--- feature_13 <= 7.27
-|   |   |   |   |   |   |   |   |--- feature_10 <= 2.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_10 >  2.50
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_13 >  7.27
-|   |   |   |   |   |   |   |   |--- feature_1 <= 45.50
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_1 >  45.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_19 >  5.96
-|   |   |   |   |   |   |   |--- feature_8 <= 95826360.00
-|   |   |   |   |   |   |   |   |--- feature_9 <= 17.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_9 >  17.50
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_8 >  95826360.00
-|   |   |   |   |   |   |   |   |--- feature_18 <= 18.00
-|   |   |   |   |   |   |   |   |   |--- feature_1 <= 22.50
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_1 >  22.50
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_18 >  18.00
-|   |   |   |   |   |   |   |   |   |--- feature_14 <= 56.25
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_14 >  56.25
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_19 >  6.00
-|   |   |   |   |   |   |--- class: positive
-|   |   |   |   |--- feature_0 >  1935.50
-|   |   |   |   |   |--- feature_3 <= 1.50
-|   |   |   |   |   |   |--- feature_11 <= 13.08
+|   |   |   |   |   |--- operatingRating >  36.84
+|   |   |   |   |   |   |--- longitude <= 97045904.00
 |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_11 >  13.08
-|   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_3 >  1.50
-|   |   |   |   |   |   |--- feature_0 <= 1963.50
-|   |   |   |   |   |   |   |--- feature_1 <= 20.50
-|   |   |   |   |   |   |   |   |--- feature_7 <= 40725948.00
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_7 >  40725948.00
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_1 >  20.50
-|   |   |   |   |   |   |   |   |--- feature_9 <= 29.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_9 >  29.50
-|   |   |   |   |   |   |   |   |   |--- feature_9 <= 33.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_9 >  33.00
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_0 >  1963.50
-|   |   |   |   |   |   |   |--- feature_7 <= 41196692.00
-|   |   |   |   |   |   |   |   |--- feature_11 <= 12.28
-|   |   |   |   |   |   |   |   |   |--- feature_20 <= 3.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_4 <= 0.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |   |   |--- feature_4 >  0.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_20 >  3.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_11 >  12.28
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_7 >  41196692.00
-|   |   |   |   |   |   |   |   |--- feature_1 <= 16.00
-|   |   |   |   |   |   |   |   |   |--- feature_8 <= 98701956.00
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_8 >  98701956.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_1 >  16.00
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |--- feature_19 >  8.00
-|   |   |   |--- feature_19 <= 9.00
-|   |   |   |   |--- feature_19 <= 8.00
-|   |   |   |   |   |--- feature_16 <= 1.50
-|   |   |   |   |   |   |--- feature_13 <= 4.80
-|   |   |   |   |   |   |   |--- feature_20 <= 9.50
-|   |   |   |   |   |   |   |   |--- feature_20 <= 3.50
-|   |   |   |   |   |   |   |   |   |--- feature_10 <= 1.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 <= 97534972.00
+|   |   |   |   |   |   |--- longitude >  97045904.00
+|   |   |   |   |   |   |   |--- scourCriticalBridges <= 7.74
+|   |   |   |   |   |   |   |   |--- latitude <= 41455790.00
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 1615.00
+|   |   |   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit <= 4.50
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 >  97534972.00
+|   |   |   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit >  4.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic >  1615.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- latitude >  41455790.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- scourCriticalBridges >  7.74
+|   |   |   |   |   |   |   |   |--- longitude <= 97250600.00
+|   |   |   |   |   |   |   |   |   |--- material <= 2.50
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating <= 53.97
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating >  53.97
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |   |--- feature_10 >  1.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 42306300.00
+|   |   |   |   |   |   |   |   |   |--- material >  2.50
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 42241200.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  42241200.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |--- longitude >  97250600.00
+|   |   |   |   |   |   |   |   |   |--- avgDailyTruckTraffic <= 21.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- avgDailyTruckTraffic >  21.00
+|   |   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 1.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- typeOfDesign >  1.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |--- designLoad >  4.50
+|   |   |   |   |   |--- numberOfSpansInMainUnit <= 3.50
+|   |   |   |   |   |   |--- latitude <= 42166500.00
+|   |   |   |   |   |   |   |--- longitude <= 96377476.00
+|   |   |   |   |   |   |   |   |--- structureLength <= 69.68
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- structureLength >  69.68
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- longitude >  96377476.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- latitude >  42166500.00
+|   |   |   |   |   |   |   |--- scourCriticalBridges <= 7.56
+|   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 6.04
+|   |   |   |   |   |   |   |   |   |--- operatingRating <= 32.85
+|   |   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 1.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- typeOfDesign >  1.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- operatingRating >  32.85
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- scourCriticalBridges >  6.04
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- scourCriticalBridges >  7.56
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- numberOfSpansInMainUnit >  3.50
+|   |   |   |   |   |   |--- latitude <= 41045562.00
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- latitude >  41045562.00
+|   |   |   |   |   |   |   |--- avgDailyTruckTraffic <= 14.50
+|   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 7.36
+|   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 8.80
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  8.80
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- scourCriticalBridges >  7.36
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- avgDailyTruckTraffic >  14.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |--- deckStructureType >  1.00
+|   |   |--- deckStructureType <= 8.00
+|   |   |   |--- scourCriticalBridges <= 8.00
+|   |   |   |   |--- averageDailyTraffic <= 165.50
+|   |   |   |   |   |--- deckStructureType <= 6.00
+|   |   |   |   |   |   |--- deckStructureType <= 5.99
+|   |   |   |   |   |   |   |--- averageDailyTraffic <= 10.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- averageDailyTraffic >  10.50
+|   |   |   |   |   |   |   |   |--- lanesOnStructure <= 1.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- lanesOnStructure >  1.50
+|   |   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit <= 2.50
+|   |   |   |   |   |   |   |   |   |   |--- structureLength <= 7.66
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- structureLength >  7.66
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  42306300.00
+|   |   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit >  2.50
+|   |   |   |   |   |   |   |   |   |   |--- designLoad <= 1.00
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |--- feature_20 >  3.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_20 >  9.50
-|   |   |   |   |   |   |   |   |--- feature_11 <= 15.31
-|   |   |   |   |   |   |   |   |   |--- feature_7 <= 40295900.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 40191200.00
+|   |   |   |   |   |   |   |   |   |   |--- designLoad >  1.00
 |   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  40191200.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
-|   |   |   |   |   |   |   |   |   |--- feature_7 >  40295900.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_11 >  15.31
-|   |   |   |   |   |   |   |   |   |--- feature_8 <= 96126500.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_18 <= 22.50
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |   |   |--- feature_18 >  22.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_8 >  96126500.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 <= 96150368.00
+|   |   |   |   |   |   |--- deckStructureType >  5.99
+|   |   |   |   |   |   |   |--- structureLength <= 25.50
+|   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 5.02
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  5.02
+|   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 5.80
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 41827100.00
 |   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 >  96150368.00
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  41827100.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  5.80
+|   |   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 6.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- typeOfDesign >  6.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- structureLength >  25.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- deckStructureType >  6.00
+|   |   |   |   |   |   |--- latitude <= 40010250.00
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- latitude >  40010250.00
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- averageDailyTraffic >  165.50
+|   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 4.93
+|   |   |   |   |   |   |--- avgDailyTruckTraffic <= 9.50
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- avgDailyTruckTraffic >  9.50
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  4.93
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |--- scourCriticalBridges >  8.00
+|   |   |   |   |--- yearBuilt <= 1935.50
+|   |   |   |   |   |--- deckStructureType <= 6.03
+|   |   |   |   |   |   |--- deckStructureType <= 5.98
+|   |   |   |   |   |   |   |--- averageDailyTraffic <= 15.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- averageDailyTraffic >  15.50
+|   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 8.43
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  8.43
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- deckStructureType >  5.98
+|   |   |   |   |   |   |   |--- longitude <= 95824352.00
+|   |   |   |   |   |   |   |   |--- avgDailyTruckTraffic <= 5.00
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- avgDailyTruckTraffic >  5.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- longitude >  95824352.00
+|   |   |   |   |   |   |   |   |--- designatedInspectionFrequency <= 18.00
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 22.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic >  22.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- designatedInspectionFrequency >  18.00
+|   |   |   |   |   |   |   |   |   |--- operatingRating <= 56.25
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- operatingRating >  56.25
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- deckStructureType >  6.03
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- yearBuilt >  1935.50
+|   |   |   |   |   |--- material <= 1.50
+|   |   |   |   |   |   |--- lengthOfMaximumSpan <= 13.12
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- lengthOfMaximumSpan >  13.12
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- material >  1.50
+|   |   |   |   |   |   |--- yearBuilt <= 1963.50
+|   |   |   |   |   |   |   |--- latitude <= 40080364.00
+|   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit <= 3.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- numberOfSpansInMainUnit >  3.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- latitude >  40080364.00
+|   |   |   |   |   |   |   |   |--- structureLength <= 7.62
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- structureLength >  7.62
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- yearBuilt >  1963.50
+|   |   |   |   |   |   |   |--- latitude <= 41155382.00
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 11.52
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 1.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign >  1.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  11.52
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- latitude >  41155382.00
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 18.75
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  18.75
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |--- deckStructureType >  8.00
+|   |   |   |--- deckStructureType <= 9.00
+|   |   |   |   |--- deckStructureType <= 8.00
+|   |   |   |   |   |--- lanesOnStructure <= 1.50
+|   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 4.80
+|   |   |   |   |   |   |   |--- typeOfDesign <= 9.50
+|   |   |   |   |   |   |   |   |--- typeOfDesign <= 3.50
+|   |   |   |   |   |   |   |   |   |--- longitude <= 97166200.00
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating <= 7.49
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating >  7.49
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |   |--- longitude >  97166200.00
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating <= 7.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating >  7.20
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |--- typeOfDesign >  3.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- typeOfDesign >  9.50
+|   |   |   |   |   |   |   |   |--- structureLength <= 20.49
+|   |   |   |   |   |   |   |   |   |--- operatingRating <= 25.65
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 99767100.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  99767100.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- operatingRating >  25.65
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- structureLength >  20.49
+|   |   |   |   |   |   |   |   |   |--- operatingRating <= 0.81
+|   |   |   |   |   |   |   |   |   |   |--- yearBuilt <= 1942.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- yearBuilt >  1942.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- operatingRating >  0.81
+|   |   |   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 62.50
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
-|   |   |   |   |   |   |--- feature_13 >  4.80
-|   |   |   |   |   |   |   |--- feature_15 <= 8.50
+|   |   |   |   |   |   |   |   |   |   |--- averageDailyTraffic >  62.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  4.80
+|   |   |   |   |   |   |   |--- latitude <= 40009390.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- latitude >  40009390.00
 |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_15 >  8.50
+|   |   |   |   |   |--- lanesOnStructure >  1.50
+|   |   |   |   |   |   |--- structureLength <= 7.30
+|   |   |   |   |   |   |   |--- latitude <= 41487400.00
 |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_16 >  1.50
-|   |   |   |   |   |   |--- feature_12 <= 7.39
-|   |   |   |   |   |   |   |--- feature_7 <= 41487400.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_7 >  41487400.00
-|   |   |   |   |   |   |   |   |--- feature_7 <= 41811200.00
-|   |   |   |   |   |   |   |   |   |--- feature_1 <= 22.50
+|   |   |   |   |   |   |   |--- latitude >  41487400.00
+|   |   |   |   |   |   |   |   |--- latitude <= 41811200.00
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 22.50
 |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_1 >  22.50
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic >  22.50
 |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_7 >  41811200.00
-|   |   |   |   |   |   |   |   |   |--- feature_7 <= 42405300.00
+|   |   |   |   |   |   |   |   |--- latitude >  41811200.00
+|   |   |   |   |   |   |   |   |   |--- operatingRating <= 7.65
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 42300300.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  42300300.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- operatingRating >  7.65
 |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_7 >  42405300.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 <= 97451500.00
+|   |   |   |   |   |   |--- structureLength >  7.30
+|   |   |   |   |   |   |   |--- averageDailyTraffic <= 20.50
+|   |   |   |   |   |   |   |   |--- structureLength <= 21.45
+|   |   |   |   |   |   |   |   |   |--- designatedInspectionFrequency <= 22.50
+|   |   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 5.36
 |   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 >  97451500.00
+|   |   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  5.36
 |   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_12 >  7.39
-|   |   |   |   |   |   |   |--- feature_13 <= 4.90
-|   |   |   |   |   |   |   |   |--- feature_18 <= 23.50
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_18 >  23.50
-|   |   |   |   |   |   |   |   |   |--- feature_8 <= 95506200.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 11.90
+|   |   |   |   |   |   |   |   |   |--- designatedInspectionFrequency >  22.50
+|   |   |   |   |   |   |   |   |   |   |--- structureLength <= 7.60
 |   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  11.90
+|   |   |   |   |   |   |   |   |   |   |--- structureLength >  7.60
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 9
+|   |   |   |   |   |   |   |   |--- structureLength >  21.45
+|   |   |   |   |   |   |   |   |   |--- longitude <= 98336200.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- longitude >  98336200.00
+|   |   |   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 3.07
 |   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_8 >  95506200.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 7.60
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  7.60
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 5
-|   |   |   |   |   |   |   |--- feature_13 >  4.90
-|   |   |   |   |   |   |   |   |--- feature_15 <= 8.00
-|   |   |   |   |   |   |   |   |   |--- feature_15 <= 5.01
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 42199964.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  42199964.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
-|   |   |   |   |   |   |   |   |   |--- feature_15 >  5.01
-|   |   |   |   |   |   |   |   |   |   |--- feature_14 <= 33.16
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 4
-|   |   |   |   |   |   |   |   |   |   |--- feature_14 >  33.16
+|   |   |   |   |   |   |   |   |   |   |--- scourCriticalBridges >  3.07
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |--- feature_15 >  8.00
-|   |   |   |   |   |   |   |   |   |--- feature_11 <= 9.40
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 <= 98111316.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 >  98111316.00
+|   |   |   |   |   |   |   |--- averageDailyTraffic >  20.50
+|   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 7.98
+|   |   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 5.00
+|   |   |   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 7.05
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  7.05
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |   |   |   |   |   |--- scourCriticalBridges >  5.00
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating <= 33.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating >  33.17
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- scourCriticalBridges >  7.98
+|   |   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 9.40
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 98073148.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  98073148.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  9.40
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating <= 8.55
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating >  8.55
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 7
-|   |   |   |   |   |   |   |   |   |--- feature_11 >  9.40
-|   |   |   |   |   |   |   |   |   |   |--- feature_9 <= 17.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 8
-|   |   |   |   |   |   |   |   |   |   |--- feature_9 >  17.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
-|   |   |   |   |--- feature_19 >  8.00
+|   |   |   |   |--- deckStructureType >  8.00
 |   |   |   |   |   |--- class: positive
-|   |   |   |--- feature_19 >  9.00
-|   |   |   |   |--- feature_2 <= 0.50
-|   |   |   |   |   |--- feature_13 <= 6.98
-|   |   |   |   |   |   |--- feature_13 <= 5.85
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_13 >  5.85
-|   |   |   |   |   |   |   |--- feature_7 <= 40420590.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_7 >  40420590.00
-|   |   |   |   |   |   |   |   |--- feature_13 <= 6.08
-|   |   |   |   |   |   |   |   |   |--- feature_8 <= 96824916.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_8 >  96824916.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_14 <= 18.41
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_14 >  18.41
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |--- feature_13 >  6.08
-|   |   |   |   |   |   |   |   |   |--- feature_14 <= 10.35
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_14 >  10.35
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 40479878.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  40479878.00
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |--- feature_13 >  6.98
+|   |   |   |--- deckStructureType >  9.00
+|   |   |   |   |--- avgDailyTruckTraffic <= 0.50
+|   |   |   |   |   |--- latitude <= 40458762.00
 |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |--- feature_2 >  0.50
-|   |   |   |   |   |--- feature_13 <= 8.20
-|   |   |   |   |   |   |--- feature_8 <= 97046200.00
+|   |   |   |   |   |--- latitude >  40458762.00
+|   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 5.80
 |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_8 >  97046200.00
-|   |   |   |   |   |   |   |--- feature_11 <= 7.95
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_11 >  7.95
-|   |   |   |   |   |   |   |   |--- feature_7 <= 42324720.00
-|   |   |   |   |   |   |   |   |   |--- feature_15 <= 6.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 <= 5.66
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 >  5.66
-|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
-|   |   |   |   |   |   |   |   |   |--- feature_15 >  6.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 <= 11.82
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_11 >  11.82
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_7 >  42324720.00
+|   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  5.80
+|   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 6.07
+|   |   |   |   |   |   |   |   |--- longitude <= 96824500.00
 |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_13 >  8.20
-|   |   |   |   |   |   |--- class: negative
-|--- feature_0 >  1973.50
-|   |--- feature_0 <= 1987.50
-|   |   |--- feature_19 <= 1.00
-|   |   |   |--- feature_20 <= 1.50
-|   |   |   |   |--- feature_8 <= 97106604.00
-|   |   |   |   |   |--- feature_0 <= 1984.50
-|   |   |   |   |   |   |--- feature_8 <= 96055240.00
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_8 >  96055240.00
-|   |   |   |   |   |   |   |--- feature_2 <= 9.50
-|   |   |   |   |   |   |   |   |--- feature_13 <= 8.68
-|   |   |   |   |   |   |   |   |   |--- feature_13 <= 8.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_15 <= 5.25
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_15 >  5.25
+|   |   |   |   |   |   |   |   |--- longitude >  96824500.00
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 30.50
+|   |   |   |   |   |   |   |   |   |   |--- structureLength <= 9.36
 |   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_13 >  8.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 <= 96459432.00
+|   |   |   |   |   |   |   |   |   |   |--- structureLength >  9.36
 |   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 >  96459432.00
+|   |   |   |   |   |   |   |   |   |--- averageDailyTraffic >  30.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  6.07
+|   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 4.82
+|   |   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 4.14
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 42160900.00
 |   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 3
-|   |   |   |   |   |   |   |   |--- feature_13 >  8.68
-|   |   |   |   |   |   |   |   |   |--- feature_1 <= 570.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 <= 96708680.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_8 >  96708680.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_1 >  570.00
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  42160900.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- scourCriticalBridges >  4.14
 |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_2 >  9.50
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_0 >  1984.50
-|   |   |   |   |   |   |--- feature_1 <= 170.00
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_1 >  170.00
-|   |   |   |   |   |   |   |--- feature_13 <= 8.58
-|   |   |   |   |   |   |   |   |--- feature_14 <= 46.21
+|   |   |   |   |   |   |   |   |--- scourCriticalBridges >  4.82
+|   |   |   |   |   |   |   |   |   |--- designatedInspectionFrequency <= 18.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- designatedInspectionFrequency >  18.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |--- avgDailyTruckTraffic >  0.50
+|   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 8.20
+|   |   |   |   |   |   |--- avgDailyTruckTraffic <= 9.50
+|   |   |   |   |   |   |   |--- averageDailyTraffic <= 55.50
+|   |   |   |   |   |   |   |   |--- operatingRating <= 49.09
 |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_14 >  46.21
+|   |   |   |   |   |   |   |   |--- operatingRating >  49.09
 |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_13 >  8.58
-|   |   |   |   |   |   |   |   |--- feature_14 <= 67.01
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_14 >  67.01
+|   |   |   |   |   |   |   |--- averageDailyTraffic >  55.50
+|   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 692.50
 |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |--- feature_8 >  97106604.00
-|   |   |   |   |   |--- class: negative
-|   |   |   |--- feature_20 >  1.50
-|   |   |   |   |--- feature_8 <= 96157832.00
-|   |   |   |   |   |--- feature_7 <= 41064546.00
-|   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_7 >  41064546.00
-|   |   |   |   |   |   |--- feature_11 <= 13.85
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_11 >  13.85
-|   |   |   |   |   |   |   |--- feature_7 <= 41349234.00
-|   |   |   |   |   |   |   |   |--- feature_7 <= 41226500.00
-|   |   |   |   |   |   |   |   |   |--- feature_20 <= 2.50
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_20 >  2.50
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_7 >  41226500.00
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_7 >  41349234.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |--- feature_8 >  96157832.00
-|   |   |   |   |   |--- feature_18 <= 23.50
-|   |   |   |   |   |   |--- feature_4 <= 2.00
-|   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_4 >  2.00
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_18 >  23.50
-|   |   |   |   |   |   |--- feature_14 <= 41.85
-|   |   |   |   |   |   |   |--- feature_1 <= 277.50
-|   |   |   |   |   |   |   |   |--- feature_15 <= 4.50
-|   |   |   |   |   |   |   |   |   |--- feature_12 <= 11.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_12 <= 9.75
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_12 >  9.75
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_12 >  11.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_15 >  4.50
+|   |   |   |   |   |   |   |   |--- averageDailyTraffic >  692.50
 |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_1 >  277.50
-|   |   |   |   |   |   |   |   |--- feature_1 <= 330.00
-|   |   |   |   |   |   |   |   |   |--- feature_0 <= 1976.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_0 >  1976.00
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_1 >  330.00
-|   |   |   |   |   |   |   |   |   |--- feature_1 <= 6470.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_1 >  6470.00
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 <= 41236200.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |   |--- feature_7 >  41236200.00
+|   |   |   |   |   |   |--- avgDailyTruckTraffic >  9.50
+|   |   |   |   |   |   |   |--- designLoad <= 2.50
+|   |   |   |   |   |   |   |   |--- yearBuilt <= 1951.50
+|   |   |   |   |   |   |   |   |   |--- longitude <= 97165600.00
+|   |   |   |   |   |   |   |   |   |   |--- structureLength <= 235.72
 |   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_14 >  41.85
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |--- feature_19 >  1.00
-|   |   |   |--- feature_19 <= 7.99
-|   |   |   |   |--- feature_19 <= 1.99
-|   |   |   |   |   |--- class: positive
-|   |   |   |   |--- feature_19 >  1.99
-|   |   |   |   |   |--- feature_19 <= 2.01
-|   |   |   |   |   |   |--- feature_1 <= 52.50
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_1 >  52.50
-|   |   |   |   |   |   |   |--- feature_8 <= 98836200.00
-|   |   |   |   |   |   |   |   |--- feature_20 <= 4.50
+|   |   |   |   |   |   |   |   |   |   |--- structureLength >  235.72
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- longitude >  97165600.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- yearBuilt >  1951.50
 |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_20 >  4.50
-|   |   |   |   |   |   |   |   |   |--- feature_8 <= 96120600.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_8 >  96120600.00
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_8 >  98836200.00
-|   |   |   |   |   |   |   |   |--- feature_15 <= 6.50
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_15 >  6.50
-|   |   |   |   |   |   |   |   |   |--- feature_12 <= 23.60
-|   |   |   |   |   |   |   |   |   |   |--- feature_20 <= 19.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_20 >  19.00
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_12 >  23.60
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_19 >  2.01
-|   |   |   |   |   |   |--- feature_12 <= 7.33
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_12 >  7.33
-|   |   |   |   |   |   |   |--- feature_7 <= 40207040.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_7 >  40207040.00
-|   |   |   |   |   |   |   |   |--- feature_14 <= 5.40
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_14 >  5.40
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |--- feature_19 >  7.99
-|   |   |   |   |--- feature_19 <= 9.00
-|   |   |   |   |   |--- feature_19 <= 8.02
-|   |   |   |   |   |   |--- feature_1 <= 22.00
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_1 >  22.00
-|   |   |   |   |   |   |   |--- feature_8 <= 99060960.00
-|   |   |   |   |   |   |   |   |--- feature_11 <= 9.25
-|   |   |   |   |   |   |   |   |   |--- feature_0 <= 1985.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_10 <= 2.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_10 >  2.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_0 >  1985.50
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 <= 6.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |   |--- feature_13 >  6.50
-|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_11 >  9.25
-|   |   |   |   |   |   |   |   |   |--- feature_7 <= 42283208.00
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_7 >  42283208.00
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_8 >  99060960.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_19 >  8.02
-|   |   |   |   |   |   |--- class: positive
-|   |   |   |   |--- feature_19 >  9.00
-|   |   |   |   |   |--- feature_14 <= 19.80
-|   |   |   |   |   |   |--- feature_8 <= 97463068.00
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_8 >  97463068.00
-|   |   |   |   |   |   |   |--- feature_1 <= 22.50
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_1 >  22.50
+|   |   |   |   |   |   |   |--- designLoad >  2.50
 |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_14 >  19.80
-|   |   |   |   |   |   |--- feature_1 <= 18.00
-|   |   |   |   |   |   |   |--- feature_15 <= 6.50
-|   |   |   |   |   |   |   |   |--- feature_4 <= 1.00
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_4 >  1.00
-|   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_15 >  6.50
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_1 >  18.00
-|   |   |   |   |   |   |   |--- feature_7 <= 40026500.00
-|   |   |   |   |   |   |   |   |--- feature_11 <= 26.35
-|   |   |   |   |   |   |   |   |   |--- feature_11 <= 20.40
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |   |--- feature_11 >  20.40
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |--- feature_11 >  26.35
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |--- feature_7 >  40026500.00
-|   |   |   |   |   |   |   |   |--- class: negative
-|   |--- feature_0 >  1987.50
-|   |   |--- feature_4 <= 4.50
-|   |   |   |--- feature_4 <= 2.50
-|   |   |   |   |--- class: negative
-|   |   |   |--- feature_4 >  2.50
-|   |   |   |   |--- feature_13 <= 8.37
-|   |   |   |   |   |--- feature_15 <= 5.76
+|   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  8.20
 |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_15 >  5.76
-|   |   |   |   |   |   |--- class: positive
-|   |   |   |   |--- feature_13 >  8.37
-|   |   |   |   |   |--- feature_1 <= 414.50
-|   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_1 >  414.50
-|   |   |   |   |   |   |--- feature_2 <= 3.50
+|--- yearBuilt >  1969.50
+|   |--- deckStructureType <= 1.01
+|   |   |--- longitude <= 97120516.00
+|   |   |   |--- typeOfDesign <= 1.50
+|   |   |   |   |--- yearBuilt <= 1984.50
+|   |   |   |   |   |--- numberOfSpansInMainUnit <= 2.50
+|   |   |   |   |   |   |--- averageDailyTraffic <= 769.50
 |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_2 >  3.50
+|   |   |   |   |   |   |--- averageDailyTraffic >  769.50
 |   |   |   |   |   |   |   |--- class: negative
-|   |   |--- feature_4 >  4.50
-|   |   |   |--- feature_7 <= 42152700.00
-|   |   |   |   |--- feature_0 <= 1993.50
-|   |   |   |   |   |--- feature_1 <= 70.50
-|   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |--- feature_1 >  70.50
-|   |   |   |   |   |   |--- feature_1 <= 73.00
-|   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |--- feature_1 >  73.00
-|   |   |   |   |   |   |   |--- feature_13 <= 7.65
-|   |   |   |   |   |   |   |   |--- feature_13 <= 7.45
-|   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_13 >  7.45
+|   |   |   |   |   |--- numberOfSpansInMainUnit >  2.50
+|   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 8.61
+|   |   |   |   |   |   |   |--- longitude <= 96811200.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- longitude >  96811200.00
+|   |   |   |   |   |   |   |   |--- longitude <= 97073000.00
 |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_13 >  7.65
-|   |   |   |   |   |   |   |   |--- feature_7 <= 41546800.00
+|   |   |   |   |   |   |   |   |--- longitude >  97073000.00
 |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_7 >  41546800.00
-|   |   |   |   |   |   |   |   |   |--- feature_7 <= 41556800.00
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_7 >  41556800.00
+|   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  8.61
+|   |   |   |   |   |   |   |--- structureLength <= 25.14
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- structureLength >  25.14
+|   |   |   |   |   |   |   |   |--- longitude <= 96141568.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- longitude >  96141568.00
+|   |   |   |   |   |   |   |   |   |--- scourCriticalBridges <= 5.91
 |   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |--- feature_0 >  1993.50
-|   |   |   |   |   |--- class: negative
-|   |   |   |--- feature_7 >  42152700.00
-|   |   |   |   |--- feature_9 <= 30.50
-|   |   |   |   |   |--- feature_16 <= 1.50
-|   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_16 >  1.50
-|   |   |   |   |   |   |--- feature_12 <= 37.61
-|   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |--- feature_12 >  37.61
-|   |   |   |   |   |   |   |--- feature_12 <= 38.06
+|   |   |   |   |   |   |   |   |   |--- scourCriticalBridges >  5.91
+|   |   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 12.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  12.17
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |--- yearBuilt >  1984.50
+|   |   |   |   |   |--- latitude <= 42146500.00
+|   |   |   |   |   |   |--- designLoad <= 4.50
+|   |   |   |   |   |   |   |--- material <= 3.00
+|   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 212.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- averageDailyTraffic >  212.50
+|   |   |   |   |   |   |   |   |   |--- designLoad <= 3.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- designLoad >  3.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- material >  3.00
 |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |--- feature_12 >  38.06
-|   |   |   |   |   |   |   |   |--- feature_14 <= 54.45
-|   |   |   |   |   |   |   |   |   |--- feature_11 <= 19.05
-|   |   |   |   |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |   |   |   |   |--- feature_11 >  19.05
-|   |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |   |   |   |   |--- feature_14 >  54.45
+|   |   |   |   |   |   |--- designLoad >  4.50
+|   |   |   |   |   |   |   |--- yearBuilt <= 1993.50
+|   |   |   |   |   |   |   |   |--- longitude <= 96486548.00
 |   |   |   |   |   |   |   |   |   |--- class: negative
-|   |   |   |   |--- feature_9 >  30.50
-|   |   |   |   |   |--- feature_7 <= 42199080.00
+|   |   |   |   |   |   |   |   |--- longitude >  96486548.00
+|   |   |   |   |   |   |   |   |   |--- longitude <= 96510300.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- longitude >  96510300.00
+|   |   |   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 352.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- averageDailyTraffic >  352.50
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |--- yearBuilt >  1993.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- latitude >  42146500.00
+|   |   |   |   |   |   |--- skew <= 19.50
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- skew >  19.50
+|   |   |   |   |   |   |   |--- latitude <= 42229504.00
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- latitude >  42229504.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |--- typeOfDesign >  1.50
+|   |   |   |   |--- yearBuilt <= 1984.50
+|   |   |   |   |   |--- longitude <= 96159560.00
+|   |   |   |   |   |   |--- latitude <= 41136376.00
+|   |   |   |   |   |   |   |--- yearBuilt <= 1973.50
+|   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 8.60
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  8.60
+|   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 11.47
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  11.47
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- yearBuilt >  1973.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- latitude >  41136376.00
+|   |   |   |   |   |   |   |--- latitude <= 41350344.00
+|   |   |   |   |   |   |   |   |--- longitude <= 96116200.00
+|   |   |   |   |   |   |   |   |   |--- lanesOnStructure <= 2.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- lanesOnStructure >  2.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- longitude >  96116200.00
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- latitude >  41350344.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- longitude >  96159560.00
+|   |   |   |   |   |   |--- designatedInspectionFrequency <= 23.50
+|   |   |   |   |   |   |   |--- designatedInspectionFrequency <= 17.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- designatedInspectionFrequency >  17.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- designatedInspectionFrequency >  23.50
+|   |   |   |   |   |   |   |--- longitude <= 97116500.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- longitude >  97116500.00
+|   |   |   |   |   |   |   |   |--- latitude <= 41317100.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- latitude >  41317100.00
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- yearBuilt >  1984.50
+|   |   |   |   |   |--- class: negative
+|   |   |--- longitude >  97120516.00
+|   |   |   |--- yearBuilt <= 1977.50
+|   |   |   |   |--- scourCriticalBridges <= 7.86
+|   |   |   |   |   |--- scourCriticalBridges <= 6.10
+|   |   |   |   |   |   |--- skew <= 21.50
+|   |   |   |   |   |   |   |--- typeOfDesign <= 1.50
+|   |   |   |   |   |   |   |   |--- yearBuilt <= 1972.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- yearBuilt >  1972.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- typeOfDesign >  1.50
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- skew >  21.50
+|   |   |   |   |   |   |   |--- longitude <= 98682400.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- longitude >  98682400.00
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- scourCriticalBridges >  6.10
 |   |   |   |   |   |   |--- class: positive
-|   |   |   |   |   |--- feature_7 >  42199080.00
+|   |   |   |   |--- scourCriticalBridges >  7.86
+|   |   |   |   |   |--- latitude <= 42011500.00
 |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- latitude >  42011500.00
+|   |   |   |   |   |   |--- operatingRating <= 31.95
+|   |   |   |   |   |   |   |--- operatingRating <= 25.65
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- operatingRating >  25.65
+|   |   |   |   |   |   |   |   |--- structureLength <= 10.76
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- structureLength >  10.76
+|   |   |   |   |   |   |   |   |   |--- structureLength <= 14.34
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- structureLength >  14.34
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- operatingRating >  31.95
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |--- yearBuilt >  1977.50
+|   |   |   |   |--- designatedInspectionFrequency <= 18.00
+|   |   |   |   |   |--- scourCriticalBridges <= 5.50
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- scourCriticalBridges >  5.50
+|   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- designatedInspectionFrequency >  18.00
+|   |   |   |   |   |--- structureLength <= 29.75
+|   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- structureLength >  29.75
+|   |   |   |   |   |   |--- operatingRating <= 54.45
+|   |   |   |   |   |   |   |--- latitude <= 41270900.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- latitude >  41270900.00
+|   |   |   |   |   |   |   |   |--- latitude <= 41276500.00
+|   |   |   |   |   |   |   |   |   |--- longitude <= 97616500.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- longitude >  97616500.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- latitude >  41276500.00
+|   |   |   |   |   |   |   |   |   |--- operatingRating <= 53.55
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- operatingRating >  53.55
+|   |   |   |   |   |   |   |   |   |   |--- latitude <= 42266500.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- latitude >  42266500.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- operatingRating >  54.45
+|   |   |   |   |   |   |   |--- class: negative
+|   |--- deckStructureType >  1.01
+|   |   |--- deckStructureType <= 1.99
+|   |   |   |--- class: positive
+|   |   |--- deckStructureType >  1.99
+|   |   |   |--- bridgeRoadwayWithCurbToCurb <= 8.40
+|   |   |   |   |--- deckStructureType <= 7.97
+|   |   |   |   |   |--- deckStructureType <= 2.00
+|   |   |   |   |   |   |--- averageDailyTraffic <= 52.50
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- averageDailyTraffic >  52.50
+|   |   |   |   |   |   |   |--- designLoad <= 3.50
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- designLoad >  3.50
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 15.09
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  15.09
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- deckStructureType >  2.00
+|   |   |   |   |   |   |--- scourCriticalBridges <= 4.10
+|   |   |   |   |   |   |   |--- numberOfSpansInMainUnit <= 2.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- numberOfSpansInMainUnit >  2.00
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 16.90
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  16.90
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |--- scourCriticalBridges >  4.10
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 8.85
+|   |   |   |   |   |   |   |   |--- deckStructureType <= 5.43
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- deckStructureType >  5.43
+|   |   |   |   |   |   |   |   |   |--- deckStructureType <= 6.07
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- deckStructureType >  6.07
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  8.85
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |--- deckStructureType >  7.97
+|   |   |   |   |   |--- yearBuilt <= 1984.50
+|   |   |   |   |   |   |--- skew <= 0.50
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 10.12
+|   |   |   |   |   |   |   |   |--- designatedInspectionFrequency <= 23.00
+|   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb <= 6.02
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- bridgeRoadwayWithCurbToCurb >  6.02
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- designatedInspectionFrequency >  23.00
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  10.12
+|   |   |   |   |   |   |   |   |--- designatedInspectionFrequency <= 23.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- designatedInspectionFrequency >  23.50
+|   |   |   |   |   |   |   |   |   |--- longitude <= 97910872.00
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating <= 43.15
+|   |   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |   |--- operatingRating >  43.15
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |   |   |   |--- longitude >  97910872.00
+|   |   |   |   |   |   |   |   |   |   |--- longitude <= 98411536.00
+|   |   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |   |--- longitude >  98411536.00
+|   |   |   |   |   |   |   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |   |   |--- skew >  0.50
+|   |   |   |   |   |   |   |--- longitude <= 98393240.00
+|   |   |   |   |   |   |   |   |--- averageDailyTraffic <= 25.50
+|   |   |   |   |   |   |   |   |   |--- deckStructureType <= 8.50
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- deckStructureType >  8.50
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- averageDailyTraffic >  25.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- longitude >  98393240.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- yearBuilt >  1984.50
+|   |   |   |   |   |   |--- latitude <= 42405764.00
+|   |   |   |   |   |   |   |--- operatingRating <= 7.65
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 8.80
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  8.80
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- operatingRating >  7.65
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- latitude >  42405764.00
+|   |   |   |   |   |   |   |--- longitude <= 98307400.00
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- longitude >  98307400.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |--- bridgeRoadwayWithCurbToCurb >  8.40
+|   |   |   |   |--- averageDailyTraffic <= 106.00
+|   |   |   |   |   |--- operatingRating <= 27.81
+|   |   |   |   |   |   |--- latitude <= 40546426.00
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- latitude >  40546426.00
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 11.46
+|   |   |   |   |   |   |   |   |--- avgDailyTruckTraffic <= 5.50
+|   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |--- avgDailyTruckTraffic >  5.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  11.46
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |--- operatingRating >  27.81
+|   |   |   |   |   |   |--- latitude <= 42235812.00
+|   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- latitude >  42235812.00
+|   |   |   |   |   |   |   |--- longitude <= 97074256.00
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- longitude >  97074256.00
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |--- averageDailyTraffic >  106.00
+|   |   |   |   |   |--- deckStructureType <= 8.98
+|   |   |   |   |   |   |--- deckStructureType <= 2.01
+|   |   |   |   |   |   |   |--- longitude <= 99076200.00
+|   |   |   |   |   |   |   |   |--- typeOfDesign <= 4.50
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- typeOfDesign >  4.50
+|   |   |   |   |   |   |   |   |   |--- operatingRating <= 60.75
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |   |--- operatingRating >  60.75
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- longitude >  99076200.00
+|   |   |   |   |   |   |   |   |--- operatingRating <= 65.92
+|   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |   |   |--- operatingRating >  65.92
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign <= 12.00
+|   |   |   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |   |   |--- typeOfDesign >  12.00
+|   |   |   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- deckStructureType >  2.01
+|   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |--- deckStructureType >  8.98
+|   |   |   |   |   |   |--- latitude <= 40057400.00
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan <= 26.35
+|   |   |   |   |   |   |   |   |--- class: positive
+|   |   |   |   |   |   |   |--- lengthOfMaximumSpan >  26.35
+|   |   |   |   |   |   |   |   |--- class: negative
+|   |   |   |   |   |   |--- latitude >  40057400.00
+|   |   |   |   |   |   |   |--- class: negative
